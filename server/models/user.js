@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const carriers = ["AT&T", "T-mobile", "Verizon", "Sprint", "Unlocked"];
 
 
+
 const ProductSchema = new mongoose.Schema({
     manufacturer: { type:String, required: true },
     type: { type: String, required : true },
@@ -9,7 +10,9 @@ const ProductSchema = new mongoose.Schema({
     image: String,
     condition: String,
     price: Number,
-    new: Boolean
+    new: Boolean,
+    created_at:Date,
+    updated_at:Date
 });
 mongoose.model('Product', ProductSchema);
 
@@ -20,7 +23,7 @@ const OrderSchema = new mongoose.Schema({
     payment: { type: Number},
     payment_ship_out: { type: Date },
     products:[ProductSchema]
-});
+}, {timestamps:true});
 mongoose.model("Order", OrderSchema);
 
 const UserSchema = new mongoose.Schema({
@@ -28,9 +31,11 @@ const UserSchema = new mongoose.Schema({
     last_name: { type:String, required: true, minlength: [3, "Last name must be at least 3 characters long."]},
     email: { type: String, required: true, unique: true},
     password: { type: String, required: true},
+    created_at:Date,
+    updated_at:Date,
     orders: [OrderSchema]
 
-});
+}, {timestamps:true});
 mongoose.model("User", UserSchema);
 
 const AdminSchema = new mongoose.Schema({

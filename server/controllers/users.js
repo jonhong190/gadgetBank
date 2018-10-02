@@ -72,15 +72,38 @@ function Users(){
         })
     };
 
+    this.newProduct = (req,res)=>{
+        let product = new Product(req.body);
+        product.save((err, p)=>{
+            if(err){
+                res.json({message:"error", error: err});
+            } else {
+                res.json({message:"succesfully product creation", data:p});
+            }
+        })
+        Order.findOneAndUpdate({_id:req.params.order_id}, {$push:{products:product}}, (err,data)=>{
+            if(err){
+                res.json({message:"error", error:err});
+            } else {
+                res.json({message:"succesfully added product to order", data:data});
+            }
+        })
+    };
+
     this.newOrder = (req,res)=>{
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         var time = today.getHours() + ":" + today.getMinutes();
         var dateTime = date + ' ' + time;
-        let product = new Product(req.body);
         let order = new Order();
-        order.products = product;
         order.order_create = dateTime;
+        order.save((err,data)=>{
+            if(err){
+                console.log("error in order save");
+            } else {
+                console.log(data);
+            }
+        });
         User.findOneAndUpdate({_id:req.params.id}, {$push:{orders:order}}, (err,data)=>{
             if(err){
                 res.json({message:"error adding order", error:err});
@@ -89,5 +112,44 @@ function Users(){
             }
         })
     };
+
+    this.deleteOrder = (req,res)=>{
+        User.find({_id:req.params.id}, (err,data)=>{
+            if(err){
+                res.json({message:"error finding user", error:err});
+            } else {
+                
+            }
+        })
+    };
+    
+    this.editProduct = (req,res)=>{
+        let editProduct = new Product(req.body);
+        Product.findOne({_id:req.params.product_id}, (err,user)=>{
+            if(err){
+                res.json({message:"error", error:err});
+            } else {
+                console.log(user)
+                // user.orders.find({_id:req.params.order_id}, (err,data)=>{
+                //     if(err){
+                //         res.json(err)
+                //     } else {
+                //         res.json(data)
+                //     }
+                // })
+            }   
+        })
+    }
+
+    this.deleteUser = (req,res)=>{
+        User.remove({_id:req.params.id}, (err, data)=>{
+            if(err){
+                res.json({message:"error removing user", error:err});
+            } else {
+                res.json({message:"success", data:data});
+            }
+        })
+    };
+
 }
 module.exports = new Users();

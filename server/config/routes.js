@@ -21,4 +21,13 @@ module.exports = (app)=>{
     app.get("/customer/:id/order/:order_id", (req,res)=>{
         users.oneOrder(req,res);
     });
+    app.post("/customer/:id/order/new", (req,res)=>{
+        users.newOrder(req,res);
+    });
+    app.post("/order/:order_id/product/new", (req,res)=>{
+        users.newProduct(req,res);
+    });
+    app.post("/product/:product_id/edit", (req,res)=>{
+        users.editProduct(req,res);
+    });
 }
