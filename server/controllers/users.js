@@ -24,7 +24,7 @@ function Users(){
         })
     }
     this.loginUser = (req,res)=>{
-        User.find({email:req.params.email}, (err,data)=>{
+        User.find({email:req.params.username}, (err,data)=>{
             if(err){
                 res.json({message:"User does not exist", error:err});
             } else {
@@ -33,7 +33,7 @@ function Users(){
         })
     };
     this.getOneUser= (req,res)=>{
-        User.find({_id: req.params.id}, (err,data)=>{
+        User.find({_id: req.params.username}, (err,data)=>{
             if(err){
                 res.json({message:"error finding user", error:err});
             } else {
@@ -42,7 +42,7 @@ function Users(){
         })
     };
     this.allOrders = (req,res)=>{
-        User.find({_id:req.params.id}, (err,data)=>{
+        User.find({_id:req.params.username}, (err,data)=>{
             if(err){
                 res.json({message:"error finding user", error:err});
             } else {
@@ -57,34 +57,29 @@ function Users(){
         })
     };
     this.oneOrder = (req,res)=>{
-        User.find({_id:req.params.id}, (err,data)=>{
+        Order.find({_id:req.params.order_id}, (err,data)=>{
             if(err){
                 res.json({message:"error finding user", error: err});
             } else {
-                User.orders.find({_id:req.params.order_id}, (err,data)=>{
-                    if(err){
-                        res.json({message:"error finding order", error:err});
-                    } else {
-                        res.json({message:"success finding order", data:data});
-                    }
-                })
+                res.json({message:"success", data:data});
             }
         })
     };
 
     this.newProduct = (req,res)=>{
         let product = new Product(req.body);
-        product.save((err, p)=>{
+        product.save((err)=>{
             if(err){
                 res.json({message:"error", error: err});
             } else {
-                res.json({message:"succesfully product creation", data:p});
+                console.log(product)
             }
-        })
+        });
         Order.findOneAndUpdate({_id:req.params.order_id}, {$push:{products:product}}, (err,data)=>{
             if(err){
                 res.json({message:"error", error:err});
             } else {
+                console.log(data)
                 res.json({message:"succesfully added product to order", data:data});
             }
         })
@@ -104,7 +99,7 @@ function Users(){
                 console.log(data);
             }
         });
-        User.findOneAndUpdate({_id:req.params.id}, {$push:{orders:order}}, (err,data)=>{
+        User.findOneAndUpdate({_id:req.params.username}, {$push:{orders:order}}, (err,data)=>{
             if(err){
                 res.json({message:"error adding order", error:err});
             } else {
@@ -113,40 +108,57 @@ function Users(){
         })
     };
 
+    this.editOrder = (req,res)=>{
+        Order.find({_id:req.params.order_id}, (err, order)=>{
+            if(err){
+                res.json({message:"error finding order"});
+            } else {
+                //insert order logic when the front form is finalized
+            }
+        })
+    }
+
     this.deleteOrder = (req,res)=>{
-        User.find({_id:req.params.id}, (err,data)=>{
+        Order.remove({_id:req.params.order_id}, (err,data)=>{
             if(err){
                 res.json({message:"error finding user", error:err});
             } else {
-                
+                res.json({message:"order " +req.params.order_id + " deleted order", data:data});
             }
         })
     };
-    
     this.editProduct = (req,res)=>{
-        let editProduct = new Product(req.body);
-        Product.findOne({_id:req.params.product_id}, (err,user)=>{
+        Product.findOne({_id:req.params.product_id}, (err,product)=>{
             if(err){
                 res.json({message:"error", error:err});
             } else {
-                console.log(user)
-                // user.orders.find({_id:req.params.order_id}, (err,data)=>{
-                //     if(err){
-                //         res.json(err)
-                //     } else {
-                //         res.json(data)
-                //     }
-                // })
+                product.manufacturer = req.body.manufacturer;
+                product.type = req.body.type;
+                product.size = req.body.size;
+                product.condition = req.body.condition;
+                product.price = req.body.price;
+                product.new = req.body.new;
             }   
         })
-    }
+    };
+
+    this.deleteProduct = (req,res)=>{
+        Product.remove({_id:req.params.product_id}, (err)=>{
+            if(err){
+                res.json({message:"error deleting product"});
+            } else {
+                res.json({message:"product " +req.params.product_id+ " succesfully deleted"})
+            }
+        })
+    };
+
 
     this.deleteUser = (req,res)=>{
         User.remove({_id:req.params.id}, (err, data)=>{
             if(err){
                 res.json({message:"error removing user", error:err});
             } else {
-                res.json({message:"success", data:data});
+                res.json({message:"user "+req.params.id+" succesfully deleted", data:data});
             }
         })
     };
