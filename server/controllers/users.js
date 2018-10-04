@@ -22,7 +22,7 @@ function Users(){
                 res.json({message:"success creating user", data:data});
             }
         })
-    }
+    };
     this.loginUser = (req,res)=>{
         User.find({email:req.params.username}, (err,data)=>{
             if(err){
@@ -138,6 +138,13 @@ function Users(){
                 product.condition = req.body.condition;
                 product.price = req.body.price;
                 product.new = req.body.new;
+                product.save((err)=>{
+                    if(err){
+                        res.json({message:"error saving product", error:err});
+                    } else {
+                        res.json({message:"success"})
+                    }
+                })
             }   
         })
     };
