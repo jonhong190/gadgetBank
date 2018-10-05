@@ -274,7 +274,7 @@ var HttpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ul > li{\r\n    margin: 10px;\r\n}"
+module.exports = "ul > li{\n    margin: 10px;\n}"
 
 /***/ }),
 
@@ -391,7 +391,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\gadgetBank-master\public\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/jon/Desktop/gadget_bank/public/src/main.ts */"./src/main.ts");
 
 
 /***/ })
