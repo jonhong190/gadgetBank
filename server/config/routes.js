@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const users = require("..//controllers/users.js");
+const users = require("../controllers/users.js");
+const orders = require("../controllers/orders.js");
+const products = require("../controllers/products.js");
 const path = require("path");
 
 module.exports = (app)=>{
@@ -19,21 +21,24 @@ module.exports = (app)=>{
         users.allOrders(req,res);
     });
     app.get("/order/:order_id", (req,res)=>{
-        users.oneOrder(req,res);
+        orders.oneOrder(req,res);
     });
     app.post("/customer/:username/order/new", (req,res)=>{
-        users.newOrder(req,res);
+        orders.newOrder(req,res);
     });
     app.get("/order/:order_id/delete", (req,res)=>{
-        users.deleteOrder(req,res);
+        orders.deleteOrder(req,res);
     })
     app.post("/order/:order_id/product/new", (req,res)=>{
-        users.newProduct(req,res);
+        products.newProduct(req,res);
     });
     app.post("/product/:product_id/edit", (req,res)=>{
-        users.editProduct(req,res);
+        products.editProduct(req,res);
     });
     app.get("/product/:product_id/delete", (req,res)=>{
-        users.deleteProduct(req,res);
+        products.deleteProduct(req,res);
+    })
+    app.get("/product/:product_id", (req,res)=>{
+        products.getProduct(req,res);
     })
 }
