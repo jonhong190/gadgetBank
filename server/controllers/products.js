@@ -1,4 +1,4 @@
-const {User, Order, Product} = require("../config/sequelize.js");
+const {User, Order, Product, Category} = require("../config/sequelize.js");
 
 module.exports = {
     allProducts: (req,res)=>{
@@ -17,6 +17,8 @@ module.exports = {
             } else {
                 Product.create(req.body).then(product=>{
                     order[0].addProducts(product);
+                    product.category_id = req.params.category_id;
+                    product.save();
                     res.json(product)
                 })
             }

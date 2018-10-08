@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const users = require("../controllers/users.js");
 const orders = require("../controllers/orders.js");
 const products = require("../controllers/products.js");
+const categories = require("../controllers/categories.js");
 const path = require("path");
 
 module.exports = (app)=>{
@@ -29,7 +30,7 @@ module.exports = (app)=>{
     app.get("/order/:order_id/delete", (req,res)=>{
         orders.deleteOrder(req,res);
     })
-    app.post("/order/:order_id/product/new", (req,res)=>{
+    app.post("/order/:order_id/:category_id/product/new", (req,res)=>{
         products.newProduct(req,res);
     });
     app.post("/product/:product_id/edit", (req,res)=>{
@@ -37,8 +38,17 @@ module.exports = (app)=>{
     });
     app.get("/product/:product_id/delete", (req,res)=>{
         products.deleteProduct(req,res);
-    })
+    });
     app.get("/product/:product_id", (req,res)=>{
         products.getProduct(req,res);
-    })
+    });
+    app.post("/category/new", (req,res)=>{
+        categories.addCategory(req,res);
+    });
+    app.get("/categories", (req,res)=>{
+        categories.allCategories(req,res);
+    });
+    app.post("/category/category_id/delete", (req,res)=>{
+        categories.deleteCategory(req,res);
+    });
 }

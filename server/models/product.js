@@ -24,6 +24,7 @@ module.exports = (sequelize, type)=>{
         size:{
             type:type.INTEGER,
             notEmpty: true
-        }
+        },
+        category_id:type.INTEGER
     })
 }
