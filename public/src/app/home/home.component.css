@@ -1,0 +1,15 @@
+#logoblock{
+    display:block;
+    background-color:#3D99E6;
+    padding: 20px;
+}
+.homecontainer {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+}
+
+  
