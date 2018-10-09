@@ -42,6 +42,9 @@ module.exports = (app)=>{
     app.get("/product/:product_id", (req,res)=>{
         products.getProduct(req,res);
     });
+    app.post("/product/edit/:product_id", (req,res)=>{
+        products.updateProduct(req,res);
+    })
     app.post("/category/new", (req,res)=>{
         categories.addCategory(req,res);
     });

@@ -40,7 +40,7 @@ module.exports ={
             }
         })
     },
-    
+
     // this.allOrders = (req,res)=>{
     //     User.find({_id:req.params.username}, (err,data)=>{
     //         if(err){

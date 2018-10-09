@@ -33,6 +33,21 @@ module.exports = {
             }
         })
     },
+    updateProduct: (req,res)=>{
+        Product.findAll({where:{id:req.params.product_id}}).then(product=>{
+            if(product.length == 0){
+                res.json({errors:"No product exists"})
+            } else {
+                product[0].title = req.body.title;
+                product[0].condition = req.body.condition;
+                product[0].price = req.body.price;
+                product[0].manufacturer = req.body.manufacturer;
+                product[0].size = req.body.size;
+                product[0].save();
+                res.json(product);
+            }
+        })
+    },
     deleteProduct: (req,res)=>{
         Product.destroy({where:{id:req.params.product_id}})
     }
