@@ -36,6 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _landing_landing_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./landing/landing.component */ "./src/app/landing/landing.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -45,8 +46,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: 'landing', component: _landing_landing_component__WEBPACK_IMPORTED_MODULE_2__["LandingComponent"] },
+    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
     { path: '', pathMatch: 'full', redirectTo: '/landing' },
     { path: '**', pathMatch: 'full', redirectTo: '/landing' }
 ];
@@ -84,7 +87,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n"
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Global Component</title>\r\n</head>\r\n<body>\r\n    <div>\r\n        <ul>\r\n            <li>\r\n                <a [routerLink]=\"['/home']\" role=\"tab\">Home</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a [routerLink]=\"['/landing']\" role=\"tab\">Landing</a>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n</body>\r\n</html>"
 
 /***/ }),
 
@@ -151,13 +154,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./http.service */ "./src/app/http.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _landing_landing_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./landing/landing.component */ "./src/app/landing/landing.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/esm5/sidenav.es5.js");
+/* harmony import */ var _angular_material_button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/button */ "./node_modules/@angular/material/esm5/button.es5.js");
+/* harmony import */ var _landing_landing_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./landing/landing.component */ "./src/app/landing/landing.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _orders_orders_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./orders/orders.component */ "./src/app/orders/orders.component.ts");
+/* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
+/* harmony import */ var _customers_customers_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./customers/customers.component */ "./src/app/customers/customers.component.ts");
+/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
+
+
+
 
 
 
@@ -174,13 +193,21 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _landing_landing_component__WEBPACK_IMPORTED_MODULE_8__["LandingComponent"]
+                _landing_landing_component__WEBPACK_IMPORTED_MODULE_11__["LandingComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"],
+                _orders_orders_component__WEBPACK_IMPORTED_MODULE_13__["OrdersComponent"],
+                _products_products_component__WEBPACK_IMPORTED_MODULE_14__["ProductsComponent"],
+                _customers_customers_component__WEBPACK_IMPORTED_MODULE_15__["CustomersComponent"],
+                _settings_settings_component__WEBPACK_IMPORTED_MODULE_16__["SettingsComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_8__["BrowserAnimationsModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+                _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__["MatSidenavModule"],
+                _angular_material_button__WEBPACK_IMPORTED_MODULE_10__["MatButtonModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"].forRoot()
             ],
             providers: [_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"]],
@@ -188,6 +215,132 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/customers/customers.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/customers/customers.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/customers/customers.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/customers/customers.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  customers works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/customers/customers.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/customers/customers.component.ts ***!
+  \**************************************************/
+/*! exports provided: CustomersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomersComponent", function() { return CustomersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CustomersComponent = /** @class */ (function () {
+    function CustomersComponent() {
+    }
+    CustomersComponent.prototype.ngOnInit = function () {
+    };
+    CustomersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-customers',
+            template: __webpack_require__(/*! ./customers.component.html */ "./src/app/customers/customers.component.html"),
+            styles: [__webpack_require__(/*! ./customers.component.css */ "./src/app/customers/customers.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CustomersComponent);
+    return CustomersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/home/home.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#logoblock{\r\n    display:block;\r\n    background-color:#3D99E6;\r\n    padding: 20px;\r\n}\r\n.homecontainer {\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    background: #eee;\r\n}\r\n\r\n  "
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.html":
+/*!******************************************!*\
+  !*** ./src/app/home/home.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n  <title>Home</title>\r\n  <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\">\r\n</head>\r\n<body>\r\n  <mat-sidenav-container class=\"homecontainer\">\r\n    <mat-sidenav mode=\"side\" opened>\r\n      <div id=\"logoblock\">Logo</div>\r\n      <br>\r\n      <button mat-button color=\"primary\">\r\n        <i class=\"material-icons\">home</i> Home\r\n      </button>\r\n      <br>\r\n      <button mat-button color=\"primary\">\r\n        <i class=\"material-icons\">bar_chart</i> Orders\r\n      </button>\r\n      <br>\r\n      <button mat-button color=\"primary\">\r\n        <i class=\"material-icons\">assignment</i> Products\r\n      </button>\r\n      <br>\r\n      <button mat-button color=\"primary\">\r\n        <i class=\"material-icons\">email</i> Customers\r\n      </button>\r\n      <br>\r\n      <button mat-button color=\"primary\">\r\n        <i class=\"material-icons\">settings</i> Settings\r\n      </button>\r\n    </mat-sidenav>\r\n    <mat-sidenav-content>Main content</mat-sidenav-content>\r\n  </mat-sidenav-container>\r\n</body>\r\n</html>"
+
+/***/ }),
+
+/***/ "./src/app/home/home.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/home/home.component.ts ***!
+  \****************************************/
+/*! exports provided: HomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+    };
+    HomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], HomeComponent);
+    return HomeComponent;
 }());
 
 
@@ -274,7 +427,7 @@ var HttpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ul > li{\n    margin: 10px;\n}"
+module.exports = "ul > li{\r\n    margin: 10px;\r\n}"
 
 /***/ }),
 
@@ -285,7 +438,7 @@ module.exports = "ul > li{\n    margin: 10px;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Landing</title>\n</head>\n<body>\n<div class=\"container-fluid\">\n  <nav class=\"navbar navbar-expand-lg navbar-light\"  style=\"background-color: #3D99E6;\">\n    <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\"><!-- hidden spacer to center brand on mobile --></span>\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" href=\"#\">\n            Logo  <!-- Logo title goes here -->\n        </a>\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n            <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n        </a>\n        <div class=\"w-100 text-right\">\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                <span class=\"navbar-toggler-icon\"></span>  <!-- Mobile dynamic button -->\n            </button>\n        </div>\n    </div>\n    <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n        <ul class=\"navbar-nav ml-auto flex-nowrap\">\n            <li class=\"nav-item\">\n                <a href=\"#\" class=\"nav-link m-2 menu-item nav-active text-white\">How it works</a>\n            </li>\n            <li class=\"nav-item\">\n                <a href=\"#\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n            </li>\n            <li class=\"nav-item\">\n                <a href=\"#\" class=\"nav-link m-2 menu-item text-white\">Get Cash Now</a>\n            </li>\n            <li class=\"nav-item\">\n                <button class=\"btn btn-light\">Sign Up</button>\n            </li>\n            <li class=\"nav-item\">\n                <button class=\"btn btn-primary\">Login</button>\n            </li>\n        </ul>\n    </div>\n  </nav>\n</div>\n</body>\n</html>"
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n  <title>Landing</title>\r\n</head>\r\n<body>\r\n<div class=\"container-fluid\">\r\n  <nav class=\"navbar navbar-expand-lg navbar-light\"  style=\"background-color: #3D99E6;\">\r\n    <div class=\"d-flex flex-grow-1\">\r\n        <span class=\"w-100 d-lg-none d-block\"><!-- hidden spacer to center brand on mobile --></span>\r\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" href=\"#\">\r\n            Logo  <!-- Logo title goes here -->\r\n        </a>\r\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\r\n            <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\r\n        </a>\r\n        <div class=\"w-100 text-right\">\r\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\r\n                <span class=\"navbar-toggler-icon\"></span>  <!-- Mobile dynamic button -->\r\n            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\r\n        <ul class=\"navbar-nav ml-auto flex-nowrap\">\r\n            <li class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link m-2 menu-item nav-active text-white\">How it works</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link m-2 menu-item text-white\">Get Cash Now</a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <button class=\"btn btn-light\">Sign Up</button>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <button class=\"btn btn-primary\">Login</button>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n  </nav>\r\n</div>\r\n</body>\r\n</html>"
 
 /***/ }),
 
@@ -324,6 +477,195 @@ var LandingComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], LandingComponent);
     return LandingComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/orders/orders.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/orders/orders.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/orders/orders.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/orders/orders.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  orders works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/orders/orders.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/orders/orders.component.ts ***!
+  \********************************************/
+/*! exports provided: OrdersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrdersComponent", function() { return OrdersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var OrdersComponent = /** @class */ (function () {
+    function OrdersComponent() {
+    }
+    OrdersComponent.prototype.ngOnInit = function () {
+    };
+    OrdersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-orders',
+            template: __webpack_require__(/*! ./orders.component.html */ "./src/app/orders/orders.component.html"),
+            styles: [__webpack_require__(/*! ./orders.component.css */ "./src/app/orders/orders.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], OrdersComponent);
+    return OrdersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/products/products.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/products/products.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/products/products.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/products/products.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  products works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/products/products.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/products/products.component.ts ***!
+  \************************************************/
+/*! exports provided: ProductsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductsComponent", function() { return ProductsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProductsComponent = /** @class */ (function () {
+    function ProductsComponent() {
+    }
+    ProductsComponent.prototype.ngOnInit = function () {
+    };
+    ProductsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-products',
+            template: __webpack_require__(/*! ./products.component.html */ "./src/app/products/products.component.html"),
+            styles: [__webpack_require__(/*! ./products.component.css */ "./src/app/products/products.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProductsComponent);
+    return ProductsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/settings/settings.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/settings/settings.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/settings/settings.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/settings/settings.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  settings works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/settings/settings.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/settings/settings.component.ts ***!
+  \************************************************/
+/*! exports provided: SettingsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsComponent", function() { return SettingsComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SettingsComponent = /** @class */ (function () {
+    function SettingsComponent() {
+    }
+    SettingsComponent.prototype.ngOnInit = function () {
+    };
+    SettingsComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-settings',
+            template: __webpack_require__(/*! ./settings.component.html */ "./src/app/settings/settings.component.html"),
+            styles: [__webpack_require__(/*! ./settings.component.css */ "./src/app/settings/settings.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SettingsComponent);
+    return SettingsComponent;
 }());
 
 
@@ -391,7 +733,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/jon/Desktop/gadget_bank/public/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\gadgetBank\public\src\main.ts */"./src/main.ts");
 
 
 /***/ })

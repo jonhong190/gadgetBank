@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+
 import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -22,13 +26,16 @@ import { SettingsComponent } from './settings/settings.component';
     OrdersComponent,
     ProductsComponent,
     CustomersComponent,
-    SettingsComponent
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    MatSidenavModule,
+    MatButtonModule,
     NgbModule.forRoot()
   ],
   providers: [HttpService],
