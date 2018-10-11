@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+      <nav class="navbar navbar-light  bg-light flex-md-nowrap" style="width:100%">
+        <a class="navbar-brand col-md-2 col-sm-3 mr-0">Logo</a>
+        <input class="form-control form-control-light w-100" type="text" placeholder="Search"/>
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign Out</a>
+          </li>
+        </ul>
+      </nav>
+  </div>
+
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div>
+        <ul class="nav flex-column" style="background-color:white; height: 50rem">
+          <li class="nav-item"><a (click)="goHome()">Home</a></li>
+          <li class="nav-item">Orders</li>
+          <li class="nav-item"><a (click)="goProduct()">Products</a></li>
+          <li class="nav-item">Customers</li>
+          <li class="nav-item">Settings</li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="height:50rem; background-color: #F8F9FA ">
+      <app-home *ngIf="home"></app-home>
+      <app-products *ngIf="product"></app-products>
+    </main>
+  </div>
+</div>

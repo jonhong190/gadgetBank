@@ -14,6 +14,7 @@ import { CustomersComponent } from './customers/customers.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ProductAddComponent } from './product-add/product-add.component';
     CustomersComponent,
     SettingsComponent,
     ProductEditComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
