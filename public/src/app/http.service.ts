@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root'
@@ -25,19 +26,31 @@ export class HttpService {
   getThisOrder(order_id) {
     return this._http.get('/order/' + order_id);
   } //this route will return oneOrder. Specific order is queried here
-  postNewOrder(username, neworder) {
-    return this._http.post('/customer/' + username + '/order/new', neworder);
+  postNewOrder(username, newOrder) {
+    return this._http.post('/customer/' + username + '/order/new', newOrder);
   } //this route will post a new order through newOrder
   getDeleteOrder(order_id) {
     return this._http.get('/order/' + order_id + '/delete');
   } //this route will delete the order through deleteOrder
+  getAllProducts(){
+    return this._http.get('/allProducts');
+  }
   postNewProduct(order_id, newproduct) {
     return this._http.post('/order/' + order_id + '/product/new', newproduct);
   } //this route will add a new product base on the order id through newProduct
   postEditProduct(product_id, product) {
-    return this._http.post('/product/' + product_id + '/edit', product);
+    return this._http.post('/product/edit/'+product_id, product);
   } //this route should allow the user to edit the product info through editProduct
   getDeleteProduct(product_id) {
     return this._http.get('/product/' + product_id + '/delete');
   } //this route will delete the selected product through deleteProduct
+  postNewCategory(category){
+    return this._http.post('/category/new', category)
+  } //this route will add new category through addCategory
+  getCategories(){
+    return this._http.get('/categories')
+  } // this route will get all categorie through allCategories
+  getDeleteCategory(category_id){
+    return this._http.get('/category/'+category_id+'/delete')
+  }
 }

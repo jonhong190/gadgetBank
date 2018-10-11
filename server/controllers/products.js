@@ -49,7 +49,9 @@ module.exports = {
         })
     },
     deleteProduct: (req,res)=>{
-        Product.destroy({where:{id:req.params.product_id}})
+        Product.destroy({where:{id:req.params.product_id}}).then(
+            res.json({message:"Succesfully deleted product"})
+        )
     }
 
 }

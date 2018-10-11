@@ -12,6 +12,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductAddComponent } from './product-add/product-add.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { SettingsComponent } from './settings/settings.component';
     OrdersComponent,
     ProductsComponent,
     CustomersComponent,
-    SettingsComponent
+    SettingsComponent,
+    ProductEditComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,

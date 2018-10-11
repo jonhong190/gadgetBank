@@ -1,0 +1,83 @@
+<p>
+  product-add works!
+</p>
+<div class="container-fluid">
+  <p>
+    <a [routerLink]="['/products']">
+      <Products</a> </p> <h2>Add Product</h2>
+        <form>
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <input type="text" class="form-control" placeholder="Title">
+                <select class="form-control">
+                  <option value="" disabled selected>
+                    <p class="disabled-select">Manufacturer</p>
+                  </option>
+                </select>
+                <select class="form-control">
+                  <option value="" disabled selected>
+                    <p class="disabled-select">Device Type</p>
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <input type="file" class="form-control-file" />
+            </div>
+          </div>
+          <h2>Pricing</h2>
+          <div class="card text-center">
+            <div class="card-header">
+              <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                  <label><input type="radio" value="64" id="six-four" name="size_choice" />64BG</label>
+
+                </li>
+                <li class="nav-item">
+                  <label><input type="radio" value="240" id="two-four" name="size_choice" />240GB</label>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Carrier</th>
+                    <th>Handset Only</th>
+                    <th>Sealed</th>
+                    <th>Open-Sealed</th>
+                    <th>Good LCD</th>
+                    <th>Cracked Front</th>
+                    <th>Bad LCD/Copy</th>
+                    <th>Dead</th>
+                    <th>Cracked Back (Minus)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <select class="form-control">
+                        <option value="AT&T">AT&T</option>
+                        <option value="T-mobile">T-mobile</option>
+                        <option value="Verizon">Verizon</option>
+                        <option value="Sprint">Sprint</option>
+                        <option value="Unlocked">Unlocked</option>
+                      </select>
+                    </td>
+                    <td><input type="radio" value="Handset Only" name="condition"></td>
+                    <td><input type="radio" value="Sealed" name="condition"></td>
+                    <td><input type="radio" value="Open-Sealed" name="condition"></td>
+                    <td><input type="radio" value="Good LCD" name="condition"></td>
+                    <td><input type="radio" value="Cracked Front" name="condition"></td>
+                    <td><input type="radio" value="Bad LCD/Copy" name="condition"> </td>
+                    <td><input type="radio" value="Dead" name="condition"></td>
+                    <td><input type="radio" value="Cracked Back" name="minus"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" value="submit">Save</button>
+        </form>
+</div>

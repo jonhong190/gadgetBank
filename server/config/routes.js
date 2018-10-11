@@ -39,6 +39,9 @@ module.exports = (app)=>{
     app.get("/product/:product_id/delete", (req,res)=>{
         products.deleteProduct(req,res);
     });
+    app.get("/allProducts", (req,res)=>{
+        products.allProducts(req,res);
+    })
     app.get("/product/:product_id", (req,res)=>{
         products.getProduct(req,res);
     });
@@ -54,4 +57,8 @@ module.exports = (app)=>{
     app.post("/category/category_id/delete", (req,res)=>{
         categories.deleteCategory(req,res);
     });
+
+    app.all("*", (req, res, next) => {
+        res.sendFile(path.resolve("./public/dist/public/index.html"))
+    })
 }
