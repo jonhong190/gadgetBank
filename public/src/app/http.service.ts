@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +33,9 @@ export class HttpService {
   } //this route will delete the order through deleteOrder
   getAllProducts(){
     return this._http.get('/allProducts');
+  }
+  getOneProduct(product_id){
+    return this._http.get('/product/'+product_id);
   }
   postNewProduct(order_id, newproduct) {
     return this._http.post('/order/' + order_id + '/product/new', newproduct);

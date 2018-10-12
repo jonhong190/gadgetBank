@@ -16,3 +16,12 @@ label:hover {
  background:#eee;
  cursor:pointer;
 }
+
+.edit-top-box{
+    background-color:white;
+    height: 15rem;
+    padding-top:2.5rem;
+}
+.input-top{
+    margin-bottom:1rem;
+}

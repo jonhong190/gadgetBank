@@ -251,7 +251,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  customers works!\n</p>\n"
+module.exports = "<p>\n  customers works!\n</p>\n<div class=\"container-fluid\">\n  <h2>Customers</h2>\n\n  <table class=\"table\">\n    <thead>\n      <tr>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Email</th>\n        <th></th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let c of customers\">\n        <td>{{ c.first_name }}</td>\n        <td>{{ c.last_name }}</td>\n        <td>{{ c.email }}</td>\n        <td>\n          View Orders\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>"
 
 /***/ }),
 
@@ -266,6 +266,8 @@ module.exports = "<p>\n  customers works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomersComponent", function() { return CustomersComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -276,18 +278,32 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var CustomersComponent = /** @class */ (function () {
-    function CustomersComponent() {
+    function CustomersComponent(_httpService, _router, _route) {
+        this._httpService = _httpService;
+        this._router = _router;
+        this._route = _route;
     }
     CustomersComponent.prototype.ngOnInit = function () {
+        this.getAllCustomers(); //upon load immediately call to grab customers
     };
+    CustomersComponent.prototype.getAllCustomers = function () {
+        var _this = this;
+        this._httpService.getCustomers().subscribe(function (data) {
+            _this.customers = data;
+        });
+    }; //grabs all customers from db
     CustomersComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-customers',
             template: __webpack_require__(/*! ./customers.component.html */ "./src/app/customers/customers.component.html"),
             styles: [__webpack_require__(/*! ./customers.component.css */ "./src/app/customers/customers.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], CustomersComponent);
     return CustomersComponent;
 }());
@@ -303,7 +319,7 @@ var CustomersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".row{\n    margin-left:0 !important;\n}\n\n"
 
 /***/ }),
 
@@ -314,7 +330,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"row\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap\" style=\"width:100%\">\n        <a class=\"navbar-brand col-md-2 col-sm-3 mr-0\">Logo</a>\n        <input class=\"form-control form-control-light w-100\" type=\"text\" placeholder=\"Search\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\">\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\n      <div>\n        <ul class=\"nav flex-column\" style=\"background-color:white; height: 50rem\">\n          <li class=\"nav-item\"><a (click)=\"goHome()\">Home</a></li>\n          <li class=\"nav-item\">Orders</li>\n          <li class=\"nav-item\"><a (click)=\"goProduct()\">Products</a></li>\n          <li class=\"nav-item\">Customers</li>\n          <li class=\"nav-item\">Settings</li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\" style=\"height:50rem; background-color: #F8F9FA \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\"></app-products>\n    </main>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\" style=\"background-color:#F8F9FA \">\n\n  <div class=\"row\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"nav-brand col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\" padding-top:0\">\n    <nav class=\"navbar-brand col-2 d-none d-md-block bg-light sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0\">\n      <div>\n        <ul class=\"nav flex-column\" style=\"background-color:white; height: 100vh\">\n          <li class=\"nav-item\">\n            <a (click)=\"goHome()\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goOrders()\">Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goProduct()\">Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goCustomers()\">Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goSetting()\">Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\"height:100vh; background-color: #F8F9FA; margin-left:.41rem; \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\"></app-product-edit>\n    </main>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -348,14 +364,15 @@ var DashboardComponent = /** @class */ (function () {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
-        this.home = null;
+        this.home = null; //initialization of variables we will use to switch between sidebar components
         this.order = null;
         this.product = null;
         this.customer = null;
         this.setting = null;
+        this.showEditProduct = null;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        this.goHome();
+        this.goHome(); //on first load, show the home screen
     };
     DashboardComponent.prototype.goHome = function () {
         this.home = "home";
@@ -363,10 +380,48 @@ var DashboardComponent = /** @class */ (function () {
         this.order = null;
         this.customer = null;
         this.setting = null;
-    };
+    }; //when called, create a value for variable home and set rest to null
+    DashboardComponent.prototype.goOrders = function () {
+        this.order = "order";
+        this.home = null;
+        this.product = null;
+        this.customer = null;
+        this.setting = null;
+    }; //when called, create value for variable order and set rest to null
     DashboardComponent.prototype.goProduct = function () {
         this.product = "product";
         this.home = null;
+        this.order = null;
+        this.customer = null;
+        this.setting = null;
+    }; // when called, create value for variable product and set rest to null
+    DashboardComponent.prototype.goCustomers = function () {
+        this.customer = "customer";
+        this.home = null;
+        this.order = null;
+        this.setting = null;
+        this.product = null;
+    }; //wen called, create value for variable customer and set rest to null
+    DashboardComponent.prototype.goSetting = function () {
+        this.setting = "setting";
+        this.home = null;
+        this.order = null;
+        this.product = null;
+        this.customer = null;
+    }; //when called, create value for setting and set rest to null
+    DashboardComponent.prototype.getProduct = function (data) {
+        console.log("product here" + data['data']);
+        this.showEditProduct = data;
+        this.home = null;
+        this.order = null;
+        this.product = null;
+        this.customer = null;
+        this.setting = null;
+    };
+    DashboardComponent.prototype.goBack = function () {
+        this.product = "product";
+        this.home = null;
+        this.showEditProduct = null;
         this.order = null;
         this.customer = null;
         this.setting = null;
@@ -395,7 +450,7 @@ var DashboardComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".home-col-t{\n    background:white;\n    width:30% !important;\n    margin:1rem;\n}\n.home-col{\n    background:white;\n    margin-bottom:1rem !important;\n    \n    \n}\n"
 
 /***/ }),
 
@@ -406,7 +461,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<p>\n  home works!\n</p>\n<div class=\"container-fluid\">\n  <h2>Home</h2>\n  <div class=\"row\">\n    <div class=\"col-3 home-col\">\n      Total Revenue\n    </div>\n    <div class=\"col-3 offset-md-1 home-col \">\n      Today's Sales\n    </div>\n    <div class=\"col-3 offset-md-1 home-col\">\n      Enhance\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-7 home-col \" id=\"col-m-l\">\n      Top Product\n    </div>\n    <div class=\"col-3 home-col offset-md-1\">\n      Quick Details\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-3 home-col\">\n      Money Stats\n    </div>\n    <div class=\"col-7 home-col offset-md-1\">\n      Net Income\n    </div>\n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -504,6 +559,9 @@ var HttpService = /** @class */ (function () {
     }; //this route will delete the order through deleteOrder
     HttpService.prototype.getAllProducts = function () {
         return this._http.get('/allProducts');
+    };
+    HttpService.prototype.getOneProduct = function (product_id) {
+        return this._http.get('/product/' + product_id);
     };
     HttpService.prototype.postNewProduct = function (order_id, newproduct) {
         return this._http.post('/order/' + order_id + '/product/new', newproduct);
@@ -742,7 +800,7 @@ var ProductAddComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".disabled-select{\n    color: #6C757D\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n"
+module.exports = ".disabled-select{\n    color: #6C757D\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}"
 
 /***/ }),
 
@@ -753,7 +811,7 @@ module.exports = ".disabled-select{\n    color: #6C757D\n}\nlabel {\n border:1px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <a [routerLink]=\"['/products']\"><Products</a>\n  </p>\n  <h2>Edit Product</h2>\n  <form>\n    <div class=\"row\">\n      <div class=\"col\">\n        <div class=\"row\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Title\">\n          <select class=\"form-control\">\n            <option value=\"\" disabled selected><p class=\"disabled-select\" >Manufacturer</p></option>\n          </select>\n          <select class=\"form-control\">\n            <option value=\"\" disabled selected><p class=\"disabled-select\">Device Type</p></option>\n          </select>\n        </div>\n      </div>\n      <div class=\"col\">\n        <input type=\"file\" class=\"form-control-file\"/>\n      </div>\n    </div>\n    <h2>Pricing</h2>\n    <div class=\"card text-center\">\n      <div class=\"card-header\">\n        <ul class=\"nav nav-tabs card-header-tabs\">\n          <li class=\"nav-item\">\n            <label><input type=\"radio\" value=\"64\" id=\"six-four\" name=\"size_choice\"/>64BG</label>\n              \n          </li>\n          <li class=\"nav-item\">\n            <label><input type=\"radio\" value=\"240\" id=\"two-four\" name=\"size_choice\"/>240GB</label>\n          </li>\n        </ul>\n      </div>\n      <div class=\"card-body\">\n        <table class=\"table\">\n          <thead>\n            <tr>\n              <th>Carrier</th>\n              <th>Handset Only</th>\n              <th>Sealed</th>\n              <th>Open-Sealed</th>\n              <th>Good LCD</th>\n              <th>Cracked Front</th>\n              <th>Bad LCD/Copy</th>\n              <th>Dead</th>\n              <th>Cracked Back (Minus)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>\n                <select class=\"form-control\">\n                  <option value=\"AT&T\">AT&T</option>\n                  <option value=\"T-mobile\">T-mobile</option>\n                  <option value=\"Verizon\">Verizon</option>\n                  <option value=\"Sprint\">Sprint</option>\n                  <option value=\"Unlocked\">Unlocked</option>\n                </select>\n              </td>\n              <td><input type=\"radio\" value=\"Handset Only\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Sealed\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Open-Sealed\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Good LCD\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Front\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Bad LCD/Copy\" name=\"condition\"> </td>\n              <td><input type=\"radio\" value=\"Dead\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Back\" name=\"minus\"></td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Save</button>\n  </form>\n</div>"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <a (click)=\"goBackToProducts()\">Products</a>\n  </p>\n  <h4>Edit Product</h4>\n  <form>\n    <div class=\"row edit-top-box\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"Title\">\n            <select class=\"form-control input-top\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >Manufacturer</p></option>\n            </select>\n            <select class=\"form-control input-top\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">Device Type</p></option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center\">\n      <div class=\"card-header\">\n        <ul class=\"nav nav-tabs card-header-tabs\">\n          <li class=\"nav-item\">\n            <label><input type=\"radio\" value=\"64\" id=\"six-four\" name=\"size_choice\"/>64BG</label>\n              \n          </li>\n          <li class=\"nav-item\">\n            <label><input type=\"radio\" value=\"240\" id=\"two-four\" name=\"size_choice\"/>240GB</label>\n          </li>\n        </ul>\n      </div>\n      <div class=\"card-body\">\n        <table class=\"table\">\n          <thead>\n            <tr>\n              <th>Carrier</th>\n              <th>Handset Only</th>\n              <th>Sealed</th>\n              <th>Open-Sealed</th>\n              <th>Good LCD</th>\n              <th>Cracked Front</th>\n              <th>Bad LCD/Copy</th>\n              <th>Dead</th>\n              <th>Cracked Back (Minus)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>\n                <select class=\"form-control\">\n                  <option value=\"AT&T\">AT&T</option>\n                  <option value=\"T-mobile\">T-mobile</option>\n                  <option value=\"Verizon\">Verizon</option>\n                  <option value=\"Sprint\">Sprint</option>\n                  <option value=\"Unlocked\">Unlocked</option>\n                </select>\n              </td>\n              <td><input type=\"radio\" value=\"Handset Only\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Sealed\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Open-Sealed\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Good LCD\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Front\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Bad LCD/Copy\" name=\"condition\"> </td>\n              <td><input type=\"radio\" value=\"Dead\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Back\" name=\"minus\"></td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Save</button>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -787,10 +845,18 @@ var ProductEditComponent = /** @class */ (function () {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
+        this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     ProductEditComponent.prototype.ngOnInit = function () {
         this.editProduct = {};
     };
+    ProductEditComponent.prototype.goBackToProducts = function () {
+        this.backToProduct.emit("data");
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ProductEditComponent.prototype, "backToProduct", void 0);
     ProductEditComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-product-edit',
@@ -826,7 +892,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <button type=\"button\" class=\"btn btn-primary\" [routerLink]=\"['/new/product']\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition}}</td>\n          <td>{{p.size}}</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button>\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <button type=\"button\" class=\"btn btn-primary\" [routerLink]=\"['/new/product']\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition}}</td>\n          <td>{{p.size}}</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n            <!-- <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -860,6 +926,7 @@ var ProductsComponent = /** @class */ (function () {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
+        this.sendProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
     }
     ProductsComponent.prototype.ngOnInit = function () {
         this.allProducts();
@@ -871,6 +938,16 @@ var ProductsComponent = /** @class */ (function () {
             console.log(data);
         });
     };
+    ProductsComponent.prototype.showEdit = function (product_id) {
+        var _this = this;
+        this._httpService.getOneProduct(product_id).subscribe(function (data) {
+            _this.sendProduct.emit(data);
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ProductsComponent.prototype, "sendProduct", void 0);
     ProductsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-products',

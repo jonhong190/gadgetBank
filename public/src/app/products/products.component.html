@@ -19,7 +19,8 @@
           <td>{{p.size}}</td>
           <td>{{p.price}}</td>
           <td>
-            <button [routerLink]="['/edit/'+p.id+'']">Edit</button>
+            <button (click)="showEdit(p.id)">Edit</button>
+            <!-- <button [routerLink]="['/edit/'+p.id+'']">Edit</button> -->
           </td>
         </tr>
     </tbody>
