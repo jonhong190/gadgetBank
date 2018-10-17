@@ -67,8 +67,10 @@ export class ProductEditComponent implements OnInit {
     if(this.product.condition == ""){
       this.product.condition = this.getProduct.condition;
     }
+    //if statements allow the product to keep it's original attributes if nothing was entered through the form
     targetProduct = this.product;
     product_id = this.getProduct.id;
+    // id from getProduct.id is used to send to backend so correct querry can occur
     this._httpService.postEditProduct(product_id, targetProduct).subscribe((data)=>{
       console.log(data);
       this.goBackToProducts();
@@ -82,4 +84,5 @@ export class ProductEditComponent implements OnInit {
       this.currentCategory = data[0]['name'];
     })
   }
+  // this function will get the current category of the target product and display the name as a placeholder in our form input
 }

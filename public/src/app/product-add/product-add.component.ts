@@ -11,6 +11,7 @@ export class ProductAddComponent implements OnInit {
   newProduct: any;
   allCategories:any;
   @Output() backToProduct = new EventEmitter;
+  //event emitter to send signal to the dashboard component to switch back to products page
   targetCategory:any;
   constructor(
     private _httpService : HttpService,
@@ -20,6 +21,7 @@ export class ProductAddComponent implements OnInit {
 
   ngOnInit() {
     this.newProduct = {title:"", condition:"", manufacturer:"",category_id:"Device Type"};
+    //initialize our model used in the template form
     this.getAllCategories();
     this.targetCategory="";
   }
@@ -29,6 +31,7 @@ export class ProductAddComponent implements OnInit {
       this.allCategories = data;
     })
   }
+  //grabs all categories from db
   goBackToProducts() {
     this.backToProduct.emit("data");
   }
@@ -39,4 +42,5 @@ export class ProductAddComponent implements OnInit {
       this.goBackToProducts();
     })
   }
+  //calls service to post our model to back end product creation route
 }

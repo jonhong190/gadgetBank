@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { FaqComponent } from './faq/faq.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { ProductSelectComponent } from './product-select/product-select.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     DashboardComponent,
     RegisterComponent,
     LoginComponent,
-    FaqComponent
+    FaqComponent,
+    ProductSelectComponent
   ],
   imports: [
     BrowserModule,

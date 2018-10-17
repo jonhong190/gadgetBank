@@ -39,6 +39,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _landing_landing_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./landing/landing.component */ "./src/app/landing/landing.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./product-select/product-select.component */ "./src/app/product-select/product-select.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -51,12 +52,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
     { path: 'landing', component: _landing_landing_component__WEBPACK_IMPORTED_MODULE_3__["LandingComponent"] },
     { path: '', pathMatch: 'full', redirectTo: '/landing' },
     { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"] },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: 'create-account', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: 'trade-in', component: _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_6__["ProductSelectComponent"] },
     { path: '**', pathMatch: 'full', redirectTo: '/landing' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -173,12 +176,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/faq/faq.component.ts");
 /* harmony import */ var _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @nicky-lenaers/ngx-scroll-to */ "./node_modules/@nicky-lenaers/ngx-scroll-to/fesm5/nicky-lenaers-ngx-scroll-to.js");
+/* harmony import */ var _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./product-select/product-select.component */ "./src/app/product-select/product-select.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -218,7 +223,8 @@ var AppModule = /** @class */ (function () {
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"],
                 _register_register_component__WEBPACK_IMPORTED_MODULE_17__["RegisterComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
-                _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__["FaqComponent"]
+                _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__["FaqComponent"],
+                _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__["ProductSelectComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -711,7 +717,7 @@ module.exports = "ul > li{\n    margin: 10px;\n}\n#main-info-l{\n    padding-top
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Landing</title>\n\n</head>\n<body>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <nav class=\"navbar navbar-expand-lg navbar-light w-100\"  style=\"background-color: #3D99E6;\">\n                <div class=\"d-flex flex-grow-1\">\n                    <span class=\"w-100 d-lg-none d-block\"><!-- hidden spacer to center brand on mobile --></span>\n                    <a class=\"navbar-brand d-none d-lg-inline-block text-white\" href=\"#\">\n                        Logo  <!-- Logo title goes here -->\n                    </a>\n                    <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n                        <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n                    </a>\n                    <div class=\"w-100 text-right\">\n                        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                            <span class=\"navbar-toggler-icon\"></span>  <!-- Mobile dynamic button -->\n                        </button>\n                    </div>\n                </div>\n                <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n                    <ul class=\"navbar-nav ml-auto flex-nowrap\">\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How it works</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" >FAQs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [ngx-scroll-to]=\"'#bottom'\">Get Cash Now</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <button class=\"btn btn-light\">Sign Up</button>\n                        </li>\n                        <li class=\"nav-item\">\n                            <button class=\"btn btn-primary\">Login</button>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-4 offset-md-2\" id=\"main-info-l\">\n                <h2>Sell your gadgets for cash!</h2>\n                <p>GadgetBank is the easiest and most trusted place <br> to sell your old phones, tablets, and smart devices <br> for cash</p>\n            </div>\n            <div class=\"col-6\" id=\"main-info-r\">\n                <p>Image goes here</p>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-2\"></div>\n            <div class=\"col-8\" id=\"description\">\n                <h3>Why GadgetBank?</h3>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas ipsum urna. Maecenas nec suscipit urna.\n                    Mauris\n                    nec neque id ligula auctor consequat. Suspendisse vehicula nulla ut massa placerat iaculis. Nullam dignissim, quam\n                    at\n                    porttitor placerat, lorem ex dictum turpis, non eleifend orci nisl at magna. Duis eget sem ornare\n                </p>\n            </div>\n            <div class=\"col-2\"></div>\n            \n        </div>\n        <div class=\"row\" style=\"padding-right:2rem;padding-bottom:5rem;\">\n            <div class=\"col-2 offset-md-3 col-top shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Clarity</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n            <div class=\"col-2 col-top shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Trust</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n            <div class=\"col-2 col-top-last shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Ease</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n        </div>\n        <div class=\"row\" id=\"how-it-works\">\n            <div class=\"col\" style=\"padding:5rem;\">\n                <h5>How GadgetBank Works</h5>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n                <div id=\"table\">\n                    <ul class=\"navbar navbar-expand-lg w-60\">\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Select <br>your device</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Receive <br>Instant Offer</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Free <br>Shipping Label</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Send <br>in Device</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Processing<br><p class=\"hold\">placeholder</p></p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Send Money<br><p class=\"hold\">placeholder</p></p>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\" id=\"bottom\">\n            <div class=\"col\">\n                <div class=\"row\">\n                    <div class=\"col\" id=\"bot-options\">\n                        <h4>SELL YOUR DEVICE NOW</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, <br>nec hendrerit dui pretium\n                            quis. Pellentesque scelerisque orci.</p>\n                        <a class=\"btn btn-primary\" role=\"button\" href=\"#\" id=\"start-button\">Get Started</a>\n                        <a class=\"btn btn-primary\" role=\"button\" href=\"#\" id=\"faq\">FAQ</a>\n                    </div>\n                    \n                </div>\n                <div class=\"row\" id=\"footer\">\n                    <div class=\"col-3\">\n                        <h6>About us</h6>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, nec hendrerit dui pretium\n                        quis. Pellentesque scelerisque orci.</p>\n                    </div>\n                    <div class=\"col-3\">\n                        <h6>Site Map</h6>\n                        <div class=\"row\">\n                            <div class=\"col-6\" id=\"map-col-1\">\n                                <a href=\"#\">Sign Up</a>\n                                <br>\n                                <a href=\"#\">Login</a>\n                            </div>\n                            <div class=\"col-6\" id=\"map-col-2\">\n                                <a href=\"#\">How it works</a>\n                                <br>\n                                <a href=\"#\">Get Cash Now</a>\n                                <br>\n                                <a href=\"#\">FAQs</a>\n                            </div>\n                        </div>   \n                    </div>\n                    <div class=\"col-3\">\n                        <h6>Newsletter</h6>\n                        <p>Subsribe to receive updates and access to exclusive deals, and more.</p>\n                        <input type=\"text\" class=\"form-control w-50 d-inline-block\" placeholder=\"Your email address\">\n                        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Subscribe</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div> \n\n</body>\n</html>"
+module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Landing</title>\n\n</head>\n<body>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <nav class=\"navbar navbar-expand-lg navbar-light w-100\"  style=\"background-color: #3D99E6;\">\n                <div class=\"d-flex flex-grow-1\">\n                    <span class=\"w-100 d-lg-none d-block\"><!-- hidden spacer to center brand on mobile --></span>\n                    <a class=\"navbar-brand d-none d-lg-inline-block text-white\" href=\"#\">\n                        Logo  <!-- Logo title goes here -->\n                    </a>\n                    <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n                        <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n                    </a>\n                    <div class=\"w-100 text-right\">\n                        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                            <span class=\"navbar-toggler-icon\"></span>  <!-- Mobile dynamic button -->\n                        </button>\n                    </div>\n                </div>\n                <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n                    <ul class=\"navbar-nav ml-auto flex-nowrap\">\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How it works</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" >FAQs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [ngx-scroll-to]=\"'#bottom'\">Get Cash Now</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"btn btn-light\" [routerLink]=\"['/create-account']\">Sign Up</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a class=\"btn btn-primary\" [routerLink]=\"['/create-account']\">Login</a>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-4 offset-md-2\" id=\"main-info-l\">\n                <h2>Sell your gadgets for cash!</h2>\n                <p>GadgetBank is the easiest and most trusted place <br> to sell your old phones, tablets, and smart devices <br> for cash</p>\n            </div>\n            <div class=\"col-6\" id=\"main-info-r\">\n                <p>Image goes here</p>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-2\"></div>\n            <div class=\"col-8\" id=\"description\">\n                <h3>Why GadgetBank?</h3>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas ipsum urna. Maecenas nec suscipit urna.\n                    Mauris\n                    nec neque id ligula auctor consequat. Suspendisse vehicula nulla ut massa placerat iaculis. Nullam dignissim, quam\n                    at\n                    porttitor placerat, lorem ex dictum turpis, non eleifend orci nisl at magna. Duis eget sem ornare\n                </p>\n            </div>\n            <div class=\"col-2\"></div>\n            \n        </div>\n        <div class=\"row\" style=\"padding-right:2rem;padding-bottom:5rem;\">\n            <div class=\"col-2 offset-md-3 col-top shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Clarity</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n            <div class=\"col-2 col-top shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Trust</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n            <div class=\"col-2 col-top-last shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Ease</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n        </div>\n        <div class=\"row\" id=\"how-it-works\">\n            <div class=\"col\" style=\"padding:5rem;\">\n                <h5>How GadgetBank Works</h5>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n                <div id=\"table\">\n                    <ul class=\"navbar navbar-expand-lg w-60\">\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Select <br>your device</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Receive <br>Instant Offer</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Free <br>Shipping Label</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Send <br>in Device</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Processing<br><p class=\"hold\">placeholder</p></p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Send Money<br><p class=\"hold\">placeholder</p></p>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\" id=\"bottom\">\n            <div class=\"col\">\n                <div class=\"row\">\n                    <div class=\"col\" id=\"bot-options\">\n                        <h4>SELL YOUR DEVICE NOW</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, <br>nec hendrerit dui pretium\n                            quis. Pellentesque scelerisque orci.</p>\n                        <a class=\"btn btn-primary\" role=\"button\" [routerLink]=\"['/trade-in']\" id=\"start-button\">Get Started</a>\n                        <a class=\"btn btn-primary\" role=\"button\" href=\"#\" id=\"faq\">FAQ</a>\n                    </div>\n                    \n                </div>\n                <div class=\"row\" id=\"footer\">\n                    <div class=\"col-3\">\n                        <h6>About us</h6>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, nec hendrerit dui pretium\n                        quis. Pellentesque scelerisque orci.</p>\n                    </div>\n                    <div class=\"col-3\">\n                        <h6>Site Map</h6>\n                        <div class=\"row\">\n                            <div class=\"col-6\" id=\"map-col-1\">\n                                <a href=\"#\">Sign Up</a>\n                                <br>\n                                <a href=\"#\">Login</a>\n                            </div>\n                            <div class=\"col-6\" id=\"map-col-2\">\n                                <a href=\"#\">How it works</a>\n                                <br>\n                                <a href=\"#\">Get Cash Now</a>\n                                <br>\n                                <a href=\"#\">FAQs</a>\n                            </div>\n                        </div>   \n                    </div>\n                    <div class=\"col-3\">\n                        <h6>Newsletter</h6>\n                        <p>Subsribe to receive updates and access to exclusive deals, and more.</p>\n                        <input type=\"text\" class=\"form-control w-50 d-inline-block\" placeholder=\"Your email address\">\n                        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Subscribe</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div> \n\n</body>\n</html>"
 
 /***/ }),
 
@@ -763,7 +769,7 @@ var LandingComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#login-container{\n    padding:2rem;\n}\n#login-container form{\n    padding-top:2rem;\n}\n#register-container{\n    padding: 2rem;\n}\n#register-container form{\n    padding-top:2rem;\n}"
 
 /***/ }),
 
@@ -774,7 +780,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n"
+module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form>\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\">\n        <label>Password</label>\n        <input type=\"text\" class=\"form-control\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Log In</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form>\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\">\n        <label>Confirm email address</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Password</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>Password confirmation</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>First name</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Last name</label>\n        <input type=\"text\" class=\"form-control\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Create Account</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -938,6 +944,7 @@ var ProductAddComponent = /** @class */ (function () {
     }
     ProductAddComponent.prototype.ngOnInit = function () {
         this.newProduct = { title: "", condition: "", manufacturer: "", category_id: "Device Type" };
+        //initialize our model used in the template form
         this.getAllCategories();
         this.targetCategory = "";
     };
@@ -947,6 +954,7 @@ var ProductAddComponent = /** @class */ (function () {
             _this.allCategories = data;
         });
     };
+    //grabs all categories from db
     ProductAddComponent.prototype.goBackToProducts = function () {
         this.backToProduct.emit("data");
     };
@@ -1076,8 +1084,10 @@ var ProductEditComponent = /** @class */ (function () {
         if (this.product.condition == "") {
             this.product.condition = this.getProduct.condition;
         }
+        //if statements allow the product to keep it's original attributes if nothing was entered through the form
         targetProduct = this.product;
         product_id = this.getProduct.id;
+        // id from getProduct.id is used to send to backend so correct querry can occur
         this._httpService.postEditProduct(product_id, targetProduct).subscribe(function (data) {
             console.log(data);
             _this.goBackToProducts();
@@ -1109,6 +1119,69 @@ var ProductEditComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], ProductEditComponent);
     return ProductEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/product-select/product-select.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/product-select/product-select.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/product-select/product-select.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/product-select/product-select.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  product-select works!\n</p>\n<div class=\"container-fluid\">\n  \n</div>"
+
+/***/ }),
+
+/***/ "./src/app/product-select/product-select.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/product-select/product-select.component.ts ***!
+  \************************************************************/
+/*! exports provided: ProductSelectComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductSelectComponent", function() { return ProductSelectComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ProductSelectComponent = /** @class */ (function () {
+    function ProductSelectComponent() {
+    }
+    ProductSelectComponent.prototype.ngOnInit = function () {
+    };
+    ProductSelectComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-select',
+            template: __webpack_require__(/*! ./product-select.component.html */ "./src/app/product-select/product-select.component.html"),
+            styles: [__webpack_require__(/*! ./product-select.component.css */ "./src/app/product-select/product-select.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ProductSelectComponent);
+    return ProductSelectComponent;
 }());
 
 
