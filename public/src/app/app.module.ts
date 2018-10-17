@@ -15,6 +15,10 @@ import { SettingsComponent } from './settings/settings.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { FaqComponent } from './faq/faq.component';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 
 @NgModule({
@@ -28,14 +32,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SettingsComponent,
     ProductEditComponent,
     ProductAddComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegisterComponent,
+    LoginComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule,
+    NgbModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]

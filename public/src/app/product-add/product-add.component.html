@@ -1,83 +1,49 @@
-<p>
-  product-add works!
-</p>
-<div class="container-fluid">
+
+<div class="container-fluid" id="wrapper">
   <p>
-    <a [routerLink]="['/products']">
-      <Products</a> </p> <h2>Add Product</h2>
-        <form>
+    <button class="btn-sm btn-primary" (click)="goBackToProducts()">
+      Back To Products</button> 
+      <h2>Add Product</h2>
+      <div class="container-fluid shadow-sm rounded" id="form-container">
+        
+        <form class="postForm" (submit)="addProduct(newProduct)">
           <div class="row">
-            <div class="col">
+            <div class="col-3 offset-md-1">
               <div class="row">
-                <input type="text" class="form-control" placeholder="Title">
-                <select class="form-control">
+                <input type="text" class="form-control add-input" placeholder="Title" name="newProduct.title" [(ngModel)]="newProduct.title">
+                <select class="form-control add-input" [(ngModel)]="newProduct.manufacturer" name="newProduct.manufacturer">
                   <option value="" disabled selected>
                     <p class="disabled-select">Manufacturer</p>
                   </option>
+                  <option value="Apple">Apple</option>
+                  <option value="SamSung">SamSung</option>
                 </select>
-                <select class="form-control">
-                  <option value="" disabled selected>
-                    <p class="disabled-select">Device Type</p>
+                <select class="form-control add-input" [(ngModel)]="newProduct.category_id" name="category_id">
+                  <option value="Device Type" disabled selected>
+                 Device Type
                   </option>
+
+                  <option *ngFor="let c of allCategories" value="{{c.id}}">{{c.name}}</option>
                 </select>
+                
               </div>
             </div>
-            <div class="col">
-              <input type="file" class="form-control-file" />
+            <div class="col-6 offset-md-1">
+              <input type="file" class="form-control-file"/>
             </div>
           </div>
-          <h2>Pricing</h2>
-          <div class="card text-center">
-            <div class="card-header">
-              <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                  <label><input type="radio" value="64" id="six-four" name="size_choice" />64BG</label>
-
-                </li>
-                <li class="nav-item">
-                  <label><input type="radio" value="240" id="two-four" name="size_choice" />240GB</label>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Carrier</th>
-                    <th>Handset Only</th>
-                    <th>Sealed</th>
-                    <th>Open-Sealed</th>
-                    <th>Good LCD</th>
-                    <th>Cracked Front</th>
-                    <th>Bad LCD/Copy</th>
-                    <th>Dead</th>
-                    <th>Cracked Back (Minus)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <select class="form-control">
-                        <option value="AT&T">AT&T</option>
-                        <option value="T-mobile">T-mobile</option>
-                        <option value="Verizon">Verizon</option>
-                        <option value="Sprint">Sprint</option>
-                        <option value="Unlocked">Unlocked</option>
-                      </select>
-                    </td>
-                    <td><input type="radio" value="Handset Only" name="condition"></td>
-                    <td><input type="radio" value="Sealed" name="condition"></td>
-                    <td><input type="radio" value="Open-Sealed" name="condition"></td>
-                    <td><input type="radio" value="Good LCD" name="condition"></td>
-                    <td><input type="radio" value="Cracked Front" name="condition"></td>
-                    <td><input type="radio" value="Bad LCD/Copy" name="condition"> </td>
-                    <td><input type="radio" value="Dead" name="condition"></td>
-                    <td><input type="radio" value="Cracked Back" name="minus"></td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="row" id="submit-contain">
+            <div class="col-10"></div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-primary" value="submit">Add Product</button>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary" value="submit">Save</button>
+          
+          
         </form>
+      </div>
+      
 </div>
+<script>
+  
+</script>

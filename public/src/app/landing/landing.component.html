@@ -5,9 +5,9 @@
 
 </head>
 <body>
-    
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light"  style="background-color: #3D99E6;">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light w-100"  style="background-color: #3D99E6;">
                 <div class="d-flex flex-grow-1">
                     <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
                     <a class="navbar-brand d-none d-lg-inline-block text-white" href="#">
@@ -25,13 +25,13 @@
                 <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
                     <ul class="navbar-nav ml-auto flex-nowrap">
                         <li class="nav-item">
-                            <a href="#" class="nav-link m-2 menu-item nav-active text-white">How it works</a>
+                            <a role="button" class="nav-link m-2 menu-item nav-active text-white" [ngx-scroll-to]="'#how-it-works'">How it works</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link m-2 menu-item text-white">FAQs</a>
+                            <a role="button" class="nav-link m-2 menu-item text-white" >FAQs</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link m-2 menu-item text-white">Get Cash Now</a>
+                            <a role="button" class="nav-link m-2 menu-item text-white" [ngx-scroll-to]="'#bottom'">Get Cash Now</a>
                         </li>
                         <li class="nav-item">
                             <button class="btn btn-light">Sign Up</button>
@@ -43,5 +43,125 @@
                 </div>
             </nav>
         </div>
+        <div class="row">
+            <div class="col-4 offset-md-2" id="main-info-l">
+                <h2>Sell your gadgets for cash!</h2>
+                <p>GadgetBank is the easiest and most trusted place <br> to sell your old phones, tablets, and smart devices <br> for cash</p>
+            </div>
+            <div class="col-6" id="main-info-r">
+                <p>Image goes here</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8" id="description">
+                <h3>Why GadgetBank?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas ipsum urna. Maecenas nec suscipit urna.
+                    Mauris
+                    nec neque id ligula auctor consequat. Suspendisse vehicula nulla ut massa placerat iaculis. Nullam dignissim, quam
+                    at
+                    porttitor placerat, lorem ex dictum turpis, non eleifend orci nisl at magna. Duis eget sem ornare
+                </p>
+            </div>
+            <div class="col-2"></div>
+            
+        </div>
+        <div class="row" style="padding-right:2rem;padding-bottom:5rem;">
+            <div class="col-2 offset-md-3 col-top shadow">
+                <img src="../../assets/icons/sharp_data_usage_black_36dp.png" class="icon">
+                <h4>Clarity</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>
+            </div>
+            <div class="col-2 col-top shadow">
+                <img src="../../assets/icons/sharp_data_usage_black_36dp.png" class="icon">
+                <h4>Trust</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>
+            </div>
+            <div class="col-2 col-top-last shadow">
+                <img src="../../assets/icons/sharp_data_usage_black_36dp.png" class="icon">
+                <h4>Ease</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>
+            </div>
+        </div>
+        <div class="row" id="how-it-works">
+            <div class="col" style="padding:5rem;">
+                <h5>How GadgetBank Works</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>
+                <div id="table">
+                    <ul class="navbar navbar-expand-lg w-60">
+                        <li class="nav-item d-none d-lg-inline-block process-list-item">
+                            <img src="../../assets/icons/sharp_data_usage_black_36dp.png">
+                            <p>Select <br>your device</p>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-block process-list-item">
+                            <img src="../../assets/icons/sharp_data_usage_black_36dp.png">
+                            <p>Receive <br>Instant Offer</p>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-block process-list-item">
+                            <img src="../../assets/icons/sharp_data_usage_black_36dp.png">
+                            <p>Free <br>Shipping Label</p>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-block process-list-item">
+                            <img src="../../assets/icons/sharp_data_usage_black_36dp.png">
+                            <p>Send <br>in Device</p>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-block process-list-item">
+                            <img src="../../assets/icons/sharp_data_usage_black_36dp.png">
+                            <p>Processing<br><p class="hold">placeholder</p></p>
+                        </li>
+                        <li class="nav-item d-none d-lg-inline-block process-list-item">
+                            <img src="../../assets/icons/sharp_data_usage_black_36dp.png">
+                            <p>Send Money<br><p class="hold">placeholder</p></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="bottom">
+            <div class="col">
+                <div class="row">
+                    <div class="col" id="bot-options">
+                        <h4>SELL YOUR DEVICE NOW</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, <br>nec hendrerit dui pretium
+                            quis. Pellentesque scelerisque orci.</p>
+                        <a class="btn btn-primary" role="button" href="#" id="start-button">Get Started</a>
+                        <a class="btn btn-primary" role="button" href="#" id="faq">FAQ</a>
+                    </div>
+                    
+                </div>
+                <div class="row" id="footer">
+                    <div class="col-3">
+                        <h6>About us</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, nec hendrerit dui pretium
+                        quis. Pellentesque scelerisque orci.</p>
+                    </div>
+                    <div class="col-3">
+                        <h6>Site Map</h6>
+                        <div class="row">
+                            <div class="col-6" id="map-col-1">
+                                <a href="#">Sign Up</a>
+                                <br>
+                                <a href="#">Login</a>
+                            </div>
+                            <div class="col-6" id="map-col-2">
+                                <a href="#">How it works</a>
+                                <br>
+                                <a href="#">Get Cash Now</a>
+                                <br>
+                                <a href="#">FAQs</a>
+                            </div>
+                        </div>   
+                    </div>
+                    <div class="col-3">
+                        <h6>Newsletter</h6>
+                        <p>Subsribe to receive updates and access to exclusive deals, and more.</p>
+                        <input type="text" class="form-control w-50 d-inline-block" placeholder="Your email address">
+                        <button type="submit" value="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
 </body>
 </html>

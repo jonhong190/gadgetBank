@@ -31,8 +31,11 @@ module.exports = (app)=>{
         orders.deleteOrder(req,res);
     })
     app.post("/order/:order_id/:category_id/product/new", (req,res)=>{
-        products.newProduct(req,res);
+        products.newProductToOrder(req,res);
     });
+    app.post("/new",(req,res)=>{
+        products.newProduct(req,res);
+    })
     app.post("/product/:product_id/edit", (req,res)=>{
         products.editProduct(req,res);
     });
@@ -57,6 +60,9 @@ module.exports = (app)=>{
     app.post("/category/category_id/delete", (req,res)=>{
         categories.deleteCategory(req,res);
     });
+    app.get("/category/:category_id", (req,res)=>{
+        categories.getCategory(req,res);
+    })
 
     app.all("*", (req, res, next) => {
         res.sendFile(path.resolve("./public/dist/public/index.html"))

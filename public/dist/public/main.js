@@ -37,10 +37,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _landing_landing_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./landing/landing.component */ "./src/app/landing/landing.component.ts");
-/* harmony import */ var _products_products_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./products/products.component */ "./src/app/products/products.component.ts");
-/* harmony import */ var _product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./product-edit/product-edit.component */ "./src/app/product-edit/product-edit.component.ts");
-/* harmony import */ var _product_add_product_add_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./product-add/product-add.component */ "./src/app/product-add/product-add.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -53,16 +51,12 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-
-
 var routes = [
     { path: 'landing', component: _landing_landing_component__WEBPACK_IMPORTED_MODULE_3__["LandingComponent"] },
     { path: '', pathMatch: 'full', redirectTo: '/landing' },
-    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"] },
+    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["DashboardComponent"] },
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
-    { path: 'edit/:product_id', component: _product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_5__["ProductEditComponent"] },
-    { path: 'products', component: _products_products_component__WEBPACK_IMPORTED_MODULE_4__["ProductsComponent"] },
-    { path: 'new/product', component: _product_add_product_add_component__WEBPACK_IMPORTED_MODULE_6__["ProductAddComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: '**', pathMatch: 'full', redirectTo: '/landing' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -175,12 +169,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./product-edit/product-edit.component */ "./src/app/product-edit/product-edit.component.ts");
 /* harmony import */ var _product_add_product_add_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./product-add/product-add.component */ "./src/app/product-add/product-add.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/faq/faq.component.ts");
+/* harmony import */ var _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @nicky-lenaers/ngx-scroll-to */ "./node_modules/@nicky-lenaers/ngx-scroll-to/fesm5/nicky-lenaers-ngx-scroll-to.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -213,14 +215,19 @@ var AppModule = /** @class */ (function () {
                 _settings_settings_component__WEBPACK_IMPORTED_MODULE_13__["SettingsComponent"],
                 _product_edit_product_edit_component__WEBPACK_IMPORTED_MODULE_14__["ProductEditComponent"],
                 _product_add_product_add_component__WEBPACK_IMPORTED_MODULE_15__["ProductAddComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"]
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_16__["DashboardComponent"],
+                _register_register_component__WEBPACK_IMPORTED_MODULE_17__["RegisterComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
+                _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__["FaqComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"].forRoot()
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"].forRoot(),
+                _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_20__["ScrollToModule"].forRoot()
             ],
             providers: [_http_service__WEBPACK_IMPORTED_MODULE_5__["HttpService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
@@ -319,7 +326,7 @@ var CustomersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".row{\n    margin-left:0 !important;\n}\n\n"
+module.exports = ".row{\n    margin-left:0 !important;\n}\n.icon{\n    width:1.25rem;\n}\n.icon{\n    font-size:1rem;\n}\n.side-text{\n    font-size: 1rem;\n}\n.nav-item{\n    padding:1.25rem;\n    display:block;\n}\n#search-container{\n    height: 4rem;\n}\n#searchbar{\n    border-radius:0;\n    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAABSUlEQVR4AezTM3hYURjG8X9t27btdspW27a2ut1r21iqYImtKVOMJbZtfs+Jc5+LOb+z3e897zWWdeqPDee4zj4WYNlC3Kiitmmlc4+emNSTx1RT225FsQITehGkNlYRwi8e40F205G9GPZTbfJhPChdOE+RHC1hPoYsVzWP6EJrM0iUiSuGOEnYgY4sVY9/ObqGSLSSMXTstRQ9R9dOCQaixUbmoei6IsG3aBkp82x03ZTgQ7T0kXkFuk5K8A9aZss8EV2r1O+g5bzM7dFHikT305FuhMr0CPq4LdEcptDeC/Woe6GP/qRJPI1NbR7zW/XNX8GgjerPr+ETO5lGf9ZzlThVE4MJO8mntqOlrtaFnhg0Dtt2JUU8oTu1ZqtgHQ8IJJViQvnKFvWIXdpUWdYLb9NVnVV1qwXyKDUK5iLKjWqBGkN/MAoAi3W/YOTXNloAAAAASUVORK5CYII=);\n    background-repeat:no-repeat;\n    background-size: 1.25rem;\n    background-position-y:center;\n    background-position-x:.5rem;\n    padding-left:2rem;\n\n\n}\n#dashboard-container{\n    padding-left:0 !important;\n    background-color:#F8F9FA;\n}"
 
 /***/ }),
 
@@ -330,7 +337,7 @@ module.exports = ".row{\n    margin-left:0 !important;\n}\n\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"background-color:#F8F9FA \">\n\n  <div class=\"row\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"nav-brand col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\" padding-top:0\">\n    <nav class=\"navbar-brand col-2 d-none d-md-block bg-light sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0\">\n      <div>\n        <ul class=\"nav flex-column\" style=\"background-color:white; height: 100vh\">\n          <li class=\"nav-item\">\n            <a (click)=\"goHome()\">Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goOrders()\">Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goProduct()\">Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goCustomers()\">Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <a (click)=\"goSetting()\">Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\"height:100vh; background-color: #F8F9FA; margin-left:.41rem; \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\"></app-product-edit>\n    </main>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\" id=\"dashboard-container\">\n\n  <div class=\"row\" id=\"search-container\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        \n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" id=\"searchbar\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\"padding-top:0; height:100vh;\">\n    <nav class=\"col-md-2 d-none d-md-block bg-white sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0; background-color:white;\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"nav flex-column\" style=\"background-color:white;\">\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/home-4x copy.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goHome()\" class=\"side-text\"> Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/bar-chart-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goOrders()\" class=\"side-text\"> Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/product-2x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goProduct()\" class=\"side-text\"> Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/person-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goCustomers()\" class=\"side-text\"> Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/baseline_settings_black_18dp.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goSetting()\" class=\"side-text\"> Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\" background-color: #F8F9FA; margin-left:.41rem; \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\" (sendAddProduct)=\"goAddProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\" [getProduct]=\"sendProductId\"></app-product-edit>\n      <app-product-add *ngIf=\"showAddProduct\" (backToProduct)=\"goBack($event)\" ></app-product-add>\n    </main>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -370,6 +377,7 @@ var DashboardComponent = /** @class */ (function () {
         this.customer = null;
         this.setting = null;
         this.showEditProduct = null;
+        this.showAddProduct = null;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         this.goHome(); //on first load, show the home screen
@@ -380,6 +388,8 @@ var DashboardComponent = /** @class */ (function () {
         this.order = null;
         this.customer = null;
         this.setting = null;
+        this.showEditProduct = null;
+        this.showAddProduct = null;
     }; //when called, create a value for variable home and set rest to null
     DashboardComponent.prototype.goOrders = function () {
         this.order = "order";
@@ -387,6 +397,8 @@ var DashboardComponent = /** @class */ (function () {
         this.product = null;
         this.customer = null;
         this.setting = null;
+        this.showEditProduct = null;
+        this.showAddProduct = null;
     }; //when called, create value for variable order and set rest to null
     DashboardComponent.prototype.goProduct = function () {
         this.product = "product";
@@ -394,6 +406,8 @@ var DashboardComponent = /** @class */ (function () {
         this.order = null;
         this.customer = null;
         this.setting = null;
+        this.showEditProduct = null;
+        this.showAddProduct = null;
     }; // when called, create value for variable product and set rest to null
     DashboardComponent.prototype.goCustomers = function () {
         this.customer = "customer";
@@ -401,6 +415,8 @@ var DashboardComponent = /** @class */ (function () {
         this.order = null;
         this.setting = null;
         this.product = null;
+        this.showEditProduct = null;
+        this.showAddProduct = null;
     }; //wen called, create value for variable customer and set rest to null
     DashboardComponent.prototype.goSetting = function () {
         this.setting = "setting";
@@ -408,20 +424,34 @@ var DashboardComponent = /** @class */ (function () {
         this.order = null;
         this.product = null;
         this.customer = null;
+        this.showEditProduct = null;
+        this.showAddProduct = null;
     }; //when called, create value for setting and set rest to null
     DashboardComponent.prototype.getProduct = function (data) {
-        console.log("product here" + data['data']);
+        console.log("product here" + data);
         this.showEditProduct = data;
         this.home = null;
         this.order = null;
         this.product = null;
         this.customer = null;
         this.setting = null;
+        this.showAddProduct = null;
+        this.sendProductId = data[0];
     };
     DashboardComponent.prototype.goBack = function () {
         this.product = "product";
         this.home = null;
         this.showEditProduct = null;
+        this.order = null;
+        this.customer = null;
+        this.setting = null;
+        this.showAddProduct = null;
+    };
+    DashboardComponent.prototype.goAddProduct = function () {
+        this.showAddProduct = "show add";
+        this.home = null;
+        this.showEditProduct = null;
+        this.product = null;
         this.order = null;
         this.customer = null;
         this.setting = null;
@@ -437,6 +467,69 @@ var DashboardComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], DashboardComponent);
     return DashboardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/faq/faq.component.css":
+/*!***************************************!*\
+  !*** ./src/app/faq/faq.component.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/faq/faq.component.html":
+/*!****************************************!*\
+  !*** ./src/app/faq/faq.component.html ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  faq works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/faq/faq.component.ts":
+/*!**************************************!*\
+  !*** ./src/app/faq/faq.component.ts ***!
+  \**************************************/
+/*! exports provided: FaqComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FaqComponent", function() { return FaqComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FaqComponent = /** @class */ (function () {
+    function FaqComponent() {
+    }
+    FaqComponent.prototype.ngOnInit = function () {
+    };
+    FaqComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-faq',
+            template: __webpack_require__(/*! ./faq.component.html */ "./src/app/faq/faq.component.html"),
+            styles: [__webpack_require__(/*! ./faq.component.css */ "./src/app/faq/faq.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], FaqComponent);
+    return FaqComponent;
 }());
 
 
@@ -563,7 +656,10 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getOneProduct = function (product_id) {
         return this._http.get('/product/' + product_id);
     };
-    HttpService.prototype.postNewProduct = function (order_id, newproduct) {
+    HttpService.prototype.postNewProduct = function (newProduct) {
+        return this._http.post('/new', newProduct);
+    };
+    HttpService.prototype.postNewProductToOrder = function (order_id, newproduct) {
         return this._http.post('/order/' + order_id + '/product/new', newproduct);
     }; //this route will add a new product base on the order id through newProduct
     HttpService.prototype.postEditProduct = function (product_id, product) {
@@ -580,6 +676,9 @@ var HttpService = /** @class */ (function () {
     }; // this route will get all categorie through allCategories
     HttpService.prototype.getDeleteCategory = function (category_id) {
         return this._http.get('/category/' + category_id + '/delete');
+    };
+    HttpService.prototype.getOneCategory = function (category_id) {
+        return this._http.get('/category/' + category_id);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -601,7 +700,7 @@ var HttpService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "ul > li{\n    margin: 10px;\n}"
+module.exports = "ul > li{\n    margin: 10px;\n}\n#main-info-l{\n    padding-top:7rem;\n    padding-bottom:7rem;\n    text-align:center;\n}\n#main-info-r{\n    vertical-align:center;\n    padding-top:7rem;\n\n}\n#description{\n    text-align:center;\n    padding-top:5rem;\n    padding-bottom:5rem;\n}\n.col-top{\n    text-align:center;\n    margin-right:2rem;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-top-last{\n    text-align:center;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.icon{\n    width:5rem;\n    padding:1rem;\n}\n#how-it-works{\n    background-color: #F8f9fd;\n    text-align:center;\n    vertical-align:middle;\n    \n}\n.process-list-item{\n    vertical-align:top;\n}\n.hold{\n    color:#F8f9fd;\n}\n#table{\n    text-align:center;\n    display:table;\n    width:100%;\n}\n.navbar-expand-lg{\n    justify-content:center !important;\n\n}\n.nav-item{\n    padding:1rem;\n    margin:0 !important;\n}\n#bottom{\n    background-color: #6cc1fd\n}\n#bot-options{\n    text-align:center;\n    padding:5rem;\n}\n#bot-options h4{\n    padding-bottom:1rem;\n    color:white;\n}\n#bot-options p{\n    padding-bottom:1rem;\n    color: white;\n}\n#start-button{\n    background-color:white;\n    color:#157ffb;\n    margin-right:1rem;\n    border:white;\n}\n#footer{\n    text-align:center;\n    justify-content: center;\n    padding:5rem;\n}\n#map-col-1{\n    text-align:right;\n}\n#map-col-2{\n    text-align:left;\n}\n.col-3 input{\n    font-size:.75rem;\n    margin-right:.5rem;\n    \n}\n.col-3 button{\n    font-size:.75rem;\n    padding: .55rem .75rem;\n}\n#faq{\n    padding: .35rem 2.3rem;\n}"
 
 /***/ }),
 
@@ -612,7 +711,7 @@ module.exports = "ul > li{\n    margin: 10px;\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Landing</title>\n\n</head>\n<body>\n    \n        <div class=\"container-fluid\">\n            <nav class=\"navbar navbar-expand-lg navbar-light\"  style=\"background-color: #3D99E6;\">\n                <div class=\"d-flex flex-grow-1\">\n                    <span class=\"w-100 d-lg-none d-block\"><!-- hidden spacer to center brand on mobile --></span>\n                    <a class=\"navbar-brand d-none d-lg-inline-block text-white\" href=\"#\">\n                        Logo  <!-- Logo title goes here -->\n                    </a>\n                    <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n                        <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n                    </a>\n                    <div class=\"w-100 text-right\">\n                        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                            <span class=\"navbar-toggler-icon\"></span>  <!-- Mobile dynamic button -->\n                        </button>\n                    </div>\n                </div>\n                <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n                    <ul class=\"navbar-nav ml-auto flex-nowrap\">\n                        <li class=\"nav-item\">\n                            <a href=\"#\" class=\"nav-link m-2 menu-item nav-active text-white\">How it works</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a href=\"#\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a href=\"#\" class=\"nav-link m-2 menu-item text-white\">Get Cash Now</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <button class=\"btn btn-light\">Sign Up</button>\n                        </li>\n                        <li class=\"nav-item\">\n                            <button class=\"btn btn-primary\">Login</button>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n</body>\n</html>"
+module.exports = "<!DOCTYPE html>\n<html>\n<head>\n  <title>Landing</title>\n\n</head>\n<body>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <nav class=\"navbar navbar-expand-lg navbar-light w-100\"  style=\"background-color: #3D99E6;\">\n                <div class=\"d-flex flex-grow-1\">\n                    <span class=\"w-100 d-lg-none d-block\"><!-- hidden spacer to center brand on mobile --></span>\n                    <a class=\"navbar-brand d-none d-lg-inline-block text-white\" href=\"#\">\n                        Logo  <!-- Logo title goes here -->\n                    </a>\n                    <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n                        <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n                    </a>\n                    <div class=\"w-100 text-right\">\n                        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n                            <span class=\"navbar-toggler-icon\"></span>  <!-- Mobile dynamic button -->\n                        </button>\n                    </div>\n                </div>\n                <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n                    <ul class=\"navbar-nav ml-auto flex-nowrap\">\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How it works</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" >FAQs</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [ngx-scroll-to]=\"'#bottom'\">Get Cash Now</a>\n                        </li>\n                        <li class=\"nav-item\">\n                            <button class=\"btn btn-light\">Sign Up</button>\n                        </li>\n                        <li class=\"nav-item\">\n                            <button class=\"btn btn-primary\">Login</button>\n                        </li>\n                    </ul>\n                </div>\n            </nav>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-4 offset-md-2\" id=\"main-info-l\">\n                <h2>Sell your gadgets for cash!</h2>\n                <p>GadgetBank is the easiest and most trusted place <br> to sell your old phones, tablets, and smart devices <br> for cash</p>\n            </div>\n            <div class=\"col-6\" id=\"main-info-r\">\n                <p>Image goes here</p>\n            </div>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-2\"></div>\n            <div class=\"col-8\" id=\"description\">\n                <h3>Why GadgetBank?</h3>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam egestas ipsum urna. Maecenas nec suscipit urna.\n                    Mauris\n                    nec neque id ligula auctor consequat. Suspendisse vehicula nulla ut massa placerat iaculis. Nullam dignissim, quam\n                    at\n                    porttitor placerat, lorem ex dictum turpis, non eleifend orci nisl at magna. Duis eget sem ornare\n                </p>\n            </div>\n            <div class=\"col-2\"></div>\n            \n        </div>\n        <div class=\"row\" style=\"padding-right:2rem;padding-bottom:5rem;\">\n            <div class=\"col-2 offset-md-3 col-top shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Clarity</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n            <div class=\"col-2 col-top shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Trust</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n            <div class=\"col-2 col-top-last shadow\">\n                <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\" class=\"icon\">\n                <h4>Ease</h4>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n            </div>\n        </div>\n        <div class=\"row\" id=\"how-it-works\">\n            <div class=\"col\" style=\"padding:5rem;\">\n                <h5>How GadgetBank Works</h5>\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis augue lorem, ac sollicitudin odio.</p>\n                <div id=\"table\">\n                    <ul class=\"navbar navbar-expand-lg w-60\">\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Select <br>your device</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Receive <br>Instant Offer</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Free <br>Shipping Label</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Send <br>in Device</p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Processing<br><p class=\"hold\">placeholder</p></p>\n                        </li>\n                        <li class=\"nav-item d-none d-lg-inline-block process-list-item\">\n                            <img src=\"../../assets/icons/sharp_data_usage_black_36dp.png\">\n                            <p>Send Money<br><p class=\"hold\">placeholder</p></p>\n                        </li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n        <div class=\"row\" id=\"bottom\">\n            <div class=\"col\">\n                <div class=\"row\">\n                    <div class=\"col\" id=\"bot-options\">\n                        <h4>SELL YOUR DEVICE NOW</h4>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, <br>nec hendrerit dui pretium\n                            quis. Pellentesque scelerisque orci.</p>\n                        <a class=\"btn btn-primary\" role=\"button\" href=\"#\" id=\"start-button\">Get Started</a>\n                        <a class=\"btn btn-primary\" role=\"button\" href=\"#\" id=\"faq\">FAQ</a>\n                    </div>\n                    \n                </div>\n                <div class=\"row\" id=\"footer\">\n                    <div class=\"col-3\">\n                        <h6>About us</h6>\n                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit ullamcorper massa, nec hendrerit dui pretium\n                        quis. Pellentesque scelerisque orci.</p>\n                    </div>\n                    <div class=\"col-3\">\n                        <h6>Site Map</h6>\n                        <div class=\"row\">\n                            <div class=\"col-6\" id=\"map-col-1\">\n                                <a href=\"#\">Sign Up</a>\n                                <br>\n                                <a href=\"#\">Login</a>\n                            </div>\n                            <div class=\"col-6\" id=\"map-col-2\">\n                                <a href=\"#\">How it works</a>\n                                <br>\n                                <a href=\"#\">Get Cash Now</a>\n                                <br>\n                                <a href=\"#\">FAQs</a>\n                            </div>\n                        </div>   \n                    </div>\n                    <div class=\"col-3\">\n                        <h6>Newsletter</h6>\n                        <p>Subsribe to receive updates and access to exclusive deals, and more.</p>\n                        <input type=\"text\" class=\"form-control w-50 d-inline-block\" placeholder=\"Your email address\">\n                        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Subscribe</button>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div> \n\n</body>\n</html>"
 
 /***/ }),
 
@@ -657,6 +756,69 @@ var LandingComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/login/login.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/login/login.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.html":
+/*!********************************************!*\
+  !*** ./src/app/login/login.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  login works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginComponent = /** @class */ (function () {
+    function LoginComponent() {
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-login',
+            template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
+            styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LoginComponent);
+    return LoginComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/orders/orders.component.css":
 /*!*********************************************!*\
   !*** ./src/app/orders/orders.component.css ***!
@@ -675,7 +837,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  orders works!\n</p>\n"
+module.exports = "<p>\n  orders works!\n</p>\n<div class=\"btn-group btn-group-toggle active\" data-toggle=\"buttons\">\n            \n            <label class=\"btn btn-primary\"  data-toggle=\"button\">\n              <input type=\"radio\" value=\"64\" id=\"product.size1\" [(ngModel)]=\"product.size\" name=\"product.size\" autocomplete=\"off\" checked/>64GB</label>\n            <label class=\"btn btn-primary\">\n              <input type=\"radio\" value=\"240\" [(ngModel)]=\"product.size\" name=\"product.size\"  autocomplete=\"off\"/>240GB\n            </label>\n          </div>\n<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">\n  <label class=\"btn btn-secondary active\">\n    <input type=\"radio\" name=\"options\" id=\"option1\" autocomplete=\"off\" checked> Active\n  </label>\n  <label class=\"btn btn-secondary\">\n    <input type=\"radio\" name=\"options\" id=\"option2\" autocomplete=\"off\"> Radio\n  </label>\n  <label class=\"btn btn-secondary\">\n    <input type=\"radio\" name=\"options\" id=\"option3\" autocomplete=\"off\"> Radio\n  </label>\n</div>"
 
 /***/ }),
 
@@ -727,7 +889,7 @@ var OrdersComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#form-container{\n    background-color:white;\n    padding:4rem;\n}\n.add-input{\n    margin-bottom:1rem;\n}\n#wrapper{\n    padding-top:1rem;\n}\n.disabled-select{\n    color:black;\n}\n#submit-contain\n{\n    padding-top:2rem;\n}\n"
 
 /***/ }),
 
@@ -738,7 +900,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  product-add works!\n</p>\n<div class=\"container-fluid\">\n  <p>\n    <a [routerLink]=\"['/products']\">\n      <Products</a> </p> <h2>Add Product</h2>\n        <form>\n          <div class=\"row\">\n            <div class=\"col\">\n              <div class=\"row\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Title\">\n                <select class=\"form-control\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Manufacturer</p>\n                  </option>\n                </select>\n                <select class=\"form-control\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Device Type</p>\n                  </option>\n                </select>\n              </div>\n            </div>\n            <div class=\"col\">\n              <input type=\"file\" class=\"form-control-file\" />\n            </div>\n          </div>\n          <h2>Pricing</h2>\n          <div class=\"card text-center\">\n            <div class=\"card-header\">\n              <ul class=\"nav nav-tabs card-header-tabs\">\n                <li class=\"nav-item\">\n                  <label><input type=\"radio\" value=\"64\" id=\"six-four\" name=\"size_choice\" />64BG</label>\n\n                </li>\n                <li class=\"nav-item\">\n                  <label><input type=\"radio\" value=\"240\" id=\"two-four\" name=\"size_choice\" />240GB</label>\n                </li>\n              </ul>\n            </div>\n            <div class=\"card-body\">\n              <table class=\"table\">\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th>Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th>Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr>\n                    <td>\n                      <select class=\"form-control\">\n                        <option value=\"AT&T\">AT&T</option>\n                        <option value=\"T-mobile\">T-mobile</option>\n                        <option value=\"Verizon\">Verizon</option>\n                        <option value=\"Sprint\">Sprint</option>\n                        <option value=\"Unlocked\">Unlocked</option>\n                      </select>\n                    </td>\n                    <td><input type=\"radio\" value=\"Handset Only\" name=\"condition\"></td>\n                    <td><input type=\"radio\" value=\"Sealed\" name=\"condition\"></td>\n                    <td><input type=\"radio\" value=\"Open-Sealed\" name=\"condition\"></td>\n                    <td><input type=\"radio\" value=\"Good LCD\" name=\"condition\"></td>\n                    <td><input type=\"radio\" value=\"Cracked Front\" name=\"condition\"></td>\n                    <td><input type=\"radio\" value=\"Bad LCD/Copy\" name=\"condition\"> </td>\n                    <td><input type=\"radio\" value=\"Dead\" name=\"condition\"></td>\n                    <td><input type=\"radio\" value=\"Cracked Back\" name=\"minus\"></td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </div>\n          <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Save</button>\n        </form>\n</div>"
+module.exports = "\n<div class=\"container-fluid\" id=\"wrapper\">\n  <p>\n    <button class=\"btn-sm btn-primary\" (click)=\"goBackToProducts()\">\n      Back To Products</button> \n      <h2>Add Product</h2>\n      <div class=\"container-fluid shadow-sm rounded\" id=\"form-container\">\n        \n        <form class=\"postForm\" (submit)=\"addProduct(newProduct)\">\n          <div class=\"row\">\n            <div class=\"col-3 offset-md-1\">\n              <div class=\"row\">\n                <input type=\"text\" class=\"form-control add-input\" placeholder=\"Title\" name=\"newProduct.title\" [(ngModel)]=\"newProduct.title\">\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.manufacturer\" name=\"newProduct.manufacturer\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Manufacturer</p>\n                  </option>\n                  <option value=\"Apple\">Apple</option>\n                  <option value=\"SamSung\">SamSung</option>\n                </select>\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.category_id\" name=\"category_id\">\n                  <option value=\"Device Type\" disabled selected>\n                 Device Type\n                  </option>\n\n                  <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n                </select>\n                \n              </div>\n            </div>\n            <div class=\"col-6 offset-md-1\">\n              <input type=\"file\" class=\"form-control-file\"/>\n            </div>\n          </div>\n          <div class=\"row\" id=\"submit-contain\">\n            <div class=\"col-10\"></div>\n            <div class=\"col-2\">\n              <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Add Product</button>\n            </div>\n          </div>\n          \n          \n        </form>\n      </div>\n      \n</div>\n<script>\n  \n</script>"
 
 /***/ }),
 
@@ -772,10 +934,34 @@ var ProductAddComponent = /** @class */ (function () {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
+        this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
     }
     ProductAddComponent.prototype.ngOnInit = function () {
-        this.newProduct = { title: "", condition: "", manufacturer: "", size: "" };
+        this.newProduct = { title: "", condition: "", manufacturer: "", category_id: "Device Type" };
+        this.getAllCategories();
+        this.targetCategory = "";
     };
+    ProductAddComponent.prototype.getAllCategories = function () {
+        var _this = this;
+        this._httpService.getCategories().subscribe(function (data) {
+            _this.allCategories = data;
+        });
+    };
+    ProductAddComponent.prototype.goBackToProducts = function () {
+        this.backToProduct.emit("data");
+    };
+    ProductAddComponent.prototype.addProduct = function (product) {
+        var _this = this;
+        console.log(product);
+        this._httpService.postNewProduct(product).subscribe(function (data) {
+            console.log(data);
+            _this.goBackToProducts();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ProductAddComponent.prototype, "backToProduct", void 0);
     ProductAddComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-product-add',
@@ -800,7 +986,7 @@ var ProductAddComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".disabled-select{\n    color: #6C757D\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}"
+module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    font-size:.65rem;\n}\n.disabled-select{\n    color: #6C757D\n}\n.edit-top-box{\n    margin-bottom:2rem;\n}\n.card-body{\n    padding:0 !important;\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}\ninput[type=\"radio\"]:checked + label{\n    background-color:red !important;\n}\n#price_container{\n    padding-left: 0;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-3{\n    padding-left: 0;\n}\n#submit_button{\n    width:50%\n}\n#carrier-select{\n    \n    padding-right:0;\n}\n#price-header{\n    border:none !important;\n    background-color:white;\n}"
 
 /***/ }),
 
@@ -811,7 +997,7 @@ module.exports = ".disabled-select{\n    color: #6C757D\n}\nlabel {\n border:1px
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <a (click)=\"goBackToProducts()\">Products</a>\n  </p>\n  <h4>Edit Product</h4>\n  <form>\n    <div class=\"row edit-top-box\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"Title\">\n            <select class=\"form-control input-top\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >Manufacturer</p></option>\n            </select>\n            <select class=\"form-control input-top\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">Device Type</p></option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center\">\n      <div class=\"card-header\">\n        <ul class=\"nav nav-tabs card-header-tabs\">\n          <li class=\"nav-item\">\n            <label><input type=\"radio\" value=\"64\" id=\"six-four\" name=\"size_choice\"/>64BG</label>\n              \n          </li>\n          <li class=\"nav-item\">\n            <label><input type=\"radio\" value=\"240\" id=\"two-four\" name=\"size_choice\"/>240GB</label>\n          </li>\n        </ul>\n      </div>\n      <div class=\"card-body\">\n        <table class=\"table\">\n          <thead>\n            <tr>\n              <th>Carrier</th>\n              <th>Handset Only</th>\n              <th>Sealed</th>\n              <th>Open-Sealed</th>\n              <th>Good LCD</th>\n              <th>Cracked Front</th>\n              <th>Bad LCD/Copy</th>\n              <th>Dead</th>\n              <th>Cracked Back (Minus)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td>\n                <select class=\"form-control\">\n                  <option value=\"AT&T\">AT&T</option>\n                  <option value=\"T-mobile\">T-mobile</option>\n                  <option value=\"Verizon\">Verizon</option>\n                  <option value=\"Sprint\">Sprint</option>\n                  <option value=\"Unlocked\">Unlocked</option>\n                </select>\n              </td>\n              <td><input type=\"radio\" value=\"Handset Only\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Sealed\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Open-Sealed\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Good LCD\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Front\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Bad LCD/Copy\" name=\"condition\"> </td>\n              <td><input type=\"radio\" value=\"Dead\" name=\"condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Back\" name=\"minus\"></td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Save</button>\n  </form>\n</div>"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\">\n        <ul class=\"nav nav-tabs card-header-tabs\">\n          <div class=\"btn-group btn-group-toggle\" ngbRadioGroup name=\"product.size\" [(ngModel)]=\"product.size\">\n            <label ngbButtonLabel class=\"btn-primary\">\n              <input ngbButton type=\"radio\" value=\"64\">64GB\n            </label>\n            <label ngbButtonLabel class=\"btn-primary\">\n              <input ngbButton type=\"radio\" value=\"240\">240GB\n            </label>\n          </div>\n        </ul>\n      </div>\n      <div class=\"card-body\">\n        <table class=\"table\">\n          <thead>\n            <tr>\n              <th>Carrier</th>\n              <th>Handset Only</th>\n              <th>Sealed</th>\n              <th>Open-Sealed</th>\n              <th>Good LCD</th>\n              <th>Cracked Front</th>\n              <th>Bad LCD/Copy</th>\n              <th>Dead</th>\n              <th>Cracked Back (Minus)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td id=\"carrier-select\">\n                <select class=\"form-control\" [(ngModel)]=\"product.carrier\" name=\"product.carrier\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">{{getProduct.carrier}}</p>\n                  </option>\n                  <option value=\"AT&T\">AT&T</option>\n                  <option value=\"T-mobile\">T-mobile</option>\n                  <option value=\"Verizon\">Verizon</option>\n                  <option value=\"Sprint\">Sprint</option>\n                  <option value=\"Unlocked\">Unlocked</option>\n                </select>\n              </td>\n              <td><input type=\"radio\" value=\"Handset Only\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Sealed\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Open-Sealed\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Good LCD\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Front\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Bad LCD/Copy\" name=\"product.condition\" [(ngModel)]=\"product.condition\"> </td>\n              <td><input type=\"radio\" value=\"Dead\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Back\" name=\"product.has_cracked_back\" [(ngModel)]=\"product.has_cracked_back\"></td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Price\" [(ngModel)]=\"product.price\" name=\"product.price\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -848,15 +1034,70 @@ var ProductEditComponent = /** @class */ (function () {
         this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     ProductEditComponent.prototype.ngOnInit = function () {
-        this.editProduct = {};
+        this.product = { title: "", manufacturer: "", category_id: "", size: "", carrier: "", condition: "", has_cracked_back: "", price: "" };
+        //initialize model to be used on template to submit form
+        this.getAllCategories();
+        //on load call function to grab all current categories
+        this.getCategoryName();
     };
     ProductEditComponent.prototype.goBackToProducts = function () {
         this.backToProduct.emit("data");
+    };
+    //function called ot send output event to signal dashboard component to go to the products component
+    ProductEditComponent.prototype.getAllCategories = function () {
+        var _this = this;
+        this._httpService.getCategories().subscribe(function (data) {
+            _this.allCategories = data;
+        });
+    };
+    //function that calls service to communicated with backend to grab all categories
+    ProductEditComponent.prototype.editProduct = function (product_id, targetProduct) {
+        var _this = this;
+        console.log(this.product.has_cracked_back);
+        if (this.product.has_cracked_back == "Cracked Back") {
+            this.product.has_cracked_back = true;
+            this.product.condition += "/Cracked Back";
+        }
+        if (this.product.title == "") {
+            this.product.title = this.getProduct.title;
+        }
+        if (this.product.carrier == "") {
+            this.product.carrier = this.getProduct.carrier;
+        }
+        if (this.product.category_id == "") {
+            this.product.category_id = this.getProduct.category_id;
+        }
+        if (this.product.size == "") {
+            this.product.size = this.getProduct.size;
+        }
+        if (this.product.manufacturer == "") {
+            this.product.manufacturer = this.getProduct.manufacturer;
+        }
+        if (this.product.condition == "") {
+            this.product.condition = this.getProduct.condition;
+        }
+        targetProduct = this.product;
+        product_id = this.getProduct.id;
+        this._httpService.postEditProduct(product_id, targetProduct).subscribe(function (data) {
+            console.log(data);
+            _this.goBackToProducts();
+        });
+    };
+    // this function calls service to the update product back end route
+    ProductEditComponent.prototype.getCategoryName = function () {
+        var _this = this;
+        this._httpService.getOneCategory(this.getProduct.category_id).subscribe(function (data) {
+            _this.currentCategory = data[0]['name'];
+        });
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], ProductEditComponent.prototype, "backToProduct", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ProductEditComponent.prototype, "getProduct", void 0);
     ProductEditComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-product-edit',
@@ -892,7 +1133,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <button type=\"button\" class=\"btn btn-primary\" [routerLink]=\"['/new/product']\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition}}</td>\n          <td>{{p.size}}</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n            <!-- <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition}}</td>\n          <td>{{p.size}}</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n            <!-- <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -927,6 +1168,7 @@ var ProductsComponent = /** @class */ (function () {
         this._router = _router;
         this._route = _route;
         this.sendProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
+        this.sendAddProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
     }
     ProductsComponent.prototype.ngOnInit = function () {
         this.allProducts();
@@ -944,10 +1186,17 @@ var ProductsComponent = /** @class */ (function () {
             _this.sendProduct.emit(data);
         });
     };
+    ProductsComponent.prototype.showAdd = function () {
+        this.sendAddProduct.emit("show");
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], ProductsComponent.prototype, "sendProduct", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ProductsComponent.prototype, "sendAddProduct", void 0);
     ProductsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-products',
@@ -959,6 +1208,69 @@ var ProductsComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], ProductsComponent);
     return ProductsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/register/register.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/register/register.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  register works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/register/register.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/register/register.component.ts ***!
+  \************************************************/
+/*! exports provided: RegisterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterComponent", function() { return RegisterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var RegisterComponent = /** @class */ (function () {
+    function RegisterComponent() {
+    }
+    RegisterComponent.prototype.ngOnInit = function () {
+    };
+    RegisterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-register',
+            template: __webpack_require__(/*! ./register.component.html */ "./src/app/register/register.component.html"),
+            styles: [__webpack_require__(/*! ./register.component.css */ "./src/app/register/register.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], RegisterComponent);
+    return RegisterComponent;
 }());
 
 

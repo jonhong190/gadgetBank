@@ -1,4 +1,35 @@
 .row{
     margin-left:0 !important;
 }
+.icon{
+    width:1.25rem;
+}
 
+.icon{
+    font-size:1rem;
+}
+.side-text{
+    font-size: 1rem;
+}
+.nav-item{
+    padding:1.25rem;
+    display:block;
+}
+#search-container{
+    height: 4rem;
+}
+#searchbar{
+    border-radius:0;
+    background-image: url(../../assets/icons/baseline_search_black_18dp.png);
+    background-repeat:no-repeat;
+    background-size: 1.25rem;
+    background-position-y:center;
+    background-position-x:.5rem;
+    padding-left:2rem;
+
+
+}   
+#dashboard-container{
+    padding-left:0 !important;
+    background-color:#F8F9FA;
+}

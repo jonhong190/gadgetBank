@@ -21,9 +21,17 @@ module.exports = (sequelize, type)=>{
             type:type.STRING,
             notEmpty: true
         },
+        carrier:{
+            type:type.STRING,
+            notEmpty:true
+        },
         size:{
             type:type.INTEGER,
             notEmpty: true
+        },
+        has_craked_back: {
+            type: type.BOOLEAN,
+            default:false,
         },
         category_id:type.INTEGER
     })

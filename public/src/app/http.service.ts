@@ -37,7 +37,10 @@ export class HttpService {
   getOneProduct(product_id){
     return this._http.get('/product/'+product_id);
   }
-  postNewProduct(order_id, newproduct) {
+  postNewProduct(newProduct){
+    return this._http.post('/new',newProduct);
+  }
+  postNewProductToOrder(order_id, newproduct) {
     return this._http.post('/order/' + order_id + '/product/new', newproduct);
   } //this route will add a new product base on the order id through newProduct
   postEditProduct(product_id, product) {
@@ -54,5 +57,8 @@ export class HttpService {
   } // this route will get all categorie through allCategories
   getDeleteCategory(category_id){
     return this._http.get('/category/'+category_id+'/delete')
+  }
+  getOneCategory(category_id){
+    return this._http.get('/category/'+category_id)
   }
 }

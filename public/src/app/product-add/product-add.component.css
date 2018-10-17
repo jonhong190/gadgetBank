@@ -1,0 +1,17 @@
+#form-container{
+    background-color:white;
+    padding:4rem;
+}
+.add-input{
+    margin-bottom:1rem;
+}
+#wrapper{
+    padding-top:1rem;
+}
+.disabled-select{
+    color:black;
+}
+#submit-contain
+{
+    padding-top:2rem;
+}

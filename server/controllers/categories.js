@@ -17,6 +17,15 @@ module.exports = {
     },
     deleteCategory: (req,res)=>{
         Category.destroy({where:{id:req.params.category_id}});
+    },
+    getCategory: (req,res)=>{
+        Category.findAll({where:{id:req.params.category_id}}).then(category=>{
+            if(category.length==0){
+                res.json({errors:"No category exists"})
+            } else {
+                res.json(category);
+            }
+        })
     }
 
 }

@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductsComponent implements OnInit {
   products:any;
   @Output() sendProduct = new EventEmitter;
+  @Output() sendAddProduct= new EventEmitter;
   constructor(
     private _httpService: HttpService,
     private _router: Router,
@@ -32,6 +33,9 @@ export class ProductsComponent implements OnInit {
     this._httpService.getOneProduct(product_id).subscribe(data => {
       this.sendProduct.emit(data);
     })
+  }
+  showAdd(){
+    this.sendAddProduct.emit("show");
   }
 
 

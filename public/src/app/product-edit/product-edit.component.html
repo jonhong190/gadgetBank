@@ -1,19 +1,22 @@
 <div class="container-fluid">
   <p>
-    <a (click)="goBackToProducts()">Products</a>
+    <button class="btn-sm btn-primary"  (click)="goBackToProducts()">Products</button>
   </p>
   <h4>Edit Product</h4>
-  <form>
-    <div class="row edit-top-box">
+  <form class="postForm" (submit)="editProduct(product)">
+    <div class="row edit-top-box shadow-sm rounded">
       
         <div class="col-3 offset-md-1 h-30">
           <div class="row">
-            <input type="text" class="form-control input-top" placeholder="Title">
-            <select class="form-control input-top">
-              <option value="" disabled selected><p class="disabled-select" >Manufacturer</p></option>
+            <input type="text" class="form-control input-top" placeholder="{{getProduct.title}}" [(ngModel)]="product.title" name="title">
+            <select class="form-control input-top" [(ngModel)]="product.manufacturer" name="manufacturer">
+              <option value="" disabled selected><p class="disabled-select" >{{getProduct.manufacturer}}</p></option>
+              <option value="Apple">Apple</option>
+              <option value="SamSung">SamSung</option>
             </select>
-            <select class="form-control input-top">
-              <option value="" disabled selected><p class="disabled-select">Device Type</p></option>
+            <select class="form-control input-top" [(ngModel)]="product.category_id" name="category_id">
+              <option value="" disabled selected><p class="disabled-select">{{currentCategory}}</p></option>
+              <option *ngFor="let c of allCategories" value="{{c.id}}">{{c.name}}</option>
             </select>
           </div>
         </div>
@@ -22,16 +25,17 @@
         </div>
       </div>
     <h4>Pricing</h4>
-    <div class="row card text-center">
-      <div class="card-header">
+    <div class="row card text-center shadow-sm">
+      <div class="card-header" id="price-header">
         <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <label><input type="radio" value="64" id="six-four" name="size_choice"/>64BG</label>
-              
-          </li>
-          <li class="nav-item">
-            <label><input type="radio" value="240" id="two-four" name="size_choice"/>240GB</label>
-          </li>
+          <div class="btn-group btn-group-toggle" ngbRadioGroup name="product.size" [(ngModel)]="product.size">
+            <label ngbButtonLabel class="btn-primary">
+              <input ngbButton type="radio" value="64">64GB
+            </label>
+            <label ngbButtonLabel class="btn-primary">
+              <input ngbButton type="radio" value="240">240GB
+            </label>
+          </div>
         </ul>
       </div>
       <div class="card-body">
@@ -51,8 +55,11 @@
           </thead>
           <tbody>
             <tr>
-              <td>
-                <select class="form-control">
+              <td id="carrier-select">
+                <select class="form-control" [(ngModel)]="product.carrier" name="product.carrier">
+                  <option value="" disabled selected>
+                    <p class="disabled-select">{{getProduct.carrier}}</p>
+                  </option>
                   <option value="AT&T">AT&T</option>
                   <option value="T-mobile">T-mobile</option>
                   <option value="Verizon">Verizon</option>
@@ -60,19 +67,28 @@
                   <option value="Unlocked">Unlocked</option>
                 </select>
               </td>
-              <td><input type="radio" value="Handset Only" name="condition"></td>
-              <td><input type="radio" value="Sealed" name="condition"></td>
-              <td><input type="radio" value="Open-Sealed" name="condition"></td>
-              <td><input type="radio" value="Good LCD" name="condition"></td>
-              <td><input type="radio" value="Cracked Front" name="condition"></td>
-              <td><input type="radio" value="Bad LCD/Copy" name="condition"> </td>
-              <td><input type="radio" value="Dead" name="condition"></td>
-              <td><input type="radio" value="Cracked Back" name="minus"></td>
+              <td><input type="radio" value="Handset Only" name="product.condition" [(ngModel)]="product.condition"></td>
+              <td><input type="radio" value="Sealed" name="product.condition" [(ngModel)]="product.condition"></td>
+              <td><input type="radio" value="Open-Sealed" name="product.condition" [(ngModel)]="product.condition"></td>
+              <td><input type="radio" value="Good LCD" name="product.condition" [(ngModel)]="product.condition"></td>
+              <td><input type="radio" value="Cracked Front" name="product.condition" [(ngModel)]="product.condition"></td>
+              <td><input type="radio" value="Bad LCD/Copy" name="product.condition" [(ngModel)]="product.condition"> </td>
+              <td><input type="radio" value="Dead" name="product.condition" [(ngModel)]="product.condition"></td>
+              <td><input type="radio" value="Cracked Back" name="product.has_cracked_back" [(ngModel)]="product.has_cracked_back"></td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary" value="submit">Save</button>
+    
+    <div class="row" id="price_container">
+      <div class="col-3">
+        <input type="text" class="form-control" placeholder="Price" [(ngModel)]="product.price" name="product.price">
+      </div>
+      <div class="col-6"></div>
+      <div class="col-3" style="text-align:right">
+        <button id="submit_button" type="submit" class="btn btn-primary" value="submit">Save</button>
+      </div>
+    </div> 
   </form>
 </div>

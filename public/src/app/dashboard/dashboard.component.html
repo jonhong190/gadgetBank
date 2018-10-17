@@ -1,11 +1,12 @@
-<div class="container-fluid" style="background-color:#F8F9FA ">
+<div class="container-fluid" id="dashboard-container">
 
-  <div class="row">
+  <div class="row" id="search-container">
       <nav class="navbar navbar-light  bg-light flex-md-nowrap col" style=" padding:0 !important">
-        <div class="nav-brand col-2 h-100" style="background-color: #3A8CEB">
+        <div class="col-2 h-100" style="background-color: #3A8CEB">
           <a href="#">Logo</a>
         </div>
-        <input class="form-control form-control-light w-100 h-100 shadow-sm " type="text" placeholder="Search" style="border-radius:0;"/>
+        
+        <input class="form-control form-control-light w-100 h-100 shadow-sm " type="text" placeholder="Search" id="searchbar" style="border-radius:0;"/>
         <ul class="navbar-nav px-3">
           <li class="nav-item text-nowrap">
             <a class="nav-link" href="#">Sign Out</a>
@@ -14,35 +15,41 @@
       </nav>
   </div>
 
-  <div class="row" style=" padding-top:0">
-    <nav class="navbar-brand col-2 d-none d-md-block bg-light sidebar" style="margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0">
-      <div>
-        <ul class="nav flex-column" style="background-color:white; height: 100vh">
+  <div class="row" style="padding-top:0; height:100vh;">
+    <nav class="col-md-2 d-none d-md-block bg-white sidebar" style="margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0; background-color:white;">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column" style="background-color:white;">
           <li class="nav-item">
-            <a (click)="goHome()">Home</a>
+            <img src="../../assets/icons/home-4x copy.png" class="icon">
+            <a class="sidebar-link" (click)="goHome()" class="side-text"> Home</a>
           </li>
           <li class="nav-item">
-            <a (click)="goOrders()">Orders</a>
+            <img src="../../assets/icons/bar-chart-4x.png" class="icon">
+            <a class="sidebar-link" (click)="goOrders()" class="side-text"> Orders</a>
           </li>
           <li class="nav-item">
-            <a (click)="goProduct()">Products</a>
+            <img src="../../assets/icons/product-2x.png" class="icon">
+            <a class="sidebar-link" (click)="goProduct()" class="side-text"> Products</a>
           </li>
           <li class="nav-item">
-            <a (click)="goCustomers()">Customers</a>
+            <img src="../../assets/icons/person-4x.png" class="icon">
+            <a class="sidebar-link" (click)="goCustomers()" class="side-text"> Customers</a>
           </li>
           <li class="nav-item">
-            <a (click)="goSetting()">Settings</a>
+            <img src="../../assets/icons/baseline_settings_black_18dp.png" class="icon">
+            <a class="sidebar-link" (click)="goSetting()" class="side-text"> Settings</a>
           </li>
         </ul>
       </div>
     </nav>
-    <main role="main" class=" col-9" style="height:100vh; background-color: #F8F9FA; margin-left:.41rem; ">
+    <main role="main" class=" col-9" style=" background-color: #F8F9FA; margin-left:.41rem; ">
       <app-home *ngIf="home"></app-home>
-      <app-products *ngIf="product" (sendProduct)="getProduct($event)"></app-products>
+      <app-products *ngIf="product" (sendProduct)="getProduct($event)" (sendAddProduct)="goAddProduct($event)"></app-products>
       <app-orders *ngIf="order"></app-orders>
       <app-customers *ngIf="customer"></app-customers>
       <app-settings *ngIf="setting"></app-settings>
-      <app-product-edit *ngIf="showEditProduct" (backToProduct)="goBack($event)"></app-product-edit>
+      <app-product-edit *ngIf="showEditProduct" (backToProduct)="goBack($event)" [getProduct]="sendProductId"></app-product-edit>
+      <app-product-add *ngIf="showAddProduct" (backToProduct)="goBack($event)" ></app-product-add>
     </main>
   </div>
 </div>
