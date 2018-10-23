@@ -6,11 +6,11 @@
     <div class="col-3 offset-md-1" id="login-container">
       <h2>Log In</h2>
       <small>Please enter email and password for your GadgetBank account below</small>
-      <form>
+      <form class="postForm" (submit)="loginUser(logUser)">
         <label>Email address</label>
-        <input type="text" class="form-control" placeholder="Ex. JohnSmith@yahoo.com">
+        <input type="text" class="form-control" placeholder="Ex. JohnSmith@yahoo.com" [(ngModel)]="logUser.email" name="logUser.email">
         <label>Password</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" [(ngModel)]="logUser.password" name="logUser.password">
         <button type="submit" value="submit" class="btn btn-primary">Log In</button>
       </form>
     </div>
@@ -30,6 +30,8 @@
         <label>First name</label>
         <input type="text" class="form-control">
         <label>Last name</label>
+        <input type="text" class="form-control">
+        <label>Username</label>
         <input type="text" class="form-control">
         <button type="submit" value="submit" class="btn btn-primary">Create Account</button>
       </form>

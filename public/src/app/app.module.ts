@@ -20,6 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { FaqComponent } from './faq/faq.component';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { ProductSelectComponent } from './product-select/product-select.component';
+import { FileDropModule } from 'ngx-file-drop';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 
 
 @NgModule({
@@ -37,7 +40,9 @@ import { ProductSelectComponent } from './product-select/product-select.componen
     RegisterComponent,
     LoginComponent,
     FaqComponent,
-    ProductSelectComponent
+    ProductSelectComponent,
+    FileSelectDirective,
+    CustomerPortalComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { ProductSelectComponent } from './product-select/product-select.componen
     HttpClientModule,
     FormsModule,
     NgbModule,
+    FileDropModule,
     NgbModule.forRoot(),
     ScrollToModule.forRoot()
   ],

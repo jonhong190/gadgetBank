@@ -16,8 +16,8 @@ export class HttpService {
   postNewCustomer(newcustomer) {
     return this._http.post('customer/new', newcustomer);
   } //this route will create a new user through createUser
-  getLoginCustomer(username) {
-    return this._http.get('customer/login/'+ username);
+  getLoginCustomer(email) {
+    return this._http.get('customer/login/'+ email);
   } //this route logs in the user through loginUser
   getOrders(id) {
     return this._http.get('/customer/' + id + 'orders');
@@ -34,6 +34,9 @@ export class HttpService {
   getAllProducts(){
     return this._http.get('/allProducts');
   }
+  getAllProductsByTitle(title){
+    return this._http.get('/allProducts/'+title);
+  }
   getOneProduct(product_id){
     return this._http.get('/product/'+product_id);
   }
@@ -44,7 +47,7 @@ export class HttpService {
     return this._http.post('/order/' + order_id + '/product/new', newproduct);
   } //this route will add a new product base on the order id through newProduct
   postEditProduct(product_id, product) {
-    return this._http.post('/product/edit/'+product_id, product);
+    return this._http.post('/product/edit/'+product_id + '/' , product);
   } //this route should allow the user to edit the product info through editProduct
   getDeleteProduct(product_id) {
     return this._http.get('/product/' + product_id + '/delete');
@@ -61,4 +64,48 @@ export class HttpService {
   getOneCategory(category_id){
     return this._http.get('/category/'+category_id)
   }
+  getAllConditions(){
+    return this._http.get('/conditions');
+  }
+  getOneCondition(condition_id){
+    return this._http.get('/condition/'+condition_id);
+  }
+  getAllCarriers(){
+    return this._http.get('/carriers');
+  }
+  postNewCarrier(carrier){
+    return this._http.post('/new/carrier', carrier);
+  }
+  getOneCarrier(carrier_id){
+    return this._http.get('/carrier/'+carrier_id)
+  }
+  getAllSizes(){
+    return this._http.get('/sizes');
+  }
+  postNewSize(size){
+    return this._http.post('/size/new',size);
+  }
+  getOneSize(size_id){
+    return this._http.get('/size/'+size_id);
+  }
+  getAllPrices(){
+    return this._http.get('/prices');
+  }
+  postNewPrice(price, product_id){
+    return this._http.post('/price/new/'+product_id, price);
+  }
+  getPriceForProduct(product_id){
+    return this._http.get('/price/'+product_id);
+  }
+  getPriceByProductAndSize(product_id, size_id){
+    return this._http.get('/price/'+product_id+'/'+size_id);
+  }
+  getPriceBySizeAndCarrier(product_id,size_id){
+    return this._http.get('/prices/group/'+product_id+'/'+size_id);
+  }
+  postEditPrice(price){
+    return this._http.post('/price/edit', price);
+  }
+  
+
 }

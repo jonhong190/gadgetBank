@@ -12,11 +12,11 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of products">
+        <tr *ngFor="let p of products; let c of condition_names; index as i">
           <td>{{p.title}}</td>
           <td>{{p.manufacturer}}</td>
-          <td>{{p.condition}}</td>
-          <td>{{p.size}}</td>
+          <td>{{p.condition_id}}</td>
+          <td>{{p.size_id}}GB</td>
           <td>{{p.price}}</td>
           <td>
             <button (click)="showEdit(p.id)">Edit</button>

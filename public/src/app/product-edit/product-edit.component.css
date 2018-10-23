@@ -60,3 +60,6 @@ input[type="radio"]:checked + label{
     border:none !important;
     background-color:white;
 }
+th{
+    text-align:center;
+}

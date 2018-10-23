@@ -10,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   products:any;
+  condition_names:any=[];
   @Output() sendProduct = new EventEmitter;
   @Output() sendAddProduct= new EventEmitter;
   constructor(
@@ -25,6 +26,19 @@ export class ProductsComponent implements OnInit {
 
   allProducts(){
     this._httpService.getAllProducts().subscribe((data)=>{
+      console.log(data)
+      
+      for(let i in data){
+        this._httpService.getOneCondition(data[i]['condition_id']).subscribe(condition=>{ 
+          data[i]['condition_id']=condition[0]['description']
+        })
+      }
+      for(let i in data){
+        this._httpService.getOneSize(data[i]['size_id']).subscribe(size=>{
+          data[i]['size_id']= size[0]['value'];
+        })
+      }
+
       this.products = data;
       console.log(data);
     })

@@ -5,6 +5,7 @@ import { LandingComponent } from './landing/landing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ProductSelectComponent } from './product-select/product-select.component';
+import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 
 const routes: Routes = [
   { path: 'landing', component: LandingComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'create-account', component: LoginComponent},
   { path: 'trade-in', component: ProductSelectComponent},
+  { path: 'portal', component: CustomerPortalComponent},
   { path: '**', pathMatch: 'full', redirectTo: '/landing' },
   
 

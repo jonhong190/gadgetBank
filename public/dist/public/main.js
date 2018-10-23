@@ -40,12 +40,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./product-select/product-select.component */ "./src/app/product-select/product-select.component.ts");
+/* harmony import */ var _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customer-portal/customer-portal.component */ "./src/app/customer-portal/customer-portal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -60,6 +62,7 @@ var routes = [
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
     { path: 'create-account', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'trade-in', component: _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_6__["ProductSelectComponent"] },
+    { path: 'portal', component: _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_7__["CustomerPortalComponent"] },
     { path: '**', pathMatch: 'full', redirectTo: '/landing' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -177,12 +180,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./faq/faq.component */ "./src/app/faq/faq.component.ts");
 /* harmony import */ var _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @nicky-lenaers/ngx-scroll-to */ "./node_modules/@nicky-lenaers/ngx-scroll-to/fesm5/nicky-lenaers-ngx-scroll-to.js");
 /* harmony import */ var _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./product-select/product-select.component */ "./src/app/product-select/product-select.component.ts");
+/* harmony import */ var ngx_file_drop__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-file-drop */ "./node_modules/ngx-file-drop/esm5/ngx-file-drop.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./customer-portal/customer-portal.component */ "./src/app/customer-portal/customer-portal.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -224,7 +234,9 @@ var AppModule = /** @class */ (function () {
                 _register_register_component__WEBPACK_IMPORTED_MODULE_17__["RegisterComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"],
                 _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__["FaqComponent"],
-                _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__["ProductSelectComponent"]
+                _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__["ProductSelectComponent"],
+                ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__["FileSelectDirective"],
+                _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_24__["CustomerPortalComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -232,6 +244,7 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"],
+                ngx_file_drop__WEBPACK_IMPORTED_MODULE_22__["FileDropModule"],
                 _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModule"].forRoot(),
                 _nicky_lenaers_ngx_scroll_to__WEBPACK_IMPORTED_MODULE_20__["ScrollToModule"].forRoot()
             ],
@@ -240,6 +253,69 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/customer-portal/customer-portal.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/customer-portal/customer-portal.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/customer-portal/customer-portal.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/customer-portal/customer-portal.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  customer-portal works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/customer-portal/customer-portal.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/customer-portal/customer-portal.component.ts ***!
+  \**************************************************************/
+/*! exports provided: CustomerPortalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomerPortalComponent", function() { return CustomerPortalComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CustomerPortalComponent = /** @class */ (function () {
+    function CustomerPortalComponent() {
+    }
+    CustomerPortalComponent.prototype.ngOnInit = function () {
+    };
+    CustomerPortalComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-customer-portal',
+            template: __webpack_require__(/*! ./customer-portal.component.html */ "./src/app/customer-portal/customer-portal.component.html"),
+            styles: [__webpack_require__(/*! ./customer-portal.component.css */ "./src/app/customer-portal/customer-portal.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CustomerPortalComponent);
+    return CustomerPortalComponent;
 }());
 
 
@@ -641,8 +717,8 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.postNewCustomer = function (newcustomer) {
         return this._http.post('customer/new', newcustomer);
     }; //this route will create a new user through createUser
-    HttpService.prototype.getLoginCustomer = function (username) {
-        return this._http.get('customer/login/' + username);
+    HttpService.prototype.getLoginCustomer = function (email) {
+        return this._http.get('customer/login/' + email);
     }; //this route logs in the user through loginUser
     HttpService.prototype.getOrders = function (id) {
         return this._http.get('/customer/' + id + 'orders');
@@ -659,6 +735,9 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getAllProducts = function () {
         return this._http.get('/allProducts');
     };
+    HttpService.prototype.getAllProductsByTitle = function (title) {
+        return this._http.get('/allProducts/' + title);
+    };
     HttpService.prototype.getOneProduct = function (product_id) {
         return this._http.get('/product/' + product_id);
     };
@@ -669,7 +748,7 @@ var HttpService = /** @class */ (function () {
         return this._http.post('/order/' + order_id + '/product/new', newproduct);
     }; //this route will add a new product base on the order id through newProduct
     HttpService.prototype.postEditProduct = function (product_id, product) {
-        return this._http.post('/product/edit/' + product_id, product);
+        return this._http.post('/product/edit/' + product_id + '/', product);
     }; //this route should allow the user to edit the product info through editProduct
     HttpService.prototype.getDeleteProduct = function (product_id) {
         return this._http.get('/product/' + product_id + '/delete');
@@ -685,6 +764,48 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.getOneCategory = function (category_id) {
         return this._http.get('/category/' + category_id);
+    };
+    HttpService.prototype.getAllConditions = function () {
+        return this._http.get('/conditions');
+    };
+    HttpService.prototype.getOneCondition = function (condition_id) {
+        return this._http.get('/condition/' + condition_id);
+    };
+    HttpService.prototype.getAllCarriers = function () {
+        return this._http.get('/carriers');
+    };
+    HttpService.prototype.postNewCarrier = function (carrier) {
+        return this._http.post('/new/carrier', carrier);
+    };
+    HttpService.prototype.getOneCarrier = function (carrier_id) {
+        return this._http.get('/carrier/' + carrier_id);
+    };
+    HttpService.prototype.getAllSizes = function () {
+        return this._http.get('/sizes');
+    };
+    HttpService.prototype.postNewSize = function (size) {
+        return this._http.post('/size/new', size);
+    };
+    HttpService.prototype.getOneSize = function (size_id) {
+        return this._http.get('/size/' + size_id);
+    };
+    HttpService.prototype.getAllPrices = function () {
+        return this._http.get('/prices');
+    };
+    HttpService.prototype.postNewPrice = function (price, product_id) {
+        return this._http.post('/price/new/' + product_id, price);
+    };
+    HttpService.prototype.getPriceForProduct = function (product_id) {
+        return this._http.get('/price/' + product_id);
+    };
+    HttpService.prototype.getPriceByProductAndSize = function (product_id, size_id) {
+        return this._http.get('/price/' + product_id + '/' + size_id);
+    };
+    HttpService.prototype.getPriceBySizeAndCarrier = function (product_id, size_id) {
+        return this._http.get('/prices/group/' + product_id + '/' + size_id);
+    };
+    HttpService.prototype.postEditPrice = function (price) {
+        return this._http.post('/price/edit', price);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -780,7 +901,7 @@ module.exports = "#login-container{\n    padding:2rem;\n}\n#login-container form
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form>\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\">\n        <label>Password</label>\n        <input type=\"text\" class=\"form-control\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Log In</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form>\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\">\n        <label>Confirm email address</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Password</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>Password confirmation</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>First name</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Last name</label>\n        <input type=\"text\" class=\"form-control\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Create Account</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
+module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form class=\"postForm\" (submit)=\"loginUser(logUser)\">\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\" [(ngModel)]=\"logUser.email\" name=\"logUser.email\">\n        <label>Password</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"logUser.password\" name=\"logUser.password\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Log In</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form>\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\">\n        <label>Confirm email address</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Password</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>Password confirmation</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>First name</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Last name</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Username</label>\n        <input type=\"text\" class=\"form-control\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Create Account</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -795,6 +916,8 @@ module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -805,10 +928,40 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(_httpService, _route, _router) {
+        this._httpService = _httpService;
+        this._route = _route;
+        this._router = _router;
     }
     LoginComponent.prototype.ngOnInit = function () {
+        this.newUser = { first_name: "", last_name: "", email: "", password: "", username: "", admin: false },
+            this.logUser = { email: "", password: "" };
+    };
+    LoginComponent.prototype.loginUser = function (user) {
+        var _this = this;
+        user = this.logUser;
+        this._httpService.getLoginCustomer(user.email).subscribe(function (data) {
+            if (data[0].length == 0) {
+                console.log("no user found");
+                _this._router.navigate(['/create-account']);
+            }
+            if (data[0].password != user.password) {
+                console.log("wrong password");
+                _this._router.navigate(['/create-account']);
+            }
+            if (data[0].admin == true) {
+                _this._router.navigate(['/dashboard']);
+            }
+            else {
+                _this._router.navigate(['/portal']);
+            }
+        });
+    };
+    LoginComponent.prototype.registerUser = function (user) {
+        user = this.newUser;
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -816,7 +969,9 @@ var LoginComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./login.component.html */ "./src/app/login/login.component.html"),
             styles: [__webpack_require__(/*! ./login.component.css */ "./src/app/login/login.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -906,7 +1061,7 @@ module.exports = "#form-container{\n    background-color:white;\n    padding:4re
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container-fluid\" id=\"wrapper\">\n  <p>\n    <button class=\"btn-sm btn-primary\" (click)=\"goBackToProducts()\">\n      Back To Products</button> \n      <h2>Add Product</h2>\n      <div class=\"container-fluid shadow-sm rounded\" id=\"form-container\">\n        \n        <form class=\"postForm\" (submit)=\"addProduct(newProduct)\">\n          <div class=\"row\">\n            <div class=\"col-3 offset-md-1\">\n              <div class=\"row\">\n                <input type=\"text\" class=\"form-control add-input\" placeholder=\"Title\" name=\"newProduct.title\" [(ngModel)]=\"newProduct.title\">\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.manufacturer\" name=\"newProduct.manufacturer\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Manufacturer</p>\n                  </option>\n                  <option value=\"Apple\">Apple</option>\n                  <option value=\"SamSung\">SamSung</option>\n                </select>\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.category_id\" name=\"category_id\">\n                  <option value=\"Device Type\" disabled selected>\n                 Device Type\n                  </option>\n\n                  <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n                </select>\n                \n              </div>\n            </div>\n            <div class=\"col-6 offset-md-1\">\n              <input type=\"file\" class=\"form-control-file\"/>\n            </div>\n          </div>\n          <div class=\"row\" id=\"submit-contain\">\n            <div class=\"col-10\"></div>\n            <div class=\"col-2\">\n              <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Add Product</button>\n            </div>\n          </div>\n          \n          \n        </form>\n      </div>\n      \n</div>\n<script>\n  \n</script>"
+module.exports = "\n<div class=\"container-fluid\" id=\"wrapper\">\n  <p>\n    <button class=\"btn-sm btn-primary\" (click)=\"goBackToProducts()\">\n      Back To Products</button> \n      <h2>Add Product</h2>\n      <div class=\"container-fluid shadow-sm rounded\" id=\"form-container\">\n        \n        <form class=\"postForm\" (submit)=\"addProduct(newProduct)\">\n          <div class=\"row\">\n            <div class=\"col-3 offset-md-1\">\n              <div class=\"row\">\n                <input type=\"text\" class=\"form-control add-input\" placeholder=\"Title\" name=\"newProduct.title\" [(ngModel)]=\"newProduct.title\">\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.manufacturer\" name=\"newProduct.manufacturer\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Manufacturer</p>\n                  </option>\n                  <option value=\"Apple\">Apple</option>\n                  <option value=\"SamSung\">SamSung</option>\n                </select>\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.category_id\" name=\"category_id\">\n                  <option value=\"Device Type\" disabled selected>\n                 Device Type\n                  </option>\n\n                  <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n                </select>\n                \n              </div>\n            </div>\n            <div class=\"col-6 offset-md-1\">\n              <input type=\"file\" class=\"form-control-file\" (change)=\"fileEvent($event)\" name=\"imageUpload\"/>\n            </div>\n          </div>\n          <div class=\"row\" id=\"submit-contain\">\n            <div class=\"col-10\"></div>\n            <div class=\"col-2\">\n              <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Add Product</button>\n            </div>\n          </div>\n          \n          \n        </form>\n      </div>\n      \n</div>\n<script>\n  \n</script>"
 
 /***/ }),
 
@@ -923,6 +1078,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -935,15 +1091,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ProductAddComponent = /** @class */ (function () {
-    function ProductAddComponent(_httpService, _router, _route) {
+    function ProductAddComponent(_httpService, _router, _route, http) {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
+        this.http = http;
         this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
     }
     ProductAddComponent.prototype.ngOnInit = function () {
-        this.newProduct = { title: "", condition: "", manufacturer: "", category_id: "Device Type" };
+        this.newProduct = { title: "", manufacturer: "", category_id: "Device Type" };
         //initialize our model used in the template form
         this.getAllCategories();
         this.targetCategory = "";
@@ -978,7 +1136,8 @@ var ProductAddComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
     ], ProductAddComponent);
     return ProductAddComponent;
 }());
@@ -994,7 +1153,7 @@ var ProductAddComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    font-size:.65rem;\n}\n.disabled-select{\n    color: #6C757D\n}\n.edit-top-box{\n    margin-bottom:2rem;\n}\n.card-body{\n    padding:0 !important;\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}\ninput[type=\"radio\"]:checked + label{\n    background-color:red !important;\n}\n#price_container{\n    padding-left: 0;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-3{\n    padding-left: 0;\n}\n#submit_button{\n    width:50%\n}\n#carrier-select{\n    \n    padding-right:0;\n}\n#price-header{\n    border:none !important;\n    background-color:white;\n}"
+module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    font-size:.65rem;\n}\n.disabled-select{\n    color: #6C757D\n}\n.edit-top-box{\n    margin-bottom:2rem;\n}\n.card-body{\n    padding:0 !important;\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}\ninput[type=\"radio\"]:checked + label{\n    background-color:red !important;\n}\n#price_container{\n    padding-left: 0;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-3{\n    padding-left: 0;\n}\n#submit_button{\n    width:50%\n}\n#carrier-select{\n    \n    padding-right:0;\n}\n#price-header{\n    border:none !important;\n    background-color:white;\n}\nth{\n    text-align:center;\n}"
 
 /***/ }),
 
@@ -1005,7 +1164,7 @@ module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    fon
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\">\n        <ul class=\"nav nav-tabs card-header-tabs\">\n          <div class=\"btn-group btn-group-toggle\" ngbRadioGroup name=\"product.size\" [(ngModel)]=\"product.size\">\n            <label ngbButtonLabel class=\"btn-primary\">\n              <input ngbButton type=\"radio\" value=\"64\">64GB\n            </label>\n            <label ngbButtonLabel class=\"btn-primary\">\n              <input ngbButton type=\"radio\" value=\"240\">240GB\n            </label>\n          </div>\n        </ul>\n      </div>\n      <div class=\"card-body\">\n        <table class=\"table\">\n          <thead>\n            <tr>\n              <th>Carrier</th>\n              <th>Handset Only</th>\n              <th>Sealed</th>\n              <th>Open-Sealed</th>\n              <th>Good LCD</th>\n              <th>Cracked Front</th>\n              <th>Bad LCD/Copy</th>\n              <th>Dead</th>\n              <th>Cracked Back (Minus)</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr>\n              <td id=\"carrier-select\">\n                <select class=\"form-control\" [(ngModel)]=\"product.carrier\" name=\"product.carrier\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">{{getProduct.carrier}}</p>\n                  </option>\n                  <option value=\"AT&T\">AT&T</option>\n                  <option value=\"T-mobile\">T-mobile</option>\n                  <option value=\"Verizon\">Verizon</option>\n                  <option value=\"Sprint\">Sprint</option>\n                  <option value=\"Unlocked\">Unlocked</option>\n                </select>\n              </td>\n              <td><input type=\"radio\" value=\"Handset Only\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Sealed\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Open-Sealed\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Good LCD\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Front\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Bad LCD/Copy\" name=\"product.condition\" [(ngModel)]=\"product.condition\"> </td>\n              <td><input type=\"radio\" value=\"Dead\" name=\"product.condition\" [(ngModel)]=\"product.condition\"></td>\n              <td><input type=\"radio\" value=\"Cracked Back\" name=\"product.has_cracked_back\" [(ngModel)]=\"product.has_cracked_back\"></td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Price\" [(ngModel)]=\"product.price\" name=\"product.price\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\"(click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th style=\"text-align:center\">Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th style=\"text-align:center\">Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let a of allCarriers;\">\n                    <td>{{c.carrier_name}}</td>\n                    <td *ngFor=\"let p of prices;index as i\">\n                      <input type=\"text\"  class=\"form-control\">\n                    </td>                                      \n                    <td>\n                      <input type=\"text\" class=\"form-control\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1034,6 +1193,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+var URL = 'http://localhost:8033/api/upload';
 var ProductEditComponent = /** @class */ (function () {
     function ProductEditComponent(_httpService, _router, _route) {
         this._httpService = _httpService;
@@ -1042,11 +1202,30 @@ var ProductEditComponent = /** @class */ (function () {
         this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
     ProductEditComponent.prototype.ngOnInit = function () {
-        this.product = { title: "", manufacturer: "", category_id: "", size: "", carrier: "", condition: "", has_cracked_back: "", price: "" };
+        this.product = { title: "", manufacturer: "", category_id: "", size: "", has_cracked_back: "" };
+        this.getAllSizes();
         //initialize model to be used on template to submit form
         this.getAllCategories();
         //on load call function to grab all current categories
         this.getCategoryName();
+        this.getAllCarriers();
+        this.getAllConditions();
+        // this.startgetPrices(this.getProduct.id,1);
+        this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
+    };
+    ProductEditComponent.prototype.getAllConditions = function () {
+        var _this = this;
+        this._httpService.getAllConditions().subscribe(function (data) {
+            _this.allConditions = data;
+            console.log("all conditions", data);
+        });
+    };
+    ProductEditComponent.prototype.getAllCarriers = function () {
+        var _this = this;
+        this._httpService.getAllCarriers().subscribe(function (data) {
+            _this.allCarriers = data;
+            console.log("all carriers", data);
+        });
     };
     ProductEditComponent.prototype.goBackToProducts = function () {
         this.backToProduct.emit("data");
@@ -1058,10 +1237,29 @@ var ProductEditComponent = /** @class */ (function () {
             _this.allCategories = data;
         });
     };
+    ProductEditComponent.prototype.getAllSizes = function () {
+        var _this = this;
+        this._httpService.getAllSizes().subscribe(function (data) {
+            _this.sizes = data;
+            console.log("sizes", data);
+            console.log("size 1", data[0]['id']);
+        });
+    };
+    ProductEditComponent.prototype.getPricing = function () {
+        var _this = this;
+        this._httpService.getPriceForProduct(this.getProduct.id).subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_value'] == null) {
+                    data[i]['price_value'] = 0;
+                }
+            }
+            _this.prices = data;
+            console.log("pricing table", _this.prices);
+        });
+    };
     //function that calls service to communicated with backend to grab all categories
     ProductEditComponent.prototype.editProduct = function (product_id, targetProduct) {
         var _this = this;
-        console.log(this.product.has_cracked_back);
         if (this.product.has_cracked_back == "Cracked Back") {
             this.product.has_cracked_back = true;
             this.product.condition += "/Cracked Back";
@@ -1088,8 +1286,11 @@ var ProductEditComponent = /** @class */ (function () {
         targetProduct = this.product;
         product_id = this.getProduct.id;
         // id from getProduct.id is used to send to backend so correct querry can occur
-        this._httpService.postEditProduct(product_id, targetProduct).subscribe(function (data) {
-            console.log(data);
+        this._httpService.getAllProductsByTitle(this.getProduct.title).subscribe(function (data) {
+            console.log("products by title", data);
+        });
+        this._httpService.postEditProduct(this.getProduct.title, targetProduct).subscribe(function (data) {
+            console.log("data received", data);
             _this.goBackToProducts();
         });
     };
@@ -1099,6 +1300,48 @@ var ProductEditComponent = /** @class */ (function () {
         this._httpService.getOneCategory(this.getProduct.category_id).subscribe(function (data) {
             _this.currentCategory = data[0]['name'];
         });
+    };
+    // this function will get the current category of the target product and display the name as a placeholder in our form input
+    ProductEditComponent.prototype.toggleSize = function (id) {
+        var _this = this;
+        this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(function (data) {
+            _this.prices = data;
+            console.log("current prices", data);
+        });
+    };
+    ProductEditComponent.prototype.nextItem = function (arr) {
+        arr = this.sizes;
+        var i = i + 1;
+        i = i % arr.length;
+        return arr[i];
+    };
+    ProductEditComponent.prototype.startgetPrices = function (product, size) {
+        var _this = this;
+        return this._httpService.getPriceByProductAndSize(product, size).subscribe(function (data) {
+            _this.prices = data;
+            console.log("Prices", data);
+        });
+    };
+    ProductEditComponent.prototype.getPricesBySize = function (product_id, size_id) {
+        var _this = this;
+        return this._httpService.getPriceByProductAndSize(product_id, size_id).subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_value'] == null) {
+                    data[i]['price_value'] = 0;
+                }
+            }
+            _this.prices = data;
+            console.log("in get prices by size", _this.prices);
+        });
+    };
+    ProductEditComponent.prototype.getPricesBySizeAndCarrier = function (product_id, size_id) {
+        var _this = this;
+        return this._httpService.getPriceBySizeAndCarrier(product_id, size_id).subscribe(function (data) {
+            _this.carrierPrices = data;
+            console.log("grouped prices", data);
+        });
+    };
+    ProductEditComponent.prototype.editPrices = function () {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -1143,7 +1386,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  product-select works!\n</p>\n<div class=\"container-fluid\">\n  \n</div>"
+module.exports = "<p>\n  product-select works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    \n  </div>\n</div>"
 
 /***/ }),
 
@@ -1206,7 +1449,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition}}</td>\n          <td>{{p.size}}</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n            <!-- <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products; let c of condition_names; index as i\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition_id}}</td>\n          <td>{{p.size_id}}GB</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n            <!-- <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -1240,6 +1483,7 @@ var ProductsComponent = /** @class */ (function () {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
+        this.condition_names = [];
         this.sendProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
         this.sendAddProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
     }
@@ -1249,6 +1493,23 @@ var ProductsComponent = /** @class */ (function () {
     ProductsComponent.prototype.allProducts = function () {
         var _this = this;
         this._httpService.getAllProducts().subscribe(function (data) {
+            console.log(data);
+            var _loop_1 = function (i) {
+                _this._httpService.getOneCondition(data[i]['condition_id']).subscribe(function (condition) {
+                    data[i]['condition_id'] = condition[0]['description'];
+                });
+            };
+            for (var i in data) {
+                _loop_1(i);
+            }
+            var _loop_2 = function (i) {
+                _this._httpService.getOneSize(data[i]['size_id']).subscribe(function (size) {
+                    data[i]['size_id'] = size[0]['value'];
+                });
+            };
+            for (var i in data) {
+                _loop_2(i);
+            }
             _this.products = data;
             console.log(data);
         });

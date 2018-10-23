@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-product-add',
@@ -13,14 +15,18 @@ export class ProductAddComponent implements OnInit {
   @Output() backToProduct = new EventEmitter;
   //event emitter to send signal to the dashboard component to switch back to products page
   targetCategory:any;
+  image:any;
+  
+
   constructor(
     private _httpService : HttpService,
     private _router: Router,
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
-    this.newProduct = {title:"", condition:"", manufacturer:"",category_id:"Device Type"};
+    this.newProduct = {title:"", manufacturer:"",category_id:"Device Type"};
     //initialize our model used in the template form
     this.getAllCategories();
     this.targetCategory="";
@@ -43,4 +49,6 @@ export class ProductAddComponent implements OnInit {
     })
   }
   //calls service to post our model to back end product creation route
+
+
 }
