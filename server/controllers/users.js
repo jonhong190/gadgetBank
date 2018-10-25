@@ -23,7 +23,7 @@ module.exports ={
         })
     },
     loginUser : (req,res)=>{
-        User.findAll({where:{username:req.body.username}}).then(user=>{
+        User.findAll({where:{username:req.body.email}}).then(user=>{
             if(user.length == 0){
                 res.json({errors:"User does not exist"})
             } else {

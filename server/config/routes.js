@@ -3,6 +3,10 @@ const users = require("../controllers/users.js");
 const orders = require("../controllers/orders.js");
 const products = require("../controllers/products.js");
 const categories = require("../controllers/categories.js");
+const conditions = require("../controllers/conditions.js");
+const carriers = require("../controllers/carriers.js");
+const sizes = require("../controllers/sizes.js");
+const prices = require("../controllers/prices.js");
 const path = require("path");
 
 module.exports = (app)=>{
@@ -15,7 +19,7 @@ module.exports = (app)=>{
     app.post("/customer/new", (req,res)=>{
         users.createUser(req,res);
     });
-    app.get("/customer/login/:username", (req,res)=>{
+    app.get("/customer/login/:email", (req,res)=>{
         users.loginUser(req,res);
     });
     app.get("/customer/:id/orders", (req,res)=>{
@@ -45,10 +49,13 @@ module.exports = (app)=>{
     app.get("/allProducts", (req,res)=>{
         products.allProducts(req,res);
     })
+    app.get("/allProducts/:title",(req,res)=>{
+        products.allProductsByTitle(req,res);
+    })
     app.get("/product/:product_id", (req,res)=>{
         products.getProduct(req,res);
     });
-    app.post("/product/edit/:product_id", (req,res)=>{
+    app.post("/product/edit/:id", (req,res)=>{
         products.updateProduct(req,res);
     })
     app.post("/category/new", (req,res)=>{
@@ -57,13 +64,60 @@ module.exports = (app)=>{
     app.get("/categories", (req,res)=>{
         categories.allCategories(req,res);
     });
-    app.post("/category/category_id/delete", (req,res)=>{
+    app.post("/category/:category_id/delete", (req,res)=>{
         categories.deleteCategory(req,res);
     });
     app.get("/category/:category_id", (req,res)=>{
         categories.getCategory(req,res);
+    });
+    app.post("/condition/new", (req,res)=>{
+        conditions.newCondition(req,res);
+    });
+    app.get("/conditions", (req,res)=>{
+        conditions.allConditions(req,res);
+    });
+    app.get("/condition/:condition_id", (req,res)=>{
+        conditions.getOneCondition(req,res);
+    });
+    app.get("/carriers", (req,res)=>{
+        carriers.allCarriers(req,res);
+    });
+    app.post("/new/carrier", (req,res)=>{
+        carriers.newCarrier(req,res);
+    });
+    app.get("/carrier/:carrier_id", (req,res)=>{
+        carriers.getOneCarrier(req,res);
+    });
+    app.get("/sizes", (req,res)=>{
+        sizes.allSizes(req,res);
+    });
+    app.post("/size/new", (req,res)=>{
+        sizes.newSize(req,res);
+    });
+    app.get("/size/:size_id", (req,res)=>{
+        sizes.getOneSize(req,res);
+    });
+    app.get("/prices", (req,res)=>{
+        prices.allPrices(req,res);
+    });
+    app.post("price/new/:product_id", (req,res)=>{
+        prices.newPrice(req,res);
+    });
+    app.get("/price/:product_id", (req,res)=>{
+        prices.getPriceForProduct(req,res);
+    });
+    app.get("/price/:product_id/:size_id", (req,res)=>{
+        prices.getPriceByProductAndSize(req,res);
     })
-
+    app.get("/prices/group/:product_id/:size_id", (req,res)=>{
+        prices.getPriceBySizeAndCarrier(req,res);
+    });
+    app.get("/prices/condition/:product_id/:size_id", (req,res)=>{
+        prices.getPriceBySizeAndCondition(req,res);
+    })
+    app.post("/price/edit/:id/",(req,res)=>{
+        prices.updatePrice(req,res);
+    })
     app.all("*", (req, res, next) => {
         res.sendFile(path.resolve("./public/dist/public/index.html"))
     })

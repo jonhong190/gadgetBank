@@ -46,8 +46,8 @@ export class HttpService {
   postNewProductToOrder(order_id, newproduct) {
     return this._http.post('/order/' + order_id + '/product/new', newproduct);
   } //this route will add a new product base on the order id through newProduct
-  postEditProduct(product_id, product) {
-    return this._http.post('/product/edit/'+product_id + '/' , product);
+  postEditProduct(id, product) {
+    return this._http.post('/product/edit/'+id + '/' , product);
   } //this route should allow the user to edit the product info through editProduct
   getDeleteProduct(product_id) {
     return this._http.get('/product/' + product_id + '/delete');
@@ -103,8 +103,11 @@ export class HttpService {
   getPriceBySizeAndCarrier(product_id,size_id){
     return this._http.get('/prices/group/'+product_id+'/'+size_id);
   }
-  postEditPrice(price){
-    return this._http.post('/price/edit', price);
+  getPriceBySizeAndConditions(product_id, size_id){
+    return this._http.get('/prices/condition/'+product_id+'/'+size_id);
+  }
+  postEditPrice(id,body){
+    return this._http.post('/price/edit/'+id+'/',body);
   }
   
 

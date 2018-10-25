@@ -27,30 +27,22 @@ export class ProductsComponent implements OnInit {
   allProducts(){
     this._httpService.getAllProducts().subscribe((data)=>{
       console.log(data)
-      
-      for(let i in data){
-        this._httpService.getOneCondition(data[i]['condition_id']).subscribe(condition=>{ 
-          data[i]['condition_id']=condition[0]['description']
-        })
-      }
-      for(let i in data){
-        this._httpService.getOneSize(data[i]['size_id']).subscribe(size=>{
-          data[i]['size_id']= size[0]['value'];
-        })
-      }
-
       this.products = data;
       console.log(data);
     })
   }
+  //function to get all products
   showEdit(product_id) {
     this._httpService.getOneProduct(product_id).subscribe(data => {
       this.sendProduct.emit(data);
+      console.log("IN PRODUCT SHOW EDIT", data)
     })
   }
+  //function to emit product Id to the product edit component
   showAdd(){
     this.sendAddProduct.emit("show");
   }
+  //function to let dashboard component know to switch ot product add component
 
 
 }

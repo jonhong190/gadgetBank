@@ -9,30 +9,21 @@ module.exports = (sequelize, type)=>{
             type:type.STRING,
             notEmpty: true
         },
-        condition:{
-            type: type.STRING,
-            notEmpty:true
-        },
-        price: {
-            type:type.INTEGER,
-            notEmpty: true
-        },
         manufacturer:{
             type:type.STRING,
-            notEmpty: true
-        },
-        carrier:{
-            type:type.STRING,
-            notEmpty:true
-        },
-        size:{
-            type:type.INTEGER,
             notEmpty: true
         },
         has_craked_back: {
             type: type.BOOLEAN,
             default:false,
         },
-        category_id:type.INTEGER
+        image:{
+            type:type.STRING
+        },
+        category_id:type.INTEGER,
+        condition_id: type.INTEGER,
+        carrier_id: type.STRING,
+        size_id:type.INTEGER,
+        price_id:type.INTEGER
     })
 }

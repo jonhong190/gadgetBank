@@ -25,17 +25,14 @@ export class ProductEditComponent implements OnInit {
   allConditions:any;
   allCarriers :any;
   sizes:any;
-  prices:any;
+  currentSizePrices:any;
+  carrierPriceGroup:any;
+  conditionPriceGroup:any;
   currentSize:any;
-  att:any;
-  verizon:any;
-  tmobile:any;
-  sprint:any;
-  unlocked:any;
-  carrierPrices:any;
-
-  
-
+  prices:any;
+  price:any;
+  minusVal:any;
+  values="";
 
   constructor(
     private _httpService: HttpService,
@@ -44,7 +41,8 @@ export class ProductEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.product = {title:"", manufacturer:"", category_id:"", size:"", has_cracked_back: ""};
+    this.product = {title:"", manufacturer:"", category_id:""};
+    this.price = [];
     this.getAllSizes();
     //initialize model to be used on template to submit form
     this.getAllCategories();
@@ -53,7 +51,12 @@ export class ProductEditComponent implements OnInit {
     this.getAllCarriers();
     this.getAllConditions();
     // this.startgetPrices(this.getProduct.id,1);
-    this.getPricesBySizeAndCarrier(this.getProduct.id, 1)
+    this.getPricesBySize(this.getProduct.id,1);
+    this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
+    this.getPricesBySizeAdCondition(this.getProduct.id, 1);
+    console.log("HERE HERE", this.getProduct)
+    
+    
   }
   getAllConditions(){
     this._httpService.getAllConditions().subscribe(data=>{
@@ -97,42 +100,25 @@ export class ProductEditComponent implements OnInit {
     })
   }
   //function that calls service to communicated with backend to grab all categories
-  editProduct(product_id, targetProduct){
-    if(this.product.has_cracked_back == "Cracked Back"){
-      this.product.has_cracked_back = true;
-      this.product.condition += "/Cracked Back";
-    }
+  editProduct(targetProduct){
     if(this.product.title == ""){
       this.product.title = this.getProduct.title;
-    }
-    if(this.product.carrier == ""){
-      this.product.carrier = this.getProduct.carrier;
     }
     if(this.product.category_id == ""){
       this.product.category_id = this.getProduct.category_id;
     }
-    if(this.product.size == ""){
-      this.product.size = this.getProduct.size;
-    }
     if(this.product.manufacturer ==""){
       this.product.manufacturer = this.getProduct.manufacturer;
-    }
-    if(this.product.condition == ""){
-      this.product.condition = this.getProduct.condition;
     }
 
     //if statements allow the product to keep it's original attributes if nothing was entered through the form
     targetProduct = this.product;
-    product_id = this.getProduct.id;
+    // product_id = this.getProduct.id;
     // id from getProduct.id is used to send to backend so correct querry can occur
-    this._httpService.getAllProductsByTitle(this.getProduct.title).subscribe((data)=>{
-      console.log("products by title", data);
-      
-      
-    })
+    this.editPrices(this.price);
+    
 
-
-    this._httpService.postEditProduct(this.getProduct.title, targetProduct).subscribe((data)=>{
+    this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe((data)=>{
       console.log("data received", data);
       this.goBackToProducts();
       
@@ -140,7 +126,6 @@ export class ProductEditComponent implements OnInit {
   }
   // this function calls service to the update product back end route
   getCategoryName(){
-
     this._httpService.getOneCategory(this.getProduct.category_id).subscribe((data)=>{
       this.currentCategory = data[0]['name'];
     })
@@ -149,7 +134,10 @@ export class ProductEditComponent implements OnInit {
   toggleSize(id){
     this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(data=>{
       this.prices = data;
+      this.currentSize = data[0]['size_id'];
+      console.log("Size",this.currentSize)
       console.log("current prices", data)
+      this.currentSizePrices = data;
     })
   }
   nextItem(arr){
@@ -161,7 +149,8 @@ export class ProductEditComponent implements OnInit {
   startgetPrices(product,size){
     return this._httpService.getPriceByProductAndSize(product,size).subscribe(data=>{
       this.prices = data;
-      console.log("Prices", data)
+      console.log("Prices", data);
+      this.currentSizePrices = data;
     })
   }
   getPricesBySize(product_id, size_id){
@@ -172,17 +161,99 @@ export class ProductEditComponent implements OnInit {
         }
       }
       this.prices = data;
+      this.generatePriceArray(data);
       console.log("in get prices by size" , this.prices)
     })
   }
   getPricesBySizeAndCarrier(product_id, size_id){
     return this._httpService.getPriceBySizeAndCarrier(product_id, size_id).subscribe(data=>{
-      this.carrierPrices = data;
-      console.log("grouped prices", data)
+      this.carrierPriceGroup = data;
+      for(var i in this.allCarriers){
+        this.carrierPriceGroup[i]['name'] = this.allCarriers[i]['carrier_name']
+      }
+      
+      console.log("grouped carrier prices", data)
     })
   }
-  editPrices(){
+  getPricesBySizeAdCondition(product_id, size_id){
+    return this._httpService.getPriceBySizeAndConditions(product_id, size_id).subscribe(data=>{
+      this.conditionPriceGroup=data;
+      console.log("grouped condition prices", data)
+    })
 
   }
+  generatePriceArray(prices){
+    let length = Object.keys(prices).length;
+    let p = this.currentSizePrices;
+    console.log("Length ", length);
+    for(var i = 0; i < length; i++){
+      let x = {"price_value":"", "id":"", "minus_value":""};
+      this.price.push(x);
+    }
+    console.log("price  here", this.price);
+  }
+  onKey(value: string,x,y){
+    console.log(value)
+    if(x == 0 && y < 7){
+      this.price[y]['price_value'] = value;
+    }
+    if(x == 1 ){
+      this.price[y+7]['price_value']= value;
+    }
+    if (x == 2) {
+      this.price[y+14]['price_value'] = value;
+    }
+    if (x == 3) {
+      this.price[y+21]['price_value'] = value;
+    }
+    if (x == 4) {
+      this.price[y + 28]['price_value'] = value;
+    }
+  }
+  minusKey(value:string, x){
+    this.minusVal = value;
+    if(x == 0){
+      for(var i = 0; i < this.allConditions.length; i++){
+        this.price[i]['minus_value'] = value;
+      }
+    }
+    if (x == 1) {
+      for (var i = 0; i < this.allConditions.length; i++) {
+        this.price[i + 7]['minus_value'] = value;
+      }
+    }
+    if (x == 2) {
+      for (var i = 0; i < this.allConditions.length; i++) {
+        this.price[i + 14]['minus_value'] = value;
+      }
+    }
+    if (x == 3) {
+      for (var i = 0; i < this.allConditions.length; i++) {
+        this.price[i + 21]['minus_value'] = value;
+      }
+    }
+    if (x == 4) {
+      for (var i = 0; i < this.allConditions.length; i++) {
+        this.price[i + 28]['minus_value'] = value;
+      }
+    }    
+  }
+  editPrices(prices){
+    var arr = this.currentSizePrices;
+    for(var i = 0; i < arr.length; i++ ){
+      if(arr[i]['price_value'] != ""){
+        let body = prices[i];
+        
+        this._httpService.postEditPrice(arr[i]['id'], body).subscribe(data => {
+          console.log(data);
+        })
+      } else {
+        continue;
+      }
+      
+    }
+    
+  }
+
 }
 

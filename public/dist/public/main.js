@@ -747,8 +747,8 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.postNewProductToOrder = function (order_id, newproduct) {
         return this._http.post('/order/' + order_id + '/product/new', newproduct);
     }; //this route will add a new product base on the order id through newProduct
-    HttpService.prototype.postEditProduct = function (product_id, product) {
-        return this._http.post('/product/edit/' + product_id + '/', product);
+    HttpService.prototype.postEditProduct = function (id, product) {
+        return this._http.post('/product/edit/' + id + '/', product);
     }; //this route should allow the user to edit the product info through editProduct
     HttpService.prototype.getDeleteProduct = function (product_id) {
         return this._http.get('/product/' + product_id + '/delete');
@@ -804,8 +804,11 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getPriceBySizeAndCarrier = function (product_id, size_id) {
         return this._http.get('/prices/group/' + product_id + '/' + size_id);
     };
-    HttpService.prototype.postEditPrice = function (price) {
-        return this._http.post('/price/edit', price);
+    HttpService.prototype.getPriceBySizeAndConditions = function (product_id, size_id) {
+        return this._http.get('/prices/condition/' + product_id + '/' + size_id);
+    };
+    HttpService.prototype.postEditPrice = function (id, body) {
+        return this._http.post('/price/edit/' + id + '/', body);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1164,7 +1167,7 @@ module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    fon
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\"(click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th style=\"text-align:center\">Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th style=\"text-align:center\">Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let a of allCarriers;\">\n                    <td>{{c.carrier_name}}</td>\n                    <td *ngFor=\"let p of prices;index as i\">\n                      <input type=\"text\"  class=\"form-control\">\n                    </td>                                      \n                    <td>\n                      <input type=\"text\" class=\"form-control\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\"(click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th style=\"text-align:center\">Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th style=\"text-align:center\">Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                \n                <tbody>\n                  <tr *ngFor=\"let c of carrierPriceGroup; index as i\">\n                    <td>{{c.name}} \n                      <input type=\"hidden\" value=\"{{c.carrier_id}}\">\n                    </td>\n                    <td *ngFor=\"let p of conditionPriceGroup; index as j\">\n                        <input type=\"text\"  class=\"form-control\"  #box (keyup)=\"onKey(box.value, i,j)\"> \n                        \n                    </td>                                      \n                    <td>\n                      <input type=\"text\" class=\"form-control\" #minus (keyup)=\"minusKey(minus.value, i )\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1200,9 +1203,11 @@ var ProductEditComponent = /** @class */ (function () {
         this._router = _router;
         this._route = _route;
         this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.values = "";
     }
     ProductEditComponent.prototype.ngOnInit = function () {
-        this.product = { title: "", manufacturer: "", category_id: "", size: "", has_cracked_back: "" };
+        this.product = { title: "", manufacturer: "", category_id: "" };
+        this.price = [];
         this.getAllSizes();
         //initialize model to be used on template to submit form
         this.getAllCategories();
@@ -1211,7 +1216,10 @@ var ProductEditComponent = /** @class */ (function () {
         this.getAllCarriers();
         this.getAllConditions();
         // this.startgetPrices(this.getProduct.id,1);
+        this.getPricesBySize(this.getProduct.id, 1);
         this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
+        this.getPricesBySizeAdCondition(this.getProduct.id, 1);
+        console.log("HERE HERE", this.getProduct);
     };
     ProductEditComponent.prototype.getAllConditions = function () {
         var _this = this;
@@ -1258,38 +1266,23 @@ var ProductEditComponent = /** @class */ (function () {
         });
     };
     //function that calls service to communicated with backend to grab all categories
-    ProductEditComponent.prototype.editProduct = function (product_id, targetProduct) {
+    ProductEditComponent.prototype.editProduct = function (targetProduct) {
         var _this = this;
-        if (this.product.has_cracked_back == "Cracked Back") {
-            this.product.has_cracked_back = true;
-            this.product.condition += "/Cracked Back";
-        }
         if (this.product.title == "") {
             this.product.title = this.getProduct.title;
-        }
-        if (this.product.carrier == "") {
-            this.product.carrier = this.getProduct.carrier;
         }
         if (this.product.category_id == "") {
             this.product.category_id = this.getProduct.category_id;
         }
-        if (this.product.size == "") {
-            this.product.size = this.getProduct.size;
-        }
         if (this.product.manufacturer == "") {
             this.product.manufacturer = this.getProduct.manufacturer;
         }
-        if (this.product.condition == "") {
-            this.product.condition = this.getProduct.condition;
-        }
         //if statements allow the product to keep it's original attributes if nothing was entered through the form
         targetProduct = this.product;
-        product_id = this.getProduct.id;
+        // product_id = this.getProduct.id;
         // id from getProduct.id is used to send to backend so correct querry can occur
-        this._httpService.getAllProductsByTitle(this.getProduct.title).subscribe(function (data) {
-            console.log("products by title", data);
-        });
-        this._httpService.postEditProduct(this.getProduct.title, targetProduct).subscribe(function (data) {
+        this.editPrices(this.price);
+        this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe(function (data) {
             console.log("data received", data);
             _this.goBackToProducts();
         });
@@ -1306,7 +1299,10 @@ var ProductEditComponent = /** @class */ (function () {
         var _this = this;
         this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(function (data) {
             _this.prices = data;
+            _this.currentSize = data[0]['size_id'];
+            console.log("Size", _this.currentSize);
             console.log("current prices", data);
+            _this.currentSizePrices = data;
         });
     };
     ProductEditComponent.prototype.nextItem = function (arr) {
@@ -1320,6 +1316,7 @@ var ProductEditComponent = /** @class */ (function () {
         return this._httpService.getPriceByProductAndSize(product, size).subscribe(function (data) {
             _this.prices = data;
             console.log("Prices", data);
+            _this.currentSizePrices = data;
         });
     };
     ProductEditComponent.prototype.getPricesBySize = function (product_id, size_id) {
@@ -1331,17 +1328,96 @@ var ProductEditComponent = /** @class */ (function () {
                 }
             }
             _this.prices = data;
+            _this.generatePriceArray(data);
             console.log("in get prices by size", _this.prices);
         });
     };
     ProductEditComponent.prototype.getPricesBySizeAndCarrier = function (product_id, size_id) {
         var _this = this;
         return this._httpService.getPriceBySizeAndCarrier(product_id, size_id).subscribe(function (data) {
-            _this.carrierPrices = data;
-            console.log("grouped prices", data);
+            _this.carrierPriceGroup = data;
+            for (var i in _this.allCarriers) {
+                _this.carrierPriceGroup[i]['name'] = _this.allCarriers[i]['carrier_name'];
+            }
+            console.log("grouped carrier prices", data);
         });
     };
-    ProductEditComponent.prototype.editPrices = function () {
+    ProductEditComponent.prototype.getPricesBySizeAdCondition = function (product_id, size_id) {
+        var _this = this;
+        return this._httpService.getPriceBySizeAndConditions(product_id, size_id).subscribe(function (data) {
+            _this.conditionPriceGroup = data;
+            console.log("grouped condition prices", data);
+        });
+    };
+    ProductEditComponent.prototype.generatePriceArray = function (prices) {
+        var length = Object.keys(prices).length;
+        var p = this.currentSizePrices;
+        console.log("Length ", length);
+        for (var i = 0; i < length; i++) {
+            var x = { "price_value": "", "id": "", "minus_value": "" };
+            this.price.push(x);
+        }
+        console.log("price  here", this.price);
+    };
+    ProductEditComponent.prototype.onKey = function (value, x, y) {
+        console.log(value);
+        if (x == 0 && y < 7) {
+            this.price[y]['price_value'] = value;
+        }
+        if (x == 1) {
+            this.price[y + 7]['price_value'] = value;
+        }
+        if (x == 2) {
+            this.price[y + 14]['price_value'] = value;
+        }
+        if (x == 3) {
+            this.price[y + 21]['price_value'] = value;
+        }
+        if (x == 4) {
+            this.price[y + 28]['price_value'] = value;
+        }
+    };
+    ProductEditComponent.prototype.minusKey = function (value, x) {
+        this.minusVal = value;
+        if (x == 0) {
+            for (var i = 0; i < this.allConditions.length; i++) {
+                this.price[i]['minus_value'] = value;
+            }
+        }
+        if (x == 1) {
+            for (var i = 0; i < this.allConditions.length; i++) {
+                this.price[i + 7]['minus_value'] = value;
+            }
+        }
+        if (x == 2) {
+            for (var i = 0; i < this.allConditions.length; i++) {
+                this.price[i + 14]['minus_value'] = value;
+            }
+        }
+        if (x == 3) {
+            for (var i = 0; i < this.allConditions.length; i++) {
+                this.price[i + 21]['minus_value'] = value;
+            }
+        }
+        if (x == 4) {
+            for (var i = 0; i < this.allConditions.length; i++) {
+                this.price[i + 28]['minus_value'] = value;
+            }
+        }
+    };
+    ProductEditComponent.prototype.editPrices = function (prices) {
+        var arr = this.currentSizePrices;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i]['price_value'] != "") {
+                var body = prices[i];
+                this._httpService.postEditPrice(arr[i]['id'], body).subscribe(function (data) {
+                    console.log(data);
+                });
+            }
+            else {
+                continue;
+            }
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
@@ -1449,7 +1525,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Condition</th>\n        <th>Size</th>\n        <th>Price</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products; let c of condition_names; index as i\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.condition_id}}</td>\n          <td>{{p.size_id}}GB</td>\n          <td>{{p.price}}</td>\n          <td>\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n            <!-- <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n          </td>\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products; let c of condition_names; index as i\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.id}}\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n          </td>\n            <!--\n          </td> <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -1494,32 +1570,19 @@ var ProductsComponent = /** @class */ (function () {
         var _this = this;
         this._httpService.getAllProducts().subscribe(function (data) {
             console.log(data);
-            var _loop_1 = function (i) {
-                _this._httpService.getOneCondition(data[i]['condition_id']).subscribe(function (condition) {
-                    data[i]['condition_id'] = condition[0]['description'];
-                });
-            };
-            for (var i in data) {
-                _loop_1(i);
-            }
-            var _loop_2 = function (i) {
-                _this._httpService.getOneSize(data[i]['size_id']).subscribe(function (size) {
-                    data[i]['size_id'] = size[0]['value'];
-                });
-            };
-            for (var i in data) {
-                _loop_2(i);
-            }
             _this.products = data;
             console.log(data);
         });
     };
+    //function to get all products
     ProductsComponent.prototype.showEdit = function (product_id) {
         var _this = this;
         this._httpService.getOneProduct(product_id).subscribe(function (data) {
             _this.sendProduct.emit(data);
+            console.log("IN PRODUCT SHOW EDIT", data);
         });
     };
+    //function to emit product Id to the product edit component
     ProductsComponent.prototype.showAdd = function () {
         this.sendAddProduct.emit("show");
     };

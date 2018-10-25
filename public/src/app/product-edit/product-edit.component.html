@@ -45,14 +45,18 @@
                     <th>Cracked Back (Minus)</th>
                   </tr>
                 </thead>
+                
                 <tbody>
-                  <tr *ngFor="let a of allCarriers;">
-                    <td>{{c.carrier_name}}</td>
-                    <td *ngFor="let p of prices;index as i">
-                      <input type="text"  class="form-control">
+                  <tr *ngFor="let c of carrierPriceGroup; index as i">
+                    <td>{{c.name}} 
+                      <input type="hidden" value="{{c.carrier_id}}">
+                    </td>
+                    <td *ngFor="let p of conditionPriceGroup; index as j">
+                        <input type="text"  class="form-control"  #box (keyup)="onKey(box.value, i,j)"> 
+                        
                     </td>                                      
                     <td>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" #minus (keyup)="minusKey(minus.value, i )">
                     </td>
                   </tr>
                 </tbody>

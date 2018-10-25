@@ -5,9 +5,6 @@
       <tr>
         <th>Title</th>
         <th>Manufacturer</th>
-        <th>Condition</th>
-        <th>Size</th>
-        <th>Price</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -15,13 +12,11 @@
         <tr *ngFor="let p of products; let c of condition_names; index as i">
           <td>{{p.title}}</td>
           <td>{{p.manufacturer}}</td>
-          <td>{{p.condition_id}}</td>
-          <td>{{p.size_id}}GB</td>
-          <td>{{p.price}}</td>
-          <td>
+          <td>{{p.id}}
             <button (click)="showEdit(p.id)">Edit</button>
-            <!-- <button [routerLink]="['/edit/'+p.id+'']">Edit</button> -->
           </td>
+            <!--
+          </td> <button [routerLink]="['/edit/'+p.id+'']">Edit</button> -->
         </tr>
     </tbody>
   </table>

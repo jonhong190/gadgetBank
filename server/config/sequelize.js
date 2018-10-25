@@ -3,6 +3,10 @@ const UserModel = require("../models/user.js");
 const OrderModel = require("../models/order.js");
 const ProductModel = require("../models/product.js");
 const CategoryModel = require("../models/category.js");
+const ConditionModel = require("../models/condition.js");
+const CarrierModel = require("../models/carrier.js");
+const SizeModel = require("../models/size.js");
+const PriceModel = require("../models/price.js");
 
 const sequelize = new Sequelize('gadget_bank', 'root', 'root', {
     host:'localhost',
@@ -21,6 +25,11 @@ const User = UserModel(sequelize, Sequelize);
 const Order = OrderModel(sequelize, Sequelize);
 const Product = ProductModel(sequelize, Sequelize);
 const Category = CategoryModel(sequelize, Sequelize);
+const Condition = ConditionModel(sequelize, Sequelize);
+const Carrier = CarrierModel(sequelize, Sequelize);
+const Size = SizeModel(sequelize, Sequelize);
+const Price = PriceModel(sequelize, Sequelize);
+
 
 
 Order.belongsToMany(Product,{through:'Order_Products'});
@@ -37,5 +46,9 @@ module.exports= {
     User,
     Order,
     Product,
-    Category
+    Category,
+    Condition,
+    Carrier,
+    Size,
+    Price
 }
