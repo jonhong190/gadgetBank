@@ -29,13 +29,13 @@
               </div>
             </div>
             <div class="col-6 offset-md-1">
-              <input type="file" class="form-control-file" (change)="fileEvent($event)" name="imageUpload"/>
+              <input type="file"  class="form-control-file" ng2FileSelect [uploader]="uploader"/>
             </div>
           </div>
           <div class="row" id="submit-contain">
             <div class="col-10"></div>
             <div class="col-2">
-              <button type="submit" class="btn btn-primary" value="submit">Add Product</button>
+              <button type="submit" class="btn btn-primary" value="submit" (click)="uploader.uploadAll()">Add Product</button>
             </div>
           </div>
           

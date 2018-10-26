@@ -42,9 +42,9 @@
         </ul>
       </div>
     </nav>
-    <main role="main" class=" col-9" style=" background-color: #F8F9FA; margin-left:.41rem; ">
+    <main role="main" class=" col-9" style=" background-color: rgb(248, 249, 250); margin-left:.41rem; ">
       <app-home *ngIf="home"></app-home>
-      <app-products *ngIf="product" (sendProduct)="getProduct($event)" (sendAddProduct)="goAddProduct($event)"></app-products>
+      <app-products *ngIf="product" (sendProduct)="getProduct($event)" (sendAddProduct)="goAddProduct($event)" (sendDeleteProduct)="goProduct($event)"></app-products>
       <app-orders *ngIf="order"></app-orders>
       <app-customers *ngIf="customer"></app-customers>
       <app-settings *ngIf="setting"></app-settings>

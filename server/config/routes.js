@@ -8,6 +8,19 @@ const carriers = require("../controllers/carriers.js");
 const sizes = require("../controllers/sizes.js");
 const prices = require("../controllers/prices.js");
 const path = require("path");
+// var multer = require('multer');
+
+// var store = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, './uploads')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, Date.now() + '.' + file.originalname);
+//     }
+// });
+
+// var upload = multer({ storage: store }).single('file');
+
 
 module.exports = (app)=>{
     app.get("/customers", (req,res)=>{
@@ -39,7 +52,13 @@ module.exports = (app)=>{
     });
     app.post("/new",(req,res)=>{
         products.newProduct(req,res);
-    })
+    });
+    app.post('/upload', (req,res,next)=>{
+        products.upload(req,res,next);
+    });
+    // app.post('/download', (req,res)=>{
+    //     products.download(req,res);
+    // })
     app.post("/product/:product_id/edit", (req,res)=>{
         products.editProduct(req,res);
     });
@@ -57,7 +76,10 @@ module.exports = (app)=>{
     });
     app.post("/product/edit/:id", (req,res)=>{
         products.updateProduct(req,res);
-    })
+    });
+    app.get("/product/:product_id/delete", (req,res)=>{
+        products.deleteProduct(req,res);
+    });
     app.post("/category/new", (req,res)=>{
         categories.addCategory(req,res);
     });

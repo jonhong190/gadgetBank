@@ -236,7 +236,8 @@ var AppModule = /** @class */ (function () {
                 _faq_faq_component__WEBPACK_IMPORTED_MODULE_19__["FaqComponent"],
                 _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__["ProductSelectComponent"],
                 ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__["FileSelectDirective"],
-                _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_24__["CustomerPortalComponent"]
+                _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_24__["CustomerPortalComponent"],
+                ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__["FileSelectDirective"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -419,7 +420,7 @@ module.exports = ".row{\n    margin-left:0 !important;\n}\n.icon{\n    width:1.2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" id=\"dashboard-container\">\n\n  <div class=\"row\" id=\"search-container\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        \n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" id=\"searchbar\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\"padding-top:0; height:100vh;\">\n    <nav class=\"col-md-2 d-none d-md-block bg-white sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0; background-color:white;\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"nav flex-column\" style=\"background-color:white;\">\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/home-4x copy.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goHome()\" class=\"side-text\"> Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/bar-chart-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goOrders()\" class=\"side-text\"> Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/product-2x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goProduct()\" class=\"side-text\"> Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/person-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goCustomers()\" class=\"side-text\"> Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/baseline_settings_black_18dp.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goSetting()\" class=\"side-text\"> Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\" background-color: #F8F9FA; margin-left:.41rem; \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\" (sendAddProduct)=\"goAddProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\" [getProduct]=\"sendProductId\"></app-product-edit>\n      <app-product-add *ngIf=\"showAddProduct\" (backToProduct)=\"goBack($event)\" ></app-product-add>\n    </main>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\" id=\"dashboard-container\">\n\n  <div class=\"row\" id=\"search-container\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        \n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" id=\"searchbar\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\"padding-top:0; height:100vh;\">\n    <nav class=\"col-md-2 d-none d-md-block bg-white sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0; background-color:white;\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"nav flex-column\" style=\"background-color:white;\">\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/home-4x copy.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goHome()\" class=\"side-text\"> Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/bar-chart-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goOrders()\" class=\"side-text\"> Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/product-2x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goProduct()\" class=\"side-text\"> Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/person-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goCustomers()\" class=\"side-text\"> Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/baseline_settings_black_18dp.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goSetting()\" class=\"side-text\"> Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\" background-color: rgb(248, 249, 250); margin-left:.41rem; \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\" (sendAddProduct)=\"goAddProduct($event)\" (sendDeleteProduct)=\"goProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\" [getProduct]=\"sendProductId\"></app-product-edit>\n      <app-product-add *ngIf=\"showAddProduct\" (backToProduct)=\"goBack($event)\" ></app-product-add>\n    </main>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -537,6 +538,15 @@ var DashboardComponent = /** @class */ (function () {
         this.order = null;
         this.customer = null;
         this.setting = null;
+    };
+    DashboardComponent.prototype.refreshProduct = function () {
+        this.product = "product";
+        this.home = null;
+        this.showEditProduct = null;
+        this.order = null;
+        this.customer = null;
+        this.setting = null;
+        this.showAddProduct = null;
     };
     DashboardComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -810,6 +820,12 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.postEditPrice = function (id, body) {
         return this._http.post('/price/edit/' + id + '/', body);
     };
+    HttpService.prototype.upload = function (uri, body) {
+        return this._http.post('/' + uri, body);
+    };
+    HttpService.prototype.getDeleteOneProduct = function (product_id) {
+        return this._http.get('/product/' + product_id + '/delete');
+    };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
             providedIn: 'root'
@@ -1064,7 +1080,7 @@ module.exports = "#form-container{\n    background-color:white;\n    padding:4re
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container-fluid\" id=\"wrapper\">\n  <p>\n    <button class=\"btn-sm btn-primary\" (click)=\"goBackToProducts()\">\n      Back To Products</button> \n      <h2>Add Product</h2>\n      <div class=\"container-fluid shadow-sm rounded\" id=\"form-container\">\n        \n        <form class=\"postForm\" (submit)=\"addProduct(newProduct)\">\n          <div class=\"row\">\n            <div class=\"col-3 offset-md-1\">\n              <div class=\"row\">\n                <input type=\"text\" class=\"form-control add-input\" placeholder=\"Title\" name=\"newProduct.title\" [(ngModel)]=\"newProduct.title\">\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.manufacturer\" name=\"newProduct.manufacturer\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Manufacturer</p>\n                  </option>\n                  <option value=\"Apple\">Apple</option>\n                  <option value=\"SamSung\">SamSung</option>\n                </select>\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.category_id\" name=\"category_id\">\n                  <option value=\"Device Type\" disabled selected>\n                 Device Type\n                  </option>\n\n                  <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n                </select>\n                \n              </div>\n            </div>\n            <div class=\"col-6 offset-md-1\">\n              <input type=\"file\" class=\"form-control-file\" (change)=\"fileEvent($event)\" name=\"imageUpload\"/>\n            </div>\n          </div>\n          <div class=\"row\" id=\"submit-contain\">\n            <div class=\"col-10\"></div>\n            <div class=\"col-2\">\n              <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\">Add Product</button>\n            </div>\n          </div>\n          \n          \n        </form>\n      </div>\n      \n</div>\n<script>\n  \n</script>"
+module.exports = "\n<div class=\"container-fluid\" id=\"wrapper\">\n  <p>\n    <button class=\"btn-sm btn-primary\" (click)=\"goBackToProducts()\">\n      Back To Products</button> \n      <h2>Add Product</h2>\n      <div class=\"container-fluid shadow-sm rounded\" id=\"form-container\">\n        \n        <form class=\"postForm\" (submit)=\"addProduct(newProduct)\">\n          <div class=\"row\">\n            <div class=\"col-3 offset-md-1\">\n              <div class=\"row\">\n                <input type=\"text\" class=\"form-control add-input\" placeholder=\"Title\" name=\"newProduct.title\" [(ngModel)]=\"newProduct.title\">\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.manufacturer\" name=\"newProduct.manufacturer\">\n                  <option value=\"\" disabled selected>\n                    <p class=\"disabled-select\">Manufacturer</p>\n                  </option>\n                  <option value=\"Apple\">Apple</option>\n                  <option value=\"SamSung\">SamSung</option>\n                </select>\n                <select class=\"form-control add-input\" [(ngModel)]=\"newProduct.category_id\" name=\"category_id\">\n                  <option value=\"Device Type\" disabled selected>\n                 Device Type\n                  </option>\n\n                  <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n                </select>\n                \n              </div>\n            </div>\n            <div class=\"col-6 offset-md-1\">\n              <input type=\"file\"  class=\"form-control-file\" ng2FileSelect [uploader]=\"uploader\"/>\n            </div>\n          </div>\n          <div class=\"row\" id=\"submit-contain\">\n            <div class=\"col-10\"></div>\n            <div class=\"col-2\">\n              <button type=\"submit\" class=\"btn btn-primary\" value=\"submit\" (click)=\"uploader.uploadAll()\">Add Product</button>\n            </div>\n          </div>\n          \n          \n        </form>\n      </div>\n      \n</div>\n<script>\n  \n</script>"
 
 /***/ }),
 
@@ -1082,6 +1098,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1095,13 +1113,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+var uri = 'http://localhost:8888/upload';
 var ProductAddComponent = /** @class */ (function () {
-    function ProductAddComponent(_httpService, _router, _route, http) {
+    function ProductAddComponent(_httpService, _router, _route, http, el) {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
         this.http = http;
+        this.el = el;
         this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
+        this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_4__["FileUploader"]({ url: uri });
+        this.uploader.onCompleteItem = function (item, response, status, headers) {
+            console.log("ImageUpload: uploaded:", item, status, response);
+            //built in function of uploader
+        };
     }
     ProductAddComponent.prototype.ngOnInit = function () {
         this.newProduct = { title: "", manufacturer: "", category_id: "Device Type" };
@@ -1121,6 +1147,7 @@ var ProductAddComponent = /** @class */ (function () {
     };
     ProductAddComponent.prototype.addProduct = function (product) {
         var _this = this;
+        product['image'] = this.uploader.queue[0].file.name;
         console.log(product);
         this._httpService.postNewProduct(product).subscribe(function (data) {
             console.log(data);
@@ -1140,7 +1167,8 @@ var ProductAddComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]])
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
     ], ProductAddComponent);
     return ProductAddComponent;
 }());
@@ -1215,7 +1243,6 @@ var ProductEditComponent = /** @class */ (function () {
         this.getCategoryName();
         this.getAllCarriers();
         this.getAllConditions();
-        // this.startgetPrices(this.getProduct.id,1);
         this.getPricesBySize(this.getProduct.id, 1);
         this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
         this.getPricesBySizeAdCondition(this.getProduct.id, 1);
@@ -1249,8 +1276,6 @@ var ProductEditComponent = /** @class */ (function () {
         var _this = this;
         this._httpService.getAllSizes().subscribe(function (data) {
             _this.sizes = data;
-            console.log("sizes", data);
-            console.log("size 1", data[0]['id']);
         });
     };
     ProductEditComponent.prototype.getPricing = function () {
@@ -1282,8 +1307,8 @@ var ProductEditComponent = /** @class */ (function () {
         // product_id = this.getProduct.id;
         // id from getProduct.id is used to send to backend so correct querry can occur
         this.editPrices(this.price);
+        //call editPrice to individually edit all price objects associated with this product
         this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe(function (data) {
-            console.log("data received", data);
             _this.goBackToProducts();
         });
     };
@@ -1300,7 +1325,6 @@ var ProductEditComponent = /** @class */ (function () {
         this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(function (data) {
             _this.prices = data;
             _this.currentSize = data[0]['size_id'];
-            console.log("Size", _this.currentSize);
             console.log("current prices", data);
             _this.currentSizePrices = data;
         });
@@ -1329,7 +1353,6 @@ var ProductEditComponent = /** @class */ (function () {
             }
             _this.prices = data;
             _this.generatePriceArray(data);
-            console.log("in get prices by size", _this.prices);
         });
     };
     ProductEditComponent.prototype.getPricesBySizeAndCarrier = function (product_id, size_id) {
@@ -1408,7 +1431,7 @@ var ProductEditComponent = /** @class */ (function () {
     ProductEditComponent.prototype.editPrices = function (prices) {
         var arr = this.currentSizePrices;
         for (var i = 0; i < arr.length; i++) {
-            if (arr[i]['price_value'] != "") {
+            if (prices[i]['price_value'] != "") {
                 var body = prices[i];
                 this._httpService.postEditPrice(arr[i]['id'], body).subscribe(function (data) {
                     console.log(data);
@@ -1514,7 +1537,7 @@ var ProductSelectComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".product_image{\n    width:3.5rem;\n}\n#newProduct{\n    margin-bottom:1rem;\n}\n.container-fluid{\n    padding-top:1rem;\n}"
 
 /***/ }),
 
@@ -1525,7 +1548,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <button class=\"btn btn-primary\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products; let c of condition_names; index as i\">\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>{{p.id}}\n            <button (click)=\"showEdit(p.id)\">Edit</button>\n          </td>\n            <!--\n          </td> <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <button class=\"btn btn-primary\" id=\"newProduct\" (click)=\"showAdd()\">New Product</button>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Image</th>\n        <th>Title</th>\n        <th>Manufacturer</th>\n        <th>Action</th>\n      </tr>\n    </thead>\n    <tbody>\n        <tr *ngFor=\"let p of products; let c of condition_names; index as i\">\n          <td><img class=\"product_image\" src=\"../../assets/uploads/{{p.image}}\"></td>\n          <td>{{p.title}}</td>\n          <td>{{p.manufacturer}}</td>\n          <td>\n            <div class=\"btn-group\">\n              <button class=\"btn btn-small btn-secondary\" (click)=\"showEdit(p.id)\">Edit</button>\n              <button class=\"btn btn-small btn-danger\" (click)=\"delete(p.id, i)\">Delete</button>\n            </div>\n          </td>\n            <!--\n          </td> <button [routerLink]=\"['/edit/'+p.id+'']\">Edit</button> -->\n        </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -1562,6 +1585,7 @@ var ProductsComponent = /** @class */ (function () {
         this.condition_names = [];
         this.sendProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
         this.sendAddProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
+        this.sendDeleteProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"];
     }
     ProductsComponent.prototype.ngOnInit = function () {
         this.allProducts();
@@ -1586,6 +1610,14 @@ var ProductsComponent = /** @class */ (function () {
     ProductsComponent.prototype.showAdd = function () {
         this.sendAddProduct.emit("show");
     };
+    //function to let dashboard component know to switch ot product add component
+    ProductsComponent.prototype.delete = function (product_id, index) {
+        var _this = this;
+        this._httpService.getDeleteOneProduct(product_id).subscribe(function (data) {
+            _this.sendDeleteProduct.emit("delete");
+            _this._router.navigate(['/dashboard']);
+        });
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
@@ -1594,6 +1626,10 @@ var ProductsComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], ProductsComponent.prototype, "sendAddProduct", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ProductsComponent.prototype, "sendDeleteProduct", void 0);
     ProductsComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-products',

@@ -1,13 +1,31 @@
 const {User, Order, Product, Category, Condition, Carrier, Size, Price} = require("../config/sequelize.js");
-const prices = require("./prices.js");
-const fileUpload = require('express-fileupload');
-var fs = require('fs');
-var mv = require('mv');
-const multer = require('multer');
+const fs = require('fs');
 
+var multer = require('multer');
+
+var store = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/dist/public/assets/uploads')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+var upload = multer({ storage: store }).single('file');
 
 
 module.exports = {
+    upload:(req,res,next)=>{
+        upload(req, res, function (err) {
+            if (err) {
+                res.status(510).json({ error: err });
+            } else {
+
+                return res.json({ originalname: req.file.originalname, uploadname: req.file.filename });
+            }
+        })
+    },
     allProducts: (req,res)=>{
         Product.findAll({}).then(products=>{
             if(products.length == 0){
@@ -43,25 +61,6 @@ module.exports = {
     },
     // function will create a product and add it to a user order
     newProduct: (req,res)=>{
-        // Condition.findAll({}).then(conditions=>{
-        //     var allConditions = conditions;
-        //     Carrier.findAll({}).then(carriers=>{
-        //         var allCarriers = carriers;
-        //         Size.findAll({}).then(sizes=>{
-        //             for (var i = 0; i < allConditions.length; i++) {
-        //                 for (var x = 0; x < allCarriers.length; x++) {
-        //                     for(var j = 0; j < sizes.length; j++){
-        //                         let body = req.body;
-        //                         body.condition_id = allConditions[i].id;
-        //                         body.carrier_id = allCarriers[x].id;
-        //                         body.size_id = sizes[j].id;
-        //                         Product.create(req.body)
-        //                     }  
-        //                 }
-        //             }
-        //         })
-
-        //     })
         Product.create(req.body).then(product=>{
             if(product.length == 0){
                 res.json({errors:"no product created"})
@@ -88,7 +87,7 @@ module.exports = {
             }
         }) 
     },
-    // function to create new product then resturn the result as json
+    // function to create new product then create price models for every condition and carrier, then return the result as json
     getProduct : (req,res)=>{
         Product.findAll({where:{id:req.params.product_id}}).then(product=>{
             if(product.length == 0){
@@ -115,9 +114,18 @@ module.exports = {
 
     //this function grabs the received product object from the front end service and sets attributes to match
     deleteProduct: (req,res)=>{
-        Product.destroy({where:{id:req.params.product_id}}).then(
-            res.json({message:"Succesfully deleted product"})
-        )
+        Product.findAll({where:{id:req.params.product_id}}).then(product=>{
+            fs.unlink('../uploads/' + product[0]['image'], (err)=>{
+                if(err){
+                    res.json(err)
+                }
+            })
+        })
+        
+        Product.destroy({where:{id:req.params.product_id}});
+        Price.destroy({ where: { product_id: req.params.product_id } });
+
+        res.json("Succesfully Deleted Product");
     }
 
 

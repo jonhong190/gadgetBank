@@ -104,4 +104,13 @@ export class DashboardComponent implements OnInit {
     this.setting=null;
 
   }
+  refreshProduct(){
+    this.product = "product";
+    this.home = null;
+    this.showEditProduct = null;
+    this.order = null;
+    this.customer = null;
+    this.setting = null;
+    this.showAddProduct = null;
+  }
 }

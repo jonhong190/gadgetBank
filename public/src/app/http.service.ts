@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -108,6 +108,12 @@ export class HttpService {
   }
   postEditPrice(id,body){
     return this._http.post('/price/edit/'+id+'/',body);
+  }
+  upload(uri, body){
+    return this._http.post('/'+uri, body);
+  }
+  getDeleteOneProduct(product_id){
+    return this._http.get('/product/'+product_id+'/delete');
   }
   
 

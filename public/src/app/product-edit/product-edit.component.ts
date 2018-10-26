@@ -50,7 +50,6 @@ export class ProductEditComponent implements OnInit {
     this.getCategoryName();
     this.getAllCarriers();
     this.getAllConditions();
-    // this.startgetPrices(this.getProduct.id,1);
     this.getPricesBySize(this.getProduct.id,1);
     this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
     this.getPricesBySizeAdCondition(this.getProduct.id, 1);
@@ -82,9 +81,6 @@ export class ProductEditComponent implements OnInit {
   getAllSizes(){
     this._httpService.getAllSizes().subscribe(data=>{
       this.sizes=data;
-      console.log("sizes" , data)
-      console.log("size 1", data[0]['id'])
-
     })
   }
   getPricing(){
@@ -116,10 +112,9 @@ export class ProductEditComponent implements OnInit {
     // product_id = this.getProduct.id;
     // id from getProduct.id is used to send to backend so correct querry can occur
     this.editPrices(this.price);
-    
+    //call editPrice to individually edit all price objects associated with this product
 
     this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe((data)=>{
-      console.log("data received", data);
       this.goBackToProducts();
       
     })
@@ -135,7 +130,6 @@ export class ProductEditComponent implements OnInit {
     this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(data=>{
       this.prices = data;
       this.currentSize = data[0]['size_id'];
-      console.log("Size",this.currentSize)
       console.log("current prices", data)
       this.currentSizePrices = data;
     })
@@ -162,7 +156,6 @@ export class ProductEditComponent implements OnInit {
       }
       this.prices = data;
       this.generatePriceArray(data);
-      console.log("in get prices by size" , this.prices)
     })
   }
   getPricesBySizeAndCarrier(product_id, size_id){
@@ -241,7 +234,7 @@ export class ProductEditComponent implements OnInit {
   editPrices(prices){
     var arr = this.currentSizePrices;
     for(var i = 0; i < arr.length; i++ ){
-      if(arr[i]['price_value'] != ""){
+      if(prices[i]['price_value'] != ""){
         let body = prices[i];
         
         this._httpService.postEditPrice(arr[i]['id'], body).subscribe(data => {

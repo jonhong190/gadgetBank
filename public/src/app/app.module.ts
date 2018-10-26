@@ -42,7 +42,8 @@ import { CustomerPortalComponent } from './customer-portal/customer-portal.compo
     FaqComponent,
     ProductSelectComponent,
     FileSelectDirective,
-    CustomerPortalComponent
+    CustomerPortalComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,

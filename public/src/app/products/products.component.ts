@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   condition_names:any=[];
   @Output() sendProduct = new EventEmitter;
   @Output() sendAddProduct= new EventEmitter;
+  @Output() sendDeleteProduct = new EventEmitter;
   constructor(
     private _httpService: HttpService,
     private _router: Router,
@@ -43,6 +44,11 @@ export class ProductsComponent implements OnInit {
     this.sendAddProduct.emit("show");
   }
   //function to let dashboard component know to switch ot product add component
-
-
+  delete(product_id, index) {
+    this._httpService.getDeleteOneProduct(product_id).subscribe((data)=>{
+      this.sendDeleteProduct.emit("delete");
+      this._router.navigate(['/dashboard']);
+    });
+    
+  }
 }
