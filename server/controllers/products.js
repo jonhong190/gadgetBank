@@ -106,6 +106,7 @@ module.exports = {
                 product[0].title = req.body.title;
                 product[0].manufacturer = req.body.manufacturer;
                 product[0].category_id = req.body.category_id;
+                product[0].image = req.body.image;
                 product[0].save();
                 res.json(product);
             }

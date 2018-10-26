@@ -14,20 +14,34 @@ module.exports ={
     createUser : (req,res)=>{
         User.findAll({where:{username:req.body.username}}).then(user=>{
             if(user.length == 0){
+                if(req.body.first_name.length < 4){
+                    res.json({errors:"First Name must be at least 3 characters long"});
+                }
+                if(req.body.last_name.length < 2){
+                    res.json({errors:"Last Name must be at least 2 characters long"});
+                }
+                if(req.body.password.length < 8){
+                    res.json({errors:"Password must be at least 8 characters long"});
+                }
                 User.create(req.body).then(user=>{
                     res.json(user);
                 })
             } else {
-                res.json({errors:"User with this current name exists"})
+                res.json({errors:"Username already taken"});
             }
         })
     },
     loginUser : (req,res)=>{
         User.findAll({where:{username:req.body.email}}).then(user=>{
             if(user.length == 0){
-                res.json({errors:"User does not exist"})
-            } else {
-                res.json({message:"succesfully logged in"})
+                res.json({errors:"Account does not exist"});
+            }
+            if(req.body.password != user[0].password){
+                res.json({errors:"Incorrect Password"});
+            }
+            
+            else {
+                res.json(user)
             }
         })
     },

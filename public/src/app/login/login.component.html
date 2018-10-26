@@ -8,32 +8,111 @@
       <small>Please enter email and password for your GadgetBank account below</small>
       <form class="postForm" (submit)="loginUser(logUser)">
         <label>Email address</label>
-        <input type="text" class="form-control" placeholder="Ex. JohnSmith@yahoo.com" [(ngModel)]="logUser.email" name="logUser.email">
+        <input type="text" 
+          class="form-control" 
+          placeholder="Ex. JohnSmith@yahoo.com"
+          required 
+          [(ngModel)]="logUser.email" 
+          name="logUser.email"
+          #logemail="ngModel">
+        <div *ngIf="logemail.invalid && (logemail.dirty || logemail.touched)">
+          <div *ngIf="logemail.errors.required">
+            Email is required
+          </div>
+        </div>
         <label>Password</label>
-        <input type="text" class="form-control" [(ngModel)]="logUser.password" name="logUser.password">
-        <button type="submit" value="submit" class="btn btn-primary">Log In</button>
+        <input type="password" 
+          class="form-control" 
+          required
+          [(ngModel)]="logUser.password" 
+          name="logUser.password"
+          #logPass="ngModel"
+          >
+        <div *ngIf="logPass.invalid && (logPass.dirty || logPass.touched)">
+          <div *ngIf="logemail.errors.required">
+            Password is required
+          </div>
+        </div>
+        <br>
+        <button type="submit" value="submit" class="btn btn-primary" [disabled]="logemail.errors || logPass.errors">Log In</button>
+        <div *ngIf="loginErrors">{{loginErrors}}</div>
       </form>
     </div>
     <div class="col-2"></div> 
     <!-- create empty space -->
     <div class="col-3" id="register-container">
       <h2>Register a new account</h2>
-      <form>
-        <label>Email address</label>
-        <input type="text" class="form-control" placeholder="Ex. JohnSmith@yahoo.com">
-        <label>Confirm email address</label>
-        <input type="text" class="form-control">
-        <label>Password</label>
-        <input type="password" class="form-control">
-        <label>Password confirmation</label>
-        <input type="password" class="form-control">
+      <form (submit)="registerUser(newUser)" >
         <label>First name</label>
-        <input type="text" class="form-control">
+        <input type="text" 
+          class="form-control"
+          required
+          minlength="3"
+          [(ngModel)]="newUser.first_name"
+          name="newUser.first_name"
+          #first_name="ngModel"
+          >
+        <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)">
+          <div *ngIf="first_name.errors.required">First Name is required</div>
+          <div *ngIf="first_name.errors.minlength">First Name must be at least 3 characters long</div>
+        </div>
         <label>Last name</label>
-        <input type="text" class="form-control">
+        <input type="text" 
+          class="form-control"
+          required
+          minlength="3"
+          name="newUser.last_name"
+          [(ngModel)]="newUser.last_name"
+          #last_name="ngModel"
+          >
+        <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)">
+          <div *ngIf="last_name.errors.required">Last Name is required</div>
+          <div *ngIf="last_name.errors.minlength">Last Name must be at least 3 characters long</div>
+        </div>
         <label>Username</label>
-        <input type="text" class="form-control">
-        <button type="submit" value="submit" class="btn btn-primary">Create Account</button>
+        <input type="text" 
+          class="form-control"
+          required
+          minlength="5"
+          [(ngModel)]="newUser.username"
+          name="newUser.username"
+          #username="ngModel"
+          >
+        <div *ngIf="username.invalid && (username.dirty || username.touched)">
+          <div *ngIf="username.errors.required">Username is required</div>
+          <div *ngIf="username.errors.minlength">Username must be at least 5 characters long</div>
+        </div>
+        <label>Email address</label>
+        <input type="text" 
+          class="form-control" 
+          placeholder="Ex. JohnSmith@yahoo.com" 
+          required
+          pattern="^[^@]+@[^@]+\.[^@]+$"
+          [(ngModel)]="newUser.email" 
+          name="newUser.email" 
+          #email="ngModel">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+          <div *ngIf="email.errors.required" class="invalid">Email required</div>
+          <div *ngIf="email.errors.pattern" class="invalid">Invalid Email </div>
+        </div>
+        <label>Password</label>
+        <input type="password" 
+          class="form-control" 
+          required 
+          minlength="8" 
+          [(ngModel)]="newUser.password" 
+          name="password" 
+          #password="ngModel">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+          <div *ngIf="password.errors.required" class="invalid">Password required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 8 characters long</div>
+        </div>
+        <br>
+          <button type="submit" value="submit" class="btn btn-primary" [disabled]="first_name.invalid || last_name.invalid || email.invalid || password.invalid ||username.invalid">Create Account</button>
+          <div *ngIf="regErrors">{{regErrors}}</div>
+
+        
+        
       </form>
     </div>
     <div class="col-2"></div>

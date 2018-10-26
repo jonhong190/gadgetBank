@@ -32,7 +32,7 @@ module.exports = (app)=>{
     app.post("/customer/new", (req,res)=>{
         users.createUser(req,res);
     });
-    app.get("/customer/login/:email", (req,res)=>{
+    app.post("/customer/login/", (req,res)=>{
         users.loginUser(req,res);
     });
     app.get("/customer/:id/orders", (req,res)=>{

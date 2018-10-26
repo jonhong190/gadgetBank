@@ -21,6 +21,7 @@
           </div>
         </div>
         <div class="col-6 offset-md-1">
+          <input type="file" class="form-control-file" ng2FileSelect [uploader]="uploader"/>
         </div>
       </div>
     <h4>Pricing</h4>
@@ -36,12 +37,12 @@
                   <tr>
                     <th>Carrier</th>
                     <th>Handset Only</th>
-                    <th style="text-align:center">Sealed</th>
+                    <th>Sealed</th>
                     <th>Open-Sealed</th>
                     <th>Good LCD</th>
                     <th>Cracked Front</th>
                     <th>Bad LCD/Copy</th>
-                    <th style="text-align:center">Dead</th>
+                    <th>Dead</th>
                     <th>Cracked Back (Minus)</th>
                   </tr>
                 </thead>
@@ -56,6 +57,7 @@
                         
                     </td>                                      
                     <td>
+                    
                       <input type="text" class="form-control" #minus (keyup)="minusKey(minus.value, i )">
                     </td>
                   </tr>
@@ -70,7 +72,7 @@
       </div>
       <div class="col-6"></div>
       <div class="col-3" style="text-align:right">
-        <button id="submit_button" type="submit" class="btn btn-primary" value="submit" >Save</button>
+        <button id="submit_button" type="submit" class="btn btn-primary" value="submit" (click)="uploader.uploadAll()" >Save</button>
       </div>
     </div> 
   </form>

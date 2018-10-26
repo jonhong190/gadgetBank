@@ -16,8 +16,8 @@ export class HttpService {
   postNewCustomer(newcustomer) {
     return this._http.post('customer/new', newcustomer);
   } //this route will create a new user through createUser
-  getLoginCustomer(email) {
-    return this._http.get('customer/login/'+ email);
+  postLoginCustomer(user) {
+    return this._http.get('customer/login/',user);
   } //this route logs in the user through loginUser
   getOrders(id) {
     return this._http.get('/customer/' + id + 'orders');

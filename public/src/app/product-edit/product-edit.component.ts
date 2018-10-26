@@ -6,7 +6,7 @@ import { UploadEvent, UploadFile, FileSystemFileEntry } from 'ngx-file-drop';
 import { FileSelectDirective, FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
 
-const URL = 'http://localhost:8033/api/upload';
+const uri = 'http://localhost:8888/upload';
 
 @Component({
   selector: 'app-product-edit',
@@ -32,14 +32,20 @@ export class ProductEditComponent implements OnInit {
   prices:any;
   price:any;
   minusVal:any;
-  values="";
+  image: any;
+  uploader: FileUploader = new FileUploader({ url: uri });
+
 
   constructor(
     private _httpService: HttpService,
     private _router: Router,
     private _route: ActivatedRoute
-  ) { }
-
+  ) {
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      console.log("ImageUpload: uploaded:", item, status, response);
+      //built in function of uploader
+   }
+  }
   ngOnInit() {
     this.product = {title:"", manufacturer:"", category_id:""};
     this.price = [];
@@ -53,7 +59,6 @@ export class ProductEditComponent implements OnInit {
     this.getPricesBySize(this.getProduct.id,1);
     this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
     this.getPricesBySizeAdCondition(this.getProduct.id, 1);
-    console.log("HERE HERE", this.getProduct)
     
     
   }
@@ -113,7 +118,7 @@ export class ProductEditComponent implements OnInit {
     // id from getProduct.id is used to send to backend so correct querry can occur
     this.editPrices(this.price);
     //call editPrice to individually edit all price objects associated with this product
-
+    targetProduct['image'] = this.uploader.queue[0].file.name;
     this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe((data)=>{
       this.goBackToProducts();
       
@@ -242,10 +247,8 @@ export class ProductEditComponent implements OnInit {
         })
       } else {
         continue;
-      }
-      
-    }
-    
+      } 
+    }  
   }
 
 }

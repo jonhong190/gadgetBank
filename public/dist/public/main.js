@@ -727,8 +727,8 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.postNewCustomer = function (newcustomer) {
         return this._http.post('customer/new', newcustomer);
     }; //this route will create a new user through createUser
-    HttpService.prototype.getLoginCustomer = function (email) {
-        return this._http.get('customer/login/' + email);
+    HttpService.prototype.postLoginCustomer = function (user) {
+        return this._http.get('customer/login/', user);
     }; //this route logs in the user through loginUser
     HttpService.prototype.getOrders = function (id) {
         return this._http.get('/customer/' + id + 'orders');
@@ -920,7 +920,7 @@ module.exports = "#login-container{\n    padding:2rem;\n}\n#login-container form
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form class=\"postForm\" (submit)=\"loginUser(logUser)\">\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\" [(ngModel)]=\"logUser.email\" name=\"logUser.email\">\n        <label>Password</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"logUser.password\" name=\"logUser.password\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Log In</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form>\n        <label>Email address</label>\n        <input type=\"text\" class=\"form-control\" placeholder=\"Ex. JohnSmith@yahoo.com\">\n        <label>Confirm email address</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Password</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>Password confirmation</label>\n        <input type=\"password\" class=\"form-control\">\n        <label>First name</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Last name</label>\n        <input type=\"text\" class=\"form-control\">\n        <label>Username</label>\n        <input type=\"text\" class=\"form-control\">\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\">Create Account</button>\n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
+module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form class=\"postForm\" (submit)=\"loginUser(logUser)\">\n        <label>Email address</label>\n        <input type=\"text\" \n          class=\"form-control\" \n          placeholder=\"Ex. JohnSmith@yahoo.com\"\n          required \n          [(ngModel)]=\"logUser.email\" \n          name=\"logUser.email\"\n          #logemail=\"ngModel\">\n        <div *ngIf=\"logemail.invalid && (logemail.dirty || logemail.touched)\">\n          <div *ngIf=\"logemail.errors.required\">\n            Email is required\n          </div>\n        </div>\n        <label>Password</label>\n        <input type=\"password\" \n          class=\"form-control\" \n          required\n          [(ngModel)]=\"logUser.password\" \n          name=\"logUser.password\"\n          #logPass=\"ngModel\"\n          >\n        <div *ngIf=\"logPass.invalid && (logPass.dirty || logPass.touched)\">\n          <div *ngIf=\"logemail.errors.required\">\n            Password is required\n          </div>\n        </div>\n        <br>\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\" [disabled]=\"logemail.errors || logPass.errors\">Log In</button>\n        <div *ngIf=\"loginErrors\">{{loginErrors}}</div>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form (submit)=\"registerUser(newUser)\" >\n        <label>First name</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"3\"\n          [(ngModel)]=\"newUser.first_name\"\n          name=\"newUser.first_name\"\n          #first_name=\"ngModel\"\n          >\n        <div *ngIf=\"first_name.invalid && (first_name.dirty || first_name.touched)\">\n          <div *ngIf=\"first_name.errors.required\">First Name is required</div>\n          <div *ngIf=\"first_name.errors.minlength\">First Name must be at least 3 characters long</div>\n        </div>\n        <label>Last name</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"3\"\n          name=\"newUser.last_name\"\n          [(ngModel)]=\"newUser.last_name\"\n          #last_name=\"ngModel\"\n          >\n        <div *ngIf=\"last_name.invalid && (last_name.dirty || last_name.touched)\">\n          <div *ngIf=\"last_name.errors.required\">Last Name is required</div>\n          <div *ngIf=\"last_name.errors.minlength\">Last Name must be at least 3 characters long</div>\n        </div>\n        <label>Username</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newUser.username\"\n          name=\"newUser.username\"\n          #username=\"ngModel\"\n          >\n        <div *ngIf=\"username.invalid && (username.dirty || username.touched)\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n          <div *ngIf=\"username.errors.minlength\">Username must be at least 5 characters long</div>\n        </div>\n        <label>Email address</label>\n        <input type=\"text\" \n          class=\"form-control\" \n          placeholder=\"Ex. JohnSmith@yahoo.com\" \n          required\n          pattern=\"^[^@]+@[^@]+\\.[^@]+$\"\n          [(ngModel)]=\"newUser.email\" \n          name=\"newUser.email\" \n          #email=\"ngModel\">\n        <div *ngIf=\"email.invalid && (email.dirty || email.touched)\">\n          <div *ngIf=\"email.errors.required\" class=\"invalid\">Email required</div>\n          <div *ngIf=\"email.errors.pattern\" class=\"invalid\">Invalid Email </div>\n        </div>\n        <label>Password</label>\n        <input type=\"password\" \n          class=\"form-control\" \n          required \n          minlength=\"8\" \n          [(ngModel)]=\"newUser.password\" \n          name=\"password\" \n          #password=\"ngModel\">\n        <div *ngIf=\"password.invalid && (password.dirty || password.touched)\">\n          <div *ngIf=\"password.errors.required\" class=\"invalid\">Password required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 8 characters long</div>\n        </div>\n        <br>\n          <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\" [disabled]=\"first_name.invalid || last_name.invalid || email.invalid || password.invalid ||username.invalid\">Create Account</button>\n          <div *ngIf=\"regErrors\">{{regErrors}}</div>\n\n        \n        \n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -956,20 +956,17 @@ var LoginComponent = /** @class */ (function () {
         this._router = _router;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        this.newUser = { first_name: "", last_name: "", email: "", password: "", username: "", admin: false },
-            this.logUser = { email: "", password: "" };
+        this.newUser = { first_name: "", last_name: "", email: "", password: "", username: "", admin: false };
+        this.logUser = { email: "", password: "" };
     };
     LoginComponent.prototype.loginUser = function (user) {
         var _this = this;
         user = this.logUser;
-        this._httpService.getLoginCustomer(user.email).subscribe(function (data) {
-            if (data[0].length == 0) {
-                console.log("no user found");
-                _this._router.navigate(['/create-account']);
-            }
-            if (data[0].password != user.password) {
-                console.log("wrong password");
-                _this._router.navigate(['/create-account']);
+        this._httpService.postLoginCustomer(user).subscribe(function (data) {
+            console.log(data);
+            if (data['errors']) {
+                _this.loginErrors = data['errors'];
+                return;
             }
             if (data[0].admin == true) {
                 _this._router.navigate(['/dashboard']);
@@ -979,8 +976,16 @@ var LoginComponent = /** @class */ (function () {
             }
         });
     };
-    LoginComponent.prototype.registerUser = function (user) {
-        user = this.newUser;
+    LoginComponent.prototype.registerUser = function () {
+        var _this = this;
+        this._httpService.postNewCustomer(this.newUser).subscribe(function (data) {
+            console.log(data);
+            if (data['errors']) {
+                _this.regErrors = data['errors'];
+                return;
+            }
+            _this._router.navigate(['/portal']);
+        });
     };
     LoginComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1195,7 +1200,7 @@ module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    fon
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\"(click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th style=\"text-align:center\">Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th style=\"text-align:center\">Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                \n                <tbody>\n                  <tr *ngFor=\"let c of carrierPriceGroup; index as i\">\n                    <td>{{c.name}} \n                      <input type=\"hidden\" value=\"{{c.carrier_id}}\">\n                    </td>\n                    <td *ngFor=\"let p of conditionPriceGroup; index as j\">\n                        <input type=\"text\"  class=\"form-control\"  #box (keyup)=\"onKey(box.value, i,j)\"> \n                        \n                    </td>                                      \n                    <td>\n                      <input type=\"text\" class=\"form-control\" #minus (keyup)=\"minusKey(minus.value, i )\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\" ng2FileSelect [uploader]=\"uploader\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\"(click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th>Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th>Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                \n                <tbody>\n                  <tr *ngFor=\"let c of carrierPriceGroup; index as i\">\n                    <td>{{c.name}} \n                      <input type=\"hidden\" value=\"{{c.carrier_id}}\">\n                    </td>\n                    <td *ngFor=\"let p of conditionPriceGroup; index as j\">\n                        <input type=\"text\"  class=\"form-control\"  #box (keyup)=\"onKey(box.value, i,j)\"> \n                        \n                    </td>                                      \n                    <td>\n                    \n                      <input type=\"text\" class=\"form-control\" #minus (keyup)=\"minusKey(minus.value, i )\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" (click)=\"uploader.uploadAll()\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1212,6 +1217,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ng2_file_upload_ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng2-file-upload/ng2-file-upload */ "./node_modules/ng2-file-upload/ng2-file-upload.js");
+/* harmony import */ var ng2_file_upload_ng2_file_upload__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload_ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1224,14 +1231,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var URL = 'http://localhost:8033/api/upload';
+
+var uri = 'http://localhost:8888/upload';
 var ProductEditComponent = /** @class */ (function () {
     function ProductEditComponent(_httpService, _router, _route) {
         this._httpService = _httpService;
         this._router = _router;
         this._route = _route;
         this.backToProduct = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.values = "";
+        this.uploader = new ng2_file_upload_ng2_file_upload__WEBPACK_IMPORTED_MODULE_3__["FileUploader"]({ url: uri });
+        this.uploader.onCompleteItem = function (item, response, status, headers) {
+            console.log("ImageUpload: uploaded:", item, status, response);
+            //built in function of uploader
+        };
     }
     ProductEditComponent.prototype.ngOnInit = function () {
         this.product = { title: "", manufacturer: "", category_id: "" };
@@ -1246,7 +1258,6 @@ var ProductEditComponent = /** @class */ (function () {
         this.getPricesBySize(this.getProduct.id, 1);
         this.getPricesBySizeAndCarrier(this.getProduct.id, 1);
         this.getPricesBySizeAdCondition(this.getProduct.id, 1);
-        console.log("HERE HERE", this.getProduct);
     };
     ProductEditComponent.prototype.getAllConditions = function () {
         var _this = this;
@@ -1308,6 +1319,7 @@ var ProductEditComponent = /** @class */ (function () {
         // id from getProduct.id is used to send to backend so correct querry can occur
         this.editPrices(this.price);
         //call editPrice to individually edit all price objects associated with this product
+        targetProduct['image'] = this.uploader.queue[0].file.name;
         this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe(function (data) {
             _this.goBackToProducts();
         });

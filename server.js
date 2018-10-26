@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
 const sequelize = require("sequelize");
-// const multer = require("multer");
+const session = require("express-session")
 
 //create a cors middleware
 app.use(function (req, res, next) {
