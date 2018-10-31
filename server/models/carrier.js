@@ -8,6 +8,7 @@ module.exports = (sequelize, type)=>{
         carrier_name:{
             type:type.STRING,
             notEmpty: true
-        }
+        },
+        category_id:type.INTEGER
     })
 }

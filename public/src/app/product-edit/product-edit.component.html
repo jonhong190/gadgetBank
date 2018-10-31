@@ -29,7 +29,7 @@
       <div class="card-header" id="price-header" style="text-align:left;">
             <div class="btn-group btn-group-toggle" ngbRadioGroup *ngFor="let s of sizes">
               <label ngbButtonLabel class="btn-primary" >
-                <input ngbButton type="radio" [(ngModel)]="product.size_id" name="product.size_id" value="s.id"(click)="toggleSize(s.id)">{{s.value}}GB
+                <input ngbButton type="radio" [(ngModel)]="product.size_id" name="product.size_id" value="s.id" (click)="toggleSize(s.id)">{{s.value}}GB
               </label>
             </div>
               <table>
@@ -52,7 +52,7 @@
                     <td>{{c.name}} 
                       <input type="hidden" value="{{c.carrier_id}}">
                     </td>
-                    <td *ngFor="let p of conditionPriceGroup; index as j">
+                    <td *ngFor="let p of conditionPriceGroup; let cur of currentSizes; index as j">
                         <input type="text"  class="form-control"  #box (keyup)="onKey(box.value, i,j)"> 
                         
                     </td>                                      

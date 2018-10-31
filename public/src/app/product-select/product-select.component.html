@@ -1,8 +1,72 @@
-<p>
-  product-select works!
-</p>
+
 <div class="container-fluid">
   <div class="row">
-    
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #3D99E6;">
+      <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block">
+          <!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-lg-inline-block text-white" [routerLink]="['/landing']">
+          Logo
+          <!-- Logo title goes here -->
+        </a>
+        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+          <img src="" alt="logo"> <!-- Logo image goes here -->
+        </a>
+        <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span> <!-- Mobile dynamic button -->
+          </button>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+            <a role="button" class="nav-link m-2 menu-item nav-active text-white" [ngx-scroll-to]="'#how-it-works'">How it
+              works</a>
+          </li>
+          <li class="nav-item">
+            <a role="button" class="nav-link m-2 menu-item text-white">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a role="button" class="nav-link m-2 menu-item text-white" [ngx-scroll-to]="'#bottom'">Get Cash Now</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light" [routerLink]="['/create-account']">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" [routerLink]="['/create-account']">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="col-md" id="select_container">
+      <h2>Select your Device</h2>
+      <p>Sell your device to the most trusted professionals</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <ul id="select_list">
+        <li>
+          <a class="btn btn-primary " [routerLink]="['/iphone']">Sell Iphone</a>
+        </li>
+        <li>
+          <a class="btn btn-primary " [routerLink]="['/samsung']">Sell Samsung</a>
+        </li>
+        <li >
+          <a class="btn btn-primary " [routerLink]="['/ipad']">Sell Tablet</a>
+        </li>
+        <li >
+          <a class="btn btn-primary " [routerLink]="">Sell Laptop</a>
+        </li>
+        <li>
+          <a class="btn btn-primary" [routerLink]="">Sell Watch</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-2" ></div>
   </div>
 </div>

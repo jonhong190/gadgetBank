@@ -41,12 +41,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./product-select/product-select.component */ "./src/app/product-select/product-select.component.ts");
 /* harmony import */ var _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./customer-portal/customer-portal.component */ "./src/app/customer-portal/customer-portal.component.ts");
+/* harmony import */ var _sell_sell_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sell/sell.component */ "./src/app/sell/sell.component.ts");
+/* harmony import */ var _question_question_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./question/question.component */ "./src/app/question/question.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -63,6 +67,11 @@ var routes = [
     { path: 'create-account', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'trade-in', component: _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_6__["ProductSelectComponent"] },
     { path: 'portal', component: _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_7__["CustomerPortalComponent"] },
+    { path: 'iphone', component: _sell_sell_component__WEBPACK_IMPORTED_MODULE_8__["SellComponent"] },
+    { path: 'samsung', component: _sell_sell_component__WEBPACK_IMPORTED_MODULE_8__["SellComponent"] },
+    { path: 'ipad', component: _sell_sell_component__WEBPACK_IMPORTED_MODULE_8__["SellComponent"] },
+    { path: 'watch', component: _sell_sell_component__WEBPACK_IMPORTED_MODULE_8__["SellComponent"] },
+    { path: ':model/:size/:carrier', component: _question_question_component__WEBPACK_IMPORTED_MODULE_9__["QuestionComponent"] },
     { path: '**', pathMatch: 'full', redirectTo: '/landing' },
 ];
 var AppRoutingModule = /** @class */ (function () {
@@ -184,12 +193,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/index.js");
 /* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__);
 /* harmony import */ var _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./customer-portal/customer-portal.component */ "./src/app/customer-portal/customer-portal.component.ts");
+/* harmony import */ var _sell_sell_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./sell/sell.component */ "./src/app/sell/sell.component.ts");
+/* harmony import */ var _question_question_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./question/question.component */ "./src/app/question/question.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -237,7 +250,9 @@ var AppModule = /** @class */ (function () {
                 _product_select_product_select_component__WEBPACK_IMPORTED_MODULE_21__["ProductSelectComponent"],
                 ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__["FileSelectDirective"],
                 _customer_portal_customer_portal_component__WEBPACK_IMPORTED_MODULE_24__["CustomerPortalComponent"],
-                ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__["FileSelectDirective"]
+                ng2_file_upload__WEBPACK_IMPORTED_MODULE_23__["FileSelectDirective"],
+                _sell_sell_component__WEBPACK_IMPORTED_MODULE_25__["SellComponent"],
+                _question_question_component__WEBPACK_IMPORTED_MODULE_26__["QuestionComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -420,7 +435,7 @@ module.exports = ".row{\n    margin-left:0 !important;\n}\n.icon{\n    width:1.2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" id=\"dashboard-container\">\n\n  <div class=\"row\" id=\"search-container\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        \n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" id=\"searchbar\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\"padding-top:0; height:100vh;\">\n    <nav class=\"col-md-2 d-none d-md-block bg-white sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0; background-color:white;\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"nav flex-column\" style=\"background-color:white;\">\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/home-4x copy.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goHome()\" class=\"side-text\"> Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/bar-chart-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goOrders()\" class=\"side-text\"> Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/product-2x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goProduct()\" class=\"side-text\"> Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/person-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goCustomers()\" class=\"side-text\"> Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/baseline_settings_black_18dp.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goSetting()\" class=\"side-text\"> Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\" background-color: rgb(248, 249, 250); margin-left:.41rem; \">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\" (sendAddProduct)=\"goAddProduct($event)\" (sendDeleteProduct)=\"goProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\" [getProduct]=\"sendProductId\"></app-product-edit>\n      <app-product-add *ngIf=\"showAddProduct\" (backToProduct)=\"goBack($event)\" ></app-product-add>\n    </main>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\" id=\"dashboard-container\">\n\n  <div class=\"row\" id=\"search-container\">\n      <nav class=\"navbar navbar-light  bg-light flex-md-nowrap col\" style=\" padding:0 !important\">\n        <div class=\"col-2 h-100\" style=\"background-color: #3A8CEB\">\n          <a href=\"#\">Logo</a>\n        </div>\n        \n        <input class=\"form-control form-control-light w-100 h-100 shadow-sm \" type=\"text\" placeholder=\"Search\" id=\"searchbar\" style=\"border-radius:0;\"/>\n        <ul class=\"navbar-nav px-3\" style=\"padding:0 !important\">\n          <li class=\"nav-item text-nowrap\">\n            <a class=\"nav-link\" href=\"#\">Sign Out</a>\n          </li>\n        </ul>\n      </nav>\n  </div>\n\n  <div class=\"row\" style=\"padding-top:0; height:100vh;\">\n    <nav class=\"col-md-2 d-none d-md-block bg-white sidebar\" style=\"margin-right:1rem; padding-right: 0; padding-left:0; padding-top:0; background-color:white;\">\n      <div class=\"sidebar-sticky\">\n        <ul class=\"nav flex-column\" style=\"background-color:white;\">\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/home-4x copy.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goHome()\" class=\"side-text\"> Home</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/bar-chart-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goOrders()\" class=\"side-text\"> Orders</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/product-2x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goProduct()\" class=\"side-text\"> Products</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/person-4x.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goCustomers()\" class=\"side-text\"> Customers</a>\n          </li>\n          <li class=\"nav-item\">\n            <img src=\"../../assets/icons/baseline_settings_black_18dp.png\" class=\"icon\">\n            <a class=\"sidebar-link\" (click)=\"goSetting()\" class=\"side-text\"> Settings</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n    <main role=\"main\" class=\" col-9\" style=\" background-color: rgb(248, 249, 250); overflow:scroll\">\n      <app-home *ngIf=\"home\"></app-home>\n      <app-products *ngIf=\"product\" (sendProduct)=\"getProduct($event)\" (sendAddProduct)=\"goAddProduct($event)\" (sendDeleteProduct)=\"goProduct($event)\"></app-products>\n      <app-orders *ngIf=\"order\"></app-orders>\n      <app-customers *ngIf=\"customer\"></app-customers>\n      <app-settings *ngIf=\"setting\"></app-settings>\n      <app-product-edit *ngIf=\"showEditProduct\" (backToProduct)=\"goBack($event)\" [getProduct]=\"sendProductId\"></app-product-edit>\n      <app-product-add *ngIf=\"showAddProduct\" (backToProduct)=\"goBack($event)\" ></app-product-add>\n    </main>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -745,6 +760,9 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getAllProducts = function () {
         return this._http.get('/allProducts');
     };
+    HttpService.prototype.getAllProductsLikeTitle = function (title) {
+        return this._http.get('/products-contain/' + title);
+    };
     HttpService.prototype.getAllProductsByTitle = function (title) {
         return this._http.get('/allProducts/' + title);
     };
@@ -790,6 +808,12 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getOneCarrier = function (carrier_id) {
         return this._http.get('/carrier/' + carrier_id);
     };
+    HttpService.prototype.getOneCarrierByName = function (name) {
+        return this._http.get('/carrier/name/' + name);
+    };
+    HttpService.prototype.getCarriersByCategory = function (category_id) {
+        return this._http.get('/carriers/' + category_id);
+    };
     HttpService.prototype.getAllSizes = function () {
         return this._http.get('/sizes');
     };
@@ -798,6 +822,12 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.getOneSize = function (size_id) {
         return this._http.get('/size/' + size_id);
+    };
+    HttpService.prototype.getOneSizeByValue = function (value) {
+        return this._http.get('/size/value/' + value);
+    };
+    HttpService.prototype.getSizesByCategory = function (category_id) {
+        return this._http.get('/sizes/' + category_id);
     };
     HttpService.prototype.getAllPrices = function () {
         return this._http.get('/prices');
@@ -825,6 +855,9 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.getDeleteOneProduct = function (product_id) {
         return this._http.get('/product/' + product_id + '/delete');
+    };
+    HttpService.prototype.getPriceByAllConditions = function (product_id, size_id, condition_id, carrier_id, category_id) {
+        return this._http.get('/price/all-conditions/' + product_id + '/' + size_id + '/' + condition_id + '/' + carrier_id + '/' + category_id);
     };
     HttpService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -920,7 +953,7 @@ module.exports = "#login-container{\n    padding:2rem;\n}\n#login-container form
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form class=\"postForm\" (submit)=\"loginUser(logUser)\">\n        <label>Email address</label>\n        <input type=\"text\" \n          class=\"form-control\" \n          placeholder=\"Ex. JohnSmith@yahoo.com\"\n          required \n          [(ngModel)]=\"logUser.email\" \n          name=\"logUser.email\"\n          #logemail=\"ngModel\">\n        <div *ngIf=\"logemail.invalid && (logemail.dirty || logemail.touched)\">\n          <div *ngIf=\"logemail.errors.required\">\n            Email is required\n          </div>\n        </div>\n        <label>Password</label>\n        <input type=\"password\" \n          class=\"form-control\" \n          required\n          [(ngModel)]=\"logUser.password\" \n          name=\"logUser.password\"\n          #logPass=\"ngModel\"\n          >\n        <div *ngIf=\"logPass.invalid && (logPass.dirty || logPass.touched)\">\n          <div *ngIf=\"logemail.errors.required\">\n            Password is required\n          </div>\n        </div>\n        <br>\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\" [disabled]=\"logemail.errors || logPass.errors\">Log In</button>\n        <div *ngIf=\"loginErrors\">{{loginErrors}}</div>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form (submit)=\"registerUser(newUser)\" >\n        <label>First name</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"3\"\n          [(ngModel)]=\"newUser.first_name\"\n          name=\"newUser.first_name\"\n          #first_name=\"ngModel\"\n          >\n        <div *ngIf=\"first_name.invalid && (first_name.dirty || first_name.touched)\">\n          <div *ngIf=\"first_name.errors.required\">First Name is required</div>\n          <div *ngIf=\"first_name.errors.minlength\">First Name must be at least 3 characters long</div>\n        </div>\n        <label>Last name</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"3\"\n          name=\"newUser.last_name\"\n          [(ngModel)]=\"newUser.last_name\"\n          #last_name=\"ngModel\"\n          >\n        <div *ngIf=\"last_name.invalid && (last_name.dirty || last_name.touched)\">\n          <div *ngIf=\"last_name.errors.required\">Last Name is required</div>\n          <div *ngIf=\"last_name.errors.minlength\">Last Name must be at least 3 characters long</div>\n        </div>\n        <label>Username</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newUser.username\"\n          name=\"newUser.username\"\n          #username=\"ngModel\"\n          >\n        <div *ngIf=\"username.invalid && (username.dirty || username.touched)\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n          <div *ngIf=\"username.errors.minlength\">Username must be at least 5 characters long</div>\n        </div>\n        <label>Email address</label>\n        <input type=\"text\" \n          class=\"form-control\" \n          placeholder=\"Ex. JohnSmith@yahoo.com\" \n          required\n          pattern=\"^[^@]+@[^@]+\\.[^@]+$\"\n          [(ngModel)]=\"newUser.email\" \n          name=\"newUser.email\" \n          #email=\"ngModel\">\n        <div *ngIf=\"email.invalid && (email.dirty || email.touched)\">\n          <div *ngIf=\"email.errors.required\" class=\"invalid\">Email required</div>\n          <div *ngIf=\"email.errors.pattern\" class=\"invalid\">Invalid Email </div>\n        </div>\n        <label>Password</label>\n        <input type=\"password\" \n          class=\"form-control\" \n          required \n          minlength=\"8\" \n          [(ngModel)]=\"newUser.password\" \n          name=\"password\" \n          #password=\"ngModel\">\n        <div *ngIf=\"password.invalid && (password.dirty || password.touched)\">\n          <div *ngIf=\"password.errors.required\" class=\"invalid\">Password required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 8 characters long</div>\n        </div>\n        <br>\n          <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\" [disabled]=\"first_name.invalid || last_name.invalid || email.invalid || password.invalid ||username.invalid\">Create Account</button>\n          <div *ngIf=\"regErrors\">{{regErrors}}</div>\n\n        \n        \n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
+module.exports = "\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #3D99E6;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n          <!-- hidden spacer to center brand on mobile --></span>\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" [routerLink]=\"['/landing']\">\n          Logo\n          <!-- Logo title goes here -->\n        </a>\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n          <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n        </a>\n        <div class=\"w-100 text-right\">\n          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"navbar-toggler-icon\"></span> <!-- Mobile dynamic button -->\n          </button>\n        </div>\n      </div>\n    </nav>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-3 offset-md-1\" id=\"login-container\">\n      <h2>Log In</h2>\n      <small>Please enter email and password for your GadgetBank account below</small>\n      <form class=\"postForm\" (submit)=\"loginUser(logUser)\">\n        <label>Email address</label>\n        <input type=\"text\" \n          class=\"form-control\" \n          placeholder=\"Ex. JohnSmith@yahoo.com\"\n          required \n          [(ngModel)]=\"logUser.email\" \n          name=\"logUser.email\"\n          #logemail=\"ngModel\">\n        <div *ngIf=\"logemail.invalid && (logemail.dirty || logemail.touched)\">\n          <div *ngIf=\"logemail.errors.required\">\n            Email is required\n          </div>\n        </div>\n        <label>Password</label>\n        <input type=\"password\" \n          class=\"form-control\" \n          required\n          [(ngModel)]=\"logUser.password\" \n          name=\"logUser.password\"\n          #logPass=\"ngModel\"\n          >\n        <div *ngIf=\"logPass.invalid && (logPass.dirty || logPass.touched)\">\n          <div *ngIf=\"logemail.errors.required\">\n            Password is required\n          </div>\n        </div>\n        <br>\n        <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\" [disabled]=\"logemail.errors || logPass.errors\">Log In</button>\n        <div *ngIf=\"loginErrors\">{{loginErrors}}</div>\n      </form>\n    </div>\n    <div class=\"col-2\"></div> \n    <!-- create empty space -->\n    <div class=\"col-3\" id=\"register-container\">\n      <h2>Register a new account</h2>\n      <form (submit)=\"registerUser(newUser)\" >\n        <label>First name</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"3\"\n          [(ngModel)]=\"newUser.first_name\"\n          name=\"newUser.first_name\"\n          #first_name=\"ngModel\"\n          >\n        <div *ngIf=\"first_name.invalid && (first_name.dirty || first_name.touched)\">\n          <div *ngIf=\"first_name.errors.required\">First Name is required</div>\n          <div *ngIf=\"first_name.errors.minlength\">First Name must be at least 3 characters long</div>\n        </div>\n        <label>Last name</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"3\"\n          name=\"newUser.last_name\"\n          [(ngModel)]=\"newUser.last_name\"\n          #last_name=\"ngModel\"\n          >\n        <div *ngIf=\"last_name.invalid && (last_name.dirty || last_name.touched)\">\n          <div *ngIf=\"last_name.errors.required\">Last Name is required</div>\n          <div *ngIf=\"last_name.errors.minlength\">Last Name must be at least 3 characters long</div>\n        </div>\n        <label>Username</label>\n        <input type=\"text\" \n          class=\"form-control\"\n          required\n          minlength=\"5\"\n          [(ngModel)]=\"newUser.username\"\n          name=\"newUser.username\"\n          #username=\"ngModel\"\n          >\n        <div *ngIf=\"username.invalid && (username.dirty || username.touched)\">\n          <div *ngIf=\"username.errors.required\">Username is required</div>\n          <div *ngIf=\"username.errors.minlength\">Username must be at least 5 characters long</div>\n        </div>\n        <label>Email address</label>\n        <input type=\"text\" \n          class=\"form-control\" \n          placeholder=\"Ex. JohnSmith@yahoo.com\" \n          required\n          pattern=\"^[^@]+@[^@]+\\.[^@]+$\"\n          [(ngModel)]=\"newUser.email\" \n          name=\"newUser.email\" \n          #email=\"ngModel\">\n        <div *ngIf=\"email.invalid && (email.dirty || email.touched)\">\n          <div *ngIf=\"email.errors.required\" class=\"invalid\">Email required</div>\n          <div *ngIf=\"email.errors.pattern\" class=\"invalid\">Invalid Email </div>\n        </div>\n        <label>Password</label>\n        <input type=\"password\" \n          class=\"form-control\" \n          required \n          minlength=\"8\" \n          [(ngModel)]=\"newUser.password\" \n          name=\"password\" \n          #password=\"ngModel\">\n        <div *ngIf=\"password.invalid && (password.dirty || password.touched)\">\n          <div *ngIf=\"password.errors.required\" class=\"invalid\">Password required</div>\n          <div *ngIf=\"password.errors.minlength\">Password must be at least 8 characters long</div>\n        </div>\n        <br>\n          <button type=\"submit\" value=\"submit\" class=\"btn btn-primary\" [disabled]=\"first_name.invalid || last_name.invalid || email.invalid || password.invalid ||username.invalid\">Create Account</button>\n          <div *ngIf=\"regErrors\">{{regErrors}}</div>\n\n        \n        \n      </form>\n    </div>\n    <div class=\"col-2\"></div>\n    <!-- create empy space -->\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -1154,6 +1187,19 @@ var ProductAddComponent = /** @class */ (function () {
         var _this = this;
         product['image'] = this.uploader.queue[0].file.name;
         console.log(product);
+        var title = product.title.split("");
+        var newTitle = "";
+        if (title[0] != title[0].toUpperCase()) {
+            title[0] = title[0].toUpperCase();
+        }
+        for (var i = 0; i < title.length; i++) {
+            if (title[i] == " ") {
+                title[i] = "-";
+            }
+            newTitle += title[i];
+        }
+        console.log(newTitle);
+        product.title = newTitle;
         this._httpService.postNewProduct(product).subscribe(function (data) {
             console.log(data);
             _this.goBackToProducts();
@@ -1189,7 +1235,7 @@ var ProductAddComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    font-size:.65rem;\n}\n.disabled-select{\n    color: #6C757D\n}\n.edit-top-box{\n    margin-bottom:2rem;\n}\n.card-body{\n    padding:0 !important;\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}\ninput[type=\"radio\"]:checked + label{\n    background-color:red !important;\n}\n#price_container{\n    padding-left: 0;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-3{\n    padding-left: 0;\n}\n#submit_button{\n    width:50%\n}\n#carrier-select{\n    \n    padding-right:0;\n}\n#price-header{\n    border:none !important;\n    background-color:white;\n}\nth{\n    text-align:center;\n}"
+module.exports = ".container-fluid{\n    padding-top:1rem;\n    background-color: #F8F9FA\n}\n.btn-sm{\n    font-size:.65rem;\n}\n.disabled-select{\n    color: #6C757D\n}\n.edit-top-box{\n    margin-bottom:2rem;\n}\n.card-body{\n    padding:0 !important;\n}\nlabel {\n border:1px solid #ccc;\n padding:10px;\n margin:0 0 10px;\n display:block; \n}\nlabel:active{\n    background:white;\n    cursor:pointer;\n\n}\nlabel:hover {\n background:#eee;\n cursor:pointer;\n}\n.edit-top-box{\n    background-color:white;\n    height: 15rem;\n    padding-top:2.5rem;\n}\n.input-top{\n    margin-bottom:1rem;\n}\n#price_container{\n    padding-left: 0;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-3{\n    padding-left: 0;\n}\n#submit_button{\n    width:50%\n}\n#carrier-select{\n    \n    padding-right:0;\n}\n#price-header{\n    border:none !important;\n    background-color:white;\n}\nth{\n    text-align:center;\n}"
 
 /***/ }),
 
@@ -1200,7 +1246,7 @@ module.exports = ".container-fluid{\n    padding-top:1rem;\n}\n.btn-sm{\n    fon
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\" ng2FileSelect [uploader]=\"uploader\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\"(click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th>Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th>Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                \n                <tbody>\n                  <tr *ngFor=\"let c of carrierPriceGroup; index as i\">\n                    <td>{{c.name}} \n                      <input type=\"hidden\" value=\"{{c.carrier_id}}\">\n                    </td>\n                    <td *ngFor=\"let p of conditionPriceGroup; index as j\">\n                        <input type=\"text\"  class=\"form-control\"  #box (keyup)=\"onKey(box.value, i,j)\"> \n                        \n                    </td>                                      \n                    <td>\n                    \n                      <input type=\"text\" class=\"form-control\" #minus (keyup)=\"minusKey(minus.value, i )\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" (click)=\"uploader.uploadAll()\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\" ng2FileSelect [uploader]=\"uploader\"/>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\" (click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th>Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th>Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                \n                <tbody>\n                  <tr *ngFor=\"let c of carrierPriceGroup; index as i\">\n                    <td>{{c.name}} \n                      <input type=\"hidden\" value=\"{{c.carrier_id}}\">\n                    </td>\n                    <td *ngFor=\"let p of conditionPriceGroup; let cur of currentSizes; index as j\">\n                        <input type=\"text\"  class=\"form-control\"  #box (keyup)=\"onKey(box.value, i,j)\"> \n                        \n                    </td>                                      \n                    <td>\n                    \n                      <input type=\"text\" class=\"form-control\" #minus (keyup)=\"minusKey(minus.value, i )\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div>\n\n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" (click)=\"uploader.uploadAll()\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -1321,6 +1367,7 @@ var ProductEditComponent = /** @class */ (function () {
         //call editPrice to individually edit all price objects associated with this product
         targetProduct['image'] = this.uploader.queue[0].file.name;
         this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe(function (data) {
+            console.log(data);
             _this.goBackToProducts();
         });
     };
@@ -1335,6 +1382,11 @@ var ProductEditComponent = /** @class */ (function () {
     ProductEditComponent.prototype.toggleSize = function (id) {
         var _this = this;
         this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_value'] == null) {
+                    data[i]['price_value'] = 0;
+                }
+            }
             _this.prices = data;
             _this.currentSize = data[0]['size_id'];
             console.log("current prices", data);
@@ -1486,7 +1538,7 @@ var ProductEditComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#select_list{\n    list-style:none;\n    padding-left: 0;\n\n}\n#select_list li{\n    display:inline-block;\n    width:20%;\n    text-align:center;\n\n}\n#select_container{\n    text-align:center;\n    height: 15rem;\n    padding-top:3rem;\n    background-color: #F8f9fd;\n}\n#select_container h2 {\n    font-size: 3rem;\n}\n#select_container p {\n    font-size: 1.5rem;\n}"
 
 /***/ }),
 
@@ -1497,7 +1549,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  product-select works!\n</p>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    \n  </div>\n</div>"
+module.exports = "\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #3D99E6;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n          <!-- hidden spacer to center brand on mobile --></span>\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" [routerLink]=\"['/landing']\">\n          Logo\n          <!-- Logo title goes here -->\n        </a>\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n          <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n        </a>\n        <div class=\"w-100 text-right\">\n          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"navbar-toggler-icon\"></span> <!-- Mobile dynamic button -->\n          </button>\n        </div>\n      </div>\n      <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n        <ul class=\"navbar-nav ml-auto flex-nowrap\">\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How it\n              works</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [ngx-scroll-to]=\"'#bottom'\">Get Cash Now</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"btn btn-light\" [routerLink]=\"['/create-account']\">Sign Up</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"btn btn-primary\" [routerLink]=\"['/create-account']\">Login</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md\" id=\"select_container\">\n      <h2>Select your Device</h2>\n      <p>Sell your device to the most trusted professionals</p>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-2\"></div>\n    <div class=\"col-8\">\n      <ul id=\"select_list\">\n        <li>\n          <a class=\"btn btn-primary \" [routerLink]=\"['/iphone']\">Sell Iphone</a>\n        </li>\n        <li>\n          <a class=\"btn btn-primary \" [routerLink]=\"['/samsung']\">Sell Samsung</a>\n        </li>\n        <li >\n          <a class=\"btn btn-primary \" [routerLink]=\"['/ipad']\">Sell Tablet</a>\n        </li>\n        <li >\n          <a class=\"btn btn-primary \" [routerLink]=\"\">Sell Laptop</a>\n        </li>\n        <li>\n          <a class=\"btn btn-primary\" [routerLink]=\"\">Sell Watch</a>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-2\" ></div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1512,6 +1564,8 @@ module.exports = "<p>\n  product-select works!\n</p>\n<div class=\"container-flu
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductSelectComponent", function() { return ProductSelectComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1522,10 +1576,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ProductSelectComponent = /** @class */ (function () {
-    function ProductSelectComponent() {
+    function ProductSelectComponent(_httpService, _router, _route) {
+        this._httpService = _httpService;
+        this._router = _router;
+        this._route = _route;
     }
     ProductSelectComponent.prototype.ngOnInit = function () {
+    };
+    ProductSelectComponent.prototype.getAllProducts = function () {
+        var _this = this;
+        this._httpService.getAllProducts().subscribe(function (data) {
+            _this.products = data;
+        });
     };
     ProductSelectComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1533,7 +1598,9 @@ var ProductSelectComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./product-select.component.html */ "./src/app/product-select/product-select.component.html"),
             styles: [__webpack_require__(/*! ./product-select.component.css */ "./src/app/product-select/product-select.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
     ], ProductSelectComponent);
     return ProductSelectComponent;
 }());
@@ -1659,6 +1726,131 @@ var ProductsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/question/question.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/question/question.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#question-header{\n    font-size:2rem;\n}\n#question-table{\n    background-color: #f8f9fb;\n    font-size: 1.5rem;\n}\n#product-details{\n    vertical-align:top;\n    padding-left: 1rem;\n    font-size: 1.25rem;\n}\n#select_container{\n    text-align:center;\n    height: 15rem;\n    padding-top:3rem;\n    background-color: #F8f9fd;\n}\n#select_container h2 {\n    font-size: 3rem;\n}\n#select_container p {\n    font-size: 1.5rem;\n}\n#product-detail-container{\n    padding-top:5rem;\n    padding-bottom: 2rem;\n}\n#price-card{\n    text-align:center;\n}\n#price{\n    font-size:2rem;\n}\n#apply{\n    border-radius:0rem 0rem 0.25rem 0.25rem;\n    font-size: 2rem;\n}\n#price-contain{\n    padding-top: 1rem;\n    padding-left: 2rem;\n    padding-right:0rem;\n}\n#price-title{\n    color: #c3c3c3;\n    font-size: 1.5rem;\n}\n#question-contain{\n    padding-bottom: 10rem;\n}"
+
+/***/ }),
+
+/***/ "./src/app/question/question.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/question/question.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #3D99E6;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n         </span>\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" [routerLink]=\"['/landing']\">\n          Logo\n         \n        </a>\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n          <img src=\"\" alt=\"logo\"> \n        </a>\n        <div class=\"w-100 text-right\">\n          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"navbar-toggler-icon\"></span> \n          </button>\n        </div>\n      </div>\n      <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n        <ul class=\"navbar-nav ml-auto flex-nowrap\">\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How\n              it\n              works</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [ngx-scroll-to]=\"'#bottom'\">Get Cash Now</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"btn btn-light\" [routerLink]=\"['/create-account']\">Sign Up</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"btn btn-primary\" [routerLink]=\"['/create-account']\">Login</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n  </div>\n    <div class=\"row\" >\n      <div class=\"col-md\" id=\"select_container\">\n        <h2>Select your Device</h2>\n        <p>Sell your device to the most trusted professionals</p>\n      </div>\n    </div>\n    <div class=\"row\" id=\"product-detail-container\">\n      <div class=\"col-md-1\"></div>\n      <div class=\"col-md-7\">\n        <td>\n          <img src=\"../../assets/uploads/{{product.image}}\">\n        </td>\n        <td id=\"product-details\" >\n          <p class=\"product-info\"><b>{{productTitle}}/{{productSize}}GB/{{productCarrier}}</b></p>\n        </td>\n        \n      </div>\n      <div class=\"col-md-4\"></div>\n      <div class=\"col-md-1\"></div>\n    </div>\n    <div class=\"row\" id=\"question-contain\">\n      <div class=\"col-md-1\"></div>\n      <div class=\"col-md-6\">\n        <p id=\"question-header\"><b>Help us give you an accurate price</b></p>\n        <table class=\"table\" id=\"question-table\">\n          <tr>\n            <td>\n              Is the device new? \n            </td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"isNew\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" [value]=\"true\">Yes\n                </label>\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" [value]=\"false\">No\n                </label>\n              </div>\n            </td>\n          </tr>\n          <!-- New -->\n          <tr *ngIf=\"isNew == true\"> \n            <td>Device sealed in box?</td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"sealed\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" [value]=\"true\">Yes\n                </label>\n                <!-- Handset Only -->\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\"  (click)=\"getPrice(1)\">No\n                </label>\n              </div>\n            </td>\n          </tr>\n          <tr *ngIf=\"sealed == true\">\n            <td>Device been activated?</td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"activated\">\n                <!-- Open Sealed -->\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" (click)=\"getPrice(3)\">Yes\n                </label>\n                <!-- Sealed -->\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" (click)=\"getPrice(2)\">No\n                </label>\n              </div>\n            </td>\n          </tr> \n          <!-- Used -->\n          <tr *ngIf=\"isNew == false\">\n            <td>Device power on?</td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"power\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" [value]=\"true\">Yes\n                </label>\n                <!-- Dead -->\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" (click)=\"getPrice(7)\">No\n                </label>\n              </div>\n            </td>\n          </tr>\n          <tr *ngIf=\"power == true\">\n            <td>\n              Are there any marks (not cracks) on the LCD?\n            </td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"defects\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" [value]=\"true\">Yes\n                </label>\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" [value]=\"false\">No\n                </label>\n              </div>\n            </td>\n          </tr>\n          <tr *ngIf=\"defects == true\">\n            <td>Cracks on back glass?</td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"crackedBack\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <!-- Bad LCD Minus -->\n                  <input ngbButton type=\"radio\" (click)=\"getPriceMinus(6)\">Yes\n                </label>\n                <!-- Bad LCD -->\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" (click)=\"getPrice(6)\">No\n                </label>\n                <pre></pre>\n              </div>\n            </td>\n          </tr>\n          <tr *ngIf=\"defects == false\">\n            <td>\n              Does the device have cracks on the front?\n            </td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"crackedFront\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" [value]=\"true\">Yes\n                </label>\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" [value]=\"false\">No\n                </label>\n                <pre></pre>\n              </div>\n            </td>\n          </tr>\n          <tr *ngIf=\"crackedFront == true\">\n            <td>\n              Does the device have cracks on the back?\n            </td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"crackedBack\">\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <!-- Cracked Front Minus -->\n                  <input ngbButton type=\"radio\" (click)=\"getPriceMinus(5)\">Yes\n                </label>\n                <!-- Cracked Front -->\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" (click)=\"getPrice(5)\">No\n                </label>\n              </div>\n            </td>\n          </tr>\n          <tr *ngIf=\"crackedFront == false\">\n            <td>\n              Does the device have cracks on the back?\n            </td>\n            <td>\n              <div class=\" btn-group-toggle\" ngbRadioGroup>\n                <!-- Good LCD Minus -->\n                <label ngbButtonLabel class=\"btn-primary button-label\" style=\"margin-right:.5rem;\">\n                  <input ngbButton type=\"radio\" (click)=\"getPriceMinus(4)\">Yes\n                </label>\n                <!-- Good LCD -->\n                <label ngbButtonLabel class=\"btn-primary button-label\">\n                  <input ngbButton type=\"radio\" (click)=\"getPrice(4)\">No\n                </label>\n              </div>\n            </td>\n          </tr>\n        </table>\n      </div>\n      <div class=\"col-md-3\" id=\"price-contain\">\n        <div class=\"card shadow\" id=\"price-card\">\n          <div class=\"card-body\">\n            <p id=\"price-title\" class=\"card-title\"><b>Offer Price</b></p>\n            <p id=\"price\" *ngIf=\"currentPrice\"><b>${{currentPrice.price_value}}</b></p>\n            \n          </div>\n          <button id=\"apply\" type=\"button\" class=\"btn btn-primary btn-lg btn-block\" (click)=\"onSubmit()\"><b>Apply</b></button>\n        </div>\n      </div>\n      <div class=\"col-md-2\"></div>\n    </div>\n    <div class=\"row\">\n      <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <div class=\"collapse navbar-collapse flex-grow-1 text-left\">\n          <ul class=\"navbar-nav\">\n            <li class=\"nav-item col\">\n              <p><b>Sell</b></p>\n              <p>Resources</p>\n              <p>Resources</p>\n              <p>About</p>\n              <p>Contact Us</p>\n            </li>\n            <li class=\"nav-item col\">\n              <p><b>Resources</b></p>\n              <p>Resources</p>\n              <p>Resources</p>\n              <p>About</p>\n              <p>Contact Us</p>\n            </li>\n            <li class=\"nav-item col\">\n              <p><b>About Gadgetbank</b></p>\n              <p>Resources</p>\n              <p>About</p>\n              <p>Contact Us</p>\n            </li>\n            <li class=\"nav-item col\">\n              <p><b>Contact Us</b></p>\n              <p>Resources</p>\n              <p>Resources</p>\n              <p>About</p>\n              <p>Contact Us</p>\n            </li>\n            <li class=\"nav-item col\">\n              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper justo eget feugiat vestibulum.\n                Fusce eget\n                dapibus metus, sed rutrum.</p>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/question/question.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/question/question.component.ts ***!
+  \************************************************/
+/*! exports provided: QuestionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuestionComponent", function() { return QuestionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var QuestionComponent = /** @class */ (function () {
+    function QuestionComponent(_httpService, _router, _route) {
+        this._httpService = _httpService;
+        this._router = _router;
+        this._route = _route;
+    }
+    QuestionComponent.prototype.ngOnInit = function () {
+        console.log(this._route);
+        this.productTitle = this._route['url']['value'][0];
+        this.productSize = this._route['url']['value'][1];
+        this.productCarrier = this._route['url']['value'][2];
+        this.isNew = { value: "" };
+        this.sealed = { value: "" };
+        this.activated = { value: "" };
+        this.power = { value: "" };
+        this.defects = { value: "" };
+        this.crackedFront = { value: "" };
+        this.crackedBack = { value: "" };
+        this.getProductByTitle();
+        this.getSize();
+        this.getCarrier();
+    };
+    QuestionComponent.prototype.getProductByTitle = function () {
+        var _this = this;
+        console.log(this.productTitle['path']);
+        this._httpService.getAllProductsLikeTitle(this.productTitle['path']).subscribe(function (data) {
+            _this.product = data[0];
+            console.log(data);
+        });
+    };
+    QuestionComponent.prototype.getSize = function () {
+        var _this = this;
+        this._httpService.getOneSizeByValue(this.productSize).subscribe(function (data) {
+            _this.sizeId = data[0].id;
+            console.log("size", data);
+        });
+    };
+    QuestionComponent.prototype.getCarrier = function () {
+        var _this = this;
+        this._httpService.getOneCarrierByName(this.productCarrier).subscribe(function (data) {
+            _this.carrierId = data[0].id;
+            console.log("carrier", data);
+        });
+    };
+    QuestionComponent.prototype.getPrice = function (condition_id) {
+        var _this = this;
+        this._httpService.getPriceByAllConditions(this.product.id, this.sizeId, condition_id, this.carrierId, this.product.category_id).subscribe(function (data) {
+            _this.currentPrice = data;
+            console.log(data);
+        });
+    };
+    QuestionComponent.prototype.getPriceMinus = function (condition_id) {
+        var _this = this;
+        this._httpService.getPriceByAllConditions(this.product.id, this.sizeId, condition_id, this.carrierId, this.product.category_id).subscribe(function (data) {
+            data['price_value'] -= data['minus_value'];
+            _this.currentPrice = data;
+            console.log(data);
+        });
+    };
+    QuestionComponent.prototype.onSubmit = function () {
+    };
+    QuestionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-question',
+            template: __webpack_require__(/*! ./question.component.html */ "./src/app/question/question.component.html"),
+            styles: [__webpack_require__(/*! ./question.component.css */ "./src/app/question/question.component.css")]
+        }),
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], QuestionComponent);
+    return QuestionComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/register/register.component.css":
 /*!*************************************************!*\
   !*** ./src/app/register/register.component.css ***!
@@ -1716,6 +1908,124 @@ var RegisterComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], RegisterComponent);
     return RegisterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/sell/sell.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/sell/sell.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "#select_list li{\n    display:inline-block;\n    width:20%;\n    text-align:center;\n\n}\n#select_container{\n    text-align:center;\n    height: 15rem;\n    padding-top:3rem;\n    background-color: #F8f9fd;\n}\n#select_container h2 {\n    font-size: 3rem;\n}\n#select_container p {\n    font-size: 1.5rem;\n}\n#spec_head {\n    font-size:2rem;\n}\n#spec-head-row{\n    border-bottom: solid 1px #F8f9fd;\n    vertical-align:bottom;\n}\n#choose-options{\n    padding-top:3rem;\n    padding-bottom:5rem;\n}\n#button-contain{\n    padding:1rem;\n}\n.button-label{\n    height: 60% !important;\n    top:1rem;\n    \n}\n.model-img{\n    padding-right: .5rem\n}"
+
+/***/ }),
+
+/***/ "./src/app/sell/sell.component.html":
+/*!******************************************!*\
+  !*** ./src/app/sell/sell.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<div class=\"container-fluid\">\n    <div class=\"row\">\n      <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #3D99E6;\">\n        <div class=\"d-flex flex-grow-1\">\n          <span class=\"w-100 d-lg-none d-block\">\n            <!-- hidden spacer to center brand on mobile --></span>\n          <a class=\"navbar-brand d-none d-lg-inline-block text-white\" [routerLink]=\"['/landing']\">\n            Logo\n            <!-- Logo title goes here -->\n          </a>\n          <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n            <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n          </a>\n          <div class=\"w-100 text-right\">\n            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n              <span class=\"navbar-toggler-icon\"></span> <!-- Mobile dynamic button -->\n            </button>\n          </div>\n        </div>\n        <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n          <ul class=\"navbar-nav ml-auto flex-nowrap\">\n            <li class=\"nav-item\">\n              <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How\n                it\n                works</a>\n            </li>\n            <li class=\"nav-item\">\n              <a role=\"button\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n            </li>\n            <li class=\"nav-item\">\n              <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [ngx-scroll-to]=\"'#bottom'\">Get Cash Now</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"btn btn-light\" [routerLink]=\"['/create-account']\">Sign Up</a>\n            </li>\n            <li class=\"nav-item\">\n              <a class=\"btn btn-primary\" [routerLink]=\"['/create-account']\">Login</a>\n            </li>\n          </ul>\n        </div>\n      </nav>\n    </div>\n      <div class=\"row\">\n        <div class=\"col-md\" id=\"select_container\">\n          <h2>Select your Device</h2>\n          <p>Sell your device to the most trusted professionals</p>\n        </div>\n      </div>\n      <div class=\"row\" id=\"choose-options\">\n        <div class=\"col-1\"></div>\n        <div class=\"col-7\">\n          <ngb-accordion [closeOthers]=\"true\" activeIds=\"static-1\">\n            <ngb-panel id=\"static-1\">\n              <ng-template ngbPanelTitle>\n                <span><b>Choose Model</b></span> \n              </ng-template>\n              <ng-template ngbPanelContent>\n                <div class=\"row\">\n                  <div class=\"col-sm btn-group btn-group-toggle\" ngbRadioGroup  *ngFor=\"let c of currentModels\" [(ngModel)]=\"model\">\n                      <img class=\"model-img\" src=\"../../assets/uploads/{{c.image}}\">\n                      <label ngbButtonLabel class=\"btn-primary button-label\">\n                        <input ngbButton type=\"radio\" value={{c.title}}>{{c.title}}\n                      </label>\n                  </div>\n                </div>\n              </ng-template>\n            </ngb-panel>\n            <ngb-panel id=\"static-2\">\n              <ng-template ngbPanelTitle>\n                <span><b>Choose Size</b></span>\n              </ng-template>\n              <ng-template ngbPanelContent>\n                <div class=\"row\">\n                  <div class=\"col-sm btn-group btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"size\" *ngFor=\"let s of currentSizes\">\n                    <label ngbButtonLabel class=\"btn-primary\">\n                      <input ngbButton type=\"radio\" value=\"{{s.value}}\">{{s.value}}\n                    </label>\n                  </div>\n                </div>\n              </ng-template>\n            </ngb-panel>\n            <ngb-panel id=\"static-3\">\n              <ng-template ngbPanelTitle>\n                <span><b>Choose Carrier</b></span>\n              </ng-template>\n              <ng-template ngbPanelContent>\n                <div class=\"row\">\n                  <div class=\"col-sm btn-group btn-group-toggle\" ngbRadioGroup [(ngModel)]=\"carrier\" *ngFor=\"let car of currentCarriers\">\n                    <label ngbButtonLabel class=\"btn-primary\">\n                      <input ngbButton type=\"radio\" value=\"{{car.carrier_name}}\">{{car.carrier_name}}\n                    </label> \n                  </div>\n                </div>\n              </ng-template>\n            </ngb-panel>\n          </ngb-accordion>\n        </div>\n        <div class=\"col-3\">\n          <div class=\"card\">\n            <div class=\"card-header\">\n              <b>Product Specs</b>\n            </div>\n            <div class=\"card-body\">\n              <div class=\"row\" id=\"spec-head-row\">\n                <div class=\"card-title col\"><p class=\"spec_head\"><b>Model</b></p></div>\n                <div class=\"card-title col\"><p class=\"spec_head\"><b>Size</b></p></div>\n                <div class=\"card-title col\"><p class=\"spec_head\"><b>Carrier</b></p></div>\n              </div>\n              <div class=\"row\">\n                <div class=\"card-text col\">{{model}}</div>\n                <div class=\"card-text col\">{{size}}</div>\n                <div class=\"card-text col\">{{carrier}}</div>\n              </div>\n            </div>\n          </div>\n          <div class=\"error-message row\" *ngIf=\"modelErrorMsg\">\n            <small>{{modelErrorMsg}}</small>\n          </div>\n          <div class=\"row\" id=\"button-contain\">\n            <button type=\"button\" class=\"btn btn-primary btn-lg btn-block\" (click)=\"goNext()\">Next</button>\n          </div>\n        </div>\n        <div class=\"col-1\"></div>\n      </div>\n      \n      <div class=\"row\">\n        <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n          <div class=\"collapse navbar-collapse flex-grow-1 text-left\">\n            <ul class=\"navbar-nav\">\n              <li class=\"nav-item col\">\n                <p><b>Sell</b></p>\n                <p>Resources</p>\n                <p>Resources</p>\n                <p>About</p>\n                <p>Contact Us</p>\n              </li>\n              <li class=\"nav-item col\">\n                <p><b>Resources</b></p>\n                <p>Resources</p>\n                <p>Resources</p>\n                <p>About</p>\n                <p>Contact Us</p>\n              </li>\n              <li class=\"nav-item col\">\n                <p><b>About Gadgetbank</b></p>\n                <p>Resources</p>\n                <p>About</p>\n                <p>Contact Us</p>\n              </li>\n              <li class=\"nav-item col\">\n                <p><b>Contact Us</b></p>\n                <p>Resources</p>\n                <p>Resources</p>\n                <p>About</p>\n                <p>Contact Us</p>\n              </li>\n              <li class=\"nav-item col\">\n                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper justo eget feugiat vestibulum. Fusce eget\n                dapibus metus, sed rutrum.</p>\n              </li>\n            </ul>\n          </div>\n        </nav>\n      </div>\n  \n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/sell/sell.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/sell/sell.component.ts ***!
+  \****************************************/
+/*! exports provided: SellComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SellComponent", function() { return SellComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var SellComponent = /** @class */ (function () {
+    function SellComponent(_httpService, _router, _route) {
+        this._httpService = _httpService;
+        this._router = _router;
+        this._route = _route;
+    }
+    SellComponent.prototype.ngOnInit = function () {
+        this.productTitle = this._route['snapshot']['routeConfig']['path'];
+        this.getProductsByTitle();
+        this.model;
+        this.size;
+        this.carrier;
+    };
+    SellComponent.prototype.getProductsByTitle = function () {
+        var _this = this;
+        console.log(this.productTitle);
+        this._httpService.getAllProductsLikeTitle(this.productTitle).subscribe(function (data) {
+            console.log(data);
+            _this.currentModels = data;
+            _this.currentCategory = data[0]['category_id'];
+            console.log(_this.currentModels);
+            console.log(_this.currentCategory);
+            _this.getProductSizes(_this.currentCategory);
+        });
+    };
+    SellComponent.prototype.getProductSizes = function (category) {
+        var _this = this;
+        this._httpService.getSizesByCategory(category).subscribe(function (data) {
+            _this.currentSizes = data;
+            console.log(data);
+            _this.getCarriersByCategory(category);
+        });
+    };
+    SellComponent.prototype.getCarriersByCategory = function (category) {
+        var _this = this;
+        this._httpService.getCarriersByCategory(category).subscribe(function (data) {
+            _this.currentCarriers = data;
+        });
+    };
+    SellComponent.prototype.goNext = function () {
+        if (this.model == null || this.size == null || this.carrier == null) {
+            this.modelErrorMsg = "Please select all options for your product";
+            return;
+        }
+        else {
+            this.modelErrorMsg = null;
+            console.log("passed");
+            console.log(this.model);
+            var string = this.model.split(" ");
+            string = string[0].concat(string[1]);
+            console.log(string);
+            this._router.navigateByUrl("/" + this.model + "/" + this.size + "/" + this.carrier);
+        }
+    };
+    SellComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-sell',
+            template: __webpack_require__(/*! ./sell.component.html */ "./src/app/sell/sell.component.html"),
+            styles: [__webpack_require__(/*! ./sell.component.css */ "./src/app/sell/sell.component.css")]
+        }),
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
+    ], SellComponent);
+    return SellComponent;
 }());
 
 

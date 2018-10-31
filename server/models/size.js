@@ -9,7 +9,7 @@ module.exports = (sequelize, type)=>{
             type:type.INTEGER,
             notEmpty:true
         },
-        product_id: type.INTEGER
+        category_id: type.INTEGER
 
     })
 }

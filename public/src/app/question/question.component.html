@@ -1,0 +1,264 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #3D99E6;">
+      <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block">
+         </span>
+        <a class="navbar-brand d-none d-lg-inline-block text-white" [routerLink]="['/landing']">
+          Logo
+         
+        </a>
+        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+          <img src="" alt="logo"> 
+        </a>
+        <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span> 
+          </button>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+            <a role="button" class="nav-link m-2 menu-item nav-active text-white" [ngx-scroll-to]="'#how-it-works'">How
+              it
+              works</a>
+          </li>
+          <li class="nav-item">
+            <a role="button" class="nav-link m-2 menu-item text-white">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a role="button" class="nav-link m-2 menu-item text-white" [ngx-scroll-to]="'#bottom'">Get Cash Now</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-light" [routerLink]="['/create-account']">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" [routerLink]="['/create-account']">Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+    <div class="row" >
+      <div class="col-md" id="select_container">
+        <h2>Select your Device</h2>
+        <p>Sell your device to the most trusted professionals</p>
+      </div>
+    </div>
+    <div class="row" id="product-detail-container">
+      <div class="col-md-1"></div>
+      <div class="col-md-7">
+        <td>
+          <img src="../../assets/uploads/{{product.image}}">
+        </td>
+        <td id="product-details" >
+          <p class="product-info"><b>{{productTitle}}/{{productSize}}GB/{{productCarrier}}</b></p>
+        </td>
+        
+      </div>
+      <div class="col-md-4"></div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row" id="question-contain">
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <p id="question-header"><b>Help us give you an accurate price</b></p>
+        <table class="table" id="question-table">
+          <tr>
+            <td>
+              Is the device new? 
+            </td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="isNew">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" [value]="true">Yes
+                </label>
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" [value]="false">No
+                </label>
+              </div>
+            </td>
+          </tr>
+          <!-- New -->
+          <tr *ngIf="isNew == true"> 
+            <td>Device sealed in box?</td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="sealed">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" [value]="true">Yes
+                </label>
+                <!-- Handset Only -->
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio"  (click)="getPrice(1)">No
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="sealed == true">
+            <td>Device been activated?</td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="activated">
+                <!-- Open Sealed -->
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" (click)="getPrice(3)">Yes
+                </label>
+                <!-- Sealed -->
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" (click)="getPrice(2)">No
+                </label>
+              </div>
+            </td>
+          </tr> 
+          <!-- Used -->
+          <tr *ngIf="isNew == false">
+            <td>Device power on?</td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="power">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" [value]="true">Yes
+                </label>
+                <!-- Dead -->
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" (click)="getPrice(7)">No
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="power == true">
+            <td>
+              Are there any marks (not cracks) on the LCD?
+            </td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="defects">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" [value]="true">Yes
+                </label>
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" [value]="false">No
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="defects == true">
+            <td>Cracks on back glass?</td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="crackedBack">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <!-- Bad LCD Minus -->
+                  <input ngbButton type="radio" (click)="getPriceMinus(6)">Yes
+                </label>
+                <!-- Bad LCD -->
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" (click)="getPrice(6)">No
+                </label>
+                <pre></pre>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="defects == false">
+            <td>
+              Does the device have cracks on the front?
+            </td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="crackedFront">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" [value]="true">Yes
+                </label>
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" [value]="false">No
+                </label>
+                <pre></pre>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="crackedFront == true">
+            <td>
+              Does the device have cracks on the back?
+            </td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup [(ngModel)]="crackedBack">
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <!-- Cracked Front Minus -->
+                  <input ngbButton type="radio" (click)="getPriceMinus(5)">Yes
+                </label>
+                <!-- Cracked Front -->
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" (click)="getPrice(5)">No
+                </label>
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="crackedFront == false">
+            <td>
+              Does the device have cracks on the back?
+            </td>
+            <td>
+              <div class=" btn-group-toggle" ngbRadioGroup>
+                <!-- Good LCD Minus -->
+                <label ngbButtonLabel class="btn-primary button-label" style="margin-right:.5rem;">
+                  <input ngbButton type="radio" (click)="getPriceMinus(4)">Yes
+                </label>
+                <!-- Good LCD -->
+                <label ngbButtonLabel class="btn-primary button-label">
+                  <input ngbButton type="radio" (click)="getPrice(4)">No
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-3" id="price-contain">
+        <div class="card shadow" id="price-card">
+          <div class="card-body">
+            <p id="price-title" class="card-title"><b>Offer Price</b></p>
+            <p id="price" *ngIf="currentPrice"><b>${{currentPrice.price_value}}</b></p>
+            
+          </div>
+          <button id="apply" type="button" class="btn btn-primary btn-lg btn-block" (click)="onSubmit()"><b>Apply</b></button>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse flex-grow-1 text-left">
+          <ul class="navbar-nav">
+            <li class="nav-item col">
+              <p><b>Sell</b></p>
+              <p>Resources</p>
+              <p>Resources</p>
+              <p>About</p>
+              <p>Contact Us</p>
+            </li>
+            <li class="nav-item col">
+              <p><b>Resources</b></p>
+              <p>Resources</p>
+              <p>Resources</p>
+              <p>About</p>
+              <p>Contact Us</p>
+            </li>
+            <li class="nav-item col">
+              <p><b>About Gadgetbank</b></p>
+              <p>Resources</p>
+              <p>About</p>
+              <p>Contact Us</p>
+            </li>
+            <li class="nav-item col">
+              <p><b>Contact Us</b></p>
+              <p>Resources</p>
+              <p>Resources</p>
+              <p>About</p>
+              <p>Contact Us</p>
+            </li>
+            <li class="nav-item col">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper justo eget feugiat vestibulum.
+                Fusce eget
+                dapibus metus, sed rutrum.</p>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+</div>

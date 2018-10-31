@@ -7,7 +7,7 @@
         </div>
         
         <input class="form-control form-control-light w-100 h-100 shadow-sm " type="text" placeholder="Search" id="searchbar" style="border-radius:0;"/>
-        <ul class="navbar-nav px-3">
+        <ul class="navbar-nav px-3" style="padding:0 !important">
           <li class="nav-item text-nowrap">
             <a class="nav-link" href="#">Sign Out</a>
           </li>
@@ -42,7 +42,7 @@
         </ul>
       </div>
     </nav>
-    <main role="main" class=" col-9" style=" background-color: rgb(248, 249, 250); margin-left:.41rem; ">
+    <main role="main" class=" col-9" style=" background-color: rgb(248, 249, 250); overflow:scroll">
       <app-home *ngIf="home"></app-home>
       <app-products *ngIf="product" (sendProduct)="getProduct($event)" (sendAddProduct)="goAddProduct($event)" (sendDeleteProduct)="goProduct($event)"></app-products>
       <app-orders *ngIf="order"></app-orders>

@@ -1,7 +1,25 @@
-<p>
-  login works!
-</p>
+
 <div class="container-fluid">
+  <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #3D99E6;">
+      <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block">
+          <!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-lg-inline-block text-white" [routerLink]="['/landing']">
+          Logo
+          <!-- Logo title goes here -->
+        </a>
+        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+          <img src="" alt="logo"> <!-- Logo image goes here -->
+        </a>
+        <div class="w-100 text-right">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+            <span class="navbar-toggler-icon"></span> <!-- Mobile dynamic button -->
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
   <div class="row">
     <div class="col-3 offset-md-1" id="login-container">
       <h2>Log In</h2>

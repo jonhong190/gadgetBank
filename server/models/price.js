@@ -13,7 +13,8 @@ module.exports = (sequelize, type)=>{
         condition_id:type.INTEGER,
         size_id:type.INTEGER,
         category_id:type.INTEGER,
-        carrier_id:type.INTEGER
+        carrier_id:type.INTEGER,
+        minus_value:type.INTEGER
     })
 }, {
     setterMethods: {

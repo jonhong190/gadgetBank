@@ -1,0 +1,167 @@
+
+<div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #3D99E6;">
+        <div class="d-flex flex-grow-1">
+          <span class="w-100 d-lg-none d-block">
+            <!-- hidden spacer to center brand on mobile --></span>
+          <a class="navbar-brand d-none d-lg-inline-block text-white" [routerLink]="['/landing']">
+            Logo
+            <!-- Logo title goes here -->
+          </a>
+          <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+            <img src="" alt="logo"> <!-- Logo image goes here -->
+          </a>
+          <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+              <span class="navbar-toggler-icon"></span> <!-- Mobile dynamic button -->
+            </button>
+          </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+          <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+              <a role="button" class="nav-link m-2 menu-item nav-active text-white" [ngx-scroll-to]="'#how-it-works'">How
+                it
+                works</a>
+            </li>
+            <li class="nav-item">
+              <a role="button" class="nav-link m-2 menu-item text-white">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a role="button" class="nav-link m-2 menu-item text-white" [ngx-scroll-to]="'#bottom'">Get Cash Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-light" [routerLink]="['/create-account']">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary" [routerLink]="['/create-account']">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+      <div class="row">
+        <div class="col-md" id="select_container">
+          <h2>Select your Device</h2>
+          <p>Sell your device to the most trusted professionals</p>
+        </div>
+      </div>
+      <div class="row" id="choose-options">
+        <div class="col-1"></div>
+        <div class="col-7">
+          <ngb-accordion [closeOthers]="true" activeIds="static-1">
+            <ngb-panel id="static-1">
+              <ng-template ngbPanelTitle>
+                <span><b>Choose Model</b></span> 
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-sm btn-group btn-group-toggle" ngbRadioGroup  *ngFor="let c of currentModels" [(ngModel)]="model">
+                      <img class="model-img" src="../../assets/uploads/{{c.image}}">
+                      <label ngbButtonLabel class="btn-primary button-label">
+                        <input ngbButton type="radio" value={{c.title}}>{{c.title}}
+                      </label>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-2">
+              <ng-template ngbPanelTitle>
+                <span><b>Choose Size</b></span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-sm btn-group btn-group-toggle" ngbRadioGroup [(ngModel)]="size" *ngFor="let s of currentSizes">
+                    <label ngbButtonLabel class="btn-primary">
+                      <input ngbButton type="radio" value="{{s.value}}">{{s.value}}
+                    </label>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+            <ngb-panel id="static-3">
+              <ng-template ngbPanelTitle>
+                <span><b>Choose Carrier</b></span>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div class="row">
+                  <div class="col-sm btn-group btn-group-toggle" ngbRadioGroup [(ngModel)]="carrier" *ngFor="let car of currentCarriers">
+                    <label ngbButtonLabel class="btn-primary">
+                      <input ngbButton type="radio" value="{{car.carrier_name}}">{{car.carrier_name}}
+                    </label> 
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+        <div class="col-3">
+          <div class="card">
+            <div class="card-header">
+              <b>Product Specs</b>
+            </div>
+            <div class="card-body">
+              <div class="row" id="spec-head-row">
+                <div class="card-title col"><p class="spec_head"><b>Model</b></p></div>
+                <div class="card-title col"><p class="spec_head"><b>Size</b></p></div>
+                <div class="card-title col"><p class="spec_head"><b>Carrier</b></p></div>
+              </div>
+              <div class="row">
+                <div class="card-text col">{{model}}</div>
+                <div class="card-text col">{{size}}</div>
+                <div class="card-text col">{{carrier}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="error-message row" *ngIf="modelErrorMsg">
+            <small>{{modelErrorMsg}}</small>
+          </div>
+          <div class="row" id="button-contain">
+            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="goNext()">Next</button>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+      
+      <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="collapse navbar-collapse flex-grow-1 text-left">
+            <ul class="navbar-nav">
+              <li class="nav-item col">
+                <p><b>Sell</b></p>
+                <p>Resources</p>
+                <p>Resources</p>
+                <p>About</p>
+                <p>Contact Us</p>
+              </li>
+              <li class="nav-item col">
+                <p><b>Resources</b></p>
+                <p>Resources</p>
+                <p>Resources</p>
+                <p>About</p>
+                <p>Contact Us</p>
+              </li>
+              <li class="nav-item col">
+                <p><b>About Gadgetbank</b></p>
+                <p>Resources</p>
+                <p>About</p>
+                <p>Contact Us</p>
+              </li>
+              <li class="nav-item col">
+                <p><b>Contact Us</b></p>
+                <p>Resources</p>
+                <p>Resources</p>
+                <p>About</p>
+                <p>Contact Us</p>
+              </li>
+              <li class="nav-item col">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper justo eget feugiat vestibulum. Fusce eget
+                dapibus metus, sed rutrum.</p>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+  
+</div>

@@ -1,0 +1,50 @@
+#question-header{
+    font-size:2rem;
+}
+#question-table{
+    background-color: #f8f9fb;
+    font-size: 1.5rem;
+}
+#product-details{
+    vertical-align:top;
+    padding-left: 1rem;
+    font-size: 1.25rem;
+}
+#select_container{
+    text-align:center;
+    height: 15rem;
+    padding-top:3rem;
+    background-color: #F8f9fd;
+}
+#select_container h2 {
+    font-size: 3rem;
+}
+#select_container p {
+    font-size: 1.5rem;
+}
+#product-detail-container{
+    padding-top:5rem;
+    padding-bottom: 2rem;
+}
+#price-card{
+    text-align:center;
+}
+#price{
+    font-size:2rem;
+}
+#apply{
+    border-radius:0rem 0rem 0.25rem 0.25rem;
+    font-size: 2rem;
+}
+#price-contain{
+    padding-top: 1rem;
+    padding-left: 2rem;
+    padding-right:0rem;
+}
+#price-title{
+    color: #c3c3c3;
+    font-size: 1.5rem;
+}
+#question-contain{
+    padding-bottom: 10rem;
+}

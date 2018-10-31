@@ -23,6 +23,8 @@ import { ProductSelectComponent } from './product-select/product-select.componen
 import { FileDropModule } from 'ngx-file-drop';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
+import { SellComponent } from './sell/sell.component';
+import { QuestionComponent } from './question/question.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { CustomerPortalComponent } from './customer-portal/customer-portal.compo
     ProductSelectComponent,
     FileSelectDirective,
     CustomerPortalComponent,
-    FileSelectDirective
+    FileSelectDirective,
+    SellComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

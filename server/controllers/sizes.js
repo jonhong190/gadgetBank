@@ -27,5 +27,23 @@ module.exports = {
                 res.json(size)
             }
         })
+    },
+    getOneSizeBySizeValue:(req,res)=>{
+        Size.findAll({where:{value:req.params.value}}).then(size=>{
+            if(size.length == 0){
+                res.json({errors:"no size found"})
+            } else {
+                res.json(size)
+            }
+        })
+    },
+    getAllSizesByCategory: (req,res)=>{
+        Size.findAll({where:{category_id: req.params.category_id}}).then(sizes=>{
+            if(sizes.length == 0){
+                res.json({errors:"no sizes found"});
+            } else {
+                res.json(sizes);
+            }
+        })
     }
 }

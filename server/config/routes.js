@@ -56,9 +56,9 @@ module.exports = (app)=>{
     app.post('/upload', (req,res,next)=>{
         products.upload(req,res,next);
     });
-    // app.post('/download', (req,res)=>{
-    //     products.download(req,res);
-    // })
+    app.get('/products-contain/:title', (req,res)=>{
+        products.allProductsContainsTitle(req,res);
+    });
     app.post("/product/:product_id/edit", (req,res)=>{
         products.editProduct(req,res);
     });
@@ -110,6 +110,12 @@ module.exports = (app)=>{
     app.get("/carrier/:carrier_id", (req,res)=>{
         carriers.getOneCarrier(req,res);
     });
+    app.get("/carrier/name/:name", (req,res)=>{
+        carriers.getOneCarrierByName(req,res);
+    });
+    app.get("/carriers/:category_id", (req,res)=>{
+        carriers.getCarriersByCategory(req,res);
+    });
     app.get("/sizes", (req,res)=>{
         sizes.allSizes(req,res);
     });
@@ -118,6 +124,12 @@ module.exports = (app)=>{
     });
     app.get("/size/:size_id", (req,res)=>{
         sizes.getOneSize(req,res);
+    });
+    app.get("/size/value/:value", (req,res)=>{
+        sizes.getOneSizeBySizeValue(req,res);
+    });
+    app.get("/sizes/:category_id", (req,res)=>{
+        sizes.getAllSizesByCategory(req,res);
     });
     app.get("/prices", (req,res)=>{
         prices.allPrices(req,res);
@@ -136,10 +148,13 @@ module.exports = (app)=>{
     });
     app.get("/prices/condition/:product_id/:size_id", (req,res)=>{
         prices.getPriceBySizeAndCondition(req,res);
-    })
+    });
     app.post("/price/edit/:id/",(req,res)=>{
         prices.updatePrice(req,res);
-    })
+    });
+    app.get("/price/all-conditions/:product_id/:size_id/:condition_id/:carrier_id/:category_id", (req,res)=>{
+        prices.getOnePriceByAllConditions(req,res);
+    });
     app.all("*", (req, res, next) => {
         res.sendFile(path.resolve("./public/dist/public/index.html"))
     })

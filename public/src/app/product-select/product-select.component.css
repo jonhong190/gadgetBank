@@ -1,0 +1,23 @@
+#select_list{
+    list-style:none;
+    padding-left: 0;
+
+}
+#select_list li{
+    display:inline-block;
+    width:20%;
+    text-align:center;
+
+}
+#select_container{
+    text-align:center;
+    height: 15rem;
+    padding-top:3rem;
+    background-color: #F8f9fd;
+}
+#select_container h2 {
+    font-size: 3rem;
+}
+#select_container p {
+    font-size: 1.5rem;
+}

@@ -6,6 +6,13 @@ const path = require("path");
 const sequelize = require("sequelize");
 const session = require("express-session")
 
+
+app.use(session({
+    secret:'whatasecret',
+    resave:'false',
+    saveUninitialized:true,
+    cookie: {maxAge: 60000}
+}));
 //create a cors middleware
 app.use(function (req, res, next) {
     //set headers to allow cross origin request.

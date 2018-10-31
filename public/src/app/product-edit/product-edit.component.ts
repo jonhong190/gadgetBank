@@ -120,9 +120,10 @@ export class ProductEditComponent implements OnInit {
     //call editPrice to individually edit all price objects associated with this product
     targetProduct['image'] = this.uploader.queue[0].file.name;
     this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe((data)=>{
+      console.log(data); 
       this.goBackToProducts();
-      
-    })
+    });
+    
   }
   // this function calls service to the update product back end route
   getCategoryName(){
@@ -133,6 +134,11 @@ export class ProductEditComponent implements OnInit {
   // this function will get the current category of the target product and display the name as a placeholder in our form input
   toggleSize(id){
     this._httpService.getPriceByProductAndSize(this.getProduct.id, id).subscribe(data=>{
+      for(var i in data){
+        if(data[i]['price_value'] == null){
+          data[i]['price_value'] = 0;
+        }
+      }
       this.prices = data;
       this.currentSize = data[0]['size_id'];
       console.log("current prices", data)
@@ -241,7 +247,6 @@ export class ProductEditComponent implements OnInit {
     for(var i = 0; i < arr.length; i++ ){
       if(prices[i]['price_value'] != ""){
         let body = prices[i];
-        
         this._httpService.postEditPrice(arr[i]['id'], body).subscribe(data => {
           console.log(data);
         })

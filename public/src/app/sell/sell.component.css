@@ -1,0 +1,40 @@
+#select_list li{
+    display:inline-block;
+    width:20%;
+    text-align:center;
+
+}
+#select_container{
+    text-align:center;
+    height: 15rem;
+    padding-top:3rem;
+    background-color: #F8f9fd;
+}
+#select_container h2 {
+    font-size: 3rem;
+}
+#select_container p {
+    font-size: 1.5rem;
+}
+#spec_head {
+    font-size:2rem;
+}
+#spec-head-row{
+    border-bottom: solid 1px #F8f9fd;
+    vertical-align:bottom;
+}
+#choose-options{
+    padding-top:3rem;
+    padding-bottom:5rem;
+}
+#button-contain{
+    padding:1rem;
+}
+.button-label{
+    height: 60% !important;
+    top:1rem;
+    
+}
+.model-img{
+    padding-right: .5rem
+}

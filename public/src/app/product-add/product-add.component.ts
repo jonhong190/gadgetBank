@@ -53,6 +53,19 @@ export class ProductAddComponent implements OnInit {
   addProduct(product){
     product['image'] = this.uploader.queue[0].file.name;
     console.log(product)
+    let title = product.title.split("");
+    let newTitle = "";
+    if(title[0] != title[0].toUpperCase()){
+      title[0] = title[0].toUpperCase();
+    }
+    for(var i = 0; i < title.length; i++){
+      if(title[i] == " "){
+        title[i]= "-";
+      }
+      newTitle += title[i];
+    }
+    console.log(newTitle)
+    product.title = newTitle;
     this._httpService.postNewProduct(product).subscribe((data)=>{
       console.log(data);
 

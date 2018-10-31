@@ -78,8 +78,7 @@ module.exports = {
         Price.findAll({
             where:{size_id:req.params.size_id, product_id:req.params.product_id},
             attributes:['id','product_id','carrier_id','condition_id','price_value','size_id'],
-            group:['condition_id'],
-            raw:true
+            group:['condition_id']
         }).then(prices=>{
             if(prices.length==0){
                 res.json({errors:"no prices found"})
@@ -97,21 +96,37 @@ module.exports = {
             } else {
                 let body = req.body;
                 console.log("IN SERVER", body)
-                if(req.body.minus_value != ""){
-                    price[0].price_value = req.body.price_value; 
-                    price[0].price_value -= req.body.minus_value;
-                    if(price[0].price_value < 0){
-                        price[0].price_value = 0;
-                    }
-                    price[0].save();
-                } else {
+                // if(req.body.minus_value != ""){
+                //     price[0].price_value = req.body.price_value; 
+                //     price[0].price_value -= req.body.minus_value;
+                //     if(price[0].price_value < 0){
+                //         price[0].price_value = 0;
+                //     }
+                //     price[0].save();
+                // } else {
                     price[0].price_value = req.body.price_value;
+                    price[0].minus_value = req.body.minus_value;
                     price[0].save();
-                }
+                // }
+                res.json(price);
+            }
+        })  
+    },
+    getOnePriceByAllConditions:(req,res)=>{
+        Price.findOne(
+            {where:{
+                product_id:req.params.product_id,
+                size_id:req.params.size_id,
+                condition_id:req.params.condition_id,
+                carrier_id:req.params.carrier_id,
+                category_id:req.params.category_id
+            }}
+        ).then(price=>{
+            if(price.length == 0){
+                res.json({errors:"no price found"});
+            } else {
                 res.json(price);
             }
         })
-        
-       
     }
 }

@@ -34,6 +34,9 @@ export class HttpService {
   getAllProducts(){
     return this._http.get('/allProducts');
   }
+  getAllProductsLikeTitle(title){
+    return this._http.get('/products-contain/'+title)
+  }
   getAllProductsByTitle(title){
     return this._http.get('/allProducts/'+title);
   }
@@ -77,7 +80,13 @@ export class HttpService {
     return this._http.post('/new/carrier', carrier);
   }
   getOneCarrier(carrier_id){
-    return this._http.get('/carrier/'+carrier_id)
+    return this._http.get('/carrier/'+carrier_id);
+  }
+  getOneCarrierByName(name){
+    return this._http.get('/carrier/name/'+name);
+  }
+  getCarriersByCategory(category_id){
+    return this._http.get('/carriers/'+category_id);
   }
   getAllSizes(){
     return this._http.get('/sizes');
@@ -87,6 +96,12 @@ export class HttpService {
   }
   getOneSize(size_id){
     return this._http.get('/size/'+size_id);
+  }
+  getOneSizeByValue(value){
+    return this._http.get('/size/value/'+value);
+  }
+  getSizesByCategory(category_id){
+    return this._http.get('/sizes/'+category_id);
   }
   getAllPrices(){
     return this._http.get('/prices');
@@ -115,6 +130,8 @@ export class HttpService {
   getDeleteOneProduct(product_id){
     return this._http.get('/product/'+product_id+'/delete');
   }
-  
+  getPriceByAllConditions(product_id, size_id, condition_id, carrier_id, category_id){
+    return this._http.get('/price/all-conditions/'+product_id+'/'+size_id+'/'+condition_id+'/'+carrier_id+'/'+category_id);
+  }
 
 }

@@ -1,5 +1,6 @@
 .container-fluid{
     padding-top:1rem;
+    background-color: #F8F9FA
 }
 .btn-sm{
     font-size:.65rem;
@@ -37,9 +38,6 @@ label:hover {
 }
 .input-top{
     margin-bottom:1rem;
-}
-input[type="radio"]:checked + label{
-    background-color:red !important;
 }
 #price_container{
     padding-left: 0;

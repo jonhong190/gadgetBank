@@ -36,10 +36,21 @@ module.exports = {
         })
     },
     allProductsByTitle: (req,res)=>{
-        Product.findAll({where:{title: req.params.title}}).then(products=>{
+        Product.findAll({where:{title: req.params.title + '%'}}).then(products=>{
             if(products.length == 0){
                 res.json({errors:"no products found"})
             } else {
+                console.log(products)
+                res.json(products)
+            }
+        })
+    },
+    allProductsContainsTitle:(req,res)=>{
+        Product.findAll({where:{title:{like:req.params.title +'%'}}}).then(products=>{
+            if(products.length == 0){
+                res.json({errors:"no products found"});
+            } else {
+                console.log(products)
                 res.json(products)
             }
         })
@@ -118,7 +129,7 @@ module.exports = {
         Product.findAll({where:{id:req.params.product_id}}).then(product=>{
             fs.unlink('../uploads/' + product[0]['image'], (err)=>{
                 if(err){
-                    res.json(err)
+                    console.log(err)
                 }
             })
         })
