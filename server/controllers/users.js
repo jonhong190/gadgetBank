@@ -17,21 +17,25 @@ module.exports ={
             //if user does not exist already
             if(user.length == 0){
                 //validate first name
-                if(req.body.first_name.length < 4){
+                if(req.body.first_name.length < 3){
                     res.json({errors:"First Name must be at least 3 characters long"});
+                    return;
                 }
                 //validate last name
                 if(req.body.last_name.length < 2){
                     res.json({errors:"Last Name must be at least 2 characters long"});
+                    return;
                 }
                 //validate password
                 if(req.body.password.length < 8){
                     res.json({errors:"Password must be at least 8 characters long"});
+                    return;
                 }
                 
                 User.create(req.body).then(user=>{
                     //save username to session
-                    req.session.username = req.body.username;
+                    req.session.user = user.username;
+                    req.session.save();
                     res.json(user);
                 })
             } else {
@@ -52,7 +56,13 @@ module.exports ={
             }
             else {
                 //put user in session
-                req.session.username = user.username;
+                req.session.user = user[0].username;
+                req.session.save((err)=>{
+                    if(err){
+                        res.json({error:err});
+                    }
+                })
+                console.log(req.session);
                 res.json(user);
             }
         })
@@ -65,5 +75,14 @@ module.exports ={
                 res.json(user)
             }
         })
+    },
+    getSessionUser:(req,res)=>{
+        let session = req.session;
+        console.log(req.session)
+        if(!session.user){
+            res.json({errors:"no user in session"});
+        } else {
+            res.json(session)
+        }
     }
 }

@@ -17,7 +17,17 @@
 }
 #select_container h2 {
     font-size: 3rem;
+    
 }
 #select_container p {
     font-size: 1.5rem;
+}
+#select-row{
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+.placeholder{
+    height: 10rem;
+    background-color: black;
+    padding:1rem;
 }

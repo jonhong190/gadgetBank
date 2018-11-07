@@ -22,6 +22,7 @@
         </div>
         <div class="col-6 offset-md-1">
           <input type="file" class="form-control-file" ng2FileSelect [uploader]="uploader"/>
+          <button type="button" class="btn-small btm-primary" (click)="uploader.uploadAll()">Upload</button>
         </div>
       </div>
     <h4>Pricing</h4>
@@ -72,7 +73,7 @@
       </div>
       <div class="col-6"></div>
       <div class="col-3" style="text-align:right">
-        <button id="submit_button" type="submit" class="btn btn-primary" value="submit" (click)="uploader.uploadAll()" >Save</button>
+        <button id="submit_button" type="submit" class="btn btn-primary" value="submit" >Save</button>
       </div>
     </div> 
   </form>

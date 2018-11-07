@@ -1,4 +1,4 @@
-const {User, Order, Product, Category, Condition, Carrier, Size, Price} = require("../config/sequelize.js");
+const {User, Order, Product, Category, Condition, Carrier, Size, Price, OrderProduct} = require("../config/sequelize.js");
 const fs = require('fs');
 
 var multer = require('multer');
@@ -56,20 +56,27 @@ module.exports = {
         })
     },
     // function to grab all current products
-    newProductToOrder: (req,res)=>{
-        Order.findAll({where:{id:req.params.order_id}}).then(order=>{
-            if(order.length == 0){
-                res.json({errors:"no order found"})
+    newProductToNewOrder: (req,res)=>{
+        OrderProduct.create().then(orderProduct=>{
+            if(orderProduct.length == 0){
+                res.json({errors:"no order product created"})
             } else {
-                Product.create(req.body).then(product=>{
-                    order[0].addProducts(product);
-                    product.category_id = req.params.category_id;
-                    product.save();
-                    res.json(product)
-                })
+                orderProduct.order_id = req.params.order_id;
+                orderProduct.product_id = req.body.id;
+                orderProduct.price_id = req.body.price.id;
+                orderProduct.save();
+                res.json(orderProduct)
             }
         })
+                    
+                
     },
+    // newProductToExistingOrder:(req,res)=>{
+    //     OrderProduct.create({order_id:req.params.order_id}).then(orderProduct=>{
+    //         orderProduct.product_id = req.body.product_id;
+    //         res.json(orderProduct);
+    //     })  
+    // },
     // function will create a product and add it to a user order
     newProduct: (req,res)=>{
         Product.create(req.body).then(product=>{

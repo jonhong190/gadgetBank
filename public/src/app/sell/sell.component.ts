@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./sell.component.css']
 })
 export class SellComponent implements OnInit {
+  session:any;
   productTitle:any;
   currentModels: any;
   currentCategory: any;
@@ -19,7 +20,7 @@ export class SellComponent implements OnInit {
   modelErrorMsg:any;
   sizeErrorMsg:any;
   carrierErrorMsg:any;
-  
+
   constructor(
     private _httpService: HttpService,
     private _router: Router,
@@ -32,6 +33,7 @@ export class SellComponent implements OnInit {
     this.model;
     this.size;
     this.carrier;
+    this.getSession();
   }
 
   getProductsByTitle(){
@@ -74,6 +76,12 @@ export class SellComponent implements OnInit {
       this._router.navigateByUrl("/"+this.model+"/"+this.size+"/"+this.carrier);
 
     }
+  }
+  getSession(){
+    this._httpService.getSession().subscribe(data=>{
+      this.session = data;
+      console.log(data)
+    })
   }
 
   

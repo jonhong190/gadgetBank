@@ -25,6 +25,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 import { SellComponent } from './sell/sell.component';
 import { QuestionComponent } from './question/question.component';
+import { AddressComponent } from './address/address.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { QuestionComponent } from './question/question.component';
     CustomerPortalComponent,
     FileSelectDirective,
     SellComponent,
-    QuestionComponent
+    QuestionComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,

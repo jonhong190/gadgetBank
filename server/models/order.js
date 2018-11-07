@@ -9,8 +9,11 @@ module.exports = (sequelize, type)=>{
             type:type.INTEGER,
             notEmpty:true
         },
-        order_received:type.DATE,
-        payment_shippped: type.DATE,
-        user_id:type.INTEGER
+        active:{
+            type:type.BOOLEAN
+        },
+        shipment_id:type.STRING,
+        user_id:type.INTEGER,
+        product_id:type.INTEGER,
     })
 }

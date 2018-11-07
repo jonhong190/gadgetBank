@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(user){
-    user = this.logUser;
+    // user = this.logUser;
+    console.log(user)
     this._httpService.postLoginCustomer(user).subscribe((data)=>{
       console.log(data)
       if(data['errors']) {
@@ -38,22 +39,22 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['/dashboard']);
       }
       else{
-        this._router.navigate(['/portal'])
+        this._router.navigate(['/portal/'+data[0]['username']])
       }
     })
   }
 
   registerUser(){
     
-    this._httpService.postNewCustomer(this.newUser).subscribe(data=>{
+    this._httpService.postNewCustomer(this.newUser).subscribe((data)=>{
       console.log(data);
       if(data['errors']){
         this.regErrors = data['errors'];
         return;
+      } else {  
+        this._router.navigate(['/portal/'+data['username']]);
       }
-      this._router.navigate(['/portal']);
-    })
-    
-  }
+      })
+    }
 
 }

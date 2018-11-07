@@ -7,6 +7,8 @@ const ConditionModel = require("../models/condition.js");
 const CarrierModel = require("../models/carrier.js");
 const SizeModel = require("../models/size.js");
 const PriceModel = require("../models/price.js");
+const OrderProductModel=require("../models/orderProduct.js");
+const AddressModel = require("../models/address.js");
 
 const sequelize = new Sequelize('gadget_bank', 'root', 'root', {
     host:'localhost',
@@ -29,11 +31,14 @@ const Condition = ConditionModel(sequelize, Sequelize);
 const Carrier = CarrierModel(sequelize, Sequelize);
 const Size = SizeModel(sequelize, Sequelize);
 const Price = PriceModel(sequelize, Sequelize);
+const OrderProduct = OrderProductModel(sequelize,Sequelize);
+const Address = AddressModel(sequelize, Sequelize);
 
 
+User.hasMany(Address, {foreignKey: 'user_id'});
 
-Order.belongsToMany(Product,{through:'Order_Products'});
-Product.belongsToMany(Order,{through:'Order_Products'});
+// Order.belongsToMany(Product,{through:'OrderProduct'});
+// Product.belongsToMany(Order,{through:'OrderProduct'});
 
 //if force is true it will reinitialize the tables. Use when changing models
 sequelize.sync({ force: false })
@@ -50,5 +55,7 @@ module.exports= {
     Condition,
     Carrier,
     Size,
-    Price
+    Price,
+    OrderProduct,
+    Address
 }

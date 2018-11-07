@@ -7,6 +7,8 @@ const conditions = require("../controllers/conditions.js");
 const carriers = require("../controllers/carriers.js");
 const sizes = require("../controllers/sizes.js");
 const prices = require("../controllers/prices.js");
+const orderProducts = require("../controllers/orderProducts.js");
+const addresses = require("../controllers/addresses.js");
 const path = require("path");
 // var multer = require('multer');
 
@@ -32,24 +34,34 @@ module.exports = (app)=>{
     app.post("/customer/new", (req,res)=>{
         users.createUser(req,res);
     });
-    app.post("/customer/login/", (req,res)=>{
+    app.post("/login", (req,res)=>{
         users.loginUser(req,res);
     });
-    app.get("/customer/:id/orders", (req,res)=>{
+    app.get("/orders", (req,res)=>{
         users.allOrders(req,res);
     });
-    app.get("/order/:order_id", (req,res)=>{
-        orders.oneOrder(req,res);
+    app.get("/session", (req,res)=>{
+        users.getSessionUser(req,res);
     });
     app.post("/customer/:username/order/new", (req,res)=>{
         orders.newOrder(req,res);
     });
     app.get("/order/:order_id/delete", (req,res)=>{
         orders.deleteOrder(req,res);
-    })
-    app.post("/order/:order_id/:category_id/product/new", (req,res)=>{
-        products.newProductToOrder(req,res);
     });
+    app.get("/orders/:user_id", (req, res) => {
+        orders.getAllOrdersByUserId(req, res);
+    });
+    app.get("/order-active/:user_id", (req,res)=>{
+        orders.getActiveOrderByUserId(req,res);
+    });
+    app.post("/order/active/new/:user_id", (req,res)=>{
+        orders.newProductToActiveOrder(req,res);
+    });
+    app.post("/order/:order_id/product/new", (req,res)=>{
+        products.newProductToNewOrder(req,res);
+    });
+    
     app.post("/new",(req,res)=>{
         products.newProduct(req,res);
     });
@@ -134,6 +146,9 @@ module.exports = (app)=>{
     app.get("/prices", (req,res)=>{
         prices.allPrices(req,res);
     });
+    app.get("/price/one/:price_id", (req,res)=>{
+        prices.getOnePriceById(req,res);
+    })
     app.post("price/new/:product_id", (req,res)=>{
         prices.newPrice(req,res);
     });
@@ -155,7 +170,27 @@ module.exports = (app)=>{
     app.get("/price/all-conditions/:product_id/:size_id/:condition_id/:carrier_id/:category_id", (req,res)=>{
         prices.getOnePriceByAllConditions(req,res);
     });
+    app.get("/order/:order_id/products", (req,res)=>{
+        orderProducts.getAllProductsByOrderId(req,res);
+    });
+    app.post("/order/:order_id/new/product", (req,res)=>{
+        orderProducts.newProductToExistingOrder(req,res);
+    });
+    app.get("/addresses/:user_id", (req,res)=>{
+        addresses.getAllAddressByUserId(req,res);
+    });
+    app.post("/address/:user_id/new", (req,res)=>{
+        addresses.postNewAddressToUser(req,res);
+    });
+    app.get("/address/update/:user_id/:address_id", (req,res)=>{
+        addresses.updateAddressByUserId(req,res);
+    });
+    app.post("/address/delete/:address_id", (req,res)=>{
+        addresses.deleteAddressById(req,res);
+    });
     app.all("*", (req, res, next) => {
         res.sendFile(path.resolve("./public/dist/public/index.html"))
-    })
+    });
+
+    
 }

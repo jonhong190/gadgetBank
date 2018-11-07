@@ -21,9 +21,7 @@ module.exports = (sequelize, type)=>{
             type:type.STRING
         },
         category_id:type.INTEGER,
-        condition_id: type.INTEGER,
-        carrier_id: type.STRING,
-        size_id:type.INTEGER,
+        order_id: type.INTEGER,
         price_id:type.INTEGER
     })
 }

@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'create-account', component: LoginComponent},
   { path: 'trade-in', component: ProductSelectComponent},
-  { path: 'portal', component: CustomerPortalComponent},
+  { path: 'portal/:username', component: CustomerPortalComponent},
   { path: 'iphone', component: SellComponent},
   { path: 'samsung', component: SellComponent },
   { path: 'ipad', component: SellComponent },

@@ -17,14 +17,27 @@ export class HttpService {
     return this._http.post('customer/new', newcustomer);
   } //this route will create a new user through createUser
   postLoginCustomer(user) {
-    return this._http.get('customer/login/',user);
+    return this._http.post('/login',user);
   } //this route logs in the user through loginUser
+  getSession(){
+    return this._http.get('/session');
+  }
   getOrders(id) {
-    return this._http.get('/customer/' + id + 'orders');
+    return this._http.get('/orders');
   } //this route will return all of the orders from a specific customer
   getThisOrder(order_id) {
     return this._http.get('/order/' + order_id);
   } //this route will return oneOrder. Specific order is queried here
+  getOrderByUserId(user_id){
+    return this._http.get('/orders/'+user_id);
+  }
+  getActiveOrderByUserId(user_id){
+    return this._http.get('/order-active/'+user_id)
+  } //return the active order
+  postNewProductToActiveOrderByUserId(user_id, product_id){
+    return this._http.post('/order/active/new/'+user_id, product_id)
+  }
+
   postNewOrder(username, newOrder) {
     return this._http.post('/customer/' + username + '/order/new', newOrder);
   } //this route will post a new order through newOrder
@@ -46,8 +59,8 @@ export class HttpService {
   postNewProduct(newProduct){
     return this._http.post('/new',newProduct);
   }
-  postNewProductToOrder(order_id, newproduct) {
-    return this._http.post('/order/' + order_id + '/product/new', newproduct);
+  postNewProductToNewOrder(order_id, product) {
+    return this._http.post('/order/' + order_id + '/product/new',product);
   } //this route will add a new product base on the order id through newProduct
   postEditProduct(id, product) {
     return this._http.post('/product/edit/'+id + '/' , product);
@@ -121,6 +134,9 @@ export class HttpService {
   getPriceBySizeAndConditions(product_id, size_id){
     return this._http.get('/prices/condition/'+product_id+'/'+size_id);
   }
+  getOnePriceById(price_id){
+    return this._http.get('/price/one/'+price_id);
+  }
   postEditPrice(id,body){
     return this._http.post('/price/edit/'+id+'/',body);
   }
@@ -133,5 +149,30 @@ export class HttpService {
   getPriceByAllConditions(product_id, size_id, condition_id, carrier_id, category_id){
     return this._http.get('/price/all-conditions/'+product_id+'/'+size_id+'/'+condition_id+'/'+carrier_id+'/'+category_id);
   }
+  getAllProductsByOrderId(order_id){
+    return this._http.get('/order/'+order_id+'/products');
+  }
+  postProductToOrder(product, order_id){
+    return this._http.post('/order/'+order_id+'/product/new', product);
+  }
 
+  //address routes
+
+  getAllAddressesByUserId(user_id){
+    return this._http.get('/addresses/'+user_id);
+  }
+  postNewAddressToUser(address, user_id){
+    return this._http.post('/address/'+user_id+'/new', address);
+  }
+  postUpdateAddressToUser(user_id, address_id, address){
+    return this._http.post('/address/update/'+user_id+'/'+address_id, address);
+  }
+  deleteAddress(address_id){
+    return this._http.get('/address/delete/'+address_id);
+  }
+
+  //shipping routes
+  postFromAddressAndCreateLabel(address, user_id) {
+    return this._http.post('/create-shipping/'+user_id, address)
+  }
 }

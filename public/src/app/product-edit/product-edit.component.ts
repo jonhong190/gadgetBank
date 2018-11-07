@@ -102,23 +102,43 @@ export class ProductEditComponent implements OnInit {
   }
   //function that calls service to communicated with backend to grab all categories
   editProduct(targetProduct){
-    if(this.product.title == ""){
-      this.product.title = this.getProduct.title;
+    if(targetProduct == ""){
+      targetProduct = this.getProduct.title;
+    } else {
+      let title = targetProduct.title.split("");
+      let newTitle = "";
+      if(title[0] != title[0].toUpperCase()){
+        title[0] = title[0].toUpperCase();
+      }
+      for(var i = 0; i < title.length; i++){
+        if(title[i] == " "){
+          title[i]= "-";
+        }
+        newTitle += title[i];
+      }
+      targetProduct.title = newTitle;
     }
-    if(this.product.category_id == ""){
-      this.product.category_id = this.getProduct.category_id;
+    if(targetProduct.category_id == ""){
+      targetProduct.category_id = this.getProduct.category_id;
     }
-    if(this.product.manufacturer ==""){
-      this.product.manufacturer = this.getProduct.manufacturer;
+    if(targetProduct.manufacturer ==""){
+      targetProduct.manufacturer = this.getProduct.manufacturer;
     }
+    
 
     //if statements allow the product to keep it's original attributes if nothing was entered through the form
-    targetProduct = this.product;
-    // product_id = this.getProduct.id;
+  
     // id from getProduct.id is used to send to backend so correct querry can occur
     this.editPrices(this.price);
     //call editPrice to individually edit all price objects associated with this product
-    targetProduct['image'] = this.uploader.queue[0].file.name;
+    
+    //check if a file has been uploaded
+    if(this.uploader.queue[0] == null){
+      targetProduct['image'] = this.product.image;
+    } else {
+      targetProduct['image'] = this.uploader.queue[0].file.name;
+    }
+    
     this._httpService.postEditProduct(this.getProduct.id, targetProduct).subscribe((data)=>{
       console.log(data); 
       this.goBackToProducts();
@@ -129,6 +149,7 @@ export class ProductEditComponent implements OnInit {
   getCategoryName(){
     this._httpService.getOneCategory(this.getProduct.category_id).subscribe((data)=>{
       this.currentCategory = data[0]['name'];
+      console.log("category", data)
     })
   }
   // this function will get the current category of the target product and display the name as a placeholder in our form input
@@ -199,6 +220,9 @@ export class ProductEditComponent implements OnInit {
   onKey(value: string,x,y){
     console.log(value)
     if(x == 0 && y < 7){
+      if(value == ""){
+
+      }
       this.price[y]['price_value'] = value;
     }
     if(x == 1 ){

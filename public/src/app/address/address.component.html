@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add an Address</h4>
+    <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()"> -->
+    <!-- <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  <div class="modal-body">
+    <form (submit)="submitNewAddress(address)">
+      <input type="text" class="form-control" placeholder="Your name or company" [(ngModel)]="address.name" name="address.name"
+        required>
+      <input type="text" class="form-control" placeholder="Street 1" [(ngModel)]="address.street1" name="address.street1"
+        required>
+      <input type="text" class="form-control" placeholder="Street 2" [(ngModel)]="address.street2" name="address.street2"
+        required>
+      <input type="text" class="form-control" placeholder="City" [(ngModel)]="address.city" name="address.city" required>
+      <select class="form-control" [(ngModel)]="address.state" name="address.state" required>
+        <option value="" disabled selected>
+          <p class="disabled-select">State</p>
+        </option>
+        <option *ngFor="let s of states" value={{s}}>{{s}}</option>
+      </select>
+      <input type="text" class="form-control" placeholder="Zip Code" [(ngModel)]="address.zip" name="address.zip"
+        minlength="5" maxlength="5" required>
+      <button type="submit" class="btn btn-primary btn-block " value="submit">Add</button>
+    </form>
+    <div *ngIf="address_error">
+      <p>Address already exists, please enter a new address or select an exisiting one</p>
+    </div>
+  </div>
+</div>

@@ -128,5 +128,14 @@ module.exports = {
                 res.json(price);
             }
         })
+    },
+    getOnePriceById: (req,res)=>{
+        Price.findAll({where:{id:req.params.price_id}}).then(price=>{
+            if(price.length == 0){
+                res.json({errors:"no price found"})
+            } else {
+                res.json(price);
+            }
+        })
     }
 }
