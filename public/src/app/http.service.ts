@@ -10,6 +10,9 @@ export class HttpService {
   getCustomers() {
     return this._http.get('/customers');
   } //this route will return allUsers.
+  getThisCustomerById(user_id){
+    return this._http.get('/user/'+user_id);
+  }
   getThisCustomer(username) {
     return this._http.get('/customer/'+ username);
   } //this route will return getOneUser. Specific user is queried here
@@ -21,6 +24,12 @@ export class HttpService {
   } //this route logs in the user through loginUser
   getSession(){
     return this._http.get('/session');
+  }
+  deleteSession(){
+    return this._http.get('/session/delete');
+  }
+  getAllOrders(){
+    return this._http.get('/orders');
   }
   getOrders(id) {
     return this._http.get('/orders');
@@ -174,5 +183,8 @@ export class HttpService {
   //shipping routes
   postFromAddressAndCreateLabel(address, user_id) {
     return this._http.post('/create-shipping/'+user_id, address)
+  }
+  getShipmentById(shipment_id){
+    return this._http.get('/shipment/'+shipment_id);
   }
 }

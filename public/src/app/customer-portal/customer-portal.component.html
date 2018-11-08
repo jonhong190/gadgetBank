@@ -29,91 +29,120 @@
             <a role="button" class="nav-link m-2 menu-item text-white">FAQs</a>
           </li>
           <li class="nav-item">
-            <a role="button" class="nav-link m-2 menu-item text-white" [ngx-scroll-to]="'#bottom'">Get Cash Now</a>
+            <a role="button" class="nav-link m-2 menu-item text-white" [routerLink]="['/trade-in']">Sell</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-light" [routerLink]="['/create-account']">Sign Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary" [routerLink]="['/create-account']">Login</a>
+            <a class="btn btn-primary text-white" (click)="logout()">Logout</a>
           </li>
         </ul>
       </div>
     </nav>
   </div>
-  <div class="row">
+  <div class="row" id="content">
     <div class="col-2"></div>
       <div class="col-8">
         <ngb-tabset #t="ngbTabset">
-          <ngb-tab title="Your Order" id="tab-selectbyid1">
+          <ngb-tab title="Your Order"  class="tab" id="tab-selectbyid1">
             <ng-template ngbTabContent>
-              <!-- <div *ngIf="activeProductList.length == 0">
-                <p>Nothing here</p>
-                <a class="btn btn-priimary" [routerLink]="['/trade-in']">Click here to add a product</a>
-              </div> -->
-              <table class="table">
-                <tr *ngFor="let o of allOrders">
-                  <td>{{ o.id }}</td>
-                  <td>{{ o.total_payment }}</td>
-                  <td>
-                    <div ngbDropdown class="d-inline-block">
-                      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{activeProductList.length}} items</button>
-                      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                          <tr class="dropdown-item" *ngFor="let p of activeProductList; index as i">
-                            <td><p class="cart-text">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</p></td>
-                            <td>
-                              <button type="button" class="btn btn-danger btn-sm">
-                                <img src="../../assets/icons/baseline_clear_black_18dp.png" style="width:1rem;">
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <a role="button" class="btn btn-primary btn-lg btn-block" [routerLink]="['/trade-in']">Sell Another Item</a>
-                            </td>
-                          </tr>
-                      </div>
+              <div class="row">
+                <div class="col">
+                  <table class="table">
+                    <tr>
+                      <th>Cart</th>
+                      <th>Total Payment</th>
+                    </tr>
+                    <tr *ngFor="let o of allOrders">
+                      <td>
+                        <div ngbDropdown class="d-inline-block">
+                          <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>{{activeProductList.length}}
+                            items</button>
+                          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+                    <tr class="dropdown-item" *ngFor="let p of activeProductList; index as i">
+                      <td>
+                        <p class="cart-text">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</p>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-danger btn-sm">
+                          <img src="../../assets/icons/baseline_clear_black_18dp.png" style="width:1rem;">
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a role="button" class="btn btn-primary btn-lg btn-block" [routerLink]="['/trade-in']">Sell another item</a>
+                      </td>
+                    </tr>
                     </div>
-                  </td>
-                  <!-- {{activeProductList[2][0].title}} -->
-                </tr>
-               
-                    <button type="button" class="btn btn-primary" (click)="t.select('tab-selectbyid2')">Next</button>
-            
-              </table>
+                    </div>
+                    </td>
+                    <td> ${{ o.total_payment }}</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button type="button" class="btn btn-primary" (click)="t.select('tab-selectbyid2')">Next</button>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col text-center">
+                  <div class="row"></div>
+                  <div class="row">
+                    <p>Review your cart items then hit <br> the 'Next' to select your shipping address </p>
+                  </div>
+                  <div class="row"></div>  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 text-center">
+                  
+                </div>
+                <div class="col-sm-3"></div>
+              </div>
+              
+
               <!-- <span *ngFor="let p of activeProductList; index as i">
                 {{p[0].title}}
               </span> -->
             </ng-template>
           </ngb-tab>
-          <ngb-tab title="Shipping" id="tab-selectbyid2">
+          <ngb-tab title="Shipping" class="tab" id="tab-selectbyid2">
             <ng-template ngbTabContent>
-                <table class="table" >
-                  
-                  <tr *ngFor="let add of allAddresses">
-                    <td>
-                      <p>{{add.street1}}</p>
-                      <p>{{add.street2}}</p>
-                      <p>{{add.city}}, {{add.state}}, {{add.zip}}</p>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-primary" (click)="selectAddress(add)" (click)="t.select('tab-selectbyid3')">Use this Address</button>
-                    </td>
-                  </tr>    
-                </table>
+              <div class="row">
+                <div class="col">
+                  <table class="table">
+                    
+                    <tr *ngFor="let add of allAddresses">
+                      <td>
+                        <p>{{add.street1}}</p>
+                        <p>{{add.street2}}</p>
+                        <p>{{add.city}}, {{add.state}}, {{add.zip}}</p>
+                      </td>
+                      <td>
+                        <button type="button" class="btn btn-primary" (click)="t.select('tab-selectbyid3')" (click)="selectAddress(add)" >Use this Address</button>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col background-color-white">
+                  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add an Address</button>
+                  <p>Select or add an address your shipping address</p>
+                </div>
+              </div>
+                
                 <ng-template #content let-modal>
                   <app-address (sendAddress)="getAddress($event)" [getUser]="user"></app-address>
                 </ng-template>
-                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Add an Address</button>
+                
            
             </ng-template>
           </ngb-tab>
-          <ngb-tab title="Final Details" id="tab-selectbyid3">
-            <ng-template ngbTabContent>
-              <h4>Order Details</h4>
-             
+          <ngb-tab title="Final Details" id="tab-selectbyid3" class="tab" >
+            <ng-template ngbTabContent *ngIf="noAddress == false">
                 <table class="table">
                   <thead>
+                    <h4>Order Details</h4>
                     <tr>
                       <th>Products</th>
                       <th>Total Payment</th>
@@ -122,21 +151,17 @@
                   </thead>
                   <tbody>
                     <tr>
-                     
                         <td>
-                          <tr *ngFor="let p of activeProductList">
-                            <td>{{p[0].title}}/{{p.size}}/{{p.carrier}}</td>
+                          <tr  *ngFor="let p of activeProductList">
+                            <td class="product-list">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</td>
                           </tr>
                         </td>
                      
                       <td>
                         {{allOrders[0].total_payment}}
                      
-                      </td>
-                      <td *ngIf="noAddress">
-                        <p>Please select an address before continuing</p>
-                      </td>
-                      <td *ngIf="noAddress == false">
+                      </td> 
+                      <td>
                         <p>{{user[0].first_name}} {{user[0].last_name}}</p>
                         <p>{{activeAddress.street1}}</p>
                         <p>{{activeAddress.street2}}</p>

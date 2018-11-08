@@ -42,7 +42,8 @@ module.exports= {
                 res.json({errors:"no order found"})
             } else {
                 console.log("BODY",req.body);
-                order[0].total_payment += req.body.price;
+
+                order[0].total_payment += req.body.price_value;
                 order[0].save();
                 OrderProduct.create().then(result=>{
                     
@@ -50,8 +51,8 @@ module.exports= {
                         res.json({errors:"error"})
                     } else {
                         result.order_id = order[0].id;
-                        result.product_id = req.body.id;
-                        result.price_id = req.body.price;
+                        result.product_id = req.body.product_id;
+                        result.price_id = req.body.id;
                         result.save();
                         res.json(result)
                     }

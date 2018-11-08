@@ -31,6 +31,9 @@ module.exports = (app)=>{
     app.get("/customer/:username", (req,res)=>{
         users.getOneUser(req,res);
     });
+    app.get("/user/:user_id", (req, res) => {
+        users.getUserById(req, res);
+    });
     app.post("/customer/new", (req,res)=>{
         users.createUser(req,res);
     });
@@ -38,10 +41,14 @@ module.exports = (app)=>{
         users.loginUser(req,res);
     });
     app.get("/orders", (req,res)=>{
-        users.allOrders(req,res);
+        orders.allOrders(req,res);
     });
     app.get("/session", (req,res)=>{
         users.getSessionUser(req,res);
+    });
+    
+    app.get('/session/delete', (req,res)=>{
+        users.logoutUser(req,res);
     });
     app.post("/customer/:username/order/new", (req,res)=>{
         orders.newOrder(req,res);

@@ -128,8 +128,8 @@ export class QuestionComponent implements OnInit {
         })
         //else add to active order
       } else {
-        this.product['price'] = this.currentPrice.id;
-        this._httpService.postNewProductToActiveOrderByUserId(logUser.id, this.product).subscribe(result=>{
+        console.log("body add" , this.currentPrice)
+        this._httpService.postNewProductToActiveOrderByUserId(logUser.id, this.currentPrice).subscribe(result=>{
           console.log("active order add", result);
           this.modalService.dismissAll();
           this._router.navigate(['/portal/' + logUser.username]);

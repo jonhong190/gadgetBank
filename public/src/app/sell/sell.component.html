@@ -31,17 +31,21 @@
             <li class="nav-item">
               <a role="button" class="nav-link m-2 menu-item text-white" [ngx-scroll-to]="'#bottom'">Get Cash Now</a>
             </li>
-            <li class="nav-item">
-              <a class="btn btn-light" [routerLink]="['/create-account']">Sign Up</a>
+            <li class="nav-item" *ngIf="session == null">
+              <a class="btn btn-light shadow-sm" [routerLink]="['/create-account']">Sign Up</a>
             </li>
-            <li class="nav-item">
-              <a class="btn btn-primary" [routerLink]="['/create-account']">Login</a>
+            <li class="nav-item" *ngIf="session == null">
+              <a class="btn btn-primary shadow-sm" [routerLink]="['/create-account']">Login</a>
             </li>
+            <li class="nav-item" *ngIf="session">
+              <a class="btn btn-primary text-white shadow-sm" (click)="logout()">Logout</a>
+            </li>
+
           </ul>
         </div>
       </nav>
     </div>
-      <div class="row">
+      <div class="row shadow-sm">
         <div class="col-md" id="select_container">
           <h2>Select your Device</h2>
           <p>Sell your device to the most trusted professionals</p>
@@ -49,8 +53,8 @@
       </div>
       <div class="row" id="choose-options">
         <div class="col-1"></div>
-        <div class="col-7">
-          <ngb-accordion [closeOthers]="true" activeIds="static-1">
+        <div class="col-7 ">
+          <ngb-accordion class="shadow-sm" [closeOthers]="true" activeIds="static-1">
             <ngb-panel id="static-1">
               <ng-template ngbPanelTitle>
                 <span><b>Choose Model</b></span> 
@@ -97,7 +101,7 @@
           </ngb-accordion>
         </div>
         <div class="col-3">
-          <div class="card">
+          <div class="card shadow-sm">
             <div class="card-header">
               <b>Product Specs</b>
             </div>
@@ -118,13 +122,13 @@
             <small>{{modelErrorMsg}}</small>
           </div>
           <div class="row" id="button-contain">
-            <button type="button" class="btn btn-primary btn-lg btn-block" (click)="goNext()">Next</button>
+            <button id="next" type="button" class="btn btn-primary btn-lg btn-block shadow-sm" (click)="goNext()">Next</button>
           </div>
         </div>
         <div class="col-1"></div>
       </div>
       
-      <div class="row">
+      <div class="row shadow-sm">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="collapse navbar-collapse flex-grow-1 text-left">
             <ul class="navbar-nav">

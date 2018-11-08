@@ -1,3 +1,104 @@
+#main-info-l{
+    padding-top:7rem;
+    padding-bottom:7rem;
+    text-align:center;
+}
+
+#main-info-r{
+    vertical-align:center;
+    padding-top:7rem;
+
+}
+#description{
+    text-align:center;
+    padding-top:5rem;
+    padding-bottom:5rem;
+}
+.col-top{
+    text-align:center;
+    margin-right:2rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
+.col-top-last{
+    text-align:center;
+    padding-top:1rem;
+    padding-bottom:1rem;
+}
+.icon{
+    width:5rem;
+    padding:1rem;
+}
+#how-it-works{
+    background-color: #F8f9fd;
+    text-align:center;
+    vertical-align:middle;
+    
+}
+.process-list-item{
+    vertical-align:top;
+}
+.hold{
+    color:#F8f9fd;
+}
+#table{
+    text-align:center;
+    display:table;
+    width:100%;
+}
+.navbar-expand-lg{
+    justify-content:center !important;
+
+}
+.nav-item{
+    padding:1rem;
+    margin:0 !important;
+}
+#bottom{
+    background-color: #6cc1fd
+}
+#bot-options{
+    text-align:center;
+    padding:5rem;
+}
+#bot-options h4{
+    padding-bottom:1rem;
+    color:white;
+}
+#bot-options p{
+    padding-bottom:1rem;
+    color: white;
+}
+#start-button{
+    background-color:white;
+    color:#157ffb;
+    margin-right:1rem;
+    border:white;
+}
+#footer{
+    text-align:center;
+    justify-content: center;
+    padding:5rem;
+}
+#map-col-1{
+    text-align:right;
+}
+#map-col-2{
+    text-align:left;
+}
+.col-3 input{
+    font-size:.75rem;
+    margin-right:.5rem;
+    
+}
+.col-3 button{
+    font-size:.75rem;
+    padding: .55rem .75rem;
+}
+#faq{
+    padding: .35rem 2.3rem;
+}
+
 #question-header{
     font-size:2rem;
 }

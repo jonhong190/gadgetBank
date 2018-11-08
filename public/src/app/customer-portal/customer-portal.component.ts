@@ -60,8 +60,8 @@ export class CustomerPortalComponent implements OnInit {
         for(var i in order){
           if(order[i]['active'] == true){
             this._httpService.getAllProductsByOrderId(order[i]['id']).subscribe(products=>{
-              this.activeProducts=products;
-              console.log("active products", products);
+              // this.activeProducts=products;
+              console.log("active", products)
               for(var j in products){
                 this._httpService.getOneProduct(products[j]['product_id']).subscribe(product=>{
                   // this._httpService.g(product[0][])
@@ -117,8 +117,9 @@ export class CustomerPortalComponent implements OnInit {
   }
 
   selectAddress(address){
-    this.activeAddress = address;
     this.noAddress = false;
+    this.activeAddress = address;
+    
   }
 
   submitOrder(){
@@ -127,6 +128,12 @@ export class CustomerPortalComponent implements OnInit {
      })
   }
 
+
+  logout(){
+    this._httpService.deleteSession().subscribe(data=>{
+      this._router.navigate(['/landing']);
+    })
+  }
 
 
 }

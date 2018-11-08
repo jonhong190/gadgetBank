@@ -8,6 +8,7 @@ import { ActivatedRoute , Router} from '@angular/router';
 })
 export class ProductSelectComponent implements OnInit {
   products:any;
+  session:any;
   constructor(
     private _httpService: HttpService,
     private _router: Router,
@@ -15,12 +16,30 @@ export class ProductSelectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.checkforSession();
+
   }
 
   getAllProducts(){
     this._httpService.getAllProducts().subscribe(data=>{
       this.products = data;
+    })
+  }
+
+  checkforSession(){
+    this._httpService.getSession().subscribe(data=>{
+      if(data['errors']){
+        this.session = null;
+      } else {
+        this.session = data;
+      }
+    })
+  }
+  logout(){
+    console.log("here")
+    this._httpService.deleteSession().subscribe(data=>{
+      console.log(data)
+      this._router.navigate(['/landing']);
     })
   }
 

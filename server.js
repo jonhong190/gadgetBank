@@ -8,9 +8,6 @@ const session = require("express-session");
 const EasyPost = require('@easypost/api');
 const api = new EasyPost('EZTK7353a4d1df1a4c6c876c8adf5c778753o0XBBT0lhkWeNGIgpFVRxA');
 
-
-
-
 app.use(session({
     secret:'whatasecret',
     resave:'false',
@@ -36,10 +33,8 @@ app.use(sequelize);
 const {User, Address, Order } = require('./server/config/sequelize.js');
 //shipping routes placed here, doesn't seem to work when placed in the routes and controllers
 app.post("/create-shipping/:user_id", (req, res) => {
-    console.log("in create shipping", req.body)
     //find user by id
     User.findAll({where:{id:req.params.user_id}}).then(user=>{
-
         //create from address
         const fromAddress = new api.Address({
             verify:['delivery'],
@@ -97,8 +92,8 @@ app.post("/create-shipping/:user_id", (req, res) => {
                 Order.findAll({ where: { user_id: user[0].id, active: true } }).then(order => { 
                     //store shipment id for future reference                       
                     order[0].shipment_id = s.id;
+                    order[0].active = false;
                     order[0].save().then(err=>{
-                                console.log("hi")
                         if(err){
                             res.json(err)
                         } else {
@@ -110,10 +105,18 @@ app.post("/create-shipping/:user_id", (req, res) => {
                     
         });
     });
-    
-
-
 });
+app.get("/shipment/:shipment_id", (req, res) => {
+    api.Shipment.retrieve(req.params.shipment_id).then(s => {
+        console.log(s);
+        if (s.length == 0) {
+            res.json({ errors: "no shipment found" })
+        } else {
+            res.json(s);
+        }
+    })
+})
+
 require('babel-polyfill');
 require("./server/config/sequelize.js");
 require("./server/config/routes.js")(app);

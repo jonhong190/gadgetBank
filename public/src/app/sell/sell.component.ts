@@ -79,8 +79,18 @@ export class SellComponent implements OnInit {
   }
   getSession(){
     this._httpService.getSession().subscribe(data=>{
-      this.session = data;
+      if(data['errors']){
+        this.session = null;
+      } else {
+        this.session = data;
+      }
+      
       console.log(data)
+    })
+  }
+  logout(){
+    this._httpService.deleteSession().subscribe(data=>{
+      this._router.navigate(['/landing']);
     })
   }
 

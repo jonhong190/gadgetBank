@@ -11,6 +11,15 @@ module.exports ={
                 }
             })
     },
+    getUserById: (req,res)=>{
+        User.findAll({where:{id:req.params.user_id}}).then(user=>{
+            if(user.length == 0){
+                res.json({errors:"no user found"})
+            } else {
+                res.json(user)
+            }
+        })
+    },
     createUser : (req,res)=>{
         //querry by username
         User.findAll({where:{username:req.body.username}}).then(user=>{
@@ -84,5 +93,14 @@ module.exports ={
         } else {
             res.json(session)
         }
+    },
+    logoutUser:(req,res)=>{
+        req.session.destroy((err)=>{
+            if(err){
+                res.json(err);
+            } else {
+                res.json("session ended");
+            }
+        })
     }
 }

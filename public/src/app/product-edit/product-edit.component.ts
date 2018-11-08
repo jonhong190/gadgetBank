@@ -102,8 +102,9 @@ export class ProductEditComponent implements OnInit {
   }
   //function that calls service to communicated with backend to grab all categories
   editProduct(targetProduct){
-    if(targetProduct == ""){
-      targetProduct = this.getProduct.title;
+    console.log("target PRoduct", targetProduct);
+    if(targetProduct.title == ""){
+      targetProduct.title = this.getProduct.title;
     } else {
       let title = targetProduct.title.split("");
       let newTitle = "";
