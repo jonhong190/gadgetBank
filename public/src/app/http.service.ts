@@ -46,7 +46,10 @@ export class HttpService {
   postNewProductToActiveOrderByUserId(user_id, product_id){
     return this._http.post('/order/active/new/'+user_id, product_id)
   }
-
+  postUpdateOrderPriceByProductId(product_id,body){
+    console.log("in service")
+    return this._http.post('/update/order/'+product_id,body);
+  }
   postNewOrder(username, newOrder) {
     return this._http.post('/customer/' + username + '/order/new', newOrder);
   } //this route will post a new order through newOrder

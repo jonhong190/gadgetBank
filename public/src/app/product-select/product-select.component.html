@@ -37,6 +37,9 @@
             <a class="btn btn-primary shadow-sm" [routerLink]="['/create-account']" >Login</a>
           </li>
           <li *ngIf="session" class="nav-item">
+            <a class="btn btn-light shadow-sm" [routerLink]="['/portal/+session.user']">Profile</a>
+          </li>
+          <li *ngIf="session" class="nav-item">
             <a class="btn btn-primary text-white shadow-sm" (click)="logout()">Logout</a>
           </li>
         </ul>
@@ -55,23 +58,23 @@
       <ul id="select_list">
         <li>
           <div class="placeholder"></div>
-          <a class="btn btn-primary " [routerLink]="['/iphone']">Sell Iphone</a>
+          <a class="btn btn-primary shadow-sm" [routerLink]="['/iphone']">Sell Iphone</a>
         </li>
         <li>
           <div class="placeholder"></div>
-          <a class="btn btn-primary " [routerLink]="['/samsung']">Sell Samsung</a>
-        </li>
-        <li >
-          <div class="placeholder"></div>
-          <a class="btn btn-primary " [routerLink]="['/ipad']">Sell Tablet</a>
-        </li>
-        <li >
-          <div class="placeholder"></div>
-          <a class="btn btn-primary " [routerLink]="">Sell Laptop</a>
+          <a class="btn btn-primary shadow-sm" [routerLink]="['/samsung']">Sell Samsung</a>
         </li>
         <li>
           <div class="placeholder"></div>
-          <a class="btn btn-primary" [routerLink]="">Sell Watch</a>
+          <a class="btn btn-primary shadow-sm" [routerLink]="['/ipad']">Sell Tablet</a>
+        </li>
+        <li>
+          <div class="placeholder"></div>
+          <a class="btn btn-primary shadow-sm" [routerLink]="">Sell Laptop</a>
+        </li>
+        <li >
+          <div class="placeholder"></div>
+          <a class="btn btn-primary shadow-sm" [routerLink]="">Sell Watch</a>
         </li>
       </ul>
     </div>

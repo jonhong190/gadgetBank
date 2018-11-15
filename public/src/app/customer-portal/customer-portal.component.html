@@ -41,7 +41,13 @@
   <div class="row" id="content">
     <div class="col-2"></div>
       <div class="col-8">
-        <ngb-tabset #t="ngbTabset">
+        <div class="row" *ngIf="noProducts">
+          <div class="col">
+            <p>{{ noProducts}}</p>
+            <a class="btn btn-primary" [routerLink]="['/trade-in']">Add item to your cart</a>
+          </div>
+        </div>
+        <ngb-tabset #t="ngbTabset" *ngIf="!noProducts">
           <ngb-tab title="Your Order"  class="tab" id="tab-selectbyid1">
             <ng-template ngbTabContent>
               <div class="row">
@@ -107,7 +113,7 @@
               </span> -->
             </ng-template>
           </ngb-tab>
-          <ngb-tab title="Shipping" class="tab" id="tab-selectbyid2">
+          <ngb-tab title="Shipping" class="tab" id="tab-selectbyid2" [disabled]="noProducts">
             <ng-template ngbTabContent>
               <div class="row">
                 <div class="col">
@@ -138,7 +144,7 @@
            
             </ng-template>
           </ngb-tab>
-          <ngb-tab title="Final Details" id="tab-selectbyid3" class="tab" >
+          <ngb-tab title="Final Details" id="tab-selectbyid3" class="tab" [disabled]="noProducts">
             <ng-template ngbTabContent *ngIf="noAddress == false">
                 <table class="table">
                   <thead>
@@ -158,7 +164,7 @@
                         </td>
                      
                       <td>
-                        {{allOrders[0].total_payment}}
+                        ${{allOrders[0].total_payment}}
                      
                       </td> 
                       <td>
@@ -179,4 +185,49 @@
       </div>
       <div class="col-2"></div>
   </div>    
+  <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #F8F9FA;">
+      <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block">
+          <!-- hidden spacer to center brand on mobile --></span>
+      </div>
+      <div class="flex-grow-2 w-100" id="myFooter">
+        <ul class="navbar-nav ml-auto flex-wrap justify-content-around w-100">
+          <li class="nav-item">
+            <p><b>Sell</b></p>
+            <p>Resources</p>
+            <p>Resources</p>
+            <p>About</p>
+            <p>Contact Us</p>
+          </li>
+          <li class="nav-item ">
+            <p><b>About Gadgetbank</b></p>
+            <p>Resources</p>
+            <p>About</p>
+            <p>Contact Us</p>
+          </li>
+          <li class="nav-item ">
+            <p><b>Contact Us</b></p>
+            <p>Resources</p>
+            <p>Resources</p>
+            <p>About</p>
+            <p>Contact Us</p>
+          </li>
+          <li class="nav-item">
+            <p><b>Resources</b></p>
+            <p>Resources</p>
+            <p>Resources</p>
+            <p>About</p>
+            <p>Contact Us</p>
+          </li>
+          <li class="nav-item">
+            <p>Lorem ipsum dolor sit amet,</p>
+            <p>consectetur adipiscing elit.<p> Mauris semper justo eget feugiat vestibulum. </p>
+              <p>Fusce eget
+                dapibus metus, sed rutrum.</p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </div>

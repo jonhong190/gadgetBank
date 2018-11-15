@@ -1,5 +1,9 @@
 ul > li{
     margin: 10px;
+    
+}
+ul{
+    text-decoration:none;
 }
 #main-info-l{
     padding-top:7rem;
@@ -40,6 +44,7 @@ ul > li{
 }
 .process-list-item{
     vertical-align:top;
+    text-decoration: none;
 }
 .hold{
     color:#F8f9fd;
@@ -56,6 +61,7 @@ ul > li{
 .nav-item{
     padding:1rem;
     margin:0 !important;
+    text-decoration:none;
 }
 #bottom{
     background-color: #6cc1fd

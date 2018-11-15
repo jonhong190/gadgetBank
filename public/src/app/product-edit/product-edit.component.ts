@@ -61,6 +61,7 @@ export class ProductEditComponent implements OnInit {
     this.getPricesBySizeAdCondition(this.getProduct.id, 1);
     
     
+    
   }
   getAllConditions(){
     this._httpService.getAllConditions().subscribe(data=>{
@@ -86,6 +87,7 @@ export class ProductEditComponent implements OnInit {
   getAllSizes(){
     this._httpService.getAllSizes().subscribe(data=>{
       this.sizes=data;
+      this.toggleSize(data[0]['id']);
     })
   }
   getPricing(){

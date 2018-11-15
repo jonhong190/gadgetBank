@@ -37,8 +37,10 @@ const Address = AddressModel(sequelize, Sequelize);
 
 User.hasMany(Address, {foreignKey: 'user_id'});
 
-// Order.belongsToMany(Product,{through:'OrderProduct'});
-// Product.belongsToMany(Order,{through:'OrderProduct'});
+
+
+// Order.belongsToMany(Product,{through:'Order_Product'});
+// Product.belongsToMany(Order,{through:'Order_Product'});
 
 //if force is true it will reinitialize the tables. Use when changing models
 sequelize.sync({ force: false })

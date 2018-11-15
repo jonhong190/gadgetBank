@@ -85,6 +85,23 @@ module.exports= {
             }
         })
     },
+    updateOrderTotalPriceByProductId:(req,res)=>{
+        OrderProduct.findAll({ where: { product_id: req.params.product_id } }).then(items => {
+            console.log(items)
+            for (var i = 0; i < items.length; i++) {
+                let item = items[i];
+                Price.findAll({ where: { id: items[i]['price_id'] } }).then(price => {
+                    let p = price;
+                    Order.findAll({ where: { id: item['order_id'] } }).then(order => {
+                        order[0]['total_payment'] -= p[0]['price_value'];
+                        order[0].save();
+                        console.log(order)
+
+                    });
+                });
+            };
+        })
+    },
 
     deleteOrder : (req,res)=>{
         Order.destroy({where:{id:req.params.order_id}})

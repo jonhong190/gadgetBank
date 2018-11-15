@@ -65,9 +65,13 @@ module.exports = (app)=>{
     app.post("/order/active/new/:user_id", (req,res)=>{
         orders.newProductToActiveOrder(req,res);
     });
+    app.post("/update/order/:product_id", (req, res) => {
+        orders.updateOrderTotalPriceByProductId(req, res);
+    });
     app.post("/order/:order_id/product/new", (req,res)=>{
         products.newProductToNewOrder(req,res);
     });
+  
     
     app.post("/new",(req,res)=>{
         products.newProduct(req,res);

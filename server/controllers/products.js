@@ -133,17 +133,29 @@ module.exports = {
 
     //this function grabs the received product object from the front end service and sets attributes to match
     deleteProduct: (req,res)=>{
-        Product.findAll({where:{id:req.params.product_id}}).then(product=>{
-            fs.unlink('../uploads/' + product[0]['image'], (err)=>{
-                if(err){
-                    console.log(err)
-                }
-            })
-        })
-        
-        Product.destroy({where:{id:req.params.product_id}});
-        Price.destroy({ where: { product_id: req.params.product_id } });
+        // Product.findAll({where:{id:req.params.product_id}}).then(product=>{
+        //     fs.unlink('../../public/dist/public/assets/uploads/' + product[0]['image'], (err)=>{
+        //         if(err){
+        //             console.log(err)
+        //         };
+        //     });
+        // });
+        // OrderProduct.findAll({ where: { product_id: req.params.product_id } }).then(items => {
+        //     console.log(items)
+        //     for (var i = 0; i < items.length; i++) {
+        //         let item = items[i];
+        //         Price.findAll({ where: { id: items[i]['price_id'] } }).then(price => {
+        //             Order.findAll({ where: { id: item['order_id'] } }).then(order => {
+        //                 order[0]['total_payment'] -= price[0]['price_value'];
+        //                 order[0].save();
+        //                 console.log(order)
 
+        //             });
+        //         });
+        //     }
+            Product.destroy({ where: { id: req.params.product_id } });
+            Price.destroy({ where: { product_id: req.params.product_id } });
+            OrderProduct.destroy({ where: { product_id: req.params.product_id } });
         res.json("Succesfully Deleted Product");
     }
 

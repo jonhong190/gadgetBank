@@ -20,7 +20,8 @@ export class CustomerPortalComponent implements OnInit {
   states = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR', 'PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
 
   activeAddress:any;
-  
+  noProducts:any;
+
 
 
   constructor(
@@ -48,6 +49,7 @@ export class CustomerPortalComponent implements OnInit {
     })
   }
   getAllUserOrders(user){
+    let tempPrice = 0;
     //get user
     this._httpService.getThisCustomer(user).subscribe(data=>{
       this.user = data;
@@ -55,33 +57,37 @@ export class CustomerPortalComponent implements OnInit {
         this.allAddresses=add;
       })
       //get all orders
-      this._httpService.getOrderByUserId(data[0]['id']).subscribe(order=>{
+      this._httpService.getActiveOrderByUserId(data[0]['id']).subscribe(order=>{
+        //if no errors and active order is found
         this.allOrders = order;
-        for(var i in order){
-          if(order[i]['active'] == true){
-            this._httpService.getAllProductsByOrderId(order[i]['id']).subscribe(products=>{
-              // this.activeProducts=products;
-              console.log("active", products)
-              for(var j in products){
-                this._httpService.getOneProduct(products[j]['product_id']).subscribe(product=>{
-                  // this._httpService.g(product[0][])
-                  
-                  this._httpService.getOnePriceById(products[j]['price_id']).subscribe(price => {
-                    console.log(price);
-                    this._httpService.getOneSize(price[0]['size_id']).subscribe(size=>{
-                      product['size'] = size[0]['value'];
-                    });
-                    this._httpService.getOneCarrier(price[0]['carrier_id']).subscribe(carrier=>{
-                      product['carrier'] = carrier[0]['carrier_name'];
+        if(!order['errors']){
+          for (var i in order) {
+            if (order[i]['active'] == true) {
+              this._httpService.getAllProductsByOrderId(order[i]['id']).subscribe(products => {
+                if(products['errors']){
+                  this.noProducts = "Your Cart is empty";
+                  return;
+                }
+                for (var j in products) {
+                  this._httpService.getOneProduct(products[j]['product_id']).subscribe(product => {
+                    this._httpService.getOnePriceById(products[j]['price_id']).subscribe(price => {
+                      this._httpService.getOneSize(price[0]['size_id']).subscribe(size => {
+                        product['size'] = size[0]['value'];
+                      });
+                      this._httpService.getOneCarrier(price[0]['carrier_id']).subscribe(carrier => {
+                        product['carrier'] = carrier[0]['carrier_name'];
+                      })
                     })
+                    this.activeProductList.push(product);
                   })
-                  this.activeProductList.push(product);
-                })
-                
-              }
-            })
+                }
+              })
+            }
           }
+          
           console.log(this.activeProductList)
+        } else {
+          this.noProducts = "Your Cart is empty";
         }
       })  
     })

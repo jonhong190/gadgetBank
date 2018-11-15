@@ -44,10 +44,21 @@ export class ProductsComponent implements OnInit {
     this.sendAddProduct.emit("show");
   }
   //function to let dashboard component know to switch ot product add component
-  delete(product_id, index) {
-    this._httpService.getDeleteOneProduct(product_id).subscribe((data)=>{
-      this.sendDeleteProduct.emit("delete");
-      this._router.navigate(['/dashboard']);
+  delete(product_id) {
+    let body = {};
+    this._httpService.postUpdateOrderPriceByProductId(product_id,body).subscribe(()=>{
+      this._httpService.getDeleteOneProduct(product_id).subscribe((data) => {
+        console.log(data);
+        this._httpService.getAllProducts().subscribe(data => {
+          if (data['errors']) {
+            this.products = [];
+          } else {
+            this.products = data;
+          }
+
+        })
+      });
+
     });
     
   }

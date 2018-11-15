@@ -29,7 +29,6 @@ export class SellComponent implements OnInit {
 
   ngOnInit() {
     this.productTitle = this._route['snapshot']['routeConfig']['path'];
-    this.getProductsByTitle();
     this.model;
     this.size;
     this.carrier;
@@ -39,11 +38,8 @@ export class SellComponent implements OnInit {
   getProductsByTitle(){
     console.log(this.productTitle)
     this._httpService.getAllProductsLikeTitle(this.productTitle).subscribe(data=>{
-      console.log(data)
       this.currentModels = data;
       this.currentCategory = data[0]['category_id'];
-      console.log(this.currentModels);
-      console.log(this.currentCategory);
       this.getProductSizes(this.currentCategory);
     })
   }
@@ -72,7 +68,6 @@ export class SellComponent implements OnInit {
       let string = this.model.split(" ");
       string = string[0].concat(string[1]);
       console.log(string)
-      
       this._router.navigateByUrl("/"+this.model+"/"+this.size+"/"+this.carrier);
 
     }
@@ -82,17 +77,16 @@ export class SellComponent implements OnInit {
       if(data['errors']){
         this.session = null;
       } else {
-        this.session = data;
+        this.session = data; 
       }
-      
-      console.log(data)
-    })
-  }
+      this.getProductsByTitle();
+    });
+  };
   logout(){
     this._httpService.deleteSession().subscribe(data=>{
       this._router.navigate(['/landing']);
-    })
-  }
+    });
+  };
 
   
 }
