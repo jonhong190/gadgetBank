@@ -405,7 +405,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".col-2{\n    background-color: #F8f9fd;\n\n}\n#content{\n    background-color: #f8f9fd;\n    padding-top: 5rem;\n    min-height: 25rem;\n    padding-bottom: 2rem;\n}\ntable{\n    background-color:white;\n}\n.product-list{\n    border:none;\n}\n#main-info-l{\n    padding-top:7rem;\n    padding-bottom:7rem;\n    text-align:center;\n}\n#main-info-r{\n    vertical-align:center;\n    padding-top:7rem;\n\n}\n#description{\n    text-align:center;\n    padding-top:5rem;\n    padding-bottom:5rem;\n}\n.col-top{\n    text-align:center;\n    margin-right:2rem;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-top-last{\n    text-align:center;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.icon{\n    width:5rem;\n    padding:1rem;\n}\n#how-it-works{\n    background-color: #F8f9fd;\n    text-align:center;\n    vertical-align:middle;\n    \n}\n.process-list-item{\n    vertical-align:top;\n}\n.hold{\n    color:#F8f9fd;\n}\n#table{\n    text-align:center;\n    display:table;\n    width:100%;\n}\n.navbar-expand-lg{\n    justify-content:center !important;\n\n}\n.nav-item{\n    padding:1rem;\n    margin:0 !important;\n}\n#bottom{\n    background-color: #6cc1fd\n}\n#bot-options{\n    text-align:center;\n    padding:5rem;\n}\n#bot-options h4{\n    padding-bottom:1rem;\n    color:white;\n}\n#bot-options p{\n    padding-bottom:1rem;\n    color: white;\n}\n#start-button{\n    background-color:white;\n    color:#157ffb;\n    margin-right:1rem;\n    border:white;\n}\n#footer{\n    text-align:center;\n    justify-content: center;\n    padding:5rem;\n}\n#map-col-1{\n    text-align:right;\n}\n#map-col-2{\n    text-align:left;\n}\n.col-3 input{\n    font-size:.75rem;\n    margin-right:.5rem;\n    \n}\n.col-3 button{\n    font-size:.75rem;\n    padding: .55rem .75rem;\n}\n#faq{\n    padding: .35rem 2.3rem;\n}"
+module.exports = ".col-2{\n    background-color: #F8f9fd;\n\n}\n.container-fluid{\n    background-color:#F8f9fd;\n}\n#content{\n    background-color: #f8f9fd;\n    padding-top: 5rem;\n    min-height: 25rem;\n    padding-bottom: 2rem;\n}\ntable{\n    background-color:white;\n}\n.product-list{\n    border:none;\n}\n#main-info-l{\n    padding-top:7rem;\n    padding-bottom:7rem;\n    text-align:center;\n}\n#main-info-r{\n    vertical-align:center;\n    padding-top:7rem;\n\n}\n#description{\n    text-align:center;\n    padding-top:5rem;\n    padding-bottom:5rem;\n}\n.col-top{\n    text-align:center;\n    margin-right:2rem;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.col-top-last{\n    text-align:center;\n    padding-top:1rem;\n    padding-bottom:1rem;\n}\n.icon{\n    width:5rem;\n    padding:1rem;\n}\n#how-it-works{\n    background-color: #F8f9fd;\n    text-align:center;\n    vertical-align:middle;\n    \n}\n.process-list-item{\n    vertical-align:top;\n}\n.hold{\n    color:#F8f9fd;\n}\n#table{\n    text-align:center;\n    display:table;\n    width:100%;\n}\n.navbar-expand-lg{\n    justify-content:center !important;\n\n}\n.nav-item{\n    padding:1rem;\n    margin:0 !important;\n}\n#bottom{\n    background-color: #6cc1fd\n}\n#bot-options{\n    text-align:center;\n    padding:5rem;\n}\n#bot-options h4{\n    padding-bottom:1rem;\n    color:white;\n}\n#bot-options p{\n    padding-bottom:1rem;\n    color: white;\n}\n#start-button{\n    background-color:white;\n    color:#157ffb;\n    margin-right:1rem;\n    border:white;\n}\n#footer{\n    text-align:center;\n    justify-content: center;\n    padding:5rem;\n}\n#map-col-1{\n    text-align:right;\n}\n#map-col-2{\n    text-align:left;\n}\n.col-3 input{\n    font-size:.75rem;\n    margin-right:.5rem;\n    \n}\n.col-3 button{\n    font-size:.75rem;\n    padding: .55rem .75rem;\n}\n#faq{\n    padding: .35rem 2.3rem;\n}\n.col-8{\n    padding:0;\n}\nh4{\n    padding:.5rem;\n}\nh5{\n    padding:1rem;\n}\n#order-table{\n    margin:0;\n}\n#currentOrder-container{\n    background-color:white\n}\n#noItem-contain{\n    padding-left:2rem;\n    padding-top:2rem;\n    text-align:center;\n}\n#order-contain{\n    padding-bottom:5rem;\n}\n#footer{\n    border-top: 1px solid lightgrey;\n}"
 
 /***/ }),
 
@@ -416,7 +416,7 @@ module.exports = ".col-2{\n    background-color: #F8f9fd;\n\n}\n#content{\n    b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #3D99E6;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n          <!-- hidden spacer to center brand on mobile --></span>\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" [routerLink]=\"['/landing']\">\n          Logo\n          <!-- Logo title goes here -->\n        </a>\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n          <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n        </a>\n        <div class=\"w-100 text-right\">\n          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"navbar-toggler-icon\"></span> <!-- Mobile dynamic button -->\n          </button>\n        </div>\n      </div>\n      <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n        <ul class=\"navbar-nav ml-auto flex-nowrap\">\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How\n              it\n              works</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [routerLink]=\"['/trade-in']\">Sell</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"btn btn-primary text-white\" (click)=\"logout()\">Logout</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n  </div>\n  <div class=\"row\" id=\"content\">\n    <div class=\"col-2\"></div>\n      <div class=\"col-8\">\n        <div class=\"row\" *ngIf=\"noProducts\">\n          <div class=\"col\">\n            <p>{{ noProducts}}</p>\n            <a class=\"btn btn-primary\" [routerLink]=\"['/trade-in']\">Add item to your cart</a>\n          </div>\n        </div>\n        <ngb-tabset #t=\"ngbTabset\" *ngIf=\"!noProducts\">\n          <ngb-tab title=\"Your Order\"  class=\"tab\" id=\"tab-selectbyid1\">\n            <ng-template ngbTabContent>\n              <div class=\"row\">\n                <div class=\"col\">\n                  <table class=\"table\">\n                    <tr>\n                      <th>Cart</th>\n                      <th>Total Payment</th>\n                    </tr>\n                    <tr *ngFor=\"let o of allOrders\">\n                      <td>\n                        <div ngbDropdown class=\"d-inline-block\">\n                          <button class=\"btn btn-outline-primary\" id=\"dropdownBasic2\" ngbDropdownToggle>{{activeProductList.length}}\n                            items</button>\n                          <div ngbDropdownMenu aria-labelledby=\"dropdownBasic2\">\n                    <tr class=\"dropdown-item\" *ngFor=\"let p of activeProductList; index as i\">\n                      <td>\n                        <p class=\"cart-text\">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</p>\n                      </td>\n                      <td>\n                        <button type=\"button\" class=\"btn btn-danger btn-sm\">\n                          <img src=\"../../assets/icons/baseline_clear_black_18dp.png\" style=\"width:1rem;\">\n                        </button>\n                      </td>\n                    </tr>\n                    <tr>\n                      <td>\n                        <a role=\"button\" class=\"btn btn-primary btn-lg btn-block\" [routerLink]=\"['/trade-in']\">Sell another item</a>\n                      </td>\n                    </tr>\n                    </div>\n                    </div>\n                    </td>\n                    <td> ${{ o.total_payment }}</td>\n                    </tr>\n                    <tr>\n                      <td>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"t.select('tab-selectbyid2')\">Next</button>\n                      </td>\n                      <td></td>\n                    </tr>\n                  </table>\n                </div>\n                <div class=\"col text-center\">\n                  <div class=\"row\"></div>\n                  <div class=\"row\">\n                    <p>Review your cart items then hit <br> the 'Next' to select your shipping address </p>\n                  </div>\n                  <div class=\"row\"></div>  \n                </div>\n              </div>\n              <div class=\"row\">\n                <div class=\"col-sm-3\"></div>\n                <div class=\"col-sm-6 text-center\">\n                  \n                </div>\n                <div class=\"col-sm-3\"></div>\n              </div>\n              \n\n              <!-- <span *ngFor=\"let p of activeProductList; index as i\">\n                {{p[0].title}}\n              </span> -->\n            </ng-template>\n          </ngb-tab>\n          <ngb-tab title=\"Shipping\" class=\"tab\" id=\"tab-selectbyid2\" [disabled]=\"noProducts\">\n            <ng-template ngbTabContent>\n              <div class=\"row\">\n                <div class=\"col\">\n                  <table class=\"table\">\n                    \n                    <tr *ngFor=\"let add of allAddresses\">\n                      <td>\n                        <p>{{add.street1}}</p>\n                        <p>{{add.street2}}</p>\n                        <p>{{add.city}}, {{add.state}}, {{add.zip}}</p>\n                      </td>\n                      <td>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"t.select('tab-selectbyid3')\" (click)=\"selectAddress(add)\" >Use this Address</button>\n                      </td>\n                    </tr>\n                  </table>\n                </div>\n                <div class=\"col background-color-white\">\n                  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add an Address</button>\n                  <p>Select or add an address your shipping address</p>\n                </div>\n              </div>\n                \n                <ng-template #content let-modal>\n                  <app-address (sendAddress)=\"getAddress($event)\" [getUser]=\"user\"></app-address>\n                </ng-template>\n                \n           \n            </ng-template>\n          </ngb-tab>\n          <ngb-tab title=\"Final Details\" id=\"tab-selectbyid3\" class=\"tab\" [disabled]=\"noProducts\">\n            <ng-template ngbTabContent *ngIf=\"noAddress == false\">\n                <table class=\"table\">\n                  <thead>\n                    <h4>Order Details</h4>\n                    <tr>\n                      <th>Products</th>\n                      <th>Total Payment</th>\n                      <th>Address</th>\n                    </tr>\n                  </thead>\n                  <tbody>\n                    <tr>\n                        <td>\n                          <tr  *ngFor=\"let p of activeProductList\">\n                            <td class=\"product-list\">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</td>\n                          </tr>\n                        </td>\n                     \n                      <td>\n                        ${{allOrders[0].total_payment}}\n                     \n                      </td> \n                      <td>\n                        <p>{{user[0].first_name}} {{user[0].last_name}}</p>\n                        <p>{{activeAddress.street1}}</p>\n                        <p>{{activeAddress.street2}}</p>\n                        <p>{{activeAddress.city}}, {{activeAddress.state}}, {{activeAddress.zip}}</p>\n                      </td>\n                    </tr>\n                  </tbody> \n                </table>\n        \n              <button type=\"button\" class=\"btn btn-primary\" [disabled]=\"noAddress\" (click)=\"submitOrder()\">Request Shipping Label</button>\n            </ng-template>\n          </ngb-tab>\n        </ngb-tabset>\n        \n      </div>\n      <div class=\"col-2\"></div>\n  </div>    \n  <div class=\"row\">\n    <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #F8F9FA;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n          <!-- hidden spacer to center brand on mobile --></span>\n      </div>\n      <div class=\"flex-grow-2 w-100\" id=\"myFooter\">\n        <ul class=\"navbar-nav ml-auto flex-wrap justify-content-around w-100\">\n          <li class=\"nav-item\">\n            <p><b>Sell</b></p>\n            <p>Resources</p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item \">\n            <p><b>About Gadgetbank</b></p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item \">\n            <p><b>Contact Us</b></p>\n            <p>Resources</p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item\">\n            <p><b>Resources</b></p>\n            <p>Resources</p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item\">\n            <p>Lorem ipsum dolor sit amet,</p>\n            <p>consectetur adipiscing elit.<p> Mauris semper justo eget feugiat vestibulum. </p>\n              <p>Fusce eget\n                dapibus metus, sed rutrum.</p>\n          </li>\n        </ul>\n      </div>\n    </nav>\n  </div>\n</div>"
+module.exports = "\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <nav class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #3D99E6;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n          <!-- hidden spacer to center brand on mobile --></span>\n        <a class=\"navbar-brand d-none d-lg-inline-block text-white\" [routerLink]=\"['/landing']\">\n          Logo\n          <!-- Logo title goes here -->\n        </a>\n        <a class=\"navbar-brand-two mx-auto d-lg-none d-inline-block\" href=\"#\">\n          <img src=\"\" alt=\"logo\"> <!-- Logo image goes here -->\n        </a>\n        <div class=\"w-100 text-right\">\n          <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"navbar-toggler-icon\"></span> <!-- Mobile dynamic button -->\n          </button>\n        </div>\n      </div>\n      <div class=\"collapse navbar-collapse flex-grow-1 text-right\" id=\"myNavbar\">\n        <ul class=\"navbar-nav ml-auto flex-nowrap\">\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item nav-active text-white\" [ngx-scroll-to]=\"'#how-it-works'\">How\n              it\n              works</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\">FAQs</a>\n          </li>\n          <li class=\"nav-item\">\n            <a role=\"button\" class=\"nav-link m-2 menu-item text-white\" [routerLink]=\"['/trade-in']\">Sell</a>\n          </li>\n          <li class=\"nav-item\">\n            <a class=\"btn btn-primary text-white\" (click)=\"logout()\">Logout</a>\n          </li>\n        </ul>\n      </div>\n    </nav>\n  </div>\n  <div class=\"row\" id=\"content\">\n    <div class=\"col-2\"></div>\n      <div class=\"col-8 shadow\" id=\"currentOrder-container\">\n        <div class=\"row\" *ngIf=\"noProducts\">\n          <div class=\"col\" id=\"noItem-contain\">\n            <h5>{{ noProducts}}</h5>\n            <a class=\"btn btn-primary\" [routerLink]=\"['/trade-in']\">Add items to your cart</a>\n          </div>\n        </div>\n        <ngb-tabset #t=\"ngbTabset\" *ngIf=\"!noProducts\">\n          <ngb-tab title=\"Your Order\"  class=\"tab\" id=\"tab-selectbyid1\">\n            <ng-template ngbTabContent>\n              <div class=\"row\">\n                <div class=\"col\">\n                  <table class=\"table\">\n                    <tr>\n                      <th>Cart</th>\n                      <th>Total Payment</th>\n                    </tr>\n                    <tr>\n                      <td>\n                        <div ngbDropdown class=\"d-inline-block\">\n                          <button class=\"btn btn-outline-primary\" id=\"dropdownBasic2\" ngbDropdownToggle>{{activeProductList.length}}\n                            items</button>\n                          <div ngbDropdownMenu aria-labelledby=\"dropdownBasic2\">\n                    <tr class=\"dropdown-item\" *ngFor=\"let p of activeProductList; index as i\">\n                      <td *ngFor=\"let pr of p\">\n                        <p class=\"cart-text\">{{pr.title}}/{{p.size}}GB/{{p.carrier}}</p>\n                      </td>\n                      <td>\n                        <button type=\"button\" class=\"btn btn-danger btn-sm\" (click)=\"removeCartItem(pr.id,p.price)\">\n                          <img src=\"../../assets/icons/baseline_clear_black_18dp.png\" style=\"width:1rem;\">\n                        </button>\n                      </td>\n                    </tr>\n                    <tr>\n                      <td>\n                        <a role=\"button\" class=\"btn btn-primary btn-lg btn-block\" [routerLink]=\"['/trade-in']\">Sell another item</a>\n                      </td>\n                    </tr>\n                    </div>\n                    </div>\n                    </td>\n                    <td> ${{ activeOrder.total_payment }}</td>\n                    </tr>\n                    <tr>\n                      <td>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"t.select('tab-selectbyid2')\">Next</button>\n                      </td>\n                      <td></td>\n                    </tr>\n                  </table>\n                </div>\n                <div class=\"col text-center\">\n                  <div class=\"row\"></div>\n                  <div class=\"row\">\n                    <p>Review your cart items then hit <br> the 'Next' to select your shipping address </p>\n                  </div>\n                  <div class=\"row\"></div>  \n                </div>\n              </div>\n              <div class=\"row\">\n                <div class=\"col-sm-3\"></div>\n                <div class=\"col-sm-6 text-center\">\n                  \n                </div>\n                <div class=\"col-sm-3\"></div>\n              </div>\n              \n\n              <!-- <span *ngFor=\"let p of activeProductList; index as i\">\n                {{p[0].title}}\n              </span> -->\n            </ng-template>\n          </ngb-tab>\n          <ngb-tab title=\"Shipping\" class=\"tab\" id=\"tab-selectbyid2\" [disabled]=\"noProducts\">\n            <ng-template ngbTabContent>\n              <div class=\"row\">\n                <div class=\"col\">\n                  <table class=\"table\">\n                    \n                    <tr *ngFor=\"let add of allAddresses\">\n                      <td>\n                        <p>{{add.street1}}</p>\n                        <p>{{add.street2}}</p>\n                        <p>{{add.city}}, {{add.state}}, {{add.zip}}</p>\n                      </td>\n                      <td>\n                        <button type=\"button\" class=\"btn btn-primary\" (click)=\"t.select('tab-selectbyid3')\" (click)=\"selectAddress(add)\" >Use this Address</button>\n                      </td>\n                    </tr>\n                  </table>\n                </div>\n                <div class=\"col background-color-white\">\n                  <button class=\"btn btn-lg btn-outline-primary\" (click)=\"open(content)\">Add an Address</button>\n                  <p>Select or add an address your shipping address</p>\n                </div>\n              </div>\n                \n                <ng-template #content let-modal>\n                  <app-address (sendAddress)=\"getAddress($event)\" [getUser]=\"user\"></app-address>\n                </ng-template>\n                \n           \n            </ng-template>\n          </ngb-tab>\n          <ngb-tab title=\"Final Details\" id=\"tab-selectbyid3\" class=\"tab\" [disabled]=\"noProducts\">\n            <ng-template ngbTabContent *ngIf=\"noAddress == false\">\n                <table class=\"table\">\n                  <thead>\n                    <h4>Order Details</h4>\n                    <tr>\n                      <th>Products</th>\n                      <th>Total Payment</th>\n                      <th>Address</th>\n                    </tr>\n                  </thead>\n                  <tbody>\n                    <tr>\n                        <td>\n                          <tr  *ngFor=\"let p of activeProductList\">\n                            <td class=\"product-list\">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</td>\n                          </tr>\n                        </td>\n                     \n                      <td>\n                        ${{activeOrder.total_payment}}\n                     \n                      </td> \n                      <td>\n                        <p>{{user[0].first_name}} {{user[0].last_name}}</p>\n                        <p>{{activeAddress.street1}}</p>\n                        <p>{{activeAddress.street2}}</p>\n                        <p>{{activeAddress.city}}, {{activeAddress.state}}, {{activeAddress.zip}}</p>\n                      </td>\n                    </tr>\n                  </tbody> \n                </table>\n        \n              <button type=\"button\" class=\"btn btn-primary\" [disabled]=\"noAddress\" (click)=\"submitOrder()\">Request Shipping Label</button>\n              \n            </ng-template>\n          </ngb-tab>\n        </ngb-tabset>\n        \n      </div>\n  </div>\n  <div class=row id=\"order-contain\">\n    <div class=\"col-2\"></div>\n    <div class=\"col-8 shadow\">\n      <h4>Past Orders</h4>\n      <table class=\"table\" id=\"order-table\">\n        <thead>\n          <tr>\n            <th>Order Date</th>\n            <th>Carrier</th>\n            <th>Order Tracking Number</th>\n            <th>Order Label</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let o of allOrders\" class=\"table-primary\">\n            <td>\n              {{o.updatedAt | date}}\n            </td>\n            <td>{{o.carrier}}</td>\n            <td>{{o.tracking}}</td>\n            <td><a class=\"btn btn-sm btn-outline-primary\" (click)=\"openNewWindow(o.label)\">Shipping Label</a></td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n    <div class=\"col-2\"></div>\n  </div>\n  <div class=\"row\" >\n    <nav id=\"footer\" class=\"navbar navbar-expand-lg navbar-light w-100\" style=\"background-color: #F8F9FA;\">\n      <div class=\"d-flex flex-grow-1\">\n        <span class=\"w-100 d-lg-none d-block\">\n          <!-- hidden spacer to center brand on mobile --></span>\n      </div>\n      <div class=\"flex-grow-2 w-100\" id=\"myFooter\">\n        <ul class=\"navbar-nav ml-auto flex-wrap justify-content-around w-100\">\n          <li class=\"nav-item\">\n            <p><b>Sell</b></p>\n            <p>Resources</p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item \">\n            <p><b>About Gadgetbank</b></p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item \">\n            <p><b>Contact Us</b></p>\n            <p>Resources</p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item\">\n            <p><b>Resources</b></p>\n            <p>Resources</p>\n            <p>Resources</p>\n            <p>About</p>\n            <p>Contact Us</p>\n          </li>\n          <li class=\"nav-item\">\n            <p>Lorem ipsum dolor sit amet,</p>\n            <p>consectetur adipiscing elit.<p> Mauris semper justo eget feugiat vestibulum. </p>\n              <p>Fusce eget\n                dapibus metus, sed rutrum.</p>\n          </li>\n        </ul>\n      </div>\n    </nav>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -456,6 +456,7 @@ var CustomerPortalComponent = /** @class */ (function () {
         this.activeProductList = [];
         this.noAddress = true;
         this.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
+        this.allOrders = [];
     }
     CustomerPortalComponent.prototype.ngOnInit = function () {
         this.checkforSession();
@@ -463,42 +464,71 @@ var CustomerPortalComponent = /** @class */ (function () {
     CustomerPortalComponent.prototype.checkforSession = function () {
         var _this = this;
         this._httpService.getSession().subscribe(function (data) {
-            console.log(data);
             if (data['errors']) {
                 _this._router.navigate(['/landing']);
             }
             else {
-                _this.getAllUserOrders(data['user']);
+                _this.getActiveUserOrder(data['user']);
+                _this._httpService.getThisCustomer(data['user']).subscribe(function (data) {
+                    _this.getAllUserOrders(data[0]['id']);
+                });
             }
         });
     };
     CustomerPortalComponent.prototype.getAllUserOrders = function (user) {
         var _this = this;
+        this._httpService.getNonActiveOrdersByUserId(user).subscribe(function (data) {
+            if (!data['errors']) {
+                _this.allOrders = [];
+                var _loop_1 = function () {
+                    var order = data[i];
+                    //request to easpost to obtain shipping info
+                    _this._httpService.getShipmentById(data[i]['shipment_id']).subscribe(function (shipment) {
+                        order['label'] = shipment['postage_label']['label_url'];
+                        order['carrier'] = shipment['rates'][0]['carrier'];
+                        order['tracking'] = shipment['tracking_code'];
+                        _this.allOrders.push(order);
+                    });
+                };
+                for (var i in data) {
+                    _loop_1();
+                }
+            }
+        });
+    };
+    CustomerPortalComponent.prototype.getActiveUserOrder = function (user) {
+        var _this = this;
         var tempPrice = 0;
         //get user
         this._httpService.getThisCustomer(user).subscribe(function (data) {
             _this.user = data;
+            console.log("data", data);
             _this._httpService.getAllAddressesByUserId(data[0]['id']).subscribe(function (add) {
                 _this.allAddresses = add;
             });
             //get all orders
             _this._httpService.getActiveOrderByUserId(data[0]['id']).subscribe(function (order) {
                 //if no errors and active order is found
-                _this.allOrders = order;
+                _this.activeOrder = order[0];
                 if (!order['errors']) {
                     for (var i in order) {
                         if (order[i]['active'] == true) {
+                            //get all products in active order
                             _this._httpService.getAllProductsByOrderId(order[i]['id']).subscribe(function (products) {
                                 if (products['errors']) {
-                                    _this.noProducts = "Your Cart is empty";
+                                    _this.noProducts = "Nothing here...";
                                     return;
                                 }
                                 for (var j in products) {
                                     _this._httpService.getOneProduct(products[j]['product_id']).subscribe(function (product) {
+                                        //get price for each product
                                         _this._httpService.getOnePriceById(products[j]['price_id']).subscribe(function (price) {
+                                            product['price'] = price[0]['price_value'];
+                                            //get size for each product
                                             _this._httpService.getOneSize(price[0]['size_id']).subscribe(function (size) {
                                                 product['size'] = size[0]['value'];
                                             });
+                                            //get carrier for product
                                             _this._httpService.getOneCarrier(price[0]['carrier_id']).subscribe(function (carrier) {
                                                 product['carrier'] = carrier[0]['carrier_name'];
                                             });
@@ -509,7 +539,7 @@ var CustomerPortalComponent = /** @class */ (function () {
                             });
                         }
                     }
-                    console.log(_this.activeProductList);
+                    console.log("active products", _this.activeProductList);
                 }
                 else {
                     _this.noProducts = "Your Cart is empty";
@@ -539,6 +569,9 @@ var CustomerPortalComponent = /** @class */ (function () {
     CustomerPortalComponent.prototype.goShipping = function () {
         this.shipping = "shipping";
     };
+    CustomerPortalComponent.prototype.openNewWindow = function (link) {
+        window.open(link, "_blank");
+    };
     CustomerPortalComponent.prototype.getAddress = function (e) {
         var _this = this;
         console.log(e);
@@ -551,14 +584,25 @@ var CustomerPortalComponent = /** @class */ (function () {
         this.activeAddress = address;
     };
     CustomerPortalComponent.prototype.submitOrder = function () {
+        var _this = this;
         this._httpService.postFromAddressAndCreateLabel(this.activeAddress, this.user[0].id).subscribe(function (data) {
-            console.log(data);
+            console.log("LABEL HERE", data);
+            //  this.shippingLabel = data['label'];
+            _this.checkforSession();
         });
     };
     CustomerPortalComponent.prototype.logout = function () {
         var _this = this;
         this._httpService.deleteSession().subscribe(function (data) {
             _this._router.navigate(['/landing']);
+        });
+    };
+    //function will delete product from cart then re calls original session function to refresh product lsit
+    CustomerPortalComponent.prototype.removeCartItem = function (product_id, price_value) {
+        var _this = this;
+        this._httpService.postDeleteOneOrderProduct(product_id, this.activeOrder[0]['id'], { "price": price_value }).subscribe(function (data) {
+            console.log("here");
+            _this.checkforSession();
         });
     };
     CustomerPortalComponent = __decorate([
@@ -891,7 +935,7 @@ var FaqComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".home-col-t{\n    background:white;\n    width:30% !important;\n    margin:1rem;\n}\n.home-col{\n    background:white;\n    margin-bottom:1rem !important;\n    \n    \n}\n"
+module.exports = ".home-col-t{\n    background:white;\n    width:30% !important;\n    margin:1rem;\n}\n.home-col{\n    background:white;\n    margin-bottom:1rem !important;\n    \n    \n}\n.top{\n  margin-bottom:3rem;\n  \n}\n#head-row{\n  border-top:none;\n}\n.alltime{\n  font-size:2rem;\n}\n.custom-day {\n      text-align: center;\n      padding: 0.185rem 0.25rem;\n      display: inline-block;\n      height: 2rem;\n      width: 2rem;\n    }\n.custom-day.focused {\n      background-color: #e6e6e6;\n    }\n.custom-day.range, .custom-day:hover {\n      background-color: rgb(2, 117, 216);\n      color: white;\n    }\n.custom-day.faded {\n      background-color: rgba(2, 117, 216, 0.5);\n    }"
 
 /***/ }),
 
@@ -902,7 +946,7 @@ module.exports = ".home-col-t{\n    background:white;\n    width:30% !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n<div class=\"container-fluid\">\n  <h2>Home</h2>\n  <div class=\"row\">\n    <div class=\"col-3 home-col\">\n      Total Revenue\n    </div>\n    <div class=\"col-3 offset-md-1 home-col \">\n      Today's Sales\n    </div>\n    <div class=\"col-3 offset-md-1 home-col\">\n      Enhance\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-7 home-col \" id=\"col-m-l\">\n      Top Product\n    </div>\n    <div class=\"col-3 home-col offset-md-1\">\n      Quick Details\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-3 home-col\">\n      Money Stats\n    </div>\n    <div class=\"col-7 home-col offset-md-1\">\n      Net Income\n    </div>\n  </div>\n\n</div>\n\n"
+module.exports = "\n<div class=\"container-fluid\">\n  <h2>Home</h2>\n  <div class=\"row\">\n    <div class=\"col\">\n      <div class=\"card top\">\n        <h5 class=\"card-header\">All Time Number of Purchases</h5>\n        <div class=\"card-body\">\n          <p class=\"alltime\">{{allProductsBought}}</p>\n        </div>\n      </div>\n    </div>\n    <div class=\"col\">\n      <div class=\"card top\">\n        <h5 class=\"card-header\">All Time Purchase Amount</h5>\n        <div class=\"card-body\">\n          <p class=\"alltime\">${{ totalSales }}</p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col\">\n      <div class=\"card\">\n        <h5 class=\"card-header\">Select range : ${{variableTotalSales}} / {{allProductsUserInput}} items purchased</h5> \n          <div class=\"card-body\">\n            <p *ngIf=\"rangeError\">{{rangeError}}</p>\n            <ngb-datepicker #dp (select)=\"onDateSelection($event)\" [displayMonths]=\"2\" [dayTemplate]=\"t\"></ngb-datepicker>\n            <ng-template #t let-date let-focused=\"focused\">\n            <span class=\"custom-day\" [class.focused]=\"focused\" [class.range]=\"isRange(date)\" [class.faded]=\"isHovered(date) || isInside(date)\"\n              (mouseenter)=\"hoveredDate = date\" (mouseleave)=\"hoveredDate = null\">\n              {{ date.day }}\n            </span>\n            </ng-template>\n          </div>\n      </div>\n    </div>\n    <div class=\"col\">\n     <div class=\"card\">\n       <h5 class=\"card-header\">Sales Quick Reference</h5>\n       <div class=\"card-body\">\n         <table class=\"table table-striped\">\n           <thead>\n             <tr id=\"head-row\">\n               <th>Time Frame</th>\n               <th># Purchased</th>\n               <th>$</th>\n             </tr>\n           </thead>\n           <tbody>\n             <tr>\n               <td>Past Seven Days</td>\n               <td>{{ allProductsBoughtPastSeven }}</td>\n               <td>${{ pastSevenTotalSales }}</td>\n             </tr>\n             <tr>\n               <td>Past Month</td>\n               <td>{{ allProductsPastMonth }}</td>\n               <td>${{ pastMonthTotalSales }}</td>\n             </tr>\n             <tr>\n               <td>Past Quarter</td>\n               <td>{{ allProductsPastQuarter }}</td>\n               <td>${{ pastQuarterTotalSales }}</td>\n             </tr>\n             <tr>\n               <td>Past Year</td>\n               <td>{{ allProductsPastYear }}</td>\n               <td>${{ pastYearTotalSales }}</td>\n             </tr>\n           </tbody>\n          </table>\n       </div>\n\n    </div>\n      \n    </div>\n    \n   \n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -917,6 +961,8 @@ module.exports = "<p>\n  home works!\n</p>\n<div class=\"container-fluid\">\n  <
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -927,10 +973,150 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(_httpService, calendar) {
+        this._httpService = _httpService;
+        this.calendar = calendar;
+        this.allProductsBought = 0;
+        this.totalSales = 0;
+        this.allProductsPastMonth = 0;
+        this.allProductsBoughtPastSeven = 0;
+        this.allProductsPastQuarter = 0;
+        this.allProductsPastYear = 0;
+        this.allProductsUserInput = 0;
+        this.variableTotalSales = 0;
+        this.pastSevenTotalSales = 0;
+        this.pastMonthTotalSales = 0;
+        this.pastQuarterTotalSales = 0;
+        this.pastYearTotalSales = 0;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.getAllBoughtProducts();
+        this.fromDate = this.calendar.getToday();
+        this.getAllBoughtProductsSevenDays();
+        this.getAllBoughtProductsPastMonth();
+        this.getAllBoughtProductsPastQuarter();
+        this.getAllBoughtProductsPastYear();
+    };
+    HomeComponent.prototype.getAllBoughtProducts = function () {
+        var _this = this;
+        this._httpService.getAllBoughtProducts().subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_id'])
+                    _this.allProductsBought += 1;
+                _this._httpService.getOnePriceById(data[i]['price_id']).subscribe(function (price) {
+                    if (!price['errors'])
+                        _this.totalSales += price[0]['price_value'];
+                });
+            }
+            ;
+        });
+    };
+    ;
+    HomeComponent.prototype.getAllBoughtProductsSevenDays = function () {
+        var _this = this;
+        this._httpService.getAllBoughtProductsPastSeven().subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_id'])
+                    _this.allProductsBoughtPastSeven += 1;
+                _this._httpService.getOnePriceById(data[i]['price_id']).subscribe(function (price) {
+                    if (!price['errors'])
+                        _this.pastSevenTotalSales += price[0]['price_value'];
+                });
+            }
+        });
+    };
+    ;
+    HomeComponent.prototype.getAllBoughtProductsPastMonth = function () {
+        var _this = this;
+        this._httpService.getAllBoughtProductsPastMonth().subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_id'])
+                    _this.allProductsPastMonth += 1;
+                _this._httpService.getOnePriceById(data[i]['price_id']).subscribe(function (price) {
+                    if (!price['errors'])
+                        _this.pastMonthTotalSales += price[0]['price_value'];
+                });
+            }
+        });
+    };
+    HomeComponent.prototype.getAllBoughtProductsPastQuarter = function () {
+        var _this = this;
+        this._httpService.getAllBoughtProductsQuarter().subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_id'])
+                    _this.allProductsPastQuarter += 1;
+                _this._httpService.getOnePriceById(data[i]['price_id']).subscribe(function (price) {
+                    if (!price['errors'])
+                        _this.pastQuarterTotalSales += price[0]['price_value'];
+                });
+            }
+        });
+    };
+    HomeComponent.prototype.getAllBoughtProductsPastYear = function () {
+        var _this = this;
+        this._httpService.getAllBoughtProductsPastYear().subscribe(function (data) {
+            for (var i in data) {
+                if (data[i]['price_id'])
+                    _this.allProductsPastYear += 1;
+                _this._httpService.getOnePriceById(data[i]['price_id']).subscribe(function (price) {
+                    if (!price['errors'])
+                        _this.pastYearTotalSales += price[0]['price_value'];
+                });
+            }
+        });
+    };
+    HomeComponent.prototype.onDateSelection = function (date) {
+        var _this = this;
+        var today = this.calendar.getToday();
+        if (date.day > today.day && date.month == today.month) {
+            this.rangeError = "Cannot choose a future date!";
+            this.toDate = null;
+            return;
+        }
+        if (date.month > today.month) {
+            this.rangeError = "Cannot choose a future date!";
+            this.toDate = null;
+            return;
+        }
+        else {
+            if (!this.fromDate && !this.toDate) {
+                this.fromDate = date;
+            }
+            else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+                this.toDate = date;
+            }
+            else {
+                this.rangeError = null;
+                this.toDate = null;
+                this.fromDate = date;
+            }
+            this._httpService.getAllBoughtProductsUserInput(this.fromDate.day, this.fromDate.month, this.toDate.day, this.toDate.month).subscribe(function (data) {
+                _this.variableTotalSales = 0;
+                _this.allProductsUserInput = 0;
+                for (var i in data) {
+                    if (data[i]['price_id'])
+                        _this.allProductsUserInput += 1;
+                    _this._httpService.getOnePriceById(data[i]['price_id']).subscribe(function (price) {
+                        if (!price['errors'])
+                            _this.variableTotalSales += price[0]['price_value'];
+                        if (_this.rangeError)
+                            _this.rangeError = null;
+                    });
+                }
+            });
+        }
+    };
+    HomeComponent.prototype.isHovered = function (date) {
+        return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+    };
+    HomeComponent.prototype.isInside = function (date) {
+        return date.after(this.fromDate) && date.before(this.toDate);
+    };
+    HomeComponent.prototype.isRange = function (date) {
+        return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -938,7 +1124,8 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_http_service__WEBPACK_IMPORTED_MODULE_1__["HttpService"],
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbCalendar"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1007,8 +1194,11 @@ var HttpService = /** @class */ (function () {
     HttpService.prototype.getOrderByUserId = function (user_id) {
         return this._http.get('/orders/' + user_id);
     };
-    HttpService.prototype.getActiveOrderByUserId = function (user_id) {
-        return this._http.get('/order-active/' + user_id);
+    HttpService.prototype.getNonActiveOrdersByUserId = function (user_id) {
+        return this._http.get('/orders-not-active/' + user_id);
+    };
+    HttpService.prototype.getActiveOrderByUserId = function (user) {
+        return this._http.get('/order-active/' + user);
     }; //return the active order
     HttpService.prototype.postNewProductToActiveOrderByUserId = function (user_id, product_id) {
         return this._http.post('/order/active/new/' + user_id, product_id);
@@ -1133,6 +1323,27 @@ var HttpService = /** @class */ (function () {
     };
     HttpService.prototype.postProductToOrder = function (product, order_id) {
         return this._http.post('/order/' + order_id + '/product/new', product);
+    };
+    HttpService.prototype.postDeleteOneOrderProduct = function (product_id, order_id, body) {
+        return this._http.post('/order-product/delete/' + product_id + '/' + order_id, body);
+    };
+    HttpService.prototype.getAllBoughtProducts = function () {
+        return this._http.get('/orderproducts');
+    };
+    HttpService.prototype.getAllBoughtProductsPastSeven = function () {
+        return this._http.get('/orderproducts/pastseven');
+    };
+    HttpService.prototype.getAllBoughtProductsPastMonth = function () {
+        return this._http.get('/orderproducts/month');
+    };
+    HttpService.prototype.getAllBoughtProductsPastYear = function () {
+        return this._http.get('/orderproducts/year');
+    };
+    HttpService.prototype.getAllBoughtProductsQuarter = function () {
+        return this._http.get('/orderproducts/quarter/');
+    };
+    HttpService.prototype.getAllBoughtProductsUserInput = function (fromDate, fromDateMonth, toDate, toDateMonth) {
+        return this._http.get('/orderproducts/user-select/' + fromDate + '/' + fromDateMonth + '/' + toDate + '/' + toDateMonth);
     };
     //address routes
     HttpService.prototype.getAllAddressesByUserId = function (user_id) {
@@ -1584,7 +1795,7 @@ module.exports = ".container-fluid{\n    padding-top:1rem;\n    background-color
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\" ng2FileSelect [uploader]=\"uploader\"/>\n          <button type=\"button\" class=\"btn-small btm-primary\" (click)=\"uploader.uploadAll()\">Upload</button>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <!-- <div class=\"row card text-center shadow-sm\">\n      <div class=\"card-header\" id=\"price-header\" style=\"text-align:left;\">\n            <div class=\"btn-group btn-group-toggle\" ngbRadioGroup *ngFor=\"let s of sizes\">\n              <label ngbButtonLabel class=\"btn-primary\" >\n                <input ngbButton type=\"radio\" [(ngModel)]=\"product.size_id\" name=\"product.size_id\" value=\"s.id\" (click)=\"toggleSize(s.id)\">{{s.value}}GB\n              </label>\n            </div>\n              <table>\n                <thead>\n                  <tr>\n                    <th>Carrier</th>\n                    <th>Handset Only</th>\n                    <th>Sealed</th>\n                    <th>Open-Sealed</th>\n                    <th>Good LCD</th>\n                    <th>Cracked Front</th>\n                    <th>Bad LCD/Copy</th>\n                    <th>Dead</th>\n                    <th>Cracked Back (Minus)</th>\n                  </tr>\n                </thead>\n                \n                <tbody>\n                  <tr *ngFor=\"let c of carrierPriceGroup; index as i\">\n                    <td>{{c.name}} \n                      <input type=\"hidden\" value=\"{{c.carrier_id}}\">\n                    </td>\n                    <td *ngFor=\"let p of conditionPriceGroup; let cur of currentSizes; index as j\">\n                        <input type=\"text\"  class=\"form-control\"  #box (keyup)=\"onKey(box.value, i,j)\"> \n                        \n                    </td>                                      \n                    <td>\n                    \n                      <input type=\"text\" class=\"form-control\" #minus (keyup)=\"minusKey(minus.value, i )\">\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n        </div>\n      </div> -->\n    <div class=\"row card text-center shadow-sm\">\n      <ngb-tabset>\n        <ngb-tab *ngFor=\"let s of sizes\">\n          <ng-template ngbTabTitle>\n            <p (click)=\"toggleSize(s.id)\" style=\"margin:0;width:100%;height:100%; font-size:1.25rem;\">{{s.value}} GB</p>\n          </ng-template>\n          <ng-template ngbTabContent>\n            <table>\n              <thead>\n                <tr>\n                  <th>Carrier</th>\n                  <th>Handset Only</th>\n                  <th>Sealed</th>\n                  <th>Open-Sealed</th>\n                  <th>Good LCD</th>\n                  <th>Cracked Front</th>\n                  <th>Bad LCD/Copy</th>\n                  <th>Dead</th>\n                  <th>Cracked Back (Minus)</th>\n                </tr>\n              </thead>\n              <tbody *ngFor=\"let c of carrierPriceGroup; index as i\"> \n                  <tr>\n                    <td>{{c.name}}</td>\n                      <td *ngFor=\"let p of conditionPriceGroup; index as j\">\n                        <input *ngIf=\"i == 0 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}} #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 1 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                          #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 2 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                          #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 3 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                        #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 4 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                        #box (keyup)=\"onKey(box.value, i,j)\">\n                      </td>\n                      <td>\n                        <input type=\"text\" class=\"form-control\" placeholder={{prices[i+conditionPriceGroup.length*i].minus_value}} #minus (keyup)=\"minusKey(minus.value, i )\">\n                      </td>\n                    \n                  \n                  </tr>\n\n                \n              </tbody>\n            </table>\n          </ng-template>\n        </ngb-tab>\n      </ngb-tabset>\n    </div> \n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <p>\n    <button class=\"btn-sm btn-primary\"  (click)=\"goBackToProducts()\">Products</button>\n  </p>\n  <h4>Edit Product</h4>\n  <form class=\"postForm\" (submit)=\"editProduct(product)\">\n    <div class=\"row edit-top-box shadow-sm rounded\">\n      \n        <div class=\"col-3 offset-md-1 h-30\">\n          <div class=\"row\">\n            <input type=\"text\" class=\"form-control input-top\" placeholder=\"{{getProduct.title}}\" [(ngModel)]=\"product.title\" name=\"title\">\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.manufacturer\" name=\"manufacturer\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\" >{{getProduct.manufacturer}}</p></option>\n              <option value=\"Apple\">Apple</option>\n              <option value=\"SamSung\">SamSung</option>\n            </select>\n            <select class=\"form-control input-top\" [(ngModel)]=\"product.category_id\" name=\"category_id\">\n              <option value=\"\" disabled selected><p class=\"disabled-select\">{{currentCategory}}</p></option>\n              <option *ngFor=\"let c of allCategories\" value=\"{{c.id}}\">{{c.name}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-6 offset-md-1\">\n          <input type=\"file\" class=\"form-control-file\" ng2FileSelect [uploader]=\"uploader\"/>\n          <br>\n          <button type=\"button\" class=\"btn-small btm-primary\" (click)=\"uploader.uploadAll()\">Upload</button>\n        </div>\n      </div>\n    <h4>Pricing</h4>\n    <div class=\"row card text-center shadow-sm\" style=\"padding:1rem;\">\n      <ngb-tabset>\n        <ngb-tab *ngFor=\"let s of sizes\">\n          <ng-template ngbTabTitle>\n            <p (click)=\"toggleSize(s.id)\" style=\"margin:0;width:100%;height:100%; font-size:1.25rem;\">{{s.value}} GB</p>\n          </ng-template>\n          <ng-template ngbTabContent>\n            <table style=\"border-left:solid 1px #DEE2E6; border-right: solid 1px #DEE2E6; border-bottom:solid 1px #DEE2E6;\">\n              <thead>\n                <tr>\n                  <th>Carrier</th>\n                  <th>Handset Only</th>\n                  <th>Sealed</th>\n                  <th>Open-Sealed</th>\n                  <th>Good LCD</th>\n                  <th>Cracked Front</th>\n                  <th>Bad LCD/Copy</th>\n                  <th>Dead</th>\n                  <th>Cracked Back (Minus)</th>\n                </tr>\n              </thead>\n              <tbody *ngFor=\"let c of carrierPriceGroup; index as i\"> \n                  <tr>\n                    <td>{{c.name}}</td>\n                      <td *ngFor=\"let p of conditionPriceGroup; index as j\">\n                        <input *ngIf=\"i == 0 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}} #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 1 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                          #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 2 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                          #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 3 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                        #box (keyup)=\"onKey(box.value, i,j)\">\n                        <input *ngIf=\"i == 4 && j < conditionPriceGroup.length\" type=\"text\" class=\"form-control\" placeholder={{prices[j+conditionPriceGroup.length*i].price_value}}\n                        #box (keyup)=\"onKey(box.value, i,j)\">\n                      </td>\n                      <td>\n                        <input type=\"text\" class=\"form-control\" placeholder={{prices[i+conditionPriceGroup.length*i].minus_value}} #minus (keyup)=\"minusKey(minus.value, i )\">\n                      </td>\n                    \n                  \n                  </tr>\n\n                \n              </tbody>\n            </table>\n          </ng-template>\n        </ngb-tab>\n      </ngb-tabset>\n    </div> \n    \n    <div class=\"row\" id=\"price_container\">\n      <div class=\"col-3\">\n      </div>\n      <div class=\"col-6\"></div>\n      <div class=\"col-3\" style=\"text-align:right\">\n        <button id=\"submit_button\" type=\"submit\" class=\"btn btn-primary\" value=\"submit\" >Save</button>\n      </div>\n    </div> \n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -2196,28 +2407,24 @@ var QuestionComponent = /** @class */ (function () {
         console.log(this.productTitle['path']);
         this._httpService.getAllProductsLikeTitle(this.productTitle['path']).subscribe(function (data) {
             _this.product = data[0];
-            console.log("HEREE", data);
         });
     };
     QuestionComponent.prototype.getSize = function () {
         var _this = this;
         this._httpService.getOneSizeByValue(this.productSize).subscribe(function (data) {
             _this.sizeId = data[0].id;
-            console.log("size", data);
         });
     };
     QuestionComponent.prototype.getCarrier = function () {
         var _this = this;
         this._httpService.getOneCarrierByName(this.productCarrier).subscribe(function (data) {
             _this.carrierId = data[0].id;
-            console.log("carrier", data);
         });
     };
     QuestionComponent.prototype.getPrice = function (condition_id) {
         var _this = this;
         this._httpService.getPriceByAllConditions(this.product.id, this.sizeId, condition_id, this.carrierId, this.product.category_id).subscribe(function (data) {
             _this.currentPrice = data;
-            console.log(data);
         });
     };
     QuestionComponent.prototype.getPriceMinus = function (condition_id) {
@@ -2225,7 +2432,6 @@ var QuestionComponent = /** @class */ (function () {
         this._httpService.getPriceByAllConditions(this.product.id, this.sizeId, condition_id, this.carrierId, this.product.category_id).subscribe(function (data) {
             data['price_value'] -= data['minus_value'];
             _this.currentPrice = data;
-            console.log(data);
         });
     };
     QuestionComponent.prototype.apply = function () {
@@ -2237,7 +2443,6 @@ var QuestionComponent = /** @class */ (function () {
             }
             else {
                 _this._httpService.getThisCustomer(data['user']).subscribe(function (user) {
-                    console.log("USER", user);
                     _this.addProductToOrder(user[0]);
                 });
             }
@@ -2251,11 +2456,10 @@ var QuestionComponent = /** @class */ (function () {
         this._httpService.getActiveOrderByUserId(logUser.id).subscribe(function (result) {
             console.log("active order", result);
             //if active post a new order
-            if (result['errors'] == "no active order found") {
+            if (result['errors']) {
                 _this._httpService.postNewOrder(logUser.id, order).subscribe(function (data) {
                     _this.product['price'] = _this.currentPrice;
                     _this._httpService.postNewProductToNewOrder(data['id'], _this.product).subscribe(function (newData) {
-                        console.log("order with product add", newData);
                         _this.modalService.dismissAll();
                         _this._router.navigate(['/portal/' + logUser.username]);
                     });
@@ -2263,9 +2467,7 @@ var QuestionComponent = /** @class */ (function () {
                 //else add to active order
             }
             else {
-                console.log("body add", _this.currentPrice);
                 _this._httpService.postNewProductToActiveOrderByUserId(logUser.id, _this.currentPrice).subscribe(function (result) {
-                    console.log("active order add", result);
                     _this.modalService.dismissAll();
                     _this._router.navigate(['/portal/' + logUser.username]);
                 });
@@ -2278,7 +2480,6 @@ var QuestionComponent = /** @class */ (function () {
         this._httpService.postNewCustomer(newUser).subscribe(function (data) {
             console.log("after service", data);
             if (data['errors']) {
-                console.log(data);
                 _this.regErrors = data['errors'];
                 return;
             }
@@ -2290,7 +2491,6 @@ var QuestionComponent = /** @class */ (function () {
         // user = this.logUser;
         console.log(user);
         this._httpService.postLoginCustomer(user).subscribe(function (data) {
-            console.log(data);
             if (data['errors']) {
                 _this.loginErrors = data['errors'];
                 return;

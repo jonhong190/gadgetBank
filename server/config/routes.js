@@ -53,6 +53,9 @@ module.exports = (app)=>{
     app.post("/customer/:username/order/new", (req,res)=>{
         orders.newOrder(req,res);
     });
+    app.get("/orders-not-active/:user_id", (req,res)=>{
+        orders.getAllNotActiveOrders(req,res);
+    });
     app.get("/order/:order_id/delete", (req,res)=>{
         orders.deleteOrder(req,res);
     });
@@ -187,6 +190,30 @@ module.exports = (app)=>{
     app.post("/order/:order_id/new/product", (req,res)=>{
         orderProducts.newProductToExistingOrder(req,res);
     });
+    app.get('/orderproducts', (req, res) => {
+        orderProducts.getAllOrderProducts(req, res);
+    });
+    app.post("/order-product/delete/:product_id/:order_id", (req,res)=>{
+        orderProducts.deleteOneProductByOrderIdAndProductId(req,res);
+    })
+    app.get('/orderproducts/today', (req,res)=>{
+        orderProducts.getAllOrderProductsByToday(req,res);
+    });
+    app.get('/orderproducts/month', (req,res)=>{
+        orderProducts.getAllOrderProductsByMonth(req,res);
+    });
+    app.get('/orderproducts/year', (req,res)=>{
+        orderProducts.getAllOrderProductsByYear(req,res);
+    });
+    app.get('/orderproducts/pastseven',(req,res)=>{
+        orderProducts.getAllOrderProductsPast7Days(req,res);
+    });
+    app.get('/orderproducts/quarter/', (req,res)=>{
+        orderProducts.getAllOrderProductsByQuarter(req,res);
+    });
+    app.get('/orderproducts/user-select/:fromDateDay/:fromDateMonth/:toDateDay/:toDateMonth', (req,res)=>{
+        orderProducts.getAllOrderProductsByUserRange(req,res);
+    })
     app.get("/addresses/:user_id", (req,res)=>{
         addresses.getAllAddressByUserId(req,res);
     });
@@ -196,9 +223,11 @@ module.exports = (app)=>{
     app.get("/address/update/:user_id/:address_id", (req,res)=>{
         addresses.updateAddressByUserId(req,res);
     });
-    app.post("/address/delete/:address_id", (req,res)=>{
+    app.get("/address/delete/:address_id", (req,res)=>{
         addresses.deleteAddressById(req,res);
     });
+
+    
     app.all("*", (req, res, next) => {
         res.sendFile(path.resolve("./public/dist/public/index.html"))
     });

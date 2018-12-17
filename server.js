@@ -88,6 +88,7 @@ app.post("/create-shipping/:user_id", (req, res) => {
                 console.log(result.postage_label.label_url);
                 console.log(result.tracking_code);
                 console.log("here")
+                
                 //update order model 
                 Order.findAll({ where: { user_id: user[0].id, active: true } }).then(order => { 
                     //store shipment id for future reference                       
@@ -97,7 +98,7 @@ app.post("/create-shipping/:user_id", (req, res) => {
                         if(err){
                             res.json(err)
                         } else {
-                            res.json(result.postage_label.label_url, result.tracking_code)
+                            res.json({ label: result.postage_label.label_url, tracking: result.tracking_code })
                         }
                     });
                 })
@@ -108,7 +109,6 @@ app.post("/create-shipping/:user_id", (req, res) => {
 });
 app.get("/shipment/:shipment_id", (req, res) => {
     api.Shipment.retrieve(req.params.shipment_id).then(s => {
-        console.log(s);
         if (s.length == 0) {
             res.json({ errors: "no shipment found" })
         } else {

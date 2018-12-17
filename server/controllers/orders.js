@@ -11,6 +11,15 @@ module.exports= {
             }
         })
     },
+    getAllNotActiveOrders:(req,res)=>{
+        Order.findAll({where:{user_id:req.params.user_id, active : false}}).then(orders=>{
+            if(orders.length ==0){
+                res.json({errors:'no orders found'});
+            } else {
+                res.json(orders);
+            }
+        })
+    },
 
     newOrder: (req,res)=>{
         Order.findAll({}).then(orders=>{
@@ -53,6 +62,8 @@ module.exports= {
                         result.order_id = order[0].id;
                         result.product_id = req.body.product_id;
                         result.price_id = req.body.id;
+                        var d = new Date();
+                        result.createdAt = d.toLocaleDateString;
                         result.save();
                         res.json(result)
                     }

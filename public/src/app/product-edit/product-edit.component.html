@@ -22,58 +22,19 @@
         </div>
         <div class="col-6 offset-md-1">
           <input type="file" class="form-control-file" ng2FileSelect [uploader]="uploader"/>
+          <br>
           <button type="button" class="btn-small btm-primary" (click)="uploader.uploadAll()">Upload</button>
         </div>
       </div>
     <h4>Pricing</h4>
-    <!-- <div class="row card text-center shadow-sm">
-      <div class="card-header" id="price-header" style="text-align:left;">
-            <div class="btn-group btn-group-toggle" ngbRadioGroup *ngFor="let s of sizes">
-              <label ngbButtonLabel class="btn-primary" >
-                <input ngbButton type="radio" [(ngModel)]="product.size_id" name="product.size_id" value="s.id" (click)="toggleSize(s.id)">{{s.value}}GB
-              </label>
-            </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Carrier</th>
-                    <th>Handset Only</th>
-                    <th>Sealed</th>
-                    <th>Open-Sealed</th>
-                    <th>Good LCD</th>
-                    <th>Cracked Front</th>
-                    <th>Bad LCD/Copy</th>
-                    <th>Dead</th>
-                    <th>Cracked Back (Minus)</th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                  <tr *ngFor="let c of carrierPriceGroup; index as i">
-                    <td>{{c.name}} 
-                      <input type="hidden" value="{{c.carrier_id}}">
-                    </td>
-                    <td *ngFor="let p of conditionPriceGroup; let cur of currentSizes; index as j">
-                        <input type="text"  class="form-control"  #box (keyup)="onKey(box.value, i,j)"> 
-                        
-                    </td>                                      
-                    <td>
-                    
-                      <input type="text" class="form-control" #minus (keyup)="minusKey(minus.value, i )">
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-        </div>
-      </div> -->
-    <div class="row card text-center shadow-sm">
+    <div class="row card text-center shadow-sm" style="padding:1rem;">
       <ngb-tabset>
         <ngb-tab *ngFor="let s of sizes">
           <ng-template ngbTabTitle>
             <p (click)="toggleSize(s.id)" style="margin:0;width:100%;height:100%; font-size:1.25rem;">{{s.value}} GB</p>
           </ng-template>
           <ng-template ngbTabContent>
-            <table>
+            <table style="border-left:solid 1px #DEE2E6; border-right: solid 1px #DEE2E6; border-bottom:solid 1px #DEE2E6;">
               <thead>
                 <tr>
                   <th>Carrier</th>

@@ -40,8 +40,11 @@ export class HttpService {
   getOrderByUserId(user_id){
     return this._http.get('/orders/'+user_id);
   }
-  getActiveOrderByUserId(user_id){
-    return this._http.get('/order-active/'+user_id)
+  getNonActiveOrdersByUserId(user_id){
+    return this._http.get('/orders-not-active/'+user_id);
+  }
+  getActiveOrderByUserId(user){
+    return this._http.get('/order-active/'+user)
   } //return the active order
   postNewProductToActiveOrderByUserId(user_id, product_id){
     return this._http.post('/order/active/new/'+user_id, product_id)
@@ -166,6 +169,27 @@ export class HttpService {
   }
   postProductToOrder(product, order_id){
     return this._http.post('/order/'+order_id+'/product/new', product);
+  }
+  postDeleteOneOrderProduct(product_id,order_id,body){
+    return this._http.post('/order-product/delete/'+product_id+'/'+order_id, body);
+  }
+  getAllBoughtProducts(){
+    return this._http.get('/orderproducts');
+  }
+  getAllBoughtProductsPastSeven(){
+    return this._http.get('/orderproducts/pastseven');
+  }
+  getAllBoughtProductsPastMonth(){
+    return this._http.get('/orderproducts/month');
+  }
+  getAllBoughtProductsPastYear(){
+    return this._http.get('/orderproducts/year');
+  }
+  getAllBoughtProductsQuarter(){
+    return this._http.get('/orderproducts/quarter/');
+  }
+  getAllBoughtProductsUserInput(fromDate,fromDateMonth,toDate,toDateMonth){
+    return this._http.get('/orderproducts/user-select/'+fromDate+'/'+fromDateMonth+'/'+toDate+'/'+toDateMonth);
   }
 
   //address routes

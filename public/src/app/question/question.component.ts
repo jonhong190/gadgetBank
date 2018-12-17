@@ -65,33 +65,27 @@ export class QuestionComponent implements OnInit {
     console.log(this.productTitle['path']);
     this._httpService.getAllProductsLikeTitle(this.productTitle['path']).subscribe(data=>{
       this.product = data[0];
-      console.log("HEREE", data);
-      
     })
   }
   getSize(){
     this._httpService.getOneSizeByValue(this.productSize).subscribe(data=>{
       this.sizeId=data[0].id;
-      console.log("size", data);
     })
   }
   getCarrier(){
     this._httpService.getOneCarrierByName(this.productCarrier).subscribe(data=>{
       this.carrierId=data[0].id;
-      console.log("carrier", data)
     })
   }
   getPrice(condition_id){
     this._httpService.getPriceByAllConditions(this.product.id, this.sizeId, condition_id, this.carrierId, this.product.category_id).subscribe(data=>{
       this.currentPrice = data;
-      console.log(data);
     })
   }
   getPriceMinus(condition_id){
     this._httpService.getPriceByAllConditions(this.product.id, this.sizeId, condition_id, this.carrierId, this.product.category_id).subscribe(data => {
       data['price_value'] -= data['minus_value'];
       this.currentPrice = data;
-      console.log(data);
     })
   }
   apply(){
@@ -101,7 +95,6 @@ export class QuestionComponent implements OnInit {
         this.signUpPrompt = "Please click here to register with us before proceeding"
       } else {
         this._httpService.getThisCustomer(data['user']).subscribe(user=>{
-          console.log("USER", user)
           this.addProductToOrder(user[0])
         })
         
@@ -117,28 +110,22 @@ export class QuestionComponent implements OnInit {
     this._httpService.getActiveOrderByUserId(logUser.id).subscribe(result=>{
       console.log("active order", result);
       //if active post a new order
-      if(result['errors'] == "no active order found"){
+      if(result['errors']){
         this._httpService.postNewOrder(logUser.id, order).subscribe(data => {
           this.product['price'] = this.currentPrice;
           this._httpService.postNewProductToNewOrder(data['id'], this.product).subscribe(newData => {
-            console.log("order with product add", newData);
             this.modalService.dismissAll();
             this._router.navigate(['/portal/' + logUser.username]);
           })
         })
         //else add to active order
       } else {
-        console.log("body add" , this.currentPrice)
         this._httpService.postNewProductToActiveOrderByUserId(logUser.id, this.currentPrice).subscribe(result=>{
-          console.log("active order add", result);
           this.modalService.dismissAll();
           this._router.navigate(['/portal/' + logUser.username]);
         })
       }
     })
-
-
-    
   }
 
   registerUser(newUser) {
@@ -146,7 +133,6 @@ export class QuestionComponent implements OnInit {
     this._httpService.postNewCustomer(newUser).subscribe(data => {
       console.log("after service", data);
       if (data['errors']) {
-        console.log(data)
         this.regErrors = data['errors'];
         return;
       }
@@ -158,7 +144,6 @@ export class QuestionComponent implements OnInit {
     // user = this.logUser;
     console.log(user)
     this._httpService.postLoginCustomer(user).subscribe((data) => {
-      console.log(data)
       if (data['errors']) {
         this.loginErrors = data['errors'];
         return;

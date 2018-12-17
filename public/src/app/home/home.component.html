@@ -1,34 +1,82 @@
-<p>
-  home works!
-</p>
+
 <div class="container-fluid">
   <h2>Home</h2>
   <div class="row">
-    <div class="col-3 home-col">
-      Total Revenue
+    <div class="col">
+      <div class="card top">
+        <h5 class="card-header">All Time Number of Purchases</h5>
+        <div class="card-body">
+          <p class="alltime">{{allProductsBought}}</p>
+        </div>
+      </div>
     </div>
-    <div class="col-3 offset-md-1 home-col ">
-      Today's Sales
-    </div>
-    <div class="col-3 offset-md-1 home-col">
-      Enhance
+    <div class="col">
+      <div class="card top">
+        <h5 class="card-header">All Time Purchase Amount</h5>
+        <div class="card-body">
+          <p class="alltime">${{ totalSales }}</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-7 home-col " id="col-m-l">
-      Top Product
+    <div class="col">
+      <div class="card">
+        <h5 class="card-header">Select range : ${{variableTotalSales}} / {{allProductsUserInput}} items purchased</h5> 
+          <div class="card-body">
+            <p *ngIf="rangeError">{{rangeError}}</p>
+            <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t"></ngb-datepicker>
+            <ng-template #t let-date let-focused="focused">
+            <span class="custom-day" [class.focused]="focused" [class.range]="isRange(date)" [class.faded]="isHovered(date) || isInside(date)"
+              (mouseenter)="hoveredDate = date" (mouseleave)="hoveredDate = null">
+              {{ date.day }}
+            </span>
+            </ng-template>
+          </div>
+      </div>
     </div>
-    <div class="col-3 home-col offset-md-1">
-      Quick Details
+    <div class="col">
+     <div class="card">
+       <h5 class="card-header">Sales Quick Reference</h5>
+       <div class="card-body">
+         <table class="table table-striped">
+           <thead>
+             <tr id="head-row">
+               <th>Time Frame</th>
+               <th># Purchased</th>
+               <th>$</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>Past Seven Days</td>
+               <td>{{ allProductsBoughtPastSeven }}</td>
+               <td>${{ pastSevenTotalSales }}</td>
+             </tr>
+             <tr>
+               <td>Past Month</td>
+               <td>{{ allProductsPastMonth }}</td>
+               <td>${{ pastMonthTotalSales }}</td>
+             </tr>
+             <tr>
+               <td>Past Quarter</td>
+               <td>{{ allProductsPastQuarter }}</td>
+               <td>${{ pastQuarterTotalSales }}</td>
+             </tr>
+             <tr>
+               <td>Past Year</td>
+               <td>{{ allProductsPastYear }}</td>
+               <td>${{ pastYearTotalSales }}</td>
+             </tr>
+           </tbody>
+          </table>
+       </div>
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-3 home-col">
-      Money Stats
+      
     </div>
-    <div class="col-7 home-col offset-md-1">
-      Net Income
-    </div>
+    
+   
   </div>
 
 </div>

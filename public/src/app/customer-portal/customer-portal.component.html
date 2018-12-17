@@ -40,11 +40,11 @@
   </div>
   <div class="row" id="content">
     <div class="col-2"></div>
-      <div class="col-8">
+      <div class="col-8 shadow" id="currentOrder-container">
         <div class="row" *ngIf="noProducts">
-          <div class="col">
-            <p>{{ noProducts}}</p>
-            <a class="btn btn-primary" [routerLink]="['/trade-in']">Add item to your cart</a>
+          <div class="col" id="noItem-contain">
+            <h5>{{ noProducts}}</h5>
+            <a class="btn btn-primary" [routerLink]="['/trade-in']">Add items to your cart</a>
           </div>
         </div>
         <ngb-tabset #t="ngbTabset" *ngIf="!noProducts">
@@ -57,18 +57,18 @@
                       <th>Cart</th>
                       <th>Total Payment</th>
                     </tr>
-                    <tr *ngFor="let o of allOrders">
+                    <tr>
                       <td>
                         <div ngbDropdown class="d-inline-block">
                           <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>{{activeProductList.length}}
                             items</button>
                           <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
                     <tr class="dropdown-item" *ngFor="let p of activeProductList; index as i">
-                      <td>
-                        <p class="cart-text">{{p[0].title}}/{{p.size}}GB/{{p.carrier}}</p>
+                      <td *ngFor="let pr of p">
+                        <p class="cart-text">{{pr.title}}/{{p.size}}GB/{{p.carrier}}</p>
                       </td>
                       <td>
-                        <button type="button" class="btn btn-danger btn-sm">
+                        <button type="button" class="btn btn-danger btn-sm" (click)="removeCartItem(pr.id,p.price)">
                           <img src="../../assets/icons/baseline_clear_black_18dp.png" style="width:1rem;">
                         </button>
                       </td>
@@ -81,7 +81,7 @@
                     </div>
                     </div>
                     </td>
-                    <td> ${{ o.total_payment }}</td>
+                    <td> ${{ activeOrder.total_payment }}</td>
                     </tr>
                     <tr>
                       <td>
@@ -164,7 +164,7 @@
                         </td>
                      
                       <td>
-                        ${{allOrders[0].total_payment}}
+                        ${{activeOrder.total_payment}}
                      
                       </td> 
                       <td>
@@ -178,15 +178,42 @@
                 </table>
         
               <button type="button" class="btn btn-primary" [disabled]="noAddress" (click)="submitOrder()">Request Shipping Label</button>
+              
             </ng-template>
           </ngb-tab>
         </ngb-tabset>
         
       </div>
-      <div class="col-2"></div>
-  </div>    
-  <div class="row">
-    <nav class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #F8F9FA;">
+  </div>
+  <div class=row id="order-contain">
+    <div class="col-2"></div>
+    <div class="col-8 shadow">
+      <h4>Past Orders</h4>
+      <table class="table" id="order-table">
+        <thead>
+          <tr>
+            <th>Order Date</th>
+            <th>Carrier</th>
+            <th>Order Tracking Number</th>
+            <th>Order Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let o of allOrders" class="table-primary">
+            <td>
+              {{o.updatedAt | date}}
+            </td>
+            <td>{{o.carrier}}</td>
+            <td>{{o.tracking}}</td>
+            <td><a class="btn btn-sm btn-outline-primary" (click)="openNewWindow(o.label)">Shipping Label</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row" >
+    <nav id="footer" class="navbar navbar-expand-lg navbar-light w-100" style="background-color: #F8F9FA;">
       <div class="d-flex flex-grow-1">
         <span class="w-100 d-lg-none d-block">
           <!-- hidden spacer to center brand on mobile --></span>

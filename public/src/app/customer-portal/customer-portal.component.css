@@ -2,6 +2,9 @@
     background-color: #F8f9fd;
 
 }
+.container-fluid{
+    background-color:#F8f9fd;
+}
 #content{
     background-color: #f8f9fd;
     padding-top: 5rem;
@@ -113,4 +116,31 @@ table{
 }
 #faq{
     padding: .35rem 2.3rem;
+}
+.col-8{
+    padding:0;
+}
+h4{
+    padding:.5rem;
+}
+h5{
+    padding:1rem;
+}
+
+#order-table{
+    margin:0;
+}
+#currentOrder-container{
+    background-color:white
+}
+#noItem-contain{
+    padding-left:2rem;
+    padding-top:2rem;
+    text-align:center;
+}
+#order-contain{
+    padding-bottom:5rem;
+}
+#footer{
+    border-top: 1px solid lightgrey;
 }
